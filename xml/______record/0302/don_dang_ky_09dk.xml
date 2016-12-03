@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <replace_list>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>list_info</data_format>
+            <lable_list>Ông#sinh năm#số CMND</lable_list>
+            <field_list>registor_name,nam_sinh_a1,cmnd_nguoi_chuyen</field_list>
+            <find_string>#NAME_A1#</find_string>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>list_info</data_format>
+            <lable_list>Bà#sinh năm#số CMND</lable_list>
+            <field_list>registor_name_other,nam_sinh_a2,cmnd_nguoi_chuyen_a2</field_list>
+            <find_string>#NAME_A2#</find_string>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>if_else</data_format>
+            <field_list>registor_address,registor_address_other</field_list>
+            <find_string>#DC_A#</find_string>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#SO_GCN#</find_string>
+            <xml_tag_in_db>so_phat_hanh</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#SO_VAO_SO#</find_string>
+            <xml_tag_in_db>so_vao_so</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#NGAY_VAO_SO#</find_string>
+            <xml_tag_in_db>ngay_vao_so</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+    </replace_list>
+</root>

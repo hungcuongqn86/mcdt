@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<?php
+// $sysConst = Zend_Registry::get('__sysConst__');
+$userIdentity = G_Account::getInstance()->getIdentity();
+$urlmini = $this->baseUrl() . '/public/min/index.php?f=';
+?>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<?php echo $this->headTitle() ?>
+<link rel="stylesheet" href="<?= $this->baseUrl() ?>/public/css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<?= $this->baseUrl() ?>/public/css/responsive.css" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?= $this->baseUrl() ?>/public/css/jAlerts/jquery.alerts.css">
+<link rel="icon" href="<?= $this->baseUrl() ?>/public/images/img_skin/favicon.ico" type="image/x-icon">
+
+<script src="<?= $urlmini . 'js/util.js' ?>" type="text/javascript"></script>
+<script src="<?= $this->baseUrl() ?>/public/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+<?php
+$src = $urlmini . 'js/jquery-migrate-1.2.1.min.js';
+$src .= ',js/html5.js,js/script.js';
+$src .= ',js/jquery.base64.js,js/jquery.alerts.js';    
+?>
+
+<script src="<?= $src ?>" type="text/javascript"></script>
+<?= $this->LoadAllFileJsCss; ?>
+<script>
+	var baseUrl = '<?=$this->baseUrl()?>'
+</script>
+</head>
+<body>
+	<header>
+		<div id="header">		
+			<div class="header_area">
+				<div class="logo">
+					<a href="<?php echo $this->baseUrl()?>" class="img_logo"></a>
+				</div>
+				<div class="text_logo">
+					<p class="text_top">UBND huyện Lệ Thủy - Quảng Bình</p>
+					<p class="text_bt">Hệ thống dịch vụ công trực tuyến</p>
+				</div>
+			</div>
+		</div>
+		<?= $this->layout()->menu; ?>	
+	</header>
+
+	<div id="wrapper">
+		<div class="wrapper_area <?=$this->slugclass?>">
+			<div class="main_content">
+				<?= $this->layout()->content; ?>
+			</div>			
+		</div>
+	</div>	
+	<footer style="z-index: -4;">
+		<div id="footer">
+			<?= $this->layout()->footer; ?>
+		</div>
+	</footer>
+
+	<?php
+		include_once(dirname(__FILE__) . "/scripts/lazy.phtml");
+	?>
+</body>

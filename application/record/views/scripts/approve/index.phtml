@@ -1,0 +1,43 @@
+<form action="" method="POST" id="formreceive" autocomplete="off">
+	<!--Cac doi tuong hidden tren form-->
+	<?php echo $this->formHidden("hdn_current_page",$this->iCurrentPage,null); ?>
+	<?php echo $this->formHidden("cbo_nuber_record_page",$this->iNumRowOnPage,null); ?>
+	<?php echo $this->formHidden("hdn_record_number_page",$this->iNumRowOnPage,null); ?>
+	<?php echo $this->formHidden("hdn_object_id_list","",null); ?>
+	<?php echo $this->formHidden("hdn_list_id","",null); ?>
+	<?php echo $this->formHidden("hdn_filter_xml_tag_list",$this->filterXmlTagList,null); ?>
+	<?php echo $this->formHidden("hdn_filter_xml_value_list",$this->filterXmlValueList,null); ?>
+	<?php echo $this->formHidden("hdn_object_id","",null); ?>
+	<?php echo $this->formHidden("hdn_XmlTagValueList",$this->XmlTagValueList,null); ?>
+	<?php
+		$arrConst = $this->arrConst;
+	?>
+	<div class = "large_title">
+		<?=$this->titleBody;?>
+	</div>
+	<?php echo $this->filter_form;?>
+    <div style="text-align:right; width:99%;margin: 0 5px 5px;">
+        <label>
+            <a class="add_large_button btn_approve"><?=$arrConst['_DUYET_HO_SO']?></a>
+        </label>
+    </div>
+	<?php echo $this->genlist;?>
+
+	<!--Hien thi trang can xem!-->
+    <table style="padding-bottom: 20px;padding-top: 12px;" width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+            <td style="color:red;width:30%;padding-left:1%;" class="small_label"><small class="small_starmark"><?=$this->sdocpertotal;?></small></td>
+			<td align="center" style="width=50%"><table width="10%"><?php echo $this->generateStringNumberPage;?></table></td>
+			<td width="30%" align="right" style="font-size:13px; padding-right:1%; font:tahoma" class="normal_label"><?php echo $this->generateHtmlSelectBoxPage;?>
+			</td>
+		</tr>
+	</table>
+</div>
+</form>
+<script type="text/javascript">
+    var baseUrl = "<?=$this->baseUrl();?>";
+    var obj_record_approve = new record_approve(baseUrl, 'record', 'approve');
+    jQuery(document).ready(function ($) {
+        obj_record_approve.loadIndex();
+    });
+</script>

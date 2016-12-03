@@ -1,0 +1,97 @@
+﻿<?php
+$data = $this->data;
+?>
+<form action="index" method="POST" name="frmUpdateRecord" id="frmUpdateRecord" autocomplete="off" enctype="multipart/form-data">
+    <?php echo $this->formHidden("hdn_type","",null); ?>
+    <!--Cac doi tuong hidden tren form-->
+    <?php echo $this->formHidden("hdn_object_id_list","",null); ?>
+    <?php echo $this->formHidden("hdn_record_type_id",$this->recordTypeId,null); ?>
+    <?php echo $this->formHidden("hdn_object_id",$this->sRecordId,null); ?>
+    <?php echo $this->formHidden("hdn_xml_tag_list","",null); ?>
+    <?php echo $this->formHidden("hdn_xml_value_list","",null); ?>
+    <!--Bien hdn_deleted_new_file_id_list dung de luu Id cua nhung doi tuong file dinh kem se xoa-->    
+    <?php echo $this->formHidden("hdn_deleted_new_file_id_list","",null); ?>    
+    <!--Bien hdn_deleted_exist_file_id_list dung de ...-->  
+    <?php echo $this->formHidden("hdn_deleted_exist_file_id_list","",null);?>
+    <!-- ho so qua mang -->
+    <?php echo $this->formHidden("hdn_list_attach_value","",null);?>
+
+
+    <div class="row_01">
+        <div class="tasks">
+            <div class="left">
+                <span class="title normal_title" style="line-height: 28px;"><?= $this->bodyTitle; ?></span>
+                <span class="labeltext" style="padding-right:10px;">&nbsp</span>
+            </div>
+            <div class="right">
+                <?php
+                if (in_array($data['status'], array('CHO_BO_SUNG', 'CHO_TIEP_NHAN_SO_BO'))) { ?>
+                    <input class="but_formfield clsave" type="button" value="Gửi hồ sơ"/>
+                <?php
+                } else { ?>
+                    <span class="title_red">Hồ sơ đã tiếp nhận</span>
+                <?php    
+                }
+                ?>
+                <input id="btnback" class="but_formfield clback" type="button" value="Quay lại"/>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="form-content" class="frm_input_data row_02">
+        <div id="header_update_form">
+            <div>
+                <label class="normal_label" for="">Loại hồ sơ</label>
+                <input type="text" xml_data="false" name="C_RECORDTYPE" id="C_RECORDTYPE" class="normal_textbox record_type_name" value="<?=$data['RecodeTypeName'];?>" disabled="">
+            </div>
+            <div class="normal_label" for="">
+                <label class="normal_label">Mã hồ sơ</label>
+                <input type="text" xml_data="false" option="false" name="C_CODE" id="C_CODE" value="<?=$data['RecodeCode'];?>" style="width:20%;margin-top:3px;" class="normal_textbox" readonly="">
+            </div>
+            <div class="normal_label" for="">
+                <label class="normal_label">Ngày gửi<span class="requiein">*</span></label>
+                <input type="text" onkeyup="DateOnkeyup(this,event)" value="<?=$data['C_RECEIVED_DATE'];?>" message="NGÀY TIẾP NHẬN không đúng định dạng ngày/tháng/năm!" xml_data="false" option="false" isdate="true" name="received_date" id="received_date" style="width:20%;" class="normal_textbox"  date="isdate">
+            </div>
+        </div>
+        <?= $this->formUpdate ?>
+        <div class="task_bottom">
+            <?php
+            if (in_array($data['status'], array('CHO_BO_SUNG', 'CHO_TIEP_NHAN_SO_BO'))) { ?>
+                <input class="but_formfield clsave" type="button" value="Gửi hồ sơ"/>
+            <?php
+            }
+            ?>
+            <input id="btnback" class="but_formfield clback" type="button" value="Quay lại"/>
+        </div>
+    </div>
+</form>
+
+<style>
+    
+.frm_input_data #Bottom_contentXml {
+    border-top: 1px solid #dddddd;
+    clear: both;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.frm_input_data #Bottom_contentXml > div > div select {width: 100%}
+.record_type_name{border: medium none;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1pt;
+    width: 75%;}
+
+#header_update_form div {display: inline-block;
+    padding: 2px 0;
+    width: 100%;}
+div#form-content #header_update_form div label {
+     display: inline-block;
+    line-height: 20px;
+    width: 180px;
+    
+}
+div#form-content #id_txtAttachFile {
+    display: none;
+}
+</style>

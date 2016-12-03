@@ -1,0 +1,75 @@
+<form action="" method="" accept-charset="utf-8" id="frmviewtempo">
+    <?php echo $this->formHidden('PkRecord', $this->pkrecord, null); ?>
+    <label id="lb1" class="normal_title blc-left" name="" style="float:none;font-weight:bold;width:50%">THÔNG TIN CƠ BẢN
+        CỦA HỒ SƠ</label>
+
+    <div id="wf-general-information" class="wf_general_information"></div>
+    <!-- Tab xu ly -->
+    <div class="title_tab">
+        <div class="item_title title_tab_first title_tab_selected" tab="tab1">
+            <label class="normal_label" id="lab1">Tiến độ</label>
+        </div>
+        <div class="item_title" tab="tab2">
+            <label class="normal_label" id="lab2">Hồ sơ</label>
+        </div>
+    </div>
+    <div class="tabcontent">
+        <div id="tab1" class="tab_content">
+            <div class="button-link-container">
+                <div class="normal_title" style="float:none;font-weight:bold;">DANH SÁCH CÔNG VIỆC ĐÃ THỰC HIỆN</div>
+            </div>
+            <div id="wf-record-work" class="wf-record-work"></div>
+        </div>
+        <div id="tab2" class="tab_content" style="display:none">
+            <div id="wf-info-petition" class="wf-info-petition"></div>
+        </div>
+    </div>
+    <?= $this->htmlInfo; ?>
+    <?= $this->htmlRecordWork; ?>
+    <script type="text/javascript">
+        var loadInforPetition = function (obj, pkrecord) {
+            var url = baseUrl + '/main/ajax/viewinfopetition/';
+            showloadpage();
+            var data = {
+                pkrecord: pkrecord
+            };
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: data,
+                success: function (string) {
+                    $(obj).attr('loaded', true);
+                    $('form#frmviewtempo div#wf-info-petition').html(string);
+                    $('.clattachfile').parent().hide();
+                    $("select[readonly]").find("option:not(:selected)").hide().attr("disabled", true);
+                    hideloadpage();
+                }
+            });
+            return !history.pushState;
+        }
+        $(document).ready(function ($) {
+            $("form#frmviewtempo div.item_title").unbind('click');
+            $("form#frmviewtempo div.item_title").click(function () {
+                var oForm = $('form#frmviewtempo');
+                var tabold = $('.title_tab_selected').attr('tab');
+                $(oForm).find(".item_title").removeClass("title_tab_selected");
+                $(this).addClass("title_tab_selected");
+                var tab = $(this).attr('tab');
+                $(oForm).find("div.tab_content").hide();
+                var activeTab = $(this).find("a").attr("href");
+                $(activeTab).fadeIn('fast', 'swing');
+                $(oForm).find('div.tab_content#' + tab).show().fadeIn('fast', 'swing');
+                if ($(this).attr('loaded') != 'true') {
+                    $(this).attr('loaded', 'true');
+                    switch (tab) {
+                        case 'tab1':
+                            break;
+                        case 'tab2':
+                            loadInforPetition($(this), $(oForm).find('#PkRecord').val());
+                            break;
+                    }
+                }
+            })
+        });
+        fixTitleView();
+    </script>

@@ -1,0 +1,85 @@
+<form id="indexform" action=" " method="POST" autocomplete="off" name="indexform">
+<div id="viewall"><?php
+	$arrConst = $this->arrConst;
+	$arrUnit = $this->arrUnit;
+	$arrPeriod = $this->arrPeriod ;
+    $dFromReceiveDate = $this->dFromReceiveDate;
+    $dToReceiveDate = $this->dToReceiveDate;
+	?>
+	<table width='100%'  border='0' cellspacing='0' cellpadding='0' class="table_title">
+		<tr>
+			<td class="large_title" style="padding-left:7px;text-align:left;">
+				<!--Cac doi tuong hidden tren form-->
+				<?php echo $this->formHidden("hdn_current_page",1,null); ?>
+				<?php echo $this->formHidden("hdn_record_number_page",15,null); ?>
+				<?php echo $this->formHidden("hdn_filter_xml_tag_list",'',null); ?>
+				<?php echo $this->formHidden("hdn_filter_xml_value_list",'',null); ?>
+				<?php echo $this->formHidden("hdn_object_id_list","",null); ?>
+				<?php echo $this->formHidden("hdn_list_id","",null); ?>
+				<?php echo $this->formHidden("hdn_object_id",'',null); ?>
+				<!--Cac doi tuong hidden tren form-->
+				<?=	$this->bodyTitle ;?>
+			</td>
+		</tr>
+	</table>
+	<div id = "filter">
+        <div style="padding: 5px 5px 0;">
+            <label style="width:20%;">Đơn vị tiếp nhận</label>
+            <select id = "sOwnerCode" name = "sOwnerCode" style="width:25%;margin-left: -3px;">
+                <?php for($i = 0; $i < sizeof($arrUnit); $i++){
+                    if ($arrUnit[$i]['code']  == $this->sOwnerCode) $sCheck = "selected='selected'";
+                    else $sCheck = ""; ?>
+                    <option <?=$sCheck ?> value = '<?=$arrUnit[$i]['code']?>' ><?=$arrUnit[$i]['name']?></option>
+                <?php } ?>
+            </select>
+        </div>
+        <div style="padding: 5px 5px 0;">
+            <label style="width:20%;">Lĩnh vực - Loại hồ sơ</label>
+            <select  id="C_CATE" name="C_CATE" style="width:25%;margin-left: -3px;">
+            </select>
+            <select id = "recordType" name = "recordType" style="width:50%;" >
+            </select>
+        </div>
+        <div id="divfilter"></div>
+        <div style="margin-left: 5px;">
+            <label style="width:20%;"><?=$arrConst['_TRANG_THAI_HO_SO']?></label>
+            <select id = "sStatus" name = "sStatus" style="width:50%;margin-left: -4px;" optional = "true">
+                <option value="">--------- Chọn <?=$arrConst['_TRANG_THAI_HO_SO']?> --------</option>
+                <?php for($i = 0; $i < sizeof($arrPeriod); $i++){
+                    if ($arrPeriod[$i]['C_CODE']  == $this->sStatus) $sCheck = "selected='selected'";
+                    else $sCheck = ""; ?>
+                <option <?=$sCheck ?> value = '<?=$arrPeriod[$i]['C_CODE']?>' ><?=$arrPeriod[$i]['C_NAME']?></option>
+                <?php } ?>
+            </select>
+        </div>
+		<div class="normal_label" style="padding: 5px;">
+			<label style="width:20%;">Tiếp nhận </label>
+			<?=$arrConst['_TU_NGAY']?>&nbsp;<input style="width:9%;" class="textbox" id ="dFromReceiveDate" name="dFromReceiveDate" type="text" isdate="true" value="<?=$dFromReceiveDate?>" option = "true"  message="NGAY BAT DAU khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)" onKeyUp='DateOnkeyup(this,event)' >				 						
+			<label>&nbsp;&nbsp;<?=$arrConst['_DEN_NGAY']?></label> 
+			<input style="width:9%;" class="textbox" id ="dToReceiveDate" name="dToReceiveDate" type="text" isdate="true" value="<?=$dToReceiveDate?>" option = "true"  message="NGAY KET THUC khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)" onKeyUp='DateOnkeyup(this,event)'>				 					
+			&nbsp;<input type="text" id="sFullTextSearch" name="sFullTextSearch"  autocomplete="off" class="textbox" size="28%" value="<?= $this->sFullTextSearch ?>" optional = "true">
+			<input type="button" value="Tìm kiếm" class="add_large_button seachbutton">
+		</div>
+	</div>
+
+    <div id="recordlist"></div>
+    <div id="ListInfo" class="normal_label" style="display: inline-block; width: 100%;text-align: center;margin: 10px;"></div>
+</div>
+<div id="modal_tempo" style="display: none"></div>
+</form>
+<script type="text/javascript">
+    var baseUrl = "<?=$this->baseUrl();?>";
+    var arrOwner = $.parseJSON('<?=$this->arrOwner;?>');
+    var checkward = "<?=$this->checkward?>";
+    var sOwnerCode = "<?=$this->sOwnerCode?>";
+
+    var obj_record_search = new record_search(baseUrl, 'record', 'search', arrOwner,checkward);
+    jQuery(document).ready(function ($) {
+        obj_record_search.loadIndex(sOwnerCode,checkward);
+    });
+
+    function item_onclick(id,path) {
+        var ownercode1 = $('#sOwnerCode').val();
+        obj_record_search.loadview(id,ownercode1);
+    }
+</script>

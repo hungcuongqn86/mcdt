@@ -1,0 +1,27 @@
+<?php
+$sysConst = Zend_Registry::get('__sysConst__');
+?>
+<div id="footer_area">
+    <div class="col col_left">
+        <div class="info_company">
+            <p class="name"><?= $sysConst->license ?></p>
+
+            <p>
+                <span class="tel"><span>Mobile:</span> <?= $sysConst->supportMobile ?></span>
+                <span class="email">
+                    <span>Email:</span>
+                    <span><a href=""><?= $sysConst->supportEmail ?></a></span>
+                </span>
+                <span class="email">
+                    <span>Website:</span>
+                    <span><a href="<?= $sysConst->supportWebsite ?>"><?= $sysConst->license ?></a></span>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="col col_right">
+        <div class="logo_pm">
+            <a href="" class="logo_pm"></a>
+        </div>
+    </div>
+</div>

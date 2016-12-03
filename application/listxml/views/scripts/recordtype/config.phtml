@@ -1,0 +1,212 @@
+<form action="index" method="POST" id="Listxml_Recordtype_Add" enctype="multipart/form-data" autocomplete="off">
+    <table width='100%'  border='0' cellspacing='0' cellpadding='0' class="table_title">
+        <!--tao tac hidden!-->
+        <tr>
+            <td style="padding-left:7px;text-align:left;">
+                <?php echo $this->formHidden("hdn_xml_tag_list","",null); ?>
+                <?php echo $this->formHidden("hdn_xml_value_list","",null); ?>
+                <?php echo $this->formHidden("hdn_XmlTagValueList","",null); ?>
+                <?php echo $this->formHidden("hdn_object_id",$this->sRecordTypePk,null); ?>
+                <?php echo $this->formHidden("hdn_list_id","",null); ?>
+                <?php echo $this->formHidden("hdn_department_list","",null); ?>
+                <?php echo $this->formHidden("hdn_update","1",null); ?>
+            </td>
+        </tr>
+    </table>
+    <?php
+    //Khai bao su dung ham XML
+    global $dspDiv, $readonlyInEditMode, $disabledInEditMode, $formFielName;
+    $this->dspDiv = 1;
+    $this->readonlyInEditMode = true; $this->disabledInEditMode = true;
+    //Cac mang goi tu Controller
+    $arrConst = $this->arrConst;
+    $arrApproveLevel = $this->arrApproveLevel;
+    $arrResult = $this->arrResult; ?>
+
+    <div id ="contentXml" >
+        <div id="header_conten" style="height: 15px;padding-bottom:15px;padding-left: 25%;text-align: left">
+            <h1 style="padding-left: 0px;" class="large_label"><?=$this->bodyTitle;?>
+                <div style="text-align:right; float:right;">
+                    <a  class="small_link"  onClick = "btn_save_recordtype(document.getElementsByName('hdn_xml_tag_list'),document.getElementsByName('hdn_xml_value_list'),'');"><?=$arrConst['_GHI'] ?>&nbsp;|</a>
+                    <a  class="small_link"  onclick="actionUrl('../recordtype/index/');">&nbsp;<?=$arrConst['_QUAY_LAI'] ?>&nbsp;</a>
+                </div>
+            </h1>
+        </div>
+        <!--Form nhap TTHC !-->
+        <div id="body_conten1">
+            <div>
+                <label ><?=$arrConst['_MA_TTHC'] ?><span class="requiein">*</span></label>
+                <input type="hidden" id ="C_CODE" name="C_CODE" value="<?= $arrResult['C_CODE']?>" >
+                <input style="width:33%"  type="text"  id ="" name="" option = "false"  value="<?= $arrResult['C_CODE']?>"  disabled xml_data="false" column_name="C_CODE" message="<?php echo "Phải xác định mã thủ tục hành chính!";?>">
+            </div>
+            <div>
+                <label><?=$arrConst['_TEN_TTHC'] ?><span class="requiein">*</span></label>
+                <textarea style="width:70%"  class="normal_textarea" name="C_NAME"  id="C_NAME" disabled  option = "false" rows="1"  xml_data="false" column_name="C_NAME"  message="<?php echo "Phải xác định tên thủ tục hành chính!";?>"  ><?= $arrResult['C_NAME']?></textarea>
+            </div>
+            <div class="line"></div>
+
+            <!-- PHONG BAN THU LY HO SO -->
+            <?php //Tach Xau:
+            if($this->sOwnerCode == $this->sOwnerCodeRoot){
+            $arrDepartment = explode("!&@!",$arrResult['C_DEPARTMENT_LIST']);
+            $sDepartmentIdList 	 = $arrDepartment[0];
+            $sDepartmentNameList = $arrDepartment[1]; ?>
+            <div>
+                <label><b><?=$arrConst['_PB_THU_LY'] ?></b></label>
+                <input style="width:70%"  type="text"  id ="C_DEPARTMENT_LIST" name="C_DEPARTMENT_LIST"  optional="true"  value="<?=$sDepartmentNameList?>">
+                <?php echo  $this->arr_autocomplete_department ; ?>
+            </div>
+            <div class="line"></div>
+            <? } ?>
+            <!-- CAN BO TIEP NHAN -->
+            <div>
+                <label><b><?=$arrConst['_CB_TIEP_NHAN'] ?></b></label>
+                <?php //Tach Xau:
+                if ($arrResult['C_RECEIVE_LIST'] != ""){
+                    $arrReceiveStaff= explode("!&@!",$arrResult['C_RECEIVE_LIST']);
+                    $sReceiveFkList 	 = $arrReceiveStaff[0];
+                    if($sReceiveFkList != "") $sReceiveFkList = substr($sReceiveFkList,0,-1);
+                    $arrReceiveFkList	=	explode(",",$sReceiveFkList);
+                    $arrReceivePositionNameList = explode(",",$arrReceiveStaff[1]);
+                }	?>
+                <div id="ajax_receive" style="float: left;width: 70%;">
+                    <!-- Ajax Treeview--><?php
+                    $this->formFielName	= "C_RECEIVE_ID_LIST";
+                    $spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=true xml_tag_in_db='' message=''></div>";
+                    echo $spRetHtml.Efy_Xml::_generateHtmlForTreeUser($sReceiveFkList);	?>
+                </div>
+            </div>
+            <div id="clear"></div>
+            <div class="line"></div>
+
+
+
+            <!-- CAN BO TTHU LY -->
+            <div>
+                <label><b><?=$arrConst['_CB_THU_LY'] ?></b></label>
+                <?php //Tach Xau:
+                if ($arrResult['C_HANDLE_LIST'] != ""){
+                    $arrHandleStaff= explode("!&@!",$arrResult['C_HANDLE_LIST']);
+                    $sHandleFkList 	 = $arrHandleStaff[0];
+                    if($sHandleFkList != "") $sHandleFkList = substr($sHandleFkList,0,-1);
+                    $arrHandleFkList	=	explode(",",$sHandleFkList);
+                    $arrHandlePositionNameList = explode(",",$arrHandleStaff[1]);
+                }	?>
+                <div id="ajax_handle" style="float: left;width: 70%;">
+                    <!-- Ajax Treeview--><?php
+                    $this->formFielName	= "C_HANDLE_ID_LIST";
+                    $spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=true xml_tag_in_db='' message=''></div>";
+                    echo $spRetHtml.Efy_Xml::_generateHtmlForTreeUser($sHandleFkList);	?>
+                </div>
+            </div>
+            <div id="clear"></div>
+            <div class="line"></div>
+
+
+
+            <!-- THUE -->
+            <? if($this->sOwnerCode == $this->sOwnerCodeRoot){ ?>
+            <div>
+                <label><b><?=$arrConst['_THUE'] ?></b></label>
+                <?php //Tach Xau:
+                if ($arrResult['C_TAX'] != ""){
+                    $arrTaxStaff= explode("!&@!",$arrResult['C_TAX']);
+                    $sTaxFkList 	 = $arrTaxStaff[0];
+                    if($sTaxFkList != "") $sTaxFkList = substr($sTaxFkList,0,-1);
+                    $arrTaxFkList	=	explode(",",$sTaxFkList);
+                    $arrTaxPositionNameList = explode(",",$arrTaxStaff[1]);
+                }	?>
+                <div id="ajax_tax" style="float: left;width: 70%;">
+                    <!-- Ajax Treeview--><?php
+                    $this->formFielName	= "C_TAX";
+                    $spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=true xml_tag_in_db='' message=''></div>";
+                    echo $spRetHtml.Efy_Xml::_generateHtmlForTreeUser($sTaxFkList);	?>
+                </div>
+            </div>
+            <div id="clear"></div>
+            <div class="line"></div>
+
+
+
+            <!-- KHO BAC -->
+            <div>
+                <label><b><?=$arrConst['_KHO_BAC'] ?></b></label>
+                <?php //Tach Xau:
+                if ($arrResult['C_TREASURY'] != ""){
+                    $arrTreasuryStaff= explode("!&@!",$arrResult['C_TREASURY']);
+                    $sTreasuryFkList 	 = $arrTreasuryStaff[0];
+                    if($sTreasuryFkList != "") $sTreasuryFkList = substr($sTreasuryFkList,0,-1);
+                    $arrTreasuryFkList	=	explode(",",$sTreasuryFkList);
+                    $arrTreasuryPositionNameList = explode(",",$arrTreasuryStaff[1]);
+                }	?>
+                <div id="ajax_handle"  style="float: left;width: 70%;">
+                    <!-- Ajax Treeview--><?php
+                    $this->formFielName	= "C_TREASURY";
+                    $spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=true xml_tag_in_db='' message=''></div>";
+                    echo $spRetHtml.Efy_Xml::_generateHtmlForTreeUser($sTreasuryFkList);	?>
+                </div>
+            </div>
+            <div id="clear"></div>
+            <div class="line"></div>
+            <? } ?>
+
+
+            <!-- SO CAP DUYET HO SO-->
+            <div id="id_approve_level">
+                <label><b><?=$arrConst['_SO_CAP_DUYET'] ?></b><span class="requiein">*</span></label>
+                <select  id="C_APPROVE_LEVEL" name="C_APPROVE_LEVEL"  option = "false"  style="width:33%;" class="textbox normal_label"  message="<?php echo "Phải xác định số cấp duyệt!�?.";?>"  >
+                    <option id="" name = "" value="">-- Ch&#7885;n <?=$arrConst['_SO_CAP_DUYET'] ?>--</option>
+                    <?php echo Efy_Library::_generateSelectOption($arrApproveLevel,'C_CODE','C_CODE','C_NAME',$arrResult['C_APPROVE_LEVEL']);?>
+                </select>
+            </div>
+            <div id="ajax_approve_level">
+                <?php if ($arrResult['C_LEADER_LIST'] != ""){ //Tach Xau:
+                    $arrLeaderList = explode("!&@!",$arrResult['C_LEADER_LIST']); ?>
+                    <!-- Ajax Treeview-->
+                    <?php $sApproveLevel = $arrResult['C_APPROVE_LEVEL'] ; ?>
+                    <?php if($sApproveLevel == "DUYET_CAP_MOT" or $sApproveLevel == "DUYET_CAP_HAI" or $sApproveLevel == "DUYET_CAP_BA"){ ?>
+                        <div>
+                            <label>Lãnh đạo duyệt lần một</label>
+                            <input style="width:70%;margin-bottom:2px;" type="text"  id ="C_LEADER_LIST_1" name="C_LEADER_LIST_1"  optional="true" value="<?=$arrLeaderList[0] ?>">
+                        </div>
+                        <?php echo $this->arr_autocomplete_leader_1 ; } ?>
+                    <?php if($sApproveLevel == "DUYET_CAP_HAI" or $sApproveLevel == "DUYET_CAP_BA"){ ?>
+                        <div>
+                            <label>Lãnh đạo duyệt lần hai</label>
+                            <input style="width:70%;margin-bottom:2px;"  type="text"  id ="C_LEADER_LIST_2" name="C_LEADER_LIST_2"  optional="true" value="<?=$arrLeaderList[1] ?>">
+                        </div>
+                        <?php echo $this->arr_autocomplete_leader_2 ; } ?>
+                    <?php if($sApproveLevel == "DUYET_CAP_BA"){ ?>
+                        <div>
+                            <label>Lãnh đạo duyệt lần ba</label>
+                            <input style="width:70%;margin-bottom:2px;"  type="text"  id ="C_LEADER_LIST_3" name="C_LEADER_LIST_3"  optional="true" value="<?=$arrLeaderList[2] ?>">
+                        </div>
+                        <?php echo $this->arr_autocomplete_leader_3 ; } ?>
+                <?php } ?>
+            </div>
+            <div id="clear"></div>
+        </div>
+    </div>
+
+    <!--Hien thi nut!-->
+    <table 	width='99%'  border='0' cellspacing='0' cellpadding='0' align="center" class="table_title">
+        <tr>
+            <td align="center">
+                <?=$this->formButton("btn_update","Ghi",array("type"=>"button","class"=>"add_large_button","onClick"=>"btn_save_recordtype(document.getElementsByName('hdn_xml_tag_list'),document.getElementsByName('hdn_xml_value_list'),'');"))?>
+                <?=$this->formsubmit('button','Quay lại',array("onClick"=>"actionUrl('../recordtype/index/');","class"=>"add_large_button"))?>
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#id_approve_level").change(function() {
+            var ApproveLevelval = $("#C_APPROVE_LEVEL").val();
+            var ApproveIdListval = '<?=$arrResult['C_LEADER_LIST']?>';
+            $.post("ajaxapprove", { C_APPROVE_LEVEL: ApproveLevelval,C_APP_TEMP:ApproveIdListval}, function(data) {
+                $("#ajax_approve_level").html(data);
+            });
+            return false;
+        });
+    });
+</script>

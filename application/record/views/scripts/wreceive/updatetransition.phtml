@@ -1,0 +1,95 @@
+<form action="submitorder" method="POST" enctype="multipart/form-data" autocomplete="off">
+<?php 
+	$urlCalendar = $this->urlCalendar;
+	$arrConst = $this->arrConst; 
+	$arrRecord =$this->arrRecord;
+	$arrWorkTypeByRecordType = $this->arrWorkTypeByRecordType;
+?>
+	<table cellpadding="0" cellspacing="0" width="100%" border="0">
+		<!--tao tac hidden!-->
+		<tr>
+			<td>
+				<?php echo $this->formHidden("hdn_xml_tag_list","",null); ?>
+				<?php echo $this->formHidden("hdn_xml_value_list","",null); ?>
+				<?php echo $this->formHidden("hdn_XmlTagValueList","",null); ?>
+				<?php echo $this->formHidden("recordType",$this->sRecordTypeId,null);?>
+				<!--Sinh mot hidden luu ID HS!-->
+				<?php echo $this->formHidden("hdn_object_id",$this->sRecordPk,null); ?>		
+				<!--Bien hdn_deleted_new_file_id_list dung de luu Id cua nhung doi tuong file dinh kem se xoa-->	
+				<?php echo $this->formHidden("hdn_deleted_new_file_id_list","",null); ?>	
+				<!--Bien hdn_deleted_exist_file_id_list dung de ...-->	
+				<?php echo $this->formHidden("hdn_deleted_exist_file_id_list","",null); ?>			
+				<?php echo $this->formHidden("hdh_option","",null); ?>		
+				<?php echo $this->formHidden("hdn_status",$this->sStatus,null);?>	 
+				<?php echo $this->formHidden("hdn_record_id_list",$arrRecord['C_RECORD_ID_LIST'],null);?>
+				<?php echo $this->formHidden("hdn_record_trasition_id_list",$arrRecord['C_RECORD_TRASITION_ID_LIST'],null);?>
+				<?php echo $this->formHidden("hdn_lien_thong_24","",null);	 ?>
+				<?php echo $this->formHidden("recordType",$this->sRecordTypeId,null); ?>
+			</td>
+		</tr>
+	</table>
+	<!--HIen thi tieu de man hinh danh sach!-->
+	<div style="height:3px;"></div>
+	<div id ="contentXml">
+		<div style="margin:auto;padding:10px 5px;width:98%;">
+			<div class = 'large_title' style='padding-left: 1px; text-align: left; float: left;'><?=$arrConst['_THONG_TIN_HS']?></div>
+			<table class='table_detail_doc' border='1' width='98%'>
+			<col width='30%'><col width='70%'>
+				<tr class='normal_label'>
+					<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'><?=$arrConst['_TEN_TTHC']?></td>
+					<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'><?= $this->sRecordTypeName ?></td>
+				</tr>
+				<tr class='normal_label'>
+					<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'><?=$arrConst['_MA_HO_SO']?></td>
+					<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'><?= $arrRecord['C_CODE_LIST'] ?></td>
+				</tr>	
+			</table>	
+		</div>
+		<div id ="content">
+			<div id="header_conten" style="height:20px;">
+				<div class="large_title" style="padding-left:1px;text-align:left;float:left;"> <?=$this->bodyTitle;?> </div>
+				<div style="text-align:right;float:right;">
+					<a  class="small_link" onclick="document.getElementById('hdh_option').value='GHI',btn_save_result(document.getElementsByName('hdn_xml_tag_list'),document.getElementsByName('hdn_xml_value_list'),'');"><?=$arrConst['_GHI'] ?>&nbsp;|</a> 
+					<a  class="small_link"  onclick="document.getElementById('hdh_option').value='QUAY_LAI',actionUrl('../result/');">&nbsp;<?=$arrConst['_QUAY_LAI'] ?>&nbsp;</a>
+				</div>
+			</div>
+			<div id="body_conten1" style="padding-top:5px;">
+				<!-- Ngay thuc hien -->
+				<div>
+					<label>&nbsp;<?=$arrConst['_NGAY_CHUYEN']?><span class="requiein">*</span></label> 
+					<input style="width:10%;" class="textbox" value="<?=date('d/m/Y')?>" disabled >
+					<input type="hidden" name="C_TRANSITION_DATE" id="C_TRANSITION_DATE" value="<?=date('d/m/Y')?>" >
+				</div>	
+				<!-- Chuyen don vi lien thong -->
+				<div >
+					<label>&nbsp;<?=$arrConst['_CHUYEN_DV_LIEN_THONG']?><span class="requiein">*</span></label> 				
+					<input style="width:67%;margin-top:5px;"  type="text" class="textbox normal_textarea" id="lien_thong_24" option = "false"  name="lien_thong_24" message="Phai xac dinh DON VI LIEN THONG!">	
+				</div>		
+				<div>					
+					<label>&nbsp;<?=$arrConst['_SO_NGAY']?><span class="requiein">*</span> </label>
+					<input style="width:6%;margin-top:5px;" class="textbox" type="text" id="limit_date24" name="limit_date24" value="" align="right"  optional = "true" xml_data="true" column_name="" message="" onblur="appointed_date(document.getElementById('C_TRANSITION_DATE').value,document.getElementById('limit_date24'),document.getElementById('date_24'));">														
+					&nbsp; &nbsp; &nbsp; <span><?=$arrConst['_HAN_HOAN_THANH']?></span>		
+					<input style="width:12%;margin-top:5px;" class="textbox" id ="date_24" name="date_24" type="text" isdate="true" value="" option = "false"  message="HAN XU LY khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)">
+					<img src="<?= $this->baseUrl?>images/calendar.gif" border="0" onclick="DoCal('<?= $urlCalendar;?>',document.getElementById('date_24'));" style="cursor:pointer">	 										
+				</div>	
+				<!-- Ghi chu -->			
+				<div >
+					<label>&nbsp;<?=$arrConst['_GHI_CHU']?></label>
+					<textarea  style="width:67%;" class="textbox normal_textarea" id="C_CONTENT" name="C_CONTENT" optional = "true" rows="2" message="Muc GHI CHU khong duoc de trong!" ></textarea>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<!--Hien thi nut!-->				
+	<table 	width='99%'  border='0' cellspacing='0' cellpadding='0' align="center" class="table_title">		
+		<tr>
+			<td align="center">	
+				<?=$this->formButton("btn_update",$arrConst['_GHI'],array("type"=>"button","class"=>"add_large_button","onClick"=>"document.getElementById('hdh_option').value='GHI',btn_save_result(document.getElementsByName('hdn_xml_tag_list'),document.getElementsByName('hdn_xml_value_list'),'');"))?>								
+				<?=$this->formsubmit('button',$arrConst['_QUAY_LAI'],array("onClick"=>"document.getElementById('hdh_option').value='QUAY_LAI',actionUrl('worklist');","class"=>"add_large_button"))?>
+			</td>
+		</tr>			
+	</table>	
+</form>
+<?php
+	echo $this->arr_autocomplete_lien_thong_24; 	
+?>		

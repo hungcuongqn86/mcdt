@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<common_para_list>
+		<common_para>
+			<list_form_title>BÀN GIAO HỒ SƠ</list_form_title>
+			<update_form_title>CẬP NHẬT THÔNG TIN BÀN GIAO HỒ SƠ</update_form_title>
+			<first_col_width>30%</first_col_width>
+			<number_of_object_per_page>10</number_of_object_per_page>
+			<js_file_name></js_file_name>
+			<js_function>set_input()</js_function>
+		</common_para>
+	</common_para_list>
+	<list_of_object>	
+	</list_of_object>
+	
+	<!--Phan mo ta cau truc Form cap nhat doi tuong-->
+	<update_object>
+		<table_struct_of_update_form>
+			<update_row_list>	<!--Phan mo ta cac dong Form cap nhat doi tuong-->
+					<update_row>
+						<have_line_before>false</have_line_before>
+						<tag_list>ngay_bangiao_hoso</tag_list>
+						<row_id></row_id>
+					</update_row> 
+					<update_row>
+						<have_line_before>false</have_line_before>
+						<tag_list>phong_thu_ly</tag_list>
+						<row_id></row_id>
+					</update_row> 
+					
+			</update_row_list>
+		</table_struct_of_update_form>
+		<update_formfield_list>								
+			<ngay_bangiao_hoso>					
+				<label>Ngày bàn giao</label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>false</optional>
+				<width>20%</width>
+				<width>20%</width>
+				<row>3</row>
+				<max_length>200</max_length>
+				<message>NGAY BAN GIAO HO SO khong dung dinh dang ngay/thang/nam!</message>
+				<note></note>
+				<js_function_list></js_function_list>
+				<js_action_list></js_action_list>
+				<xml_data>false</xml_data>
+				<column_name>C_MOVE_DATE</column_name>
+				<xml_tag_in_db></xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ngay_bangiao_hoso>
+			
+			<phong_thu_ly>
+				<label>Phòng ban thụ lý hồ sơ</label>
+				<type>selectbox</type>
+				<input_data>session</input_data>
+				<session_name>unitList</session_name>
+				<session_id_index>id</session_id_index>
+				<session_name_index>name</session_name_index>
+				<session_value_index>id</session_value_index>
+				<dsp_div>1</dsp_div><!-- = 1 thi hien thi DIV; = 0 thi khong hien thi-->
+				<data_format></data_format>
+				<optional>false</optional>
+				<only>false</only>
+				<width>100%</width>
+				<max_length>100</max_length>
+				<message>Chua chon PHONG BAN THU LY ho so!</message>
+				<note></note>
+				<xml_data>false</xml_data>
+				<js_function_list></js_function_list>
+				<js_action_list></js_action_list>
+				<column_name>FK_HANDLE_UNIT_ID_LIST</column_name>
+				<xml_tag_in_db></xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>										
+			</phong_thu_ly>		
+					
+		</update_formfield_list>
+		<update_sql></update_sql>
+	</update_object>
+	<delete_object>
+		<delete_sql></delete_sql>
+	</delete_object>
+</root>

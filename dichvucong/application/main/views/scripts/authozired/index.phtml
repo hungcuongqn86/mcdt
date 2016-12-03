@@ -1,0 +1,70 @@
+<script>
+    if (typeof(System_Authozired) != 'function') {
+        var arrJsCss = $.parseJSON('<?=$this->arrJsCss; ?>');
+        loadfileJsCss(arrJsCss);
+    }
+</script>
+<div id="IndexFrm">
+    <form id="frmauthozired_index" accept-charset="utf-8" method="" action="">
+        <?php
+        echo $this->formHidden("hdn_current_page", $this->iCurrentPage, null);
+        echo $this->formHidden("hdn_record_number_page", $this->iNumberRecordPerPage, null);
+        $arrConst = $this->arrConst;
+        ?>
+        <div class="searh-fixed">
+            <div class="normal_title"><?= $this->bodyTitle; ?></div>
+            <div id="form-content" class="search-container"><?= $this->frmhtml ?><?= $this->searchdetail ?></div>
+            <div class="button-link-container" align="right">
+                <div class="blc-left">
+                    <input id="btn_filter" class="link-button clsearch" type="button" value="Tìm kiếm"
+                           name="btn_filter">
+
+                    <div style="display:inline-block;width:25px;">
+                        <img id="isearching" src="<?= $this->baseUrl() ?>/public/images/searching.gif"
+                             style="display:none;vertical-align: middle;">
+                    </div>
+                </div>
+                <div class="blc-right">
+                    <input name="add_wf" id="add_authozired" type="button" value="<?= $arrConst['_THEM'] ?>"
+                           class="link-button claddauth">
+                    <input name="edit_wf" id="edit_authozired" type="button" value="<?= $arrConst['_SUA'] ?>"
+                           class="link-button cleditauth">
+                    <input name="delete_wf" id="delete_authozired" type="button" value="<?= $arrConst['_XOA'] ?>"
+                           class="link-button cldeleteauth">
+                </div>
+            </div>
+        </div>
+        <div id="table-container"></div>
+        <!-- Phân trang dữ liệu -->
+        <table class="table-page-number" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td class="left-col small_label" valign="top">
+                    <small class="small_starmark" id="sdocpertotal"></small>
+                </td>
+                <td class="center-col" align="center" id="generateStringNumberPage"></td>
+                <td class="right-col normal_label" id="generateHtmlSelectBoxPage">Hiển thị 
+                <select class='textbox' id='cbo_nuber_record_page' name='cbo_nuber_record_page' optional='true' style='width:60' >
+                <?php
+                        echo G_Gen::getInstance()->_generateSelectOption($this->arrListItem, 'sCode', 'sCode', 'sName', $this->arrListItem[0]);
+                        ?></select>Cán bộ/1 trang
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div id="UpdateFrm" style="display: none"></div>
+<script type="text/javascript">
+    var objAuthozired = new System_Authozired(baseUrl, 'public', 'authozired');
+    jQuery(document).ready(function ($) {
+        $(".menudropdown").each(function () {
+            menudropdown($(this));
+        })
+        $('form#frmauthozired_index').process_paging({
+            getData: function (callback) {
+                objAuthozired.loadList(callback);
+            },
+            obj: objAuthozired
+        });
+        objAuthozired.loadIndex();
+    })
+</script>

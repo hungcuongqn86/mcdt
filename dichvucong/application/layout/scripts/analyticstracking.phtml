@@ -1,0 +1,33 @@
+<?php 
+switch ($this->serverUrl()) {
+	case 'http://vanyen.kntc.vn':
+		$id = 'UA-70492421-1';
+		break;
+	
+	case 'http://vanyen.nevicovn.com':
+		$id = 'UA-70492030-1';
+		break;
+
+	default:
+		$id = '';
+		break;
+}
+if($id) { ?>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', '<?php echo $id ?>', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+<?php
+} else {  ?>
+	<script type="text/javascript">
+	    function ga() {
+	    }
+	</script>
+<?php
+} ?>
