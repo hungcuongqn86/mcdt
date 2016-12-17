@@ -20,6 +20,9 @@
 <!--Load javascript va Css cho Tung module-->
 <?php
 	echo $this->LoadAllFileJsCss;
+    $userIdentity = G_Account::getInstance()->getIdentity();
+    $ownerName = str_replace('UBND','',$userIdentity->OWNER_NAME);
+    //var_dump($userIdentity);
 ?>
 </head>
 <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" rightmargin="0" width="100%">
@@ -30,7 +33,7 @@
                      <div class="banner_left" id="banner_left">
                          <div class="efy-title-banner-big">
                              <div class="efy-title-banner-sub-big">
-                                 <div class="efy-title-banner-title1">ỦY BAN NHÂN DÂN HUYỆN LỆ THỦY</div>
+                                 <div class="efy-title-banner-title1">ỦY BAN NHÂN DÂN <?php echo $ownerName; ?></div>
                                  <div class="efy-title-banner-title2">PHẦN MỀM MỘT CỬA ĐIỆN TỬ</div>
                              </div>
                          </div>

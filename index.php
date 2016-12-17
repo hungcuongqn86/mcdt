@@ -1,15 +1,10 @@
 <?php
-	//error_reporting(E_ALL|E_STRICT);
-	//error_reporting(0);
+    @ini_set('display_errors', 1);
 	date_default_timezone_set('Europe/London');
-	// @ini_set('display_errors', 1);
-	
 	// Dinh nghia duong dan den thu vien cua Zend
 	set_include_path('./library/'
 			. PATH_SEPARATOR . './application/models'. PATH_SEPARATOR . './application/');
-	
 	// Goi class Zend_Load
-	// include "./library/Zend/Loader.php";	
 	require_once './library/Zend/Loader/Autoloader.php';
 	$autoloader = Zend_Loader_Autoloader::getInstance();
 	$autoloader->registerNamespace('Zend_');
