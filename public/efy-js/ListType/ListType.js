@@ -31,13 +31,6 @@ function btn_reset_onclick(p_hdn_tag_obj,p_hdn_value_obj,p_hdn_page_obj,p_fuseac
 	document.forms(0).submit(); 
 }
 
-/// Ham item_onclick duoc goi khi NSD click vao 1 dong trong danh sach
-//  p_item_value: chua ID cua doi tuong can hieu chinh
-//function item_onclick(p_item_value){
-	//_save_xml_tag_and_value_list(document.forms(0), document.forms(0).hdn_filter_xml_tag_list,document.forms(0).hdn_filter_xml_value_list, false);
-	//row_onclick(document.forms(0).hdn_list_id, p_item_value ,'DISPLAY_SINGLE_LIST',"index.php");
-//}
-
 function btn_move_updown(p_list_id, p_direction) {
 	document.forms(0).fuseaction.value = 'MOVE_UPDOWN_LIST';
 	document.forms(0).hdn_list_id.value = p_list_id;
@@ -201,9 +194,6 @@ function btn_delete_onclick(p_checkbox_obj, p_hidden_obj, p_url){
 	}
 }
 
-/// Ham item_onclick duoc goi khi NSD click vao 1 dong trong danh sach
-//  p_item_value: chua ID cua doi tuong can hieu chinh
-//function item_onclick(p_item_value){
-	//_save_xml_tag_and_value_list(document.forms(0), document.forms(0).hdn_filter_xml_tag_list,document.forms(0).hdn_filter_xml_value_list, false);	
-	//row_onclick(document.getElementById('hdn_listtype_id'), p_item_value,"edit");
-//}
+function item_onclick(p_item_value,p_url,dialog){
+	row_onclick(document.getElementById('hdn_object_id'), p_item_value, p_url,dialog);
+}
