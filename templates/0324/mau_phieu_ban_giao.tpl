@@ -10,7 +10,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <meta name=Generator content="Microsoft Word 12">
 <meta name=Originator content="Microsoft Word 12">
 <link rel=File-List href="mau_phieu_ban_giao_files/filelist.xml">
-<title>UBND HUYỆN LỆ THỦY</title>
+<title>#UNIT_NAME#</title>
 <!--[if gte mso 9]><xml>
  <o:DocumentProperties>
   <o:Author>VNN.R9</o:Author>
@@ -389,8 +389,8 @@ table.MsoTableGrid
   <td width=265 colspan=3 valign=top style='width:198.5pt;padding:0cm 5.4pt 0cm 5.4pt;
   height:28.5pt'>
   <p class=MsoNormal align=center style='text-align:center;line-height:120%'><b
-  style='mso-bidi-font-weight:normal'><span style='mso-ansi-language:EN-US'>UBND
-  HUYỆN LỆ THỦY<o:p></o:p></span></b></p>
+  style='mso-bidi-font-weight:normal'><span style='mso-ansi-language:EN-US'>
+  #UNIT_NAME#</span></b></p>
   <p class=MsoNormal align=center style='text-align:center'><b
   style='mso-bidi-font-weight:normal'><span style='mso-ansi-language:EN-US'>VĂN
   PHÒNG HĐND&amp;UBND</span></b><b style='mso-bidi-font-weight:normal'><span

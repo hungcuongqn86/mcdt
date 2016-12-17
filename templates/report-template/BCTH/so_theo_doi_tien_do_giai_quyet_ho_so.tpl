@@ -832,7 +832,7 @@ table.MsoTableGrid
  <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
   <td width=512 colspan=3 valign=top style='width:383.85pt;padding:0in 5.4pt 0in 5.4pt'>
   <p class=MsoNormal align=center style='margin:0in;margin-bottom:.0001pt;
-  text-align:center'>VĂN PHÒNG HĐND VÀ UBND HUYỆN LỆ THỦY<span
+  text-align:center'>VĂN PHÒNG HĐND VÀ #UNIT_NAME#<span
   style='font-size:12.0pt'><o:p></o:p></span></p>
   <p class=MsoNormal align=center style='margin:0in;margin-bottom:.0001pt;
   text-align:center'><b><span style='font-size:13.0pt'>TRUNG TÂM GIAO DỊCH MỘT

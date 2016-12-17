@@ -96,7 +96,7 @@ div.Section1
   <td colspan=3 valign=top style='width:256px;padding-left:5.4pt; padding-right:5.4pt; padding-top:0in; padding-bottom:0in'>
   <p class=MsoNormal align=center style='text-align:center'><b>
 	<span
-  style='mso-bidi-font-size:12.0pt'><font style="font-size: 11pt">UBND HUYỆN LỆ THỦY<br>
+  style='mso-bidi-font-size:12.0pt'><font style="font-size: 11pt">#UNIT_NAME#<br>
 	BỘ PHẬN TN&amp; TKQ
 </font></span></b><strong><span class="style1"></span></strong></p>
   </td>

@@ -784,7 +784,7 @@ table.MsoTableGrid
     <p class=MsoNormal align=center style='margin-top:3.0pt;text-align:center'><span
     style='font-size:7.8pt;font-family:"Times New Roman","serif";mso-bidi-font-weight:
     bold'><span style="font-size:9pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-bidi-font-weight:
-    bold"><b>UBND HUYỆN LỆ THỦY</b></span>
+    bold"><b>#UNIT_NAME#</b></span>
       <o:p></o:p>
       <br>
     </span><b><span
@@ -1185,7 +1185,7 @@ style='mso-spacerun:yes'> </span>Tặng cho quyền sử dụng đất</span>.</
    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
     <td colspan=3 valign=top style='width:140.1pt;padding:0cm 5.4pt 0cm 5.4pt'>
     <p class=MsoNormal align=center style='margin-top:3.0pt;text-align:center'><span style="font-size:9pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-bidi-font-weight:
-    bold"><b>UBND HUYỆN LỆ THỦY<br>
+    bold"><b>#UNIT_NAME#<br>
     </b></span><b><span
     style='font-size:10.0pt;font-family:"Times New Roman","serif"'>BỘ PHẬN
     TN&amp;TKQ</span></b><span class=MsoPageNumber><span style='font-family:

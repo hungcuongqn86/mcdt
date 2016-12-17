@@ -1624,8 +1624,6 @@ public function CheckLogin($df_url){
       * @throws Zend_Exception
       */
     public function ecs_PrintReceipt($sPathXmlFile, $sParrentTagName, $TagName, $sPathTemplateFile, $sXmlData = '', $arrRecord = array(), $sPathTemplateFile, $sTemplateFile,$sOwnerCode){
-		//Goi class xu ly XML cua zend
-		Zend_Loader::loadClass('Zend_Config_Xml');
 		$ojbConfigXml = new Zend_Config_Xml($sPathXmlFile,$sParrentTagName);
 		//Tao doi tuong xu ly XML
 		$objXml = new Efy_Xml();
@@ -1633,6 +1631,8 @@ public function CheckLogin($df_url){
 		$objLib = new Efy_Library();
 		$sXmlData = '<?xml version="1.0" encoding="UTF-8"?>'.$sXmlData;
         $sContentFile ='';
+        $userIdentity = G_Account::getInstance()->getIdentity();
+        $ownerName = $userIdentity->OWNER_NAME;
 		if(isset($ojbConfigXml->$TagName)){
 		    $TagElements = $ojbConfigXml->$TagName->toArray();								//Chuyen doi cac phan tu trong .xml cua the $TagName ra mang		    
 		    if(is_array($TagElements)){
@@ -1702,7 +1702,8 @@ public function CheckLogin($df_url){
 						}
 					}                    	                   				
 					//Thay the ten don vi su dung
-					$sContentFile = str_replace("#UNIT_NAME#", $_SESSION['OWNER_NAME'], $sContentFile);
+
+					$sContentFile = str_replace("#UNIT_NAME#", $ownerName, $sContentFile);
 					//Thay the gia tri
 					$sContentFile = str_replace($sFindString, $sValue, $sContentFile);
 		        }
