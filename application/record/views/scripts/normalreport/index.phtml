@@ -127,10 +127,7 @@
 			v_url = v_url + '&hdn_file_xml=' + $('#hdn_xmlfilename').val();
 			v_url = v_url + '&modal_dialog_mode=1';
 			//alert(v_url);
-			sRtn = showModalDialog(v_url,"","dialogWidth=1px;dialogHeight=1px;status=yes;scroll=yes;dialogCenter=yes");
-			if (sRtn!=""){
-				window.open(sRtn);
-			}				
+			sRtn = window.open(v_url);
 		}
 	}
 	//Chon linh vuc

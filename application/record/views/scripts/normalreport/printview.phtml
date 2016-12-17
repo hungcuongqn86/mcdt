@@ -1,10 +1,9 @@
 <form action="" method="POST" id="frmAll">
-<body onunload="window.returnValue = document.getElementById('hdn_url_report').value;">
+<body>
 	<?php 
 	echo $this->formHidden("hdn_url_report",$this->sExportFileName,null);?>
 </body>
 </form>
 <script type="text/javascript">
-	window.returnValue = document.getElementById('hdn_url_report').value;
-	window.close();
+	window.open(document.getElementById('hdn_url_report').value);
 </script>
