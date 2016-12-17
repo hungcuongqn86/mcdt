@@ -357,7 +357,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
 		//echo $sxmlFileName;
 		$this->view->RecodeCode = $objrecordfun->generateRecordCode($sRecordTypeCode);
 		$this->view->RecodeTypeName = $arrinfoRecordType['C_NAME'];
-		$this->view->iNumberProcessDate = $arrinfoRecordType['C_PROCESS_NUMBER_DATE'];
+		$this->view->iNumberProcessDate = $arrinfoRecordType['C_WARDS_PROCESS_NUMBER_DATE'];
 		//echo '$sxmlFileName:'.$sxmlFileName;
 		$this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>', array(),true,true);
 		$this->view->generateCalendar = $objxml->_xmlGenerateCalendar($sxmlFileName,  'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
