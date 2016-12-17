@@ -54,9 +54,9 @@
         </div>
 		<div class="normal_label" style="padding: 5px;">
 			<label style="width:20%;">Tiếp nhận </label>
-			<?=$arrConst['_TU_NGAY']?>&nbsp;<input style="width:9%;" class="textbox" id ="dFromReceiveDate" name="dFromReceiveDate" type="text" isdate="true" value="<?=$dFromReceiveDate?>" option = "true"  message="NGAY BAT DAU khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)" onKeyUp='DateOnkeyup(this,event)' >				 						
-			<label>&nbsp;&nbsp;<?=$arrConst['_DEN_NGAY']?></label> 
-			<input style="width:9%;" class="textbox" id ="dToReceiveDate" name="dToReceiveDate" type="text" isdate="true" value="<?=$dToReceiveDate?>" option = "true"  message="NGAY KET THUC khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)" onKeyUp='DateOnkeyup(this,event)'>				 					
+			<?=$arrConst['_TU_NGAY']?>&nbsp;<input style="width:9%;" class="textbox" id ="dFromReceiveDate" name="dFromReceiveDate" type="text" isdate="true" value="<?=$dFromReceiveDate?>" option = "true"  message="NGAY BAT DAU khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)" onKeyUp='DateOnkeyup(this,event)' >
+			<label>&nbsp;&nbsp;<?=$arrConst['_DEN_NGAY']?></label>
+			<input style="width:9%;" class="textbox" id ="dToReceiveDate" name="dToReceiveDate" type="text" isdate="true" value="<?=$dToReceiveDate?>" option = "true"  message="NGAY KET THUC khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)" onKeyUp='DateOnkeyup(this,event)'>
 			&nbsp;<input type="text" id="sFullTextSearch" name="sFullTextSearch"  autocomplete="off" class="textbox" size="28%" value="<?= $this->sFullTextSearch ?>" optional = "true">
 			<input type="button" value="Tìm kiếm" class="add_large_button seachbutton">
 		</div>
@@ -69,7 +69,7 @@
 </form>
 <script type="text/javascript">
     var baseUrl = "<?=$this->baseUrl();?>";
-    var arrOwner = $.parseJSON('<?=$this->arrOwner;?>');
+    var arrOwner = JSON.stringify('<?=$this->arrOwner;?>');
     var checkward = "<?=$this->checkward?>";
     var sOwnerCode = "<?=$this->sOwnerCode?>";
 

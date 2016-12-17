@@ -91,12 +91,12 @@ function test_status_show_hide_record(){
 			if(v_test_element){
 				var v_appointed_date = document.forms[0].txt_appointed_date.value;
 				if(isblank(v_appointed_date) || (v_appointed_date==null) || (v_appointed_date=="")){
-					alert('Bạn phải nhập ngày hẹn trả hồ sơ (bạn có thể ch�?n vào ngày tiếp nhận hệ thống sẽ trả lại ngày hẹn trả kết quả).');			 
+					alert('Bạn phải nhập ngày hẹn trả hồ sơ (bạn có thể ch�?n vào ngày tiếp nhận hệ thống sẽ trả lại ngày hẹn trả kết quả).');			 
 					document.forms[0].txt_appointed_date.focus();
 					return;
 				}else{
 						if(!isdate(v_appointed_date)){
-							alert('Ngày hẹn trả kết quả không hoepj lệ (bạn có thể ch�?n vào ngày tiếp nhận hệ thống sẽ trả lại ngày hẹn trả kết quả).');	
+							alert('Ngày hẹn trả kết quả không hoepj lệ (bạn có thể ch�?n vào ngày tiếp nhận hệ thống sẽ trả lại ngày hẹn trả kết quả).');	
 							document.forms[0].txt_appointed_date.focus();
 							return;
 						}

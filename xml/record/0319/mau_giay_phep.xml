@@ -3,7 +3,7 @@
 	<common_para_list>
 		<common_para>			
 			<first_col_width>25%</first_col_width>
-			<js_file_name>js_functions_06.js,util.js</js_file_name>
+			<js_file_name>js_functions_06.js</js_file_name>
 			<js_function>set_input()</js_function>
 			<list_tag_giay_bien_nhan>ghi_chu,tai_lieu_kt,ho_ten_nk,dia_chi_dk,dien_thoai_nk</list_tag_giay_bien_nhan>
 		</common_para>
