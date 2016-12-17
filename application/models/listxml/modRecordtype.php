@@ -55,6 +55,7 @@ class listxml_modRecordtype extends Efy_DB_Connection {
 		$psSql .= ",'" . $arrParameter['C_STATUS'] . "'";			
 		$psSql .= ",'" . $arrParameter['C_RECORD_TYPE'] . "'";
 		$psSql .= ",'" . $arrParameter['C_PROCESS_NUMBER_DATE'] . "'";
+        $psSql .= ",'" . $arrParameter['C_WARDS_PROCESS_NUMBER_DATE'] . "'";
 		$psSql .= ",'" . $arrParameter['C_RESULT_DOC_TYPE'] . "'";
 		$psSql .= ",'" . $arrParameter['C_COST_NEW'] . "'";
 		$psSql .= ",'" . $arrParameter['C_COST_CHANGE'] . "'";

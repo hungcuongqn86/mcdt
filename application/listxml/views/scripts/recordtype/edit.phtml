@@ -74,8 +74,12 @@
             <div class="line"></div>
     <!-- SO NGAY THU LY-->
             <div style="margin:0px 0px 5px 0px;">
-                <label><b><?=$arrConst['_SO_NGAY_THU_LY_HS'] ?></b></label>
+                <label><b>Số ngày thụ lý hồ sơ tại UBND huyện</b></label>
                 <input style="width:33%"  type="text" value="<?=$arrResult['C_PROCESS_NUMBER_DATE']; ?>"  id ="C_PROCESS_NUMBER_DATE" name="C_PROCESS_NUMBER_DATE" optional = "true" onchange="IsNumeric(this);">
+            </div>
+            <div style="margin:0px 0px 5px 0px;">
+                <label><b>Số ngày thụ lý hồ sơ tại UBND xã, thị trấn</b></label>
+                <input style="width:33%"  type="text" value="<?=$arrResult['C_WARDS_PROCESS_NUMBER_DATE']; ?>"  id ="C_WARDS_PROCESS_NUMBER_DATE" name="C_WARDS_PROCESS_NUMBER_DATE" optional = "true" onchange="IsNumeric(this);">
             </div>
             <div class="line"></div>
     <!-- DANH MUC CONG VIEC -->

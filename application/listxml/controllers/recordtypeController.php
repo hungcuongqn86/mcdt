@@ -412,6 +412,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 				else 				  $sStatus = "KHONG_HOAT_DONG";	
 			$sRecordType = trim($this->_request->getParam('C_RECORD_TYPE',""));
 			$iProcessNumberDate = trim($this->_request->getParam('C_PROCESS_NUMBER_DATE',""));
+            $iWardProcessNumberDate = trim($this->_request->getParam('C_WARDS_PROCESS_NUMBER_DATE',""));
 			$sResultDocType = trim($this->_request->getParam('C_RESULT_DOC_TYPE',""));
 			$sCostNew = trim($this->_request->getParam('C_COST_NEW',""));
 			$sCostChange = trim($this->_request->getParam('C_COST_CHANGE',""));
@@ -443,6 +444,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 								'C_STATUS'						=>	$sStatus,	
 								'C_RECORD_TYPE'					=>	$sRecordType,
 								'C_PROCESS_NUMBER_DATE'			=>	$iProcessNumberDate,
+                                'C_WARDS_PROCESS_NUMBER_DATE'	=>	$iWardProcessNumberDate,
 								'C_RESULT_DOC_TYPE'				=>	$sResultDocType,
 								'C_COST_NEW'					=>	$sCostNew,
 								'C_COST_CHANGE'					=>	$sCostChange,
