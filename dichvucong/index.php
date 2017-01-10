@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 date_default_timezone_set('Asia/Jakarta');
-$dir = dirname(dirname(__FILE__)).'/library/';
+$dir = dirname(__FILE__).'/library/';
 set_include_path($dir . PATH_SEPARATOR . './library/'
     . PATH_SEPARATOR . './application/models' . PATH_SEPARATOR . './application/');
 require_once $dir . 'Zend/Loader/Autoloader.php';
