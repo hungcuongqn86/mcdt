@@ -34,7 +34,7 @@ class Record_ReminderController extends  Zend_Controller_Action {
 		//Lay dia chi anh trong Cookie
 		$this->view->ShowHideimageUrlPath = $objLibrary->_getCookie("ImageUrlPath");
         if($this->view->ShowHideimageUrlPath==''){
-            $this->view->ShowHideimageUrlPath='/mcdt/public/images/open_left_menu.gif';
+            $this->view->ShowHideimageUrlPath= $this->_request->getBaseUrl().'/public/images/open_left_menu.gif';
         }
 		$this->view->hideDisplayMeneLeft = "";
 		//Hien thi file template
