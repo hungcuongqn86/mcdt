@@ -32,25 +32,7 @@
 			</filter_row_list>
 		</table_struct_of_filter_form>
 		<filter_formfield_list>  <!-- phan mo ta cac dong cua  form chua cac tieu thuc loc du lieu-->
-				<ho_ten_nk>
-				<label>Tên hộ kinh doanh cá thể </label>
-				<type>textbox</type>
-				<data_format>text</data_format>
-				<optional>true</optional>
-				<width>79%</width>
-				<max_length>100</max_length>
-				<message></message>
-				<note></note>
-				<only>true</only>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
-				<xml_data>true</xml_data>
-				<column_name>false</column_name>
-				<compare_operator>like</compare_operator> 
-				<xml_tag_in_db>ho_ten_nk</xml_tag_in_db>
-				<readonly_in_edit_mode>false</readonly_in_edit_mode>
-				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</ho_ten_nk>
+
 			<registor_name>
 				<label>Tên tổ chức/cá nhân </label>
 				<type>textbox</type>
