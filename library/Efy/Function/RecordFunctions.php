@@ -2003,6 +2003,7 @@ class Efy_Function_RecordFunctions
             //$pre_month = 12;
             //}
             $sHTML_string = str_replace('#UNIT_FULL_NAME#', $objConfig->_setOnerName(), $sHTML_string);
+            $sHTML_string = str_replace('#UNIT_NAME#', $objConfig->_setOnerName(), $sHTML_string);
             $v_report_date = $objConfig->_setOnerReportName() . " ng&#224;y " . date("d") . " th&#225;ng " . date("m") . " n&#259;m " . date("Y");
             $sHTML_string = str_replace('#STR_STATUS#', $v_report_date, $sHTML_string);
             //$sHTML_string = str_replace('#C_TONG#', $arrResult[0]['C_TONG'], $sHTML_string);
