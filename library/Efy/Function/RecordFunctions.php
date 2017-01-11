@@ -2569,26 +2569,20 @@ public function CheckLogin($df_url){
 	 * @return tra ve duong dan toi folder
 	 */
 	public function _createFolder($pathLink, $folderYear, $folderMonth, $sCurrentDay = ""){
-		$sPath = '..' . str_replace("/","\\",$pathLink);
-		//echo $sPath.$folderYear; //exit;
+        $root = dirname(dirname(dirname(dirname(__FILE__))));
+		$sPath = $root . str_replace("/","\\",$pathLink);
 		if(!file_exists($sPath . $folderYear)){
 			mkdir($sPath . $folderYear, 0777);	      
         	$sPath = $sPath . $folderYear;
             if(!file_exists($sPath . chr(92) . $folderMonth)){
         		mkdir($sPath . chr(92) . $folderMonth, 0777);
             }
-		}else {
-			$sPath = '..' . $sPath . $folderYear;
-            if(!file_exists($sPath . chr(92) . $folderMonth)){
-        		mkdir($sPath . chr(92) . $folderMonth, 0777);
-        	}
 		}
 		//Tao ngay trong nam->thang
 		if(!file_exists($sPath . chr(92) . $folderMonth . chr(92) . $sCurrentDay)){
 			mkdir($sPath . chr(92) . $folderMonth . chr(92) . $sCurrentDay, 0777);
 		}
-		//
-		$strReturn = '..' . $pathLink . $folderYear . '/' . $folderMonth . '/' . $sCurrentDay.'/';
+		$strReturn = str_replace("\\","/",$root) .$pathLink.$folderYear. '/' . $folderMonth . '/' . $sCurrentDay.'/';
 		return $strReturn;
 	}
  /**
@@ -2622,7 +2616,7 @@ public function CheckLogin($df_url){
 			// Neu la file
 			if($arrAttach[$index]!= "" && (is_file($_FILES[$sAttachFileName]['name'])||$_FILES[$sAttachFileName]['name']!='')){
 				//echo 'full file name:'. $sFullFileName; exit;				
-				//echo $sFullFileName;exit;
+				//echo $path . self::_convertVNtoEN($sFullFileName);exit;
 				move_uploaded_file($_FILES[$sAttachFileName]['tmp_name'], $path . self::_convertVNtoEN($sFullFileName));
 				$sFileNameList .= $arrAttach[$index].':'. $sFullFileName . $sDelimitor;
 			}			
