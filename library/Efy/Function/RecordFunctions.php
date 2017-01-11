@@ -1830,6 +1830,7 @@ class Efy_Function_RecordFunctions
         //Duyet mang du lieu và xuat ma html
         $v_count_row = sizeof($arrResult);
         $v_count_col = sizeof($arrReportCol);
+        //var_dump($arrReportCol);exit;
         $iInc = 0;
         $iIngroup = 0;
         $sHTMLData = '#row_conten#';
@@ -1921,7 +1922,6 @@ class Efy_Function_RecordFunctions
         }
         //Bao cao co su dung temp hay ko
         $v_report_temp = $objXmlLib->_xmlGetXmlTagValue($psXmlStringInFile, "report_table_format", "report_label_file");
-        //echo $v_report_temp;exit;
         if ($v_report_temp <> '') {//Neu bao cao su dung temp
             $sHTML_string = $objEfyLib->_readFile($v_report_temp);
             //Replace tieu chi loc
@@ -2003,7 +2003,6 @@ class Efy_Function_RecordFunctions
             //$pre_month = 12;
             //}
             $sHTML_string = str_replace('#UNIT_FULL_NAME#', $objConfig->_setOnerName(), $sHTML_string);
-            $sHTML_string = str_replace('#UNIT_NAME#', $objConfig->_setOnerName(), $sHTML_string);
             $v_report_date = $objConfig->_setOnerReportName() . " ng&#224;y " . date("d") . " th&#225;ng " . date("m") . " n&#259;m " . date("Y");
             $sHTML_string = str_replace('#STR_STATUS#', $v_report_date, $sHTML_string);
             //$sHTML_string = str_replace('#C_TONG#', $arrResult[0]['C_TONG'], $sHTML_string);
@@ -2048,7 +2047,7 @@ class Efy_Function_RecordFunctions
             //Phan Header
             //Tieu de bao cao
             $sLarge_title = $objXmlLib->_xmlGetXmlTagValue($psXmlStringInFile, "report_header", "large_title");
-            $sHTMLHeaderstring = $sHTMLHeaderstring . '<table width="99%" class="report_title_table" cellpadding="0" cellspacing="0">';
+            $sHTMLHeaderstring = '<table width="99%" class="report_title_table" cellpadding="0" cellspacing="0">';
             $sHTMLHeaderstring = $sHTMLHeaderstring . '<tr><td align="center" class="sub_title" colspan="' . $v_count_col . '">' . $sLarge_title . '</td></tr>';
             //Hien thi tieu chi loc
             $sFilter_list = $objXmlLib->_xmlGetXmlTagValue($psXmlStringInFile, "report_header", "filter_list");
