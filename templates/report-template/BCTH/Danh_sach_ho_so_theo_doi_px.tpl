@@ -738,7 +738,7 @@ div.Section1
   <p class=MsoNormal align=center style='margin:0in;margin-bottom:.0001pt;
   text-align:center;line-height:18.0pt'>#UNIT_FULL_NAME#</p>
   <p class=MsoNormal align=center style='margin:0in;margin-bottom:.0001pt;
-  text-align:center;line-height:18.0pt'><b>VĂN PHÒNG HĐND - UBND</b></p>
+  text-align:center;line-height:18.0pt'><b>BỘ PHẬN TN&TKQ</b></p>
   </td>
   <td width=506 colspan=5 valign=top style='width:379.6pt;padding:0in 5.4pt 0in 5.4pt'>
   <p class=MsoNormal align=center style='margin:0in;margin-bottom:.0001pt;

@@ -2002,8 +2002,11 @@ class Efy_Function_RecordFunctions
             //if($month == 1){
             //$pre_month = 12;
             //}
-            $sHTML_string = str_replace('#UNIT_FULL_NAME#', $objConfig->_setOnerName(), $sHTML_string);
-            $v_report_date = $objConfig->_setOnerReportName() . " ng&#224;y " . date("d") . " th&#225;ng " . date("m") . " n&#259;m " . date("Y");
+            $userIdentity = G_Account::getInstance()->getIdentity();
+            $ownerName = str_replace('UBND', '', $userIdentity->OWNER_NAME);
+
+            $sHTML_string = str_replace('#UNIT_FULL_NAME#', $ownerName, $sHTML_string);
+            $v_report_date = $userIdentity->OWNER_NAME . ", ng&#224;y " . date("d") . " th&#225;ng " . date("m") . " n&#259;m " . date("Y");
             $sHTML_string = str_replace('#STR_STATUS#', $v_report_date, $sHTML_string);
             //$sHTML_string = str_replace('#C_TONG#', $arrResult[0]['C_TONG'], $sHTML_string);
             //$sHTML_string = str_replace('#C_TRA_DUNG_HEN#', $arrResult[0]['C_TRA_DUNG_HEN'], $sHTML_string);

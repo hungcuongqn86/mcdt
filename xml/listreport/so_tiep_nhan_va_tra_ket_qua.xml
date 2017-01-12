@@ -58,7 +58,7 @@
 	</report_table_format>
 	<report_sql> <!--Phan mo ta cau lenh SQL ket xuat du lieu cho bao cao -->
 		<sql>		
-			Exec eCS_BC01 '#record_type#','#from_date#','#to_date#'
+			Exec eCS_BC01 '#record_type#','#from_date#','#to_date#','#owner_code#'
 		</sql>
 		<xml_data></xml_data> <!--Cot Du lieu duoc nhom co phai nam trong the xml hay khong?-->
 		<group_by></group_by>  <!--The nay xac dinh du lieu da duoc nhom theo cot nao-->
@@ -71,10 +71,14 @@
 		<thead>true</thead>
 	</report_header>
 	<report_footer> <!--Ket thuc bao cao-->
-		<footer_colspan>report_creator,report_approver,report_signer|3,2,2</footer_colspan><!-- Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao -->
+		<!--<footer_colspan>report_creator,report_approver,report_signer|3,2,2</footer_colspan>&lt;!&ndash; Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao &ndash;&gt;
 		<report_creator> CÁN BỘ TN VÀ TKQ </report_creator>
 		<report_approver></report_approver>
-		<report_signer>LÃNH ĐẠO VĂN PHÒNG HĐND VÀ UBND </report_signer>
+		<report_signer>LÃNH ĐẠO VĂN PHÒNG HĐND VÀ UBND </report_signer>-->
+		<footer_colspan>report_creator,report_approver,report_signer|3,2,2</footer_colspan><!-- Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao -->
+		<report_creator>Người lập</report_creator>
+		<report_approver>Người duyệt</report_approver>
+		<report_signer>Người ký</report_signer>
 	</report_footer>
 	<pageSetup> <!--PageSetup-->
 		<orientation>portrait</orientation>

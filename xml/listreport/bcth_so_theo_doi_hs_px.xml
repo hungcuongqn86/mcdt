@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<common_para_list>
+	   <common_para>
+		<first_col_width></first_col_width>
+		<js_file_name></js_file_name>
+		<js_function></js_function>
+	   </common_para>
 	</common_para_list>
 	<table_struct_of_filter_form><!--xac dinh cau truc table cua form chua cac tieu thuc loc du lieu-->
 			<filter_row>				
-				<tag_list>record_status</tag_list>
+				<tag_list>cate</tag_list>
 			</filter_row>
 			<filter_row>				
 				<tag_list>from_date,to_date</tag_list>
 			</filter_row>
 	</table_struct_of_filter_form>
 	<filter_formfield_list><!-- phan mo ta cac dong cua  form chua cac tieu thuc loc du lieu-->
-		<record_status>
-			<label>Trạng thái hồ sơ: </label>
+ 		<cate>
+			<label>Lĩnh vực </label>
 			<width_label>text-align:left;padding-right:8px;</width_label>
 			<type>selectbox</type>
-			<selectbox_option_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', 'DM_TRANG_THAI_BAO_CAO'</selectbox_option_sql>
+			<selectbox_option_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', 'DANH_MUC_LINH_VUC'</selectbox_option_sql>
 			<selectbox_option_id_column>0</selectbox_option_id_column>
 			<selectbox_option_name_column>1</selectbox_option_name_column>
 			<selectbox_option_value_column>1</selectbox_option_value_column>
 			<data_format></data_format>
 			<width>45%</width>
-			<optional>false</optional>
+			<optional>true</optional>
 			<max_length></max_length>
 			<message>Phai xac dinh TRANG THAI HO SO!</message>
 			<note></note>
@@ -29,10 +34,10 @@
 			<xml_data>true</xml_data>
 			<js_function_list></js_function_list>
 			<js_action_list></js_action_list>
-			<xml_tag_in_db>record_status</xml_tag_in_db>
+			<xml_tag_in_db>cate</xml_tag_in_db>
 			<readonly_in_edit_mode>false</readonly_in_edit_mode>
 			<disabled_in_edit_mode>false</disabled_in_edit_mode>
-		</record_status>
+		</cate>  
 		<from_date>
 			<label>Từ ngày: </label>
 			<width_label>text-align:left;padding-right:8px;</width_label>
@@ -78,35 +83,33 @@
 	</filter_formfield_list>
 	<!--Dinh nghia file hien thi tieu de bao cao-->
 	<report_table_format>
-		 <report_label_file></report_label_file>
+		 <report_label_file>templates/report-template/BCTH/Danh_sach_ho_so_theo_doi_px.tpl</report_label_file>
+		 <report_label_excel_file>templates/report-template/BCTH/Danh_sach_ho_so_theo_doi_px.xls</report_label_excel_file>
 	</report_table_format>
 	<report_sql> <!--Phan mo ta cau lenh SQL ket xuat du lieu cho bao cao -->
 		<sql>		
-			Exec eCS_BC02 '#record_type#','#record_status#','#from_date#','#to_date#','#owner_code#'
+			Exec eCS_BCTH05 '#cate#','#from_date#','#to_date#','#owner_code#'
 		</sql>
 		<xml_data></xml_data> <!--Cot Du lieu duoc nhom co phai nam trong the xml hay khong?-->
-		<group_by></group_by>  <!--The nay xac dinh du lieu da duoc nhom theo cot nao-->
-		<group_name></group_name> <!--Cot chua ten cua nhom khi tinh toan nhom du lieu-->
-		<firt_row>5</firt_row> <!--Row bat dau hien thi bang du lieu-->
+		<group_by>C_CATE_CODE</group_by>  <!--The nay xac dinh du lieu da duoc nhom theo cot nao-->
+		<group_name>C_CATE_NAME</group_name> <!--Cot chua ten cua nhom khi tinh toan nhom du lieu-->
+		<firt_row>6</firt_row> <!--Row bat dau hien thi bang du lieu-->
 	</report_sql>
+
 	<report_header> <!--Phan dau cua bao cao-->
-		<large_title>BÁO CÁO TÌNH HÌNH XỬ LÝ HỒ SƠ THEO TRẠNG THÁI XỬ LÝ</large_title>
-		<filter_list>record_type|#|record_status|#|from_date,to_date</filter_list>
+		<large_title></large_title>
+		<filter_list>cate,from_date,to_date</filter_list>
 		<thead>true</thead>
 	</report_header>
 	<report_footer> <!--Ket thuc bao cao-->
-		<!--<footer_colspan>report_creator,report_approver,report_signer|5,2,2</footer_colspan>&lt;!&ndash; Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao &ndash;&gt;
-		<report_creator>CÁN BỘ TN VÀ TKQ</report_creator>
+		<footer_colspan></footer_colspan><!-- Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao -->
+		<report_creator></report_creator>
 		<report_approver></report_approver>
-		<report_signer>LÃNH ĐẠO VĂN PHÒNG HĐND VÀ UBND </report_signer>-->
-		<footer_colspan>report_creator,report_approver,report_signer|5,2,2</footer_colspan><!-- Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao -->
-		<report_creator>Người lập</report_creator>
-		<report_approver>Người duyệt</report_approver>
-		<report_signer>Người ký</report_signer>
+		<report_signer></report_signer>
 	</report_footer>
 	<pageSetup> <!--PageSetup-->
 		<!-- <orientation>landscape</orientation> -->
-		<orientation>portrait</orientation>
+		<orientation>landscape</orientation>
 		<paperSize>9</paperSize>
 	</pageSetup>	
 </root>
