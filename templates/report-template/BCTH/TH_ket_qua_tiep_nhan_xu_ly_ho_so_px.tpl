@@ -54,10 +54,10 @@ div.Section1
   <td width=521 colspan=3 valign=top style='width:390.75pt;padding:0mm 5.4pt 0mm 5.4pt'>
   <p class=MsoNormal align=center style='margin-bottom:0mm;margin-bottom:.0001pt;
   text-align:center'><span style='font-size:13.0pt;line-height:115%;font-family:
-  "Times New Roman","serif"'>UBND HUY&#7878;N L&#7878; TH&#7910;Y</span></p>
+  "Times New Roman","serif"'>#UNIT_FULL_NAME#</span></p>
   <p class=MsoNormal align=center style='margin-bottom:0mm;margin-bottom:.0001pt;
   text-align:center'><b><span style='font-size:13.0pt;line-height:115%;
-  font-family:"Times New Roman","serif"'>V&#258;N PHÒNG H&#272;ND VÀ UBND</span></b></p>
+  font-family:"Times New Roman","serif"'>BỘ PHẬN TN&TKQ</span></b></p>
   </td>
   <td width=521 colspan=3 valign=top style='width:390.85pt;padding:0mm 5.4pt 0mm 5.4pt'>
   <p class=MsoNormal align=center style='margin-bottom:0mm;margin-bottom:.0001pt;

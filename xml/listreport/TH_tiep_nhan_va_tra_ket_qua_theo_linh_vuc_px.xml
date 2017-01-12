@@ -84,7 +84,7 @@
 	</report_table_format>
 	<report_sql> <!--Phan mo ta cau lenh SQL ket xuat du lieu cho bao cao -->
 		<sql>		
-			Exec eCS_BCTH02 '#cate#','#from_date#','#to_date#'
+			Exec eCS_BCTH02 '#cate#','#from_date#','#to_date#','#owner_code#'
 		</sql>
 		<xml_data></xml_data> <!--Cot Du lieu duoc nhom co phai nam trong the xml hay khong?-->
 		<group_by></group_by>  <!--The nay xac dinh du lieu da duoc nhom theo cot nao-->

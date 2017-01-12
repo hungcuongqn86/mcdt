@@ -2302,12 +2302,14 @@ class Efy_Function_RecordFunctions
             //	$pre_month = 12;
             //}
             //Replace một số hằng số
-            $v_report_date = $objConfig->_setOnerReportName() . " ngày " . date("d") . " tháng " . date("m") . " năm " . date("Y");
+            $userIdentity = G_Account::getInstance()->getIdentity();
+            $ownerName = str_replace('UBND', '', $userIdentity->OWNER_NAME);
+            $v_report_date = $ownerName . " ngày " . date("d") . " tháng " . date("m") . " năm " . date("Y");
             for ($i = 0; $i < $highestColumnIndex; $i++) {
                 $column = PHPExcel_Cell::stringFromColumnIndex($i);
                 for ($j = 1; $j <= $highestRow; $j++) {
                     $rowvalue = $objWorksheet->getCell($column . $j)->getValue();
-                    $rowvalue = str_replace('#UNIT_FULL_NAME#', $objConfig->_setOnerNameExcell(), $rowvalue);
+                    $rowvalue = str_replace('#UNIT_FULL_NAME#', $ownerName, $rowvalue);
                     $rowvalue = str_replace('#STR_STATUS#', $v_report_date, $rowvalue);
                     //$rowvalue = str_replace('#C_TONG#', $arrResult[0]['C_TONG'], $rowvalue);
                     //$rowvalue = str_replace('#C_TRA_DUNG_HEN#', $arrResult[0]['C_TRA_DUNG_HEN'], $rowvalue);
