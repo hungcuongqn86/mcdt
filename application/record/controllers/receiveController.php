@@ -66,6 +66,9 @@ class record_receiveController extends  Zend_Controller_Action {
             case 'forward':
                 $currentModulCodeForLeft = 'RECEIVED-TRANSITION';
                 break;
+            case 'confirm':
+                $currentModulCodeForLeft = 'RECEIVED-TRANSITION';
+                break;
             case 'viewtransition':
                 $currentModulCodeForLeft = 'RECEIVED-TRANSITION';
                 break;
@@ -717,9 +720,9 @@ class record_receiveController extends  Zend_Controller_Action {
         $this->view->sRecordTypeCode = $sRecordTypeCode;
         $this->view->sRecordTypeId = $sRecordTypeId;
 
-        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/ho_so_da_tiep_nhan.xml';
+        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/ho_so_lien_thong_cho_nhan.xml';
         if(!file_exists($sxmlFileName)){
-            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_da_tiep_nhan.xml';
+            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_lien_thong_cho_nhan.xml';
         }
 
         //Day gia tri tim kiem ra view
@@ -730,7 +733,6 @@ class record_receiveController extends  Zend_Controller_Action {
         $sRecordType = $arrinfoRecordType['C_RECORD_TYPE'];
         $sDetailStatusCompare = " And A.C_DETAIL_STATUS = 10" ;
         $arrRecord = $objrecordfun->eCSRecordGetAll($sRecordTypeId,$sRecordType,$iCurrentStaffId,$sReceiveDate,$sStatusList,$sDetailStatusCompare,$sRole,$sOrderClause,$sOwnerCode,$sfullTextSearch,$iPage,$iNumberRecordPerPage);
-        $this->view->arrRecord = $arrRecord;
         $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../receive/viewtransition');
         $iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
         $this->view->iNumberRecord = $iNumberRecord;
@@ -816,6 +818,48 @@ class record_receiveController extends  Zend_Controller_Action {
                 'C_STATUS' => $sStatus,
                 'C_DETAIL_STATUS' => $sDetailStatus,
                 'NEW_FILE_ID_LIST' => $arrFileNameUpload,
+                'C_USER_ID' => $iUserId,
+                'C_USER_NAME' => $iUserName,
+                'C_OWNER_CODE' => $_SESSION['OWNER_CODE']
+            );
+            //var_dump($arrParameter);exit;
+            $objReceive->eCSReceiveTransitionRecordUpdate($arrParameter);
+            $this->_redirect('record/receive/transition');
+        }
+    }
+
+    /**
+     *
+     */
+    public function confirmAction(){
+        $objReceive = new record_modReceive();
+        $objrecordfun = new Efy_Function_RecordFunctions();
+        // Lay id ho so
+        $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
+        $this->view->sRecordIdList = $sRecordIdList;
+        $arrRecordInfo = $objrecordfun->eCSGetInfoRecordFromListId($sRecordIdList);
+        $this->view->general_information = $objrecordfun->general_information($arrRecordInfo);
+
+        $supdate = trim($this->_request->getParam('hdn_update',""));
+        if($supdate) {
+            $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
+            $idea = $this->_request->getParam('idea');
+            $iUserId = $_SESSION['staff_id'];
+            $iUserName = $objrecordfun->getNamePositionStaffByIdList($iUserId);
+            //cac truong hop xu ly
+            $sWorkType = 'XAC_NHAN_DU_THONG_TIN';
+            $arrParameter = array(
+                'PK_RECORD_LIST' => $sRecordIdList,
+                'C_WORKTYPE' => $sWorkType,
+                'C_SUBMIT_ORDER_CONTENT' => $idea,
+                'FK_STAFF' => '',
+                'C_POSITION_NAME' => '',
+                'C_ROLES' => '',
+                'FK_UNIT' => '',
+                'C_UNIT_NAME' => '',
+                'C_STATUS' => '',
+                'C_DETAIL_STATUS' => '',
+                'NEW_FILE_ID_LIST' => '',
                 'C_USER_ID' => $iUserId,
                 'C_USER_NAME' => $iUserName,
                 'C_OWNER_CODE' => $_SESSION['OWNER_CODE']
