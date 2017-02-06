@@ -744,4 +744,82 @@ class record_handleController extends  Zend_Controller_Action {
             $this->_redirect('record/handle/result');
         }
 	}
+
+    /**
+     *
+     */
+    public function transitionAction(){
+        $this->view->titleBody = "DANH SÁCH HỒ SƠ LIÊN THÔNG CHỜ NHẬN";
+        $objconfig = new Efy_Init_Config();
+        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objxml = new Efy_Publib_Xml();
+        $ojbEfyLib = new Efy_Library();
+
+        $arrRecordType = $_SESSION['arr_all_record_type'];
+        $sRecordTypeId = $this->_request->getParam('recordType');
+        if($sRecordTypeId == "")
+            $sRecordTypeId=$_SESSION['RECORD_TYPE'];
+        if($sRecordTypeId == "")
+            $sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];
+        $_SESSION['RECORD_TYPE']=$sRecordTypeId;
+
+        $iCurrentStaffId = $_SESSION['staff_id'];
+        $sReceiveDate = '';
+        $sStatusList = 'LIEN_THONG_CHO_NHAN';
+        $sRole = '';
+        $sOrderClause = '';
+        $sOwnerCode = $_SESSION['OWNER_CODE'];
+        $pUrl = $_SERVER['REQUEST_URI'];
+        $sfullTextSearch 	= trim($this->_request->getParam('txtfullTextSearch',''));
+        $iPage		= $this->_request->getParam('hdn_current_page',0);
+        if ($iPage <= 1){
+            $iPage = 1;
+        }
+        $iNumberRecordPerPage = $this->_request->getParam('cbo_nuber_record_page',0);
+        if ($iNumberRecordPerPage == 0)
+            $iNumberRecordPerPage = 15;
+
+        //Neu ton tai gia tri tim kiem trong session thi lay trong session
+        if(isset($_SESSION['seArrParameter'])){
+            $Parameter 			= $_SESSION['seArrParameter'];
+            $sRecordTypeId		= $Parameter['sRecordTypeId'];
+            $sfullTextSearch	= $Parameter['sfullTextSearch'];
+            $iPage				= $Parameter['iPage'];
+            $iNumberRecordPerPage = $Parameter['iNumberRecordPerPage'];
+            unset($_SESSION['seArrParameter']);
+        }
+        $arrinfoRecordType = $objrecordfun->getinforRecordType($sRecordTypeId, $arrRecordType);
+        $sRecordTypeCode = $arrinfoRecordType['C_CODE'];
+        $srecordType = $arrinfoRecordType['C_NAME'];
+        $this->view->srecordType = $srecordType;
+        $this->view->sRecordTypeCode = $sRecordTypeCode;
+        $this->view->sRecordTypeId = $sRecordTypeId;
+
+        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/ho_so_lien_thong_cho_nhan.xml';
+        if(!file_exists($sxmlFileName)){
+            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_lien_thong_cho_nhan.xml';
+        }
+
+        //Day gia tri tim kiem ra view
+        $arrInputfilter = array('fullTextSearch'=>$sfullTextSearch,'pUrl'=>'../receive/transition','RecordTypeId'=>$sRecordTypeId);
+        $this->view->filter_form = $objrecordfun->genEcsFilterFrom($iCurrentStaffId, 'TIEP_NHAN', $arrRecordType, $arrInputfilter);
+
+
+        $sRecordType = $arrinfoRecordType['C_RECORD_TYPE'];
+        $sDetailStatusCompare = " And A.C_DETAIL_STATUS = 10" ;
+        $arrRecord = $objrecordfun->eCSRecordGetAll($sRecordTypeId,$sRecordType,$iCurrentStaffId,$sReceiveDate,$sStatusList,$sDetailStatusCompare,$sRole,$sOrderClause,$sOwnerCode,$sfullTextSearch,$iPage,$iNumberRecordPerPage);
+        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../receive/viewtransition');
+        $iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
+        $this->view->iNumberRecord = $iNumberRecord;
+
+        //Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
+        $this->view->SelectDeselectAll = $ojbEfyLib->_selectDeselectAll(sizeof($arrRecord), $iNumberRecord);
+        if (count($arrRecord) > 0){
+            $this->view->sdocpertotal = "Danh sách có: ".sizeof($arrRecord).'/'.$iNumberRecord." hồ sơ";
+            //Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
+            $this->view->generateStringNumberPage = $ojbEfyLib->_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage,$pUrl) ;
+            //Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
+            $this->view->generateHtmlSelectBoxPage = $ojbEfyLib->_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+        }
+    }
 }?>
