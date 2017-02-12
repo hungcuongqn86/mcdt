@@ -39,6 +39,18 @@
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
+            <data_format>if_else</data_format>
+            <field_list>nguoi_nhan_b1</field_list>
+            <find_string>#NAME_B#</find_string>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>if_else</data_format>
+            <field_list>cmnd_nguoi_nhan_b1</field_list>
+            <find_string>#CMT_B#</find_string>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#SO_GCN#</find_string>
             <xml_tag_in_db>so_phat_hanh</xml_tag_in_db>

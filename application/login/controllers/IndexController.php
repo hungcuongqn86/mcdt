@@ -39,7 +39,7 @@ class Login_IndexController extends  Zend_Controller_Action {
 		$hdhOption = $this->_request->getParam('hdn_option');
 		$this->view->hdn_option= $hdhOption;
 		
-		
+
 		$sCheckReme = Efy_Library::_getCookie("sCheckReme");
 		if($sCheckReme){
 			$sUserName = Efy_Library::_getCookie("sUserName");
@@ -55,9 +55,9 @@ class Login_IndexController extends  Zend_Controller_Action {
 		$this->view->txt_password= $sPassWord;
 		$this->view->txt_usename= $sUserName;
 		$this->view->sCheckReme= $sCheckReme;
-		
-		
-		
+
+
+
 		
 		$sUserName =$this->_request->getParam('txt_usename');//Lay tham so tu V truyen den C
 		$this->view->txt_usename= $sUserName;
