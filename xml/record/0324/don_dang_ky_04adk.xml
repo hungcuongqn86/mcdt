@@ -11,22 +11,45 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
-            <find_string>#NS_A1#</find_string>
-            <xml_tag_in_db>nam_sinh_a</xml_tag_in_db>
+            <find_string>#SO_GCN_CU#</find_string>
+            <xml_tag_in_db>so_vao_so_cap_gcn</xml_tag_in_db>
             <field_name></field_name>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
-            <find_string>#CMT_A1#</find_string>
-            <xml_tag_in_db>nam_sinh_a</xml_tag_in_db>
+            <find_string>#SO_PHATHANH#</find_string>
+            <xml_tag_in_db>so_phat_hanh</xml_tag_in_db>
             <field_name></field_name>
         </replace>
+		<replace>
+		<from_xml_data>true</from_xml_data>
+		<data_format>text</data_format>
+		<find_string>#NGAYCAP_GCN#</find_string>
+		<xml_tag_in_db>ngay_cap_gcn_dat</xml_tag_in_db>
+		<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#LY_DO#</find_string>
+			<xml_tag_in_db>ly_do</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NOICAP_CMT_A1#</find_string>
+			<xml_tag_in_db>noi_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#DC_A1#</find_string>
-            <xml_tag_in_db>registor_address</xml_tag_in_db>
+            <xml_tag_in_db>dia_chi_nguoi_nop_hs</xml_tag_in_db>
             <field_name></field_name>
         </replace>
 
@@ -60,10 +83,77 @@
 		<replace>
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
-			<find_string>#TELEPHONE#</find_string>
-			<xml_tag_in_db>dt_nguoi_chuyen</xml_tag_in_db>
+			<find_string>#PHONE#</find_string>
+			<xml_tag_in_db>dien_thoai_nguoi_nop_hs</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
+
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#THUA_SO#</find_string>
+            <xml_tag_in_db>thua_dat</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#SO_TO#</find_string>
+			<xml_tag_in_db>ban_do_so</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#DIA_CHI_DAT#</find_string>
+            <xml_tag_in_db>dia_chi</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DIEN_TICH#</find_string>
+			<xml_tag_in_db>dien_tich</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DT_CHUNG#</find_string>
+			<xml_tag_in_db>dung_chung</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DT_RIENG#</find_string>
+			<xml_tag_in_db>dung_rieng</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#MUC_DICH#</find_string>
+			<xml_tag_in_db>muc_dich</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#THOI_HAN#</find_string>
+			<xml_tag_in_db>thoi_han</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NGUON_GOC#</find_string>
+			<xml_tag_in_db>nguon_goc</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
 		<replace>
 			<from_xml_data>false</from_xml_data>
 			<data_format>text</data_format>

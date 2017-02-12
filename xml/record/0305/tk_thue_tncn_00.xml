@@ -12,16 +12,37 @@
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#NS_A1#</find_string>
-            <xml_tag_in_db>nam_sinh_a</xml_tag_in_db>
+            <xml_tag_in_db>nam_sinh_a1</xml_tag_in_db>
             <field_name></field_name>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#CMT_A1#</find_string>
-            <xml_tag_in_db>nam_sinh_a</xml_tag_in_db>
+            <xml_tag_in_db>cmnd_nguoi_chuyen</xml_tag_in_db>
             <field_name></field_name>
         </replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NGAYCAP_CMT_A1#</find_string>
+			<xml_tag_in_db>ngay_cap_socmnd_nk_ben_chuyen</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NOICAP_CMT_A1#</find_string>
+			<xml_tag_in_db>noi_cap_socmnd_nk_ben_chuyen</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DIENTHOAI_A1#</find_string>
+			<xml_tag_in_db>dien_thoai_nguoi_nop_hs</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>

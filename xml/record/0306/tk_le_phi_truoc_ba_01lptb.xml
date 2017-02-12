@@ -4,13 +4,13 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>if_else</data_format>
-            <field_list>nguoi_nhan_b1,nguoi_nhan_b2</field_list>
+            <field_list>nguoi_nhan,nguoi_nhan_b2</field_list>
             <find_string>#NAME_B#</find_string>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>if_else</data_format>
-            <field_list>dia_chi_nguoi_nhan_b1,dia_chi_nguoi_nhan_b1</field_list>
+            <field_list>dia_chi_nguoi_nhan,dia_chi_nguoi_nhan_b1</field_list>
             <find_string>#DC_B#</find_string>
         </replace>
         <replace>
