@@ -65,7 +65,7 @@ class record_handleController extends  Zend_Controller_Action {
             case 'transition':
                 $currentModulCodeForLeft = 'HANDLE-TRANSITION';
                 break;
-            case 'viewtransition':
+            case 'confirm':
                 $currentModulCodeForLeft = 'HANDLE-TRANSITION';
                 break;
         }
@@ -825,6 +825,47 @@ class record_handleController extends  Zend_Controller_Action {
             $this->view->generateStringNumberPage = $ojbEfyLib->_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage,$pUrl) ;
             //Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
             $this->view->generateHtmlSelectBoxPage = $ojbEfyLib->_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+        }
+    }
+    /**
+     *
+     */
+    public function confirmAction(){
+        $objReceive = new record_modReceive();
+        $objrecordfun = new Efy_Function_RecordFunctions();
+        // Lay id ho so
+        $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
+        $this->view->sRecordIdList = $sRecordIdList;
+        $arrRecordInfo = $objrecordfun->eCSGetInfoRecordFromListId($sRecordIdList);
+        $this->view->general_information = $objrecordfun->general_information($arrRecordInfo);
+
+        $supdate = trim($this->_request->getParam('hdn_update',""));
+        if($supdate) {
+            $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
+            $idea = $this->_request->getParam('idea');
+            $iUserId = $_SESSION['staff_id'];
+            $iUserName = $objrecordfun->getNamePositionStaffByIdList($iUserId);
+            //cac truong hop xu ly
+            $sWorkType = 'PHAN_HOI_HS_LIEN_THONG';
+            $arrParameter = array(
+                'PK_RECORD_LIST' => $sRecordIdList,
+                'C_WORKTYPE' => $sWorkType,
+                'C_SUBMIT_ORDER_CONTENT' => $idea,
+                'FK_STAFF' => '',
+                'C_POSITION_NAME' => '',
+                'C_ROLES' => '',
+                'FK_UNIT' => '',
+                'C_UNIT_NAME' => '',
+                'C_STATUS' => '',
+                'C_DETAIL_STATUS' => '',
+                'NEW_FILE_ID_LIST' => '',
+                'C_USER_ID' => $iUserId,
+                'C_USER_NAME' => $iUserName,
+                'C_OWNER_CODE' => $_SESSION['OWNER_CODE']
+            );
+            //var_dump($arrParameter);exit;
+            $objReceive->eCSReceiveTransitionRecordUpdate($arrParameter);
+            $this->_redirect('record/receive/transition');
         }
     }
 }?>

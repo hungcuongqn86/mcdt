@@ -1,0 +1,32 @@
+<form action="index" method="POST" id="frmSubmitorder" autocomplete="off" enctype="multipart/form-data">
+    <?php echo $this->formHidden("hdn_record_id_list",$this->sRecordIdList,null); ?>
+    <?php echo $this->formHidden("hdn_update","1",null); ?>
+
+    <div style="width: 99%;padding-left: 5px;">
+        <div class="normal_title">DANH SÁCH HỒ SƠ PHẢN HỒI THÔNG TIN</div>
+        <div class="general_information" id="general_information">
+            <?=$this->general_information?>
+        </div>
+        <div class="normal_title">NỘI DUNG PHẢN HỒI</div>
+        <div id="contentXml" style="margin: 0;">
+            <div id="header_update_form">
+                <div style="padding-top: 15px;">
+                    <label>Ý kiến<span class="requiein">*</span></label>
+                    <textarea style="width:70%;font-family: arial;font-size: 10pt;" name="idea" id="idea" class="normal_textarea"></textarea>
+                </div>
+                <div id="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 99%;padding-top: 12px;text-align: center;">
+        <input type="button" style="margin-left:0px;" name="btnSubmit" id="btnSubmit" value="Xác nhận" class="add_large_button">
+        <input type="button" style="margin-left:0px;" name="btnback" id="btnback" value="Quay lại" class="add_large_button">
+    </div>
+</form>
+<script type="text/javascript">
+    var baseUrl = "<?=$this->baseUrl();?>";
+    var obj_record_receive = new record_handle(baseUrl, 'record', 'handle');
+    jQuery(document).ready(function ($) {
+        obj_record_receive.loadConfirmEven();
+    });
+</script>
