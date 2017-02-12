@@ -124,7 +124,7 @@ class G_App
         $config->email_ssl = 'ssl';
         $config->email_port = '465';
         $config->email_username = 'dichvuconglethuy@gmail.com';
-        $config->email_password = 'lethuy@123';
+        $config->email_password = 'lethuy@123456qwerty';
         return $config;
     }
 }
