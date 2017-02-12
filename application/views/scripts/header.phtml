@@ -1,53 +1,53 @@
 <?php
-    function _generate_day_of_week($p_lang, $status = ''){
-        $RetStr = date("l, d/m/y");
-        $pday = date("l");
-        if($p_lang == 1){
-            switch($pday){
-                case "Sunday";
-                    $RetStr = "Ch&#7911; nh&#7853;t";
-                    break;
-                case "Monday";
-                    $RetStr = "Th&#7913; hai";
-                    break;
-                case "Tuesday";
-                    $RetStr = "Th&#7913; ba";
-                    break;
-                case "Wednesday";
-                    $RetStr = "Th&#7913; t&#432;";
-                    break;
-                case "Thursday";
-                    $RetStr = "Th&#7913; n&#259;m";
-                    break;
-                case "Friday";
-                    $RetStr = "Th&#7913; s&#225;u";
-                    break;
-                case "Saturday";
-                    $RetStr = "Th&#7913; b&#7843;y";
-            }
-            if($status == 'on'){
-                $RetStr = $RetStr.", ngày ".date("d/m/y");
-            }else{
-                $RetStr = $RetStr.", ".date("d/m/y");
-            }
+function _generate_day_of_week($p_lang, $status = ''){
+    $RetStr = date("l, d/m/y");
+    $pday = date("l");
+    if($p_lang == 1){
+        switch($pday){
+            case "Sunday";
+                $RetStr = "Ch&#7911; nh&#7853;t";
+                break;
+            case "Monday";
+                $RetStr = "Th&#7913; hai";
+                break;
+            case "Tuesday";
+                $RetStr = "Th&#7913; ba";
+                break;
+            case "Wednesday";
+                $RetStr = "Th&#7913; t&#432;";
+                break;
+            case "Thursday";
+                $RetStr = "Th&#7913; n&#259;m";
+                break;
+            case "Friday";
+                $RetStr = "Th&#7913; s&#225;u";
+                break;
+            case "Saturday";
+                $RetStr = "Th&#7913; b&#7843;y";
         }
-        return $RetStr;
+        if($status == 'on'){
+            $RetStr = $RetStr.", ngày ".date("d/m/y");
+        }else{
+            $RetStr = $RetStr.", ".date("d/m/y");
+        }
     }
-    //Ham Const
-    $objconfig = new Efy_Init_Config();
-    $arrConst	=	$objconfig->_setProjectPublicConst();
-    $sOwnerCode	= $_SESSION['OWNER_CODE'];
-    $sOwnerCodeRoot = $objconfig->_getOwnerCode();
-    $objfunction = new Efy_Function_RecordFunctions();
+    return $RetStr;
+}
+//Ham Const
+$objconfig = new Efy_Init_Config();
+$arrConst	=	$objconfig->_setProjectPublicConst();
+$sOwnerCode	= $_SESSION['OWNER_CODE'];
+$sOwnerCodeRoot = $objconfig->_getOwnerCode();
+$objfunction = new Efy_Function_RecordFunctions();
 ?>
 <!--He thong Menu ngang-->
 <table width="100%" cellpadding="0" cellspacing="0" class="top_menu_table">
-	<tr>
+    <tr>
         <td class="thungay">
             <div><?=_generate_day_of_week(1);?></div>
         </td>
         <td>
-    	    <ul>
+            <ul>
                 <!--Nhac viec-->
                 <?php $urlRe = $this->baseUrl . "../record/reminder/index"; ?>
                 <li  id="header_reminder" style="cursor:pointer;" onclick="href('<?= $urlRe?>');"><?=$arrConst['_NHAC_VIEC']?></li>
@@ -108,53 +108,53 @@
                 <li  id ="header_logout" align="left" style="cursor:pointer;" onclick="href('<?=$urlRe;?>')"><?=$arrConst['_THOAT']?></li>
             </ul>
         </td>
-	</tr>
+    </tr>
 </table>
 <script type="text/javascript">
-/* Các hàm định nghĩa cho menu con*/
-function otab(child_id){
-	document.write('<table class = "pushdown_menu_table"' + 'id="' + child_id +'" border="0" cellspacing="0" cellpadding="0">');
-}
-function submn(submn_label,submn_text){
-	document.write('<tr><td  onclick="window.location.href=\'<?=$this->baseUrl;?>'+submn_label+'/\'" onmouseover="this.className=\'hoverClass\'" onmouseout="this.className=\'outverClass\'" ><img src="<?= $this->baseUrl?>images/anh_menu_level_2.gif"/>'+'  '+submn_text+'</td></tr>');
-}//
-function ctab(){
-	document.write('</table>');
-}<?php 
-	$sCurrentModulCode = $this->currentModulCode;
-	//Nhac viec
-	if ($sCurrentModulCode == "REMINDER"){ ?>
-		document.getElementById('header_reminder').className="visited";<?php
-	}
-	if ($sCurrentModulCode == "RECORD"){ ?>
-		document.getElementById('header_receive').className="visited";<?php
-	}
-	//ho so qua mang
-	if ($sCurrentModulCode == "RECEIVE-ON-NET"){ ?>
-		document.getElementById('header_receiveonnet').className="visited";<?php
-	}
-	//Danh muc
-	if ($sCurrentModulCode == "LIST"){ ?>
-		document.getElementById('header_list').className="visited";<?php
-	}
-	//Phe duyet
-	if ($sCurrentModulCode == "ASSIGN"){ ?>
-		document.getElementById('header_approve').className="visited";<?php
-	}
-	//Thu ly
-	if ($sCurrentModulCode == "HANDLE"){ ?>
-		document.getElementById('header_handle').className="visited";<?php
-	}
-	//Bao cao
-	if ($sCurrentModulCode == "REPORTS"){ ?>
-		document.getElementById('header_report').className="visited";<?php
-	}
-	//Tra cuu
-	if ($sCurrentModulCode == "SEARCH"){ ?>
-		document.getElementById('header_search').className="visited";<?php
-	}
+    /* Các hàm định nghĩa cho menu con*/
+    function otab(child_id){
+        document.write('<table class = "pushdown_menu_table"' + 'id="' + child_id +'" border="0" cellspacing="0" cellpadding="0">');
+    }
+    function submn(submn_label,submn_text){
+        document.write('<tr><td  onclick="window.location.href=\'<?=$this->baseUrl;?>'+submn_label+'/\'" onmouseover="this.className=\'hoverClass\'" onmouseout="this.className=\'outverClass\'" ><img src="<?= $this->baseUrl?>images/anh_menu_level_2.gif"/>'+'  '+submn_text+'</td></tr>');
+    }//
+    function ctab(){
+        document.write('</table>');
+    }<?php
+    $sCurrentModulCode = $this->currentModulCode;
+    //Nhac viec
+    if ($sCurrentModulCode == "REMINDER"){ ?>
+    document.getElementById('header_reminder').className="visited";<?php
+    }
+    if ($sCurrentModulCode == "RECORD"){ ?>
+    document.getElementById('header_receive').className="visited";<?php
+    }
+    //ho so qua mang
+    if ($sCurrentModulCode == "RECEIVE-ON-NET"){ ?>
+    document.getElementById('header_receiveonnet').className="visited";<?php
+    }
+    //Danh muc
+    if ($sCurrentModulCode == "LIST"){ ?>
+    document.getElementById('header_list').className="visited";<?php
+    }
+    //Phe duyet
+    if ($sCurrentModulCode == "ASSIGN"){ ?>
+    document.getElementById('header_approve').className="visited";<?php
+    }
+    //Thu ly
+    if ($sCurrentModulCode == "HANDLE"){ ?>
+    document.getElementById('header_handle').className="visited";<?php
+    }
+    //Bao cao
+    if ($sCurrentModulCode == "REPORTS"){ ?>
+    document.getElementById('header_report').className="visited";<?php
+    }
+    //Tra cuu
+    if ($sCurrentModulCode == "SEARCH"){ ?>
+    document.getElementById('header_search').className="visited";<?php
+    }
     ?>
-	 function href(url){
-	 	window.location.href = url;
-	 } 
+    function href(url){
+        window.location.href = url;
+    }
 </script>
