@@ -2851,7 +2851,7 @@ function _xmlGenerateReportFooter($p_xml_file,$p_xml_tag){
 		$v_cooperator_count = sizeof($arr_all_cooperator);
 		if (trim($p_valuelist)!="" && trim($p_valuelist) != "0"){
 			$strHTML = '<table class="list_table2" width="100%" cellpadding="0" cellspacing="0">';
-			$strHTML = $strHTML .'<col width="10%"><col width="20%"><col width="20%"><col width="25%"><col width="25%">';
+			$strHTML = $strHTML .'<col width="10%"><col width="25%"><col width="25%"><col width="30%"><col width="10%">';
 			$strHTML = $strHTML .'<tr  class="header">';
 			$strHTML = $strHTML .'<td align="center" class="title">STT</td>';
 			$strHTML = $strHTML .'<td align="center" class="title">H&#7885; t&#234;n</td>';
@@ -2877,7 +2877,7 @@ function _xmlGenerateReportFooter($p_xml_file,$p_xml_tag){
                 $strHTML = $strHTML .'<td align="left">&nbsp;'.$v_cooperator_name.'&nbsp;</td>';
                 $strHTML = $strHTML .'<td align="left">&nbsp;'.$v_cooperator_position_name.'&nbsp;</td>';
                 $strHTML = $strHTML .'<td align="left">&nbsp;'.$v_cooperator_unit_name.'&nbsp;</td>';
-                $strHTML = $strHTML .'<td align="left"><a class="conficWard" staff="'.$v_cooperator_id.'" >Chọn</a>&nbsp;'.$v_cooperator_ward_name.'&nbsp;</td>';
+                $strHTML = $strHTML .'<td align="center"><a class="conficWard" staff="'.$v_cooperator_id.'" >Chọn</a>&nbsp;'.$v_cooperator_ward_name.'&nbsp;</td>';
                 $strHTML = $strHTML .'</tr>';
             }
 			$strHTML = $strHTML .'</table>';
