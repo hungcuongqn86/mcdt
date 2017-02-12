@@ -729,9 +729,14 @@ class record_receiveController extends  Zend_Controller_Action {
         $arrInputfilter = array('fullTextSearch'=>$sfullTextSearch,'pUrl'=>'../receive/transition','RecordTypeId'=>$sRecordTypeId);
         $this->view->filter_form = $objrecordfun->genEcsFilterFrom($iCurrentStaffId, 'TIEP_NHAN', $arrRecordType, $arrInputfilter);
 
-
         $sRecordType = $arrinfoRecordType['C_RECORD_TYPE'];
         $sDetailStatusCompare = " And A.C_DETAIL_STATUS = 10" ;
+
+        Zend_Loader::loadClass('listxml_modRecordtype');
+        $objRecordtype	  = new listxml_modRecordtype();
+        $arrWardConfig = $objRecordtype->eCSRecordTypeGetWardConfig($sRecordTypeId,$iCurrentStaffId);
+        $sDetailStatusCompare .= " And charindex(A.C_WARD_OWNER_CODE,''".$arrWardConfig['C_WARD_CODE']."'') > 0" ;
+
         $arrRecord = $objrecordfun->eCSRecordGetAll($sRecordTypeId,$sRecordType,$iCurrentStaffId,$sReceiveDate,$sStatusList,$sDetailStatusCompare,$sRole,$sOrderClause,$sOwnerCode,$sfullTextSearch,$iPage,$iNumberRecordPerPage);
         $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../receive/viewtransition');
         $iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
