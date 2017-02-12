@@ -35,6 +35,7 @@ class record_approveController extends  Zend_Controller_Action {
 		//Goi lop modRecord
 		Zend_Loader::loadClass('record_modApprove');
 		Zend_Loader::loadClass('record_modHandle');
+        Zend_Loader::loadClass('record_modReceive');
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
         $objLibrary = new Efy_Library();
 		// Load tat ca cac file Js va Css
@@ -70,6 +71,12 @@ class record_approveController extends  Zend_Controller_Action {
                 break;
             case 'viewapproved':
                 $currentModulCodeForLeft = 'APPROVED';
+                break;
+            case 'transition':
+                $currentModulCodeForLeft = 'APPROVE-TRANSITION';
+                break;
+            case 'confirm':
+                $currentModulCodeForLeft = 'APPROVE-TRANSITION';
                 break;
         }
         $this->view->currentModulCodeForLeft = $currentModulCodeForLeft;

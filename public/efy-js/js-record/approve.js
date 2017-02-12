@@ -193,3 +193,46 @@ function checkvalue(){
         actionUrl('');
     }
 }
+
+
+record_approve.prototype.loadTransition = function () {
+    var self = this;
+
+    $('.confirm-btn').unbind('click');
+    $('.confirm-btn').click(function () {
+        self.confirm();
+    })
+};
+
+record_approve.prototype.confirm = function () {
+    var url = this.urlPath + '/confirm';
+    var record_id_list = '', count = 0;
+    $('form#formreceive').find('input[type="checkbox"][name="chk_item_id"]:checked').each(function () {
+        if (record_id_list == "") record_id_list = $(this).val();
+        else if (record_id_list != "") record_id_list = record_id_list + ',' + $(this).val();
+        count++;
+    });
+    if (count === 0) {
+        alert('Bạn chưa chọn hồ sơ để chuyển xử lý!', 'Thông báo');
+        return false;
+    }
+    document.getElementById('hdn_object_id_list').value = record_id_list;
+    actionUrl(url);
+};
+
+record_approve.prototype.loadConfirmEven = function () {
+    var self = this;
+    $('#btnSubmit').click(function () {
+        if($("form#frmSubmitorder #idea").val()==''){
+            alert('Bạn phải nhập nội dung ý kiến xử lý!');
+            $("form#frmSubmitorder #idea").focus();
+            return false;
+        }
+        actionUrl('');
+    });
+
+    $('#btnback').click(function () {
+        var url = self.urlPath + '/transition';
+        actionUrl(url);
+    })
+};

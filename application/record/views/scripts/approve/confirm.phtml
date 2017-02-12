@@ -25,7 +25,7 @@
 </form>
 <script type="text/javascript">
     var baseUrl = "<?=$this->baseUrl();?>";
-    var obj_record_receive = new record_handle(baseUrl, 'record', 'handle');
+    var obj_record_receive = new record_approve(baseUrl, 'record', 'approve');
     jQuery(document).ready(function ($) {
         obj_record_receive.loadConfirmEven();
     });

@@ -196,7 +196,7 @@ $sOwnerCodeRoot = $objconfig->_getOwnerCode();
                                 </td>
                             </tr>
                             <tr>
-                                <td id="left_handle_transition" class="level1">
+                                <td id="left_approve_transition" class="level1">
                                     <a href="<?php echo $this->baseUrl; ?>../record/approve/transition">HS liên thông</a>
                                 </td>
                             </tr>
@@ -435,6 +435,9 @@ $sOwnerCodeRoot = $objconfig->_getOwnerCode();
         <?}
         if($scurrentModulCodeForLeft == "APPROVED"){?>
         document.getElementById('left_approve_approved').className = "level1_visited";
+        <?}
+        if($scurrentModulCodeForLeft == "APPROVE-TRANSITION"){?>
+        document.getElementById('left_approve_transition').className = "level1_visited";
         <?}
         }
         }catch (Exception $ex) {

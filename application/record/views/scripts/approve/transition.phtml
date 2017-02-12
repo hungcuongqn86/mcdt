@@ -49,7 +49,7 @@
 <div id="div_ajax" style="display:none;"></div>
 <script type="text/javascript">
     var baseUrl = "<?=$this->baseUrl();?>";
-    var obj_record_handle = new record_handle(baseUrl, 'record', 'handle');
+    var obj_record_handle = new record_approve(baseUrl, 'record', 'approve');
     jQuery(document).ready(function ($) {
         obj_record_handle.loadTransition();
     });
