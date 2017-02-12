@@ -186,3 +186,12 @@ record_handle.prototype.loadBackongate = function () {
         actionUrl(url);
     })
 };
+
+record_handle.prototype.loadTransition = function () {
+    var self = this;
+
+    $('.confirm-btn').unbind('click');
+    $('.confirm-btn').click(function () {
+        self.confirm();
+    })
+};

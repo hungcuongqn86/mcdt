@@ -34,7 +34,7 @@ class record_handleController extends  Zend_Controller_Action {
 		//Tao doi tuong XML
         $objLibrary = new Efy_Library();
 		// Load tat ca cac file Js va Css
-		$sStyle = $objLibrary->_getAllFileJavaScriptCss('','efy-js','handle/handle.js,js-record/handle.js',',','js');
+		$sStyle = $objLibrary->_getAllFileJavaScriptCss('','efy-js','handle/handle.js,js-record/handle.js,xml/general_datatable.js',',','js');
 		$this->view->LoadAllFileJsCss = $sStyle;
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "HANDLE";
@@ -61,6 +61,12 @@ class record_handleController extends  Zend_Controller_Action {
                 break;
             case 'viewresult':
                 $currentModulCodeForLeft = 'HANDLE-RESULT';
+                break;
+            case 'transition':
+                $currentModulCodeForLeft = 'HANDLE-TRANSITION';
+                break;
+            case 'viewtransition':
+                $currentModulCodeForLeft = 'HANDLE-TRANSITION';
                 break;
         }
         $this->view->currentModulCodeForLeft = $currentModulCodeForLeft;

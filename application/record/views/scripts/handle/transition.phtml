@@ -49,8 +49,8 @@
 <div id="div_ajax" style="display:none;"></div>
 <script type="text/javascript">
     var baseUrl = "<?=$this->baseUrl();?>";
-    var obj_record_receive = new record_receive(baseUrl, 'record', 'receive');
+    var obj_record_handle = new record_handle(baseUrl, 'record', 'handle');
     jQuery(document).ready(function ($) {
-        obj_record_receive.loadTransition();
+        obj_record_handle.loadTransition();
     });
 </script>
