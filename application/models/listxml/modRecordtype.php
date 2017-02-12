@@ -76,6 +76,39 @@ class listxml_modRecordtype extends Efy_DB_Connection {
 		};
 		return $arrResult;		
 	}
+
+	/*
+	 *
+	 */
+    public function eCSRecordTypeWardConfigUpdate($arrParameter){
+        $psSql = "Exec eCS_RecordTypeWardConfigUpdate  ";
+        $psSql .= "'"  . $arrParameter['PK_RECORDTYPE'] . "'";
+        $psSql .= ",'" . $arrParameter['STAFF_ID'] . "'";
+        $psSql .= ",'" . $arrParameter['C_WARDS_CODE_LIST'] . "'";
+        //echo $psSql; exit;
+        //Thuc thi lenh SQL
+        try {
+            $arrResult = $this->adodbExecSqlString($psSql) ;
+        }catch (Exception $e){
+            echo $e->getMessage();
+        };
+        return $arrResult;
+    }
+
+    public function eCSRecordTypeGetWardConfig($sRecordTypePk,$sStaffId){
+        $arrResult = null;
+        $sql = "Exec eCS_RecordTypeGetWardConfig ";
+        $sql .= "'" . $sRecordTypePk . "'";
+        $sql .= ",'" . $sStaffId . "'";
+        //echo $sql; exit;
+        try{
+            $arrResult = $this->adodbExecSqlString($sql);
+        }catch (Exception $e){
+            echo $e->getMessage();
+        };
+        return $arrResult;
+    }
+
     /**
      * @param $arrParameter
      * @return unknown

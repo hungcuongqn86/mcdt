@@ -7,6 +7,7 @@
                 <?php echo $this->formHidden("hdn_xml_value_list","",null); ?>
                 <?php echo $this->formHidden("hdn_XmlTagValueList","",null); ?>
                 <?php echo $this->formHidden("hdn_object_id",$this->sRecordTypePk,null); ?>
+                <?php echo $this->formHidden("hdn_staff_config_id",'',null); ?>
                 <?php echo $this->formHidden("hdn_list_id","",null); ?>
                 <?php echo $this->formHidden("hdn_department_list","",null); ?>
                 <?php echo $this->formHidden("hdn_update","1",null); ?>
@@ -197,8 +198,45 @@
             </td>
         </tr>
     </table>
+
+    <div id="dialog-form" title="Chọn phường xã">
+    </div>
 </form>
 <script type="text/javascript">
+    $.noConflict();
+    var dialog;
+    function addWard() {
+        _save_xml_tag_and_value_list(document.forms[0], document.getElementsByName('hdn_xml_tag_list'),document.getElementsByName('hdn_xml_value_list'), true);
+        var wardcodelist = $("#C_WARD_CODE_LIST").val();
+        var recordtype = $('#hdn_object_id').val();
+        var staffconfigid = $('#hdn_staff_config_id').val();
+        //console.log(wardcodelist,recordtype,staffconfigid);
+        var url = '../recordtype/saveconfigward';
+        var arrdata = {
+            staffconfigid: staffconfigid,
+            recordtype:recordtype,
+            wardcodelist:wardcodelist
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: arrdata,
+            success: function (string) {
+                dialog.dialog( "close" );
+            }
+        });
+    }
+    dialog = $( "#dialog-form" ).dialog({
+        autoOpen: false,
+        width: 800,
+        modal: true,
+        buttons: {
+            "Cập nhật": addWard,
+            "Bỏ qua": function() {
+                dialog.dialog( "close" );
+            }
+        }
+    });
     $(document).ready(function() {
         $("#id_approve_level").change(function() {
             var ApproveLevelval = $("#C_APPROVE_LEVEL").val();
@@ -207,6 +245,26 @@
                 $("#ajax_approve_level").html(data);
             });
             return false;
+        });
+
+        $('.conficWard').click(function () {
+            $('#hdn_staff_config_id').val($(this).attr('staff'));
+            var recordtype = $('#hdn_object_id').val();
+            var staffconfigid = $('#hdn_staff_config_id').val();
+            var url = '../recordtype/getconfigward';
+            var arrdata = {
+                staffconfigid: staffconfigid,
+                recordtype:recordtype
+            };
+            $.ajax({
+                url: url,
+                type: "GET",
+                data: arrdata,
+                success: function (string) {
+                    $('#dialog-form').html(string);
+                    dialog.dialog( "open" );
+                }
+            });
         });
     });
 </script>

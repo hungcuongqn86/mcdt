@@ -369,12 +369,45 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 			$this->view->arr_autocomplete_leader_2 = $objFunction->doc_search_ajax($arrLeader,"id","name","C_LEADER_LIST_2","hdn_leader_list_2",0,"position_code",0);
 		if($sApproveLevel == "DUYET_CAP_BA")
 			$this->view->arr_autocomplete_leader_3 = $objFunction->doc_search_ajax($arrLeader,"id","name","C_LEADER_LIST_3","hdn_leader_list_3",0,"position_code",0);
-	}	
-/**
- * Creater: nghiat
- * Date: 25/10/2010
- * Idea: Thuc hien phuong thuc Action chieu chinh mot TTHC
- */
+	}
+
+    /**
+     *
+     */
+    public function getconfigwardAction(){
+        $arrInput = $this->_request->getParams();
+        $objRecordtype	  = new listxml_modRecordtype();
+        $arrResult = $objRecordtype->eCSRecordTypeGetWardConfig($arrInput['recordtype'],$arrInput['staffconfigid']);
+        //var_dump($arrResult);exit;
+        //Khai bao su dung ham XML
+        global $dspDiv, $readonlyInEditMode, $disabledInEditMode, $formFielName;
+        $this->dspDiv = 1;
+        $this->readonlyInEditMode = true; $this->disabledInEditMode = true;
+        $this->formFielName	= "C_WARD_CODE_LIST";
+        $spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=false xml_tag_in_db='' message=''></div>";
+        echo $spRetHtml . Efy_Xml::_generateHtmlForMultipleCheckboxFromSession('SesGetAllOwner', 'code','name',$arrResult['C_WARD_CODE'],'auto');
+        exit;
+    }
+
+    /**
+     *
+     */
+    public function saveconfigwardAction(){
+        $arrInput = $this->_request->getParams();
+        $arrParameter = array(
+            'PK_RECORDTYPE'					=>	$arrInput['recordtype'],
+            'STAFF_ID'						=>	$arrInput['staffconfigid'],
+            'C_WARDS_CODE_LIST'	            =>	$arrInput['wardcodelist']
+        );
+
+        $objRecordtype	  = new listxml_modRecordtype();
+        $objRecordtype->eCSRecordTypeWardConfigUpdate($arrParameter);	//Goi model cap nhat vao CSDL
+        exit;
+    }
+
+    /**
+     *
+     */
 	public function editAction(){
 		//Goi cac doi tuong
 		$ojbEfyInitConfig = new Efy_Init_Config();

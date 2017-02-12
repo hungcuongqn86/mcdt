@@ -2851,17 +2851,14 @@ function _xmlGenerateReportFooter($p_xml_file,$p_xml_tag){
 		$v_cooperator_count = sizeof($arr_all_cooperator);
 		if (trim($p_valuelist)!="" && trim($p_valuelist) != "0"){
 			$strHTML = '<table class="list_table2" width="100%" cellpadding="0" cellspacing="0">';
-			$strHTML = $strHTML .'<col width="6%"><col width="27%"><col width="29%"><col width="38%">';
+			$strHTML = $strHTML .'<col width="10%"><col width="20%"><col width="20%"><col width="25%"><col width="25%">';
 			$strHTML = $strHTML .'<tr  class="header">';
-			$strHTML = $strHTML .'<td align="center" class="title" width="6%">STT</td>';
-			$strHTML = $strHTML .'<td align="center" class="title" width="25%">H&#7885; t&#234;n</td>';
-			$strHTML = $strHTML .'<td align="center" class="title" width="27%">Ch&#7913;c v&#7909</td>';
-			$strHTML = $strHTML .'<td align="center" class="title" width="36%">Ph&#242;ng ban</td>';
+			$strHTML = $strHTML .'<td align="center" class="title">STT</td>';
+			$strHTML = $strHTML .'<td align="center" class="title">H&#7885; t&#234;n</td>';
+			$strHTML = $strHTML .'<td align="center" class="title">Ch&#7913;c v&#7909</td>';
+			$strHTML = $strHTML .'<td align="center" class="title">Ph&#242;ng ban</td>';
+            $strHTML = $strHTML .'<td align="center" class="title">Phường xã</td>';
 			$strHTML = $strHTML .'</tr>';
-			$strHTML = $strHTML .'</table>';
-			//$strHTML = $strHTML ."<DIV title='$this->tooltip' STYLE='overflow: auto; height:100pt;padding-left:0px;margin:0px'>";
-			$strHTML = $strHTML .'<table class="list_table2" width="100%" cellpadding="0" cellspacing="0" >';
-			$strHTML = $strHTML .'<col width="6%"><col width="27%"><col width="29%"><col width="38%">';
             $v_current_style_name = '';
             for($j = 0; $j < $v_cooperator_count; $j++){
                 $v_cooperator_id = $arr_all_cooperator[$j];
@@ -2869,6 +2866,7 @@ function _xmlGenerateReportFooter($p_xml_file,$p_xml_tag){
                 $v_cooperator_position_name = Efy_Library::_getItemAttrById($_SESSION['arr_all_staff'],$v_cooperator_id, 'position_name');
                 $v_cooperator_unit_id = Efy_Library::_getItemAttrById($_SESSION['arr_all_staff'],$v_cooperator_id, 'unit_id');
                 $v_cooperator_unit_name = Efy_Library::_getItemAttrById($_SESSION['arr_all_unit'],$v_cooperator_unit_id, 'name');
+                $v_cooperator_ward_name = '';
                 if ($v_current_style_name == "odd_row"){
                     $v_current_style_name = "round_row";
                 }else{
@@ -2876,9 +2874,10 @@ function _xmlGenerateReportFooter($p_xml_file,$p_xml_tag){
                 }
                 $strHTML = $strHTML .'<tr class="'.$v_current_style_name.'">';
                 $strHTML = $strHTML .'<td align="center">'.($j+1).'</td>';
-                $strHTML = $strHTML .'<td align="left">'.$v_cooperator_name.'&nbsp;</td>';
-                $strHTML = $strHTML .'<td align="left">'.$v_cooperator_position_name.'&nbsp;</td>';
-                $strHTML = $strHTML .'<td align="left">'.$v_cooperator_unit_name.'&nbsp;</td>';
+                $strHTML = $strHTML .'<td align="left">&nbsp;'.$v_cooperator_name.'&nbsp;</td>';
+                $strHTML = $strHTML .'<td align="left">&nbsp;'.$v_cooperator_position_name.'&nbsp;</td>';
+                $strHTML = $strHTML .'<td align="left">&nbsp;'.$v_cooperator_unit_name.'&nbsp;</td>';
+                $strHTML = $strHTML .'<td align="left"><a class="conficWard" staff="'.$v_cooperator_id.'" >Chọn</a>&nbsp;'.$v_cooperator_ward_name.'&nbsp;</td>';
                 $strHTML = $strHTML .'</tr>';
             }
 			$strHTML = $strHTML .'</table>';
