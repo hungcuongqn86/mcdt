@@ -801,14 +801,13 @@ class record_handleController extends  Zend_Controller_Action {
         }
 
         //Day gia tri tim kiem ra view
-        $arrInputfilter = array('fullTextSearch'=>$sfullTextSearch,'pUrl'=>'../receive/transition','RecordTypeId'=>$sRecordTypeId);
-        $this->view->filter_form = $objrecordfun->genEcsFilterFrom($iCurrentStaffId, 'TIEP_NHAN', $arrRecordType, $arrInputfilter);
-
+        $arrInputfilter = array('fullTextSearch'=>$sfullTextSearch,'pUrl'=>'../handle/transition','RecordTypeId'=>$sRecordTypeId);
+        $this->view->filter_form = $objrecordfun->genEcsFilterFrom($iCurrentStaffId, 'THU_LY', $arrRecordType, $arrInputfilter);
 
         $sRecordType = $arrinfoRecordType['C_RECORD_TYPE'];
         $sDetailStatusCompare = " And A.C_DETAIL_STATUS = 10" ;
         $arrRecord = $objrecordfun->eCSRecordGetAll($sRecordTypeId,$sRecordType,$iCurrentStaffId,$sReceiveDate,$sStatusList,$sDetailStatusCompare,$sRole,$sOrderClause,$sOwnerCode,$sfullTextSearch,$iPage,$iNumberRecordPerPage);
-        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../receive/viewtransition');
+        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../handle/viewtransition');
         $iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
         $this->view->iNumberRecord = $iNumberRecord;
 
