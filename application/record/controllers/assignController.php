@@ -36,7 +36,7 @@ class record_assignController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Efy_Publib_Xml');
         $objLibrary = new Efy_Library();
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','efy-js','recordtype/recordtype.js,js-record/approve.js',',','js');
+		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','efy-js','recordtype/recordtype.js,js-record/approve.js,xml/general_datatable.js',',','js');
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "ASSIGN";
         $currentModulCodeForLeft = 'ASSIGN-RECORD';

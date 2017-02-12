@@ -865,7 +865,7 @@ class record_handleController extends  Zend_Controller_Action {
             );
             //var_dump($arrParameter);exit;
             $objReceive->eCSReceiveTransitionRecordUpdate($arrParameter);
-            $this->_redirect('record/receive/transition');
+            $this->_redirect('record/handle/transition');
         }
     }
 }?>

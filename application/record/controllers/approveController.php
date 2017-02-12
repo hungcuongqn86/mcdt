@@ -38,7 +38,7 @@ class record_approveController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
         $objLibrary = new Efy_Library();
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','efy-js','/approve/approve.js,js-record/approve.js',',','js');
+		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','efy-js','/approve/approve.js,js-record/approve.js,xml/general_datatable.js',',','js');
 		//Lay tra tri trong Cookie
 		$sGetValueInCookie = $objLibrary->_getCookie("showHideMenu");
 		
@@ -393,5 +393,123 @@ class record_approveController extends  Zend_Controller_Action {
         $arFileAttach = $objSearch->DOC_GetAllDocumentFileAttach($sRecordPk, 'HO_SO', 'T_eCS_RECORD');
         $arrRecord['file'] = $arFileAttach;
         $this->view->generalhtmlinfo = $objrecordfun->generalhtmlinfo($arrConst,$arrRecord);
+    }
+
+    /**
+     *
+     */
+    public function transitionAction(){
+        $this->view->titleBody = "DANH SÁCH HỒ SƠ LIÊN THÔNG CHỜ NHẬN";
+        $objconfig = new Efy_Init_Config();
+        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objxml = new Efy_Publib_Xml();
+        $ojbEfyLib = new Efy_Library();
+
+        $arrRecordType = $_SESSION['arr_all_record_type'];
+        $sRecordTypeId = $this->_request->getParam('recordType');
+        if($sRecordTypeId == "")
+            $sRecordTypeId=$_SESSION['RECORD_TYPE'];
+        if($sRecordTypeId == "")
+            $sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];
+        $_SESSION['RECORD_TYPE']=$sRecordTypeId;
+
+        $iCurrentStaffId = $_SESSION['staff_id'];
+        $sReceiveDate = '';
+        $sStatusList = 'LIEN_THONG_CHO_NHAN';
+        $sRole = '';
+        $sOrderClause = '';
+        $sOwnerCode = $_SESSION['OWNER_CODE'];
+        $pUrl = $_SERVER['REQUEST_URI'];
+        $sfullTextSearch 	= trim($this->_request->getParam('txtfullTextSearch',''));
+        $iPage		= $this->_request->getParam('hdn_current_page',0);
+        if ($iPage <= 1){
+            $iPage = 1;
+        }
+        $iNumberRecordPerPage = $this->_request->getParam('cbo_nuber_record_page',0);
+        if ($iNumberRecordPerPage == 0)
+            $iNumberRecordPerPage = 15;
+
+        //Neu ton tai gia tri tim kiem trong session thi lay trong session
+        if(isset($_SESSION['seArrParameter'])){
+            $Parameter 			= $_SESSION['seArrParameter'];
+            $sRecordTypeId		= $Parameter['sRecordTypeId'];
+            $sfullTextSearch	= $Parameter['sfullTextSearch'];
+            $iPage				= $Parameter['iPage'];
+            $iNumberRecordPerPage = $Parameter['iNumberRecordPerPage'];
+            unset($_SESSION['seArrParameter']);
+        }
+        $arrinfoRecordType = $objrecordfun->getinforRecordType($sRecordTypeId, $arrRecordType);
+        $sRecordTypeCode = $arrinfoRecordType['C_CODE'];
+        $srecordType = $arrinfoRecordType['C_NAME'];
+        $this->view->srecordType = $srecordType;
+        $this->view->sRecordTypeCode = $sRecordTypeCode;
+        $this->view->sRecordTypeId = $sRecordTypeId;
+
+        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/ho_so_lien_thong_cho_nhan.xml';
+        if(!file_exists($sxmlFileName)){
+            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_lien_thong_cho_nhan.xml';
+        }
+
+        //Day gia tri tim kiem ra view
+        $arrInputfilter = array('fullTextSearch'=>$sfullTextSearch,'pUrl'=>'../approve/transition','RecordTypeId'=>$sRecordTypeId);
+        $this->view->filter_form = $objrecordfun->genEcsFilterFrom($iCurrentStaffId, 'PHE_DUYET', $arrRecordType, $arrInputfilter);
+
+        $sRecordType = $arrinfoRecordType['C_RECORD_TYPE'];
+        $sDetailStatusCompare = " And A.C_DETAIL_STATUS = 10" ;
+        $arrRecord = $objrecordfun->eCSRecordGetAll($sRecordTypeId,$sRecordType,$iCurrentStaffId,$sReceiveDate,$sStatusList,$sDetailStatusCompare,$sRole,$sOrderClause,$sOwnerCode,$sfullTextSearch,$iPage,$iNumberRecordPerPage);
+        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../approve/viewtransition');
+        $iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
+        $this->view->iNumberRecord = $iNumberRecord;
+
+        //Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
+        $this->view->SelectDeselectAll = $ojbEfyLib->_selectDeselectAll(sizeof($arrRecord), $iNumberRecord);
+        if (count($arrRecord) > 0){
+            $this->view->sdocpertotal = "Danh sách có: ".sizeof($arrRecord).'/'.$iNumberRecord." hồ sơ";
+            //Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
+            $this->view->generateStringNumberPage = $ojbEfyLib->_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage,$pUrl) ;
+            //Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
+            $this->view->generateHtmlSelectBoxPage = $ojbEfyLib->_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+        }
+    }
+    /**
+     *
+     */
+    public function confirmAction(){
+        $objReceive = new record_modReceive();
+        $objrecordfun = new Efy_Function_RecordFunctions();
+        // Lay id ho so
+        $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
+        $this->view->sRecordIdList = $sRecordIdList;
+        $arrRecordInfo = $objrecordfun->eCSGetInfoRecordFromListId($sRecordIdList);
+        $this->view->general_information = $objrecordfun->general_information($arrRecordInfo);
+
+        $supdate = trim($this->_request->getParam('hdn_update',""));
+        if($supdate) {
+            $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
+            $idea = $this->_request->getParam('idea');
+            $iUserId = $_SESSION['staff_id'];
+            $iUserName = $objrecordfun->getNamePositionStaffByIdList($iUserId);
+            //cac truong hop xu ly
+            $sWorkType = 'PHAN_HOI_HS_LIEN_THONG';
+            $arrParameter = array(
+                'PK_RECORD_LIST' => $sRecordIdList,
+                'C_WORKTYPE' => $sWorkType,
+                'C_SUBMIT_ORDER_CONTENT' => $idea,
+                'FK_STAFF' => '',
+                'C_POSITION_NAME' => '',
+                'C_ROLES' => '',
+                'FK_UNIT' => '',
+                'C_UNIT_NAME' => '',
+                'C_STATUS' => '',
+                'C_DETAIL_STATUS' => '',
+                'NEW_FILE_ID_LIST' => '',
+                'C_USER_ID' => $iUserId,
+                'C_USER_NAME' => $iUserName,
+                'C_OWNER_CODE' => $_SESSION['OWNER_CODE']
+            );
+            //var_dump($arrParameter);exit;
+            $objReceive->eCSReceiveTransitionRecordUpdate($arrParameter);
+            $this->_redirect('record/approve/transition');
+        }
     }
 }?>

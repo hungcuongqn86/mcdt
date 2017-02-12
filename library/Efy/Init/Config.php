@@ -13,7 +13,7 @@ class Efy_Init_Config{
 	 *	
 	 */	
 	public function _setWebSitePath(){		
-		return "/mcdt/";
+		return "/";
 	}
 	/**
 	 * Khoi tao bien xac dinh duong dan website
