@@ -458,33 +458,22 @@ class record_orderonnetController extends Zend_Controller_Action
         $sMesage = $this->_request->getParam('NOIDUNG');
         $dDate = $this->_request->getParam('C_RECEIVED_DATE');
         if ($this->getRequest()->isPost() && $option) {
-            $sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'name');
-            $sStaffPosition = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'position_code');
             $sStatus = '';
             if ($option == '1') {
-                $sStatus = 'TIEP_NHAN_SO_BO';
+                $sStatus = 'DUYET';
             } elseif ($option == 2) {
-                $sStatus = 'CHO_BO_SUNG';
+                $sStatus = 'TU_CHOI';
             }
             $arrParameter = array(
                 'PK_NET_RECORD' => $srecordId,
-                'C_RECEIVED_DATE' => $ojbEfyLib->_ddmmyyyyToYYyymmdd($dDate),
+                'C_RECEIVING_DATE' => $ojbEfyLib->_ddmmyyyyToYYyymmdd($dDate),
                 'C_STATUS' => $sStatus,
-                'C_MESSAGE' => $sMesage,
-                'FK_RECEIVER' => $_SESSION['staff_id'],
-                'C_RECEIVER_POSITION_NAME' => $sStaffPosition . ' - ' . $sStaffName,
+                'C_MESSAGE' => $sMesage
             );
 
-            var_dump($arrParameter);exit;
-            $arrResult = $objReceiveonnet->eCSNetReceiveRecordUpdate($arrParameter);
-
-            if ($sBackOption == "TIEP_NHAN_SO_BO") {
-                $this->_redirect('record/orderonnet/officialrecordlist');
-            } elseif ($sBackOption == "CHO_BO_SUNG") {
-                $this->_redirect('record/orderonnet/supplementrecordlist');
-            } else {
-                $this->_redirect('record/orderonnet/index');
-            }
+            $arrResult = $objReceiveonnet->eCSNetOrderApproveUpdate($arrParameter);
+            /*//var_dump($arrResult);exit;
+            $this->_redirect('../orderonnet/index');*/
         }
 
         if ($this->_request->getParam('hdh_option') == "QUAYLAI")

@@ -166,12 +166,22 @@ class record_modReceiveonnet extends Efy_DB_Connection {
 		};
 		return $arrTempResult;
 	}
-	/**
-	 * Ngươi tao: Tientk
-	 * Ngay tao: 01/06/2011
-	 * Ham cap nhat thong tin ho so sang bang T_eCS_Record_Work
-	 * @param array $arrParameter: Mang du lieu luu thong tin ho so
-	 */
+
+    public function eCSNetOrderApproveUpdate($arrParameter){
+        $psSql = "Exec [dbo].[eCS_NetOrderApproveUpdate] ";
+        $psSql .= "'" . $arrParameter['PK_NET_RECORD'] . "'";
+        $psSql .= ",'" . $arrParameter['C_RECEIVING_DATE'] . "'";
+        $psSql .= ",'" . $arrParameter['C_STATUS'] . "'";
+        $psSql .= ",'" . $arrParameter['C_MESSAGE'] . "'";
+        //echo htmlspecialchars($psSql); exit;
+        try {
+            $arrTempResult = $this->adodbExecSqlString($psSql) ;
+        }catch (Exception $e){
+            echo $e->getMessage();
+        };
+        return $arrTempResult;
+    }
+
 	public function eCSRecordWorkSystemUpdate($arrParameter){
 		$psSql = "Exec [dbo].[eCS_RecordWorkSystemUpdate] ";	
 		$psSql .= "'" . $arrParameter['PK_RECORD_WORK'] . "'";

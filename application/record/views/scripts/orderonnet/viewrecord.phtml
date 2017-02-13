@@ -31,15 +31,6 @@
 						<label><?php echo $arrConst['_LOAI_HO_SO'];?></label>
 						<input disabled value = "<?=$this->RecodeTypeName?>" class="textbox" style="width:60%;"  id ="C_RECORDTYPE" name="C_RECORDTYPE" type="text"  xml_tag_in_db="" xml_data="false" column_name="C_RECORDTYPE"  />
 					</div>
-										
-					<div>
-						<label>Mã đăng ký</label>
-						<input readonly class="textbox" style="width:20%;" value = "<?= $this->RecodeCode?>"  id ="C_CODE" name="C_CODE" type="text" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_CODE"  />
-					</div>
-					<div>
-						<label>Ngày đăng ký</label>
-						<input class="textbox" style="width:15%;"  id ="C_RECEIVED_DATE" name="C_RECEIVED_DATE" type="text" isdate="true" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_RECEIVED_DATE" message="<?php echo "NGÀY TIẾP NHẬN không đúng định dạng ngày/tháng/năm!";?>" value = "<?=date("d/m/Y")?>"  onKeyUp="DateOnkeyup(this,event)" />							
-					</div> 
 				</div>
                 <?php echo $this->generateFormHtml;?>
 				
@@ -61,7 +52,15 @@
 				<?php echo $this->formHidden("htn_leftModule",$this->currentModulCodeForLeft,null); ?>	
 				<?php echo $this->formHidden("hdn_back_option",$this->sBackOption,null);?>
 				<div id= "header_update_form">
-					<div>
+                    <div>
+                        <label>Mã đăng ký</label>
+                        <input readonly class="textbox" style="width:20%;" value = "<?= $this->RecodeCode?>"  id ="C_CODE" name="C_CODE" type="text" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_CODE"  />
+                    </div>
+                    <div>
+                        <label>Ngày đăng ký</label>
+                        <input class="textbox" style="width:15%;"  id ="C_RECEIVED_DATE" name="C_RECEIVED_DATE" type="text" isdate="true" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_RECEIVED_DATE" message="<?php echo "NGÀY TIẾP NHẬN không đúng định dạng ngày/tháng/năm!";?>" value = "<?=date("d/m/Y")?>"  onKeyUp="DateOnkeyup(this,event)" />
+                    </div>
+                    <div>
 						<label>Duyệt nội dung đăng ký</label>
 						<div style = "float:right;width:70%">
 							<input type='radio' id = 'optionduyet1' name='optionduyet' class='normal_checkbox'  value="1" title="Chấp thuận và hẹn công dân mang hồ sơ gốc đến" message='' checked="checked"  />
