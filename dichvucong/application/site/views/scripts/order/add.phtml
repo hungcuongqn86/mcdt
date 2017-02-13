@@ -1,5 +1,6 @@
 ﻿<?php
 $data = $this->data;
+$arrAllOwner = $this->arrAllOwner;
 ?>
 <form action="index" method="POST" name="frmUpdateRecord" id="frmUpdateRecord" autocomplete="off" enctype="multipart/form-data">
     <?php echo $this->formHidden("hdn_type","",null); ?>
@@ -45,11 +46,29 @@ $data = $this->data;
                 <input type="text" xml_data="false" name="C_RECORDTYPE" id="C_RECORDTYPE" class="normal_textbox record_type_name" value="<?=$data['RecodeTypeName'];?>" disabled="">
             </div>
             <div class="normal_label" for="">
-                <label class="normal_label">Mã hồ sơ</label>
+                <label class="normal_label">Nơi đăng ký</label>
+                <select class="normal_selectbox" id="owner-re" name="owner-re">
+                    <?php
+                    $option = '';
+                    for ($i=0; $i < sizeof($arrAllOwner); $i++) {
+                        if($arrAllOwner[$i]['C_CODE']==$data['C_UNIT']){
+                            $option .= '<option selected code="' . $arrAllOwner[$i]['C_CODE'] . '" value="' . $arrAllOwner[$i]['C_CODE'] . '">' . $arrAllOwner[$i]['C_NAME'] . '</option>';
+                        }else{
+                            $option .= '<option code="' . $arrAllOwner[$i]['C_CODE'] . '" value="' . $arrAllOwner[$i]['C_CODE'] . '">' . $arrAllOwner[$i]['C_NAME'] . '</option>';
+                        }
+
+                    }
+
+                    echo $option;
+                    ?>
+                </select>
+            </div>
+            <div class="normal_label" for="">
+                <label class="normal_label">Mã đăng ký</label>
                 <input type="text" xml_data="false" option="false" name="C_CODE" id="C_CODE" value="<?=$data['RecodeCode'];?>" style="width:20%;margin-top:3px;" class="normal_textbox" readonly="">
             </div>
             <div class="normal_label" for="">
-                <label class="normal_label">Ngày gửi<span class="requiein">*</span></label>
+                <label class="normal_label">Ngày đăng ký<span class="requiein">*</span></label>
                 <input type="text" onkeyup="DateOnkeyup(this,event)" value="<?=$data['C_RECEIVED_DATE'];?>" message="NGÀY TIẾP NHẬN không đúng định dạng ngày/tháng/năm!" xml_data="false" option="false" isdate="true" name="received_date" id="received_date" style="width:20%;" class="normal_textbox"  date="isdate">
             </div>
         </div>
@@ -57,7 +76,7 @@ $data = $this->data;
         <div class="task_bottom">
             <?php
             if (in_array($data['status'], array('CHO_BO_SUNG', 'CHO_TIEP_NHAN_SO_BO'))) { ?>
-                <input class="but_formfield clsave" type="button" value="Gửi hồ sơ"/>
+                <input class="but_formfield clsave" type="button" value="Đăng ký"/>
             <?php
             }
             ?>

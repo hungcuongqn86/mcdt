@@ -10,16 +10,15 @@
  *
  */
 class record_modReceiveonnet extends Efy_DB_Connection {
-/**
- * Idea: Ham lay thong tin tat ca ho so da nhan qua mang
- * Enter description here ...
- * @param unknown_type $sRecordTypeID
- * @param unknown_type $sFullTextSearch
- * @param unknown_type $sRecordStatus
- * @param unknown_type $iPage
- * @param unknown_type $iNumberRecordPerPage
- * @return unknown
- */		
+    /**
+     * @param $sRecordTypeID
+     * @param $sUnit
+     * @param $sFullTextSearch
+     * @param $sRecordStatus
+     * @param $iPage
+     * @param $iNumberRecordPerPage
+     * @return Mang
+     */
 	public function eCSNetReceiveRecordGetAll($sRecordTypeID,$sUnit,$sFullTextSearch,$sRecordStatus,$iPage,$iNumberRecordPerPage){		
 		$objConn = new  Efy_DB_Connection(); 
 		$sql = "Exec eCS_NetReceiveRecordGetAll ";
@@ -39,16 +38,45 @@ class record_modReceiveonnet extends Efy_DB_Connection {
 		}		
 		return $arrRecord;
 	}
-	/**
- * Idea: Ham lay thong tin tat ca ho so da nhan qua mang
- * Enter description here ...
- * @param unknown_type $sRecordTypeID
- * @param unknown_type $sFullTextSearch
- * @param unknown_type $sRecordStatus
- * @param unknown_type $iPage
- * @param unknown_type $iNumberRecordPerPage
- * @return unknown
- */		
+
+    /**
+     * @param $sRecordTypeID
+     * @param $sUnit
+     * @param $sFullTextSearch
+     * @param $sRecordStatus
+     * @param $iPage
+     * @param $iNumberRecordPerPage
+     * @return Mang
+     */
+    public function eCSNetOrderGetAll($sRecordTypeID,$sUnit,$sFullTextSearch,$sRecordStatus,$iPage,$iNumberRecordPerPage){
+        $objConn = new  Efy_DB_Connection();
+        $sql = "Exec eCS_NetOrderGetAll ";
+        $sql = $sql . "'" .  $sRecordTypeID . "'";
+        $sql = $sql . ",'" . $sUnit . "'";
+        $sql = $sql . ",'" . $sFullTextSearch . "'";
+        $sql = $sql . ",'" . $sRecordStatus . "'";
+        $sql = $sql . ",'" . $iPage . "'";
+        $sql = $sql . ",'" . $iNumberRecordPerPage . "'";
+
+        //echo $sql . '<br>';//exit;
+        try{
+            //Thuc thi lenh sql va tra ra mot mang 1 chieu
+            $arrRecord = $objConn->adodbQueryDataInNameMode($sql);
+        }catch (Exception $e){
+            echo $e->getMessage();
+        }
+        return $arrRecord;
+    }
+
+    /**
+     * @param $sRecordTypeID
+     * @param $sUnit
+     * @param $sFullTextSearch
+     * @param $sRecordStatus
+     * @param $iPage
+     * @param $iNumberRecordPerPage
+     * @return Mang
+     */
 	public function eCSNetOfficialRecordGetAll($sRecordTypeID,$sUnit,$sFullTextSearch,$sRecordStatus,$iPage,$iNumberRecordPerPage){		
 		$objConn = new  Efy_DB_Connection(); 
 		$sql = "Exec eCS_NetOfficialRecordGetAll ";

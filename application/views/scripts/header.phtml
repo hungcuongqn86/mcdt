@@ -56,7 +56,11 @@ $objfunction = new Efy_Function_RecordFunctions();
                     $urlRe = $this->baseUrl . "../record/receiveonnet/index/";?>
                     <li id ="header_receiveonnet" align="left" style="cursor:pointer;" onclick="href('<?=$urlRe;?>')"><?=$arrConst['_HS_QUA_MANG']?></li>
                 <?php }?>
-
+                <?php
+                if($objfunction->eCSPermisstionReceiverForRecordType($_SESSION['staff_id'],$_SESSION['arr_all_record_type'])){
+                    $urlRe = $this->baseUrl . "../record/orderonnet/index/";?>
+                    <li id ="header_orderonnet" align="left" style="cursor:pointer;" onclick="href('<?=$urlRe;?>')">Đăng ký giao dịch</li>
+                <?php }?>
                 <!--TN&TKQ--><?php
                 if($objfunction->eCSPermisstionReceiverForRecordType($_SESSION['staff_id'],$_SESSION['arr_all_record_type'])){
                     if($sOwnerCode==$sOwnerCodeRoot){
@@ -132,6 +136,9 @@ $objfunction = new Efy_Function_RecordFunctions();
     //ho so qua mang
     if ($sCurrentModulCode == "RECEIVE-ON-NET"){ ?>
     document.getElementById('header_receiveonnet').className="visited";<?php
+    }
+    if ($sCurrentModulCode == "ORDER-ON-NET"){ ?>
+    document.getElementById('header_orderonnet').className="visited";<?php
     }
     //Danh muc
     if ($sCurrentModulCode == "LIST"){ ?>

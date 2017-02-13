@@ -65,7 +65,8 @@ class orderController extends Zend_Controller_Action
                 'currentPage' => $this->_request->getParam('hdn_current_page', '1'),
                 'numberRecordPerPage' => $this->_request->getParam('hdn_record_number_page', '15')
             );
-        $arrResult = $dbconnect->_querySql($arrInput, 'dbo.eCS_NetRecordGetAllByType', 1, 0);
+        //echo $arrResult = $dbconnect->_querySql($arrInput, 'dbo.eCS_NetOrderGetAllByType', 1, 1);exit;
+        $arrResult = $dbconnect->_querySql($arrInput, 'dbo.eCS_NetOrderGetAllByType', 1, 0);
         if ($arrResult) {
             $arrResult = G_Xml::getInstance()->parseDataXml($xmlFile, 'list_of_object/list_body/col', $arrResult, 'C_XML_DATA');
         }
@@ -106,7 +107,8 @@ class orderController extends Zend_Controller_Action
         $recordTypeCode = $this->_request->getParam('recordTypeCode', '');
         $recordtype = $this->_request->getParam('recordtype', '');
         $recordId = $this->_request->getParam('recordId', '');
-        
+        $dbconnect = new  G_Db();
+
         $myRecord = new Zend_Session_Namespace('Record');
         $myRecord->setExpirationSeconds(900);
         $myRecord->recordTypeCode = $recordTypeCode;
@@ -114,10 +116,16 @@ class orderController extends Zend_Controller_Action
         $myRecord->recordId = $recordId;
         $xmlFile = $this->getDirectoryFileXml($recordTypeCode, 'formfield');
         $record = array();
+        $arrAllOwner = $dbconnect->_querySql(array('','DM_DON_VI_TRIEN_KHAI'), 'DBLink.[ecs-user-qb].dbo.USER_OwnerGetAll', 1, 0);
+        $this->view->arrAllOwner = $arrAllOwner;
+        /*var_dump($arrAllOwner);
+        exit;*/
+        //echo $recordId;exit;
         if ($recordId) {
             $this->view->bodyTitle = "CHỈNH SỬA HỒ SƠ";
-            $dbconnect = new  G_Db(); 
-            $record = $dbconnect->_querySql(array('recordId' => $recordId), 'dbo.eCS_NetRecordGetSingle', 0, 0);
+
+            $record = $dbconnect->_querySql(array('recordId' => $recordId), 'dbo.eCS_NetOrderGetSingle', 0, 0);
+            //var_dump($record);exit;
             $recordCode = $record['C_CODE'];
             $myRecord->inputDate = $record['C_INPUT_DATE'];
             $status = $record['C_STATUS'];
@@ -133,6 +141,7 @@ class orderController extends Zend_Controller_Action
                 'RecodeCode' => $recordCode,
                 'RecodeTypeName' =>  $this->_request->getParam('recordTypeName', ''),
                 'C_RECEIVED_DATE' => $received_date,
+                'C_UNIT' => $record['C_UNIT'],
                 'status' => $status,
             );
         $formUpdate = $objXml->_xmlGenerateFormfield($xmlFile, 'update_object/table_struct_of_update_form/update_row_list/update_row', 'update_object/update_formfield_list', 'C_XML_DATA', $record, false, false);
@@ -208,43 +217,16 @@ class orderController extends Zend_Controller_Action
                 'C_XML_DATA' => $strXml,
                 'C_STATUS' => 'CHO_TIEP_NHAN_SO_BO',
                 'C_MESSAGE' => '',
-                'C_UNIT' =>$user->sOwnerCode
+                'C_UNIT' => $this->_request->getParam('owner-re','')
             );
-            var_dump($arrInput);
-            exit;
+
             $dbconnect->BeginTrans();
-            $arrResult = $dbconnect->_querySql($arrInput, 'dbo.eCS_NetRecordUpdate', 0, 0);
+            $arrResult = $dbconnect->_querySql($arrInput, 'dbo.eCS_NetOrderUpdate', 0, 0);
             if ($arrResult) {
                 $resp = array('error' => false, 'msg' => 'Gửi thành công!');
-                // Thuc hien update file dinh kem
-                $sFileAttachList = $this->_request->getParam('sFileAttachList', '');
-                if ($sFileAttachList) {
-                    $paramFile = array(
-                            'sFileAttachList' => $sFileAttachList,
-                            'sDocTypeList' => $this->_request->getParam('sDocTypeList', ''),
-                            'sDelimitor' => $this->_request->getParam('sDelimitor', ''),
-                            'sUnFileAttachList' => $this->_request->getParam('sUnFileAttachList', ''),
-                            'locationList' => $this->_request->getParam('locationList', ''),
-                            'key' => $arrResult['NEW_ID']
-                        );
-                    $files = G_Lib::getInstance()->fileUpdate($paramFile);
-
-                    $arrInput = array(
-                            'fkDoc' => $files['fkDoc'],
-                            'fileList' => $files['fileList'],
-                            'doctypeList' => $files['doctypeList'],
-                            'tableName' => 'T_eCS_NET_RECORD',
-                            'sDelimitor' => $files['sDelimitor']
-                        );
-                    $rs = $dbconnect->_querySql($arrInput, 'dbo.sp_SysFileUpdate', 0, 0);
-
-                    if (empty($rs) || $rs == false) {
-                        $resp = array('error' => true, 'msg' => 'Lỗi cập nhật File!');
-                    }
-                }
             } else {
                 $resp = array('error' => true, 'msg' => 'Lỗi cập nhật CSDL!');
-            }            
+            }
             
             // Cap nhat CSDL
             if ($resp['error'] == false) {

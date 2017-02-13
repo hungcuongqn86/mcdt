@@ -226,18 +226,9 @@ $.extend(site_order.prototype, {
             url = this.urlPath + '/save';
         self._savetagxml();
         if (verify(document.forms['frmUpdateRecord'])) {
-            if(uploading > 0) {
-                showloadpage();
-                done2submit = 1;
-                return fndone2submit = function() {
-                    self.save()
-                }
-            }
             //Lay lai ngay gio chuan
             dateVerify();
-            var sData = getDataAttachFile(self.frmUpdate, 1);
             var data = $(self.frmUpdate).serialize();
-            data += sData;
             this.loadding = true;
             $.ajax({
                 url: url,
