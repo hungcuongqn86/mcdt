@@ -310,6 +310,10 @@ class record_approveController extends  Zend_Controller_Action {
                     $sStatus = 'TRA_LAI';
                     $sDetailStatus = '21';
                     break;
+                case 'LD_PHONG_TRALAI_VPDK':
+                    $sStatus = 'TRINH_KY';
+                    $sDetailStatus = '21';
+                    break;
                 case 'CHUYEN_CAN_BO_XL':
                     $sStatus = 'THU_LY';
                     $sDetailStatus = '21';

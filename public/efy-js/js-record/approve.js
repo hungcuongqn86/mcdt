@@ -63,6 +63,10 @@ record_approve.prototype.loadApproveEven = function () {
         if(value=='LD_PHONG_TRALAI'){
             $('#idea').val('Trả lại cán bộ phụ trách, thụ lý lại hồ sơ!');
         }
+        if(value=='LD_PHONG_TRALAI_VPDK'){
+            $('#idea').val('HS sai, trả lại lãnh đạo VPĐK QSDĐ thụ lý lại hồ sơ!');
+        }
+
         if(value=='CHUYEN_CAN_BO_XL'){
             $('#div_LeaderLv3').hide();
             $('#div_LeaderLv2').hide();
