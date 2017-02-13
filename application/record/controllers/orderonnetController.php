@@ -179,7 +179,7 @@ class record_orderonnetController extends Zend_Controller_Action
         // var_dump($arrRecord);exit;
         //Hien thi thong tin ho so
         //echo $sxmlFileName;
-        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName, 'col', $arrRecord, "C_XML_DATA", "PK_NET_RECORD", $sfullTextSearch, false, false, '../viewrecord/');
+        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName, 'col', $arrRecord, "C_XML_DATA", "PK_NET_ORDER", $sfullTextSearch, false, false, '../viewrecord/');
         $iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
         $this->view->iNumberRecord = $iNumberRecord;
         $sdocpertotal = "Danh sách này không có hồ sơ nào";
@@ -390,47 +390,11 @@ class record_orderonnetController extends Zend_Controller_Action
     }
 
     /**
-     * Creater : Tientk
-     * Date : 17/05/2011
-     * Idea : Tao phuong thuc xoa danh sach cac HS da chon
-     * Enter description here ...
-     */
-    public function deleteAction()
-    {
-        $objrecordfun = new Efy_Function_RecordFunctions();
-        $objReceiveonnet = new record_modReceiveonnet();
-        $objconfig = new Efy_Init_Config();
-        $sNetReceiveRecordIDList = $this->_request->getParam('hdn_object_id_list', '');
-        $sRetError = $objReceiveonnet->eCSNetReceiveRecordDelete($sNetReceiveRecordIDList);
-        //Luu cac dieu kien tim kiem len session
-        /*if(!isset($_SESSION['seArrParameter'])){
-            $sfullTextSearch 	= trim($this->_request->getParam('txtfullTextSearch',''));
-            $sRecordTypeId 		= $this->_request->getParam('recordType');
-            $iPage				= $this->_request->getParam('hdn_current_page',0);
-            $iNumberRecordPerPage = $this->_request->getParam('cbo_nuber_record_page',0);
-            if ($iPage <= 1){
-                $iPage = 1;
-            }
-            if ($iNumberRecordPerPage == 0)
-                $iNumberRecordPerPage = 15;
-            $arrParaSet = array("iPage"=>$iPage, "iNumberRecordPerPage"=>$iNumberRecordPerPage,"sfullTextSearch"=>$sfullTextSearch,"sRecordTypeId"=>$sRecordTypeId);
-            $_SESSION['seArrParameter'] = $arrParaSet;
-        }*/
-        if ($sRetError != null || $sRetError != '') {
-            echo "<script type='text/javascript'> alert('Xo�?a hồ sơ thành công')</script>";
-        } else
-            $this->_helper->redirector->gotoUrl('/record/receiveonnet/index/');
-    }
-
-    /**
-     * Creater : Tientk
-     * Date : 18/05/2011
-     * Idea : Tao phuong thuc xem chi tiet ho so trong danh sach ho so.
-     * Enter description here ...
+     *
      */
     public function viewrecordAction()
     {
-        $this->view->titleBody = "CHI TIẾT HỒ SƠ";
+        $this->view->titleBody = "CHI TIẾT ĐĂNG KÝ GIAO DỊCH";
         $objconfig = new Efy_Init_Config();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Efy_Publib_Xml();
@@ -455,34 +419,26 @@ class record_orderonnetController extends Zend_Controller_Action
         $sRecordTypeCode = $arrinfoRecordType['C_CODE'];
         If ($sRecordTypeCode == '')
             $sRecordTypeCode = '00';
-        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/' . $sRecordTypeCode . '/ho_so_da_tiep_nhan.xml';//Thay doi file xml
+        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/' . $sRecordTypeCode . '/dang_ky_giao_dich.xml';//Thay doi file xml
         if (!file_exists($sxmlFileName)) {
-            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/other/ho_so_da_tiep_nhan.xml';
+            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/other/dang_ky_giao_dich.xml';
         }
+
         //var_dump($sRecordTypeCode);exit;
         $this->view->RecodeTypeName = $arrinfoRecordType['C_NAME'];
         //Lay thong tin cua mot ho so
         $srecordId = $this->_request->getParam('hdn_object_id', '');//echo '$srecordId:'.$srecordId ;exit;
         $this->view->srecordId = $srecordId;
-        $arrRecordInfo = $objReceiveonnet->eCSNetReceiveRecordGetSingle($srecordId);//Dung ham trong mod
-        $sRecordTransitionId = $arrRecordInfo[0]['PK_RECORD_TRANSITION'];
-        //Khong duoc phep chinh sua ho so lien thong
-        if ($sRecordTransitionId != '')
-            $this->view->sRecordTransitionId = $sRecordTransitionId;
-        $arrSingleRecord = $objReceiveonnet->eCSNetReceiveRecordGetSingle($srecordId);
-        //var_dump($arrRecordInfo);exit;
+
+        $arrSingleRecord = $objReceiveonnet->eCSNetOrderGetSingle($srecordId);
+        //var_dump($arrSingleRecord);exit;
         $this->view->arrSingleRecord = $arrSingleRecord;
-        $this->view->RecodeCode = $arrSingleRecord[0]['C_CODE'];// var_dump($arrSingleRecord[0]['C_CODE']) ;exit;
-        if ($this->_request->getParam('rc') != '')
-            $this->view->RecodeCode = $objrecordfun->generateRecordCode($sRecordTypeCode);
-        //Lay thong tin file dinh kem
-        $arrFileNameUpload = $ojbEfyLib->_uploadFileList(10, $this->_request->getBaseUrl() . "/public/attach-file/", 'FileName', '!#~$|*');
+        $this->view->RecodeCode = $arrSingleRecord[0]['C_CODE'];
+
         //Bien xac dinh sau khi update thi quay lai man hinh danh sach nao? Tiep nhan so bo hay Tiep nhan chinh thuc?...
         $sBackOption = trim($this->_request->getParam('hdn_back_option', ''));
         $this->view->sBackOption = $sBackOption;
-        //file dinh kem
-        $arFileAttach = array();
-        $this->view->AttachFile = $objrecordfun->DocSentAttachFile($arFileAttach, sizeof($arFileAttach), 10, true, 50);
+
         //Luu cac dieu kien tim kiem len session
         if (!isset($_SESSION['seArrParameter'])) {
             $sfullTextSearch = trim($this->_request->getParam('txtfullTextSearch', ''));
@@ -499,8 +455,8 @@ class record_orderonnetController extends Zend_Controller_Action
         }
         //lay gia tri ben view
         $option = $this->_request->getParam('optionduyet');
-        $dDate = $this->_request->getParam('C_ORIGINAL_APPLICATION_DATE');
         $sMesage = $this->_request->getParam('NOIDUNG');
+        $dDate = $this->_request->getParam('C_RECEIVED_DATE');
         if ($this->getRequest()->isPost() && $option) {
             $sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'name');
             $sStaffPosition = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'position_code');
@@ -512,51 +468,33 @@ class record_orderonnetController extends Zend_Controller_Action
             }
             $arrParameter = array(
                 'PK_NET_RECORD' => $srecordId,
-                'C_PRELIMINARY_DATE' => '',
-                'C_ORIGINAL_APPLICATION_DATE' => $ojbEfyLib->_ddmmyyyyToYYyymmdd($dDate),
-                'C_RECEIVING_DATE' => '',
+                'C_RECEIVED_DATE' => $ojbEfyLib->_ddmmyyyyToYYyymmdd($dDate),
                 'C_STATUS' => $sStatus,
                 'C_MESSAGE' => $sMesage,
                 'FK_RECEIVER' => $_SESSION['staff_id'],
                 'C_RECEIVER_POSITION_NAME' => $sStaffPosition . ' - ' . $sStaffName,
             );
+
+            var_dump($arrParameter);exit;
             $arrResult = $objReceiveonnet->eCSNetReceiveRecordUpdate($arrParameter);
-            if ($arrResult) {
-                $arrParameterwork = array(
-                    'PK_RECORD_WORK' => '',
-                    'FK_RECORD' => $arrResult['NEW_ID'],
-                    'FK_STAFF' => $_SESSION['staff_id'],
-                    'C_POSITION_NAME' => $sStaffPosition . ' - ' . $sStaffName,
-                    'C_WORKTYPE' => $sStatus,
-                    'C_RESULT' => $sMesage,
-                    'C_SYSTEM_WORKTYPE' => '0',
-                    'C_WORK_DATE' => date('Y-m-d'),
-                    'C_OWNER_CODE' => $_SESSION['OWNER_CODE'],
-                    'sNewAttachFileNameList' => '',
-                );
-                $arrResultwork = $objReceiveonnet->eCSRecordWorkSystemUpdate($arrParameterwork);
-            }
+
             if ($sBackOption == "TIEP_NHAN_SO_BO") {
-                $this->_redirect('record/receiveonnet/officialrecordlist/');
+                $this->_redirect('record/orderonnet/officialrecordlist');
             } elseif ($sBackOption == "CHO_BO_SUNG") {
-                $this->_redirect('record/receiveonnet/supplementrecordlist/');
+                $this->_redirect('record/orderonnet/supplementrecordlist');
             } else {
-                $this->_redirect('record/receiveonnet/index/');
+                $this->_redirect('record/orderonnet/index');
             }
         }
+
         if ($this->_request->getParam('hdh_option') == "QUAYLAI")
-            $this->_redirect('record/receiveonnet/index/');
+            $this->_redirect('record/orderonnet/index');
         $this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row', 'update_object/update_formfield_list', 'C_XML_DATA', $arrSingleRecord, true, true);
         $this->view->generateCalendar = $objxml->_xmlGenerateCalendar($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row', 'update_object/update_formfield_list', '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
-
     }
 
-    //----------------------------------------------------------------------------------------------------------------------------------//
     /**
      *
-     * Creater : Tientk
-     * Date : 31/05/2011
-     * Idea : Tao phuong thuc gui mail thong bao cho cong dan
      */
     Public function sendmailAction()
     {
@@ -617,9 +555,7 @@ class record_orderonnetController extends Zend_Controller_Action
                 echo "<script type='text/javascript'> alert('Gửi mail thành công')</script>";
             } else {
                 echo "<script type='text/javascript'> alert('Gửi mail thất bại')</script>";
-
             }
-
         }
     }
 }

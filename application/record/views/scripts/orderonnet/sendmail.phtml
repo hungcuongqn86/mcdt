@@ -55,20 +55,20 @@
 						</div>
 											
 						<div>
-							<label><?php echo $arrConst['_MA_HO_SO'];?></label>
+							<label>Mã đăng ký</label>
 							<input readonly class="textbox" style="width:20%;" value = "<?= $this->RecodeCode?>"  id ="C_CODE" name="C_CODE" type="text" option ="false"  xml_data="false" column_name="C_CODE"  />
 						</div>
 					</div>
 						<?php echo $this->generateFormHtml;?>
 						
 					<div id= "header_update_form">
-						<div style = "clear:both;">
+						<!--<div style = "clear:both;">
 								<label >Tên công dân</label>
-								<input id='fullname' name='fullname' class="textbox" style="width:60%;height:10%;"  value="<?php echo $this->fullname?>"/>
-						</div>
+								<input id='fullname' name='fullname' class="textbox" style="width:60%;height:10%;"  value="<?php /*echo $this->fullname*/?>"/>
+						</div>-->
 						<div style = "clear:both;">
 								<label>Email công dân</label>
-								<input id='useremail' name='useremail' class="textbox" style="width:74%;height:10%;"  value='<?php echo $this-> email?>'/>
+								<input id='useremail' name='useremail' class="textbox" style="width:74%;height:10%;"  value='chienbn@gmail.com'/>
 						</div>
 						<div style = "clear:both;">
 								<label>Email của phòng tiếp nhận</label>
@@ -76,19 +76,18 @@
 						</div>
 						<div style = "clear:both;">
 								<label>Tiêu đề mail</label>
-								<input id='emailtitle' name='mailtitle' class="textbox" style="width:74%;height:10%;" value="<?=G_User::getInstance()->getIdentity()->C_UNIT_NAME;?>"/>
+								<input id='emailtitle' name='mailtitle' class="textbox" style="width:74%;height:10%;" value="<?=G_User::getInstance()->getIdentity()->C_UNIT_NAME;?> THÔNG BÁO ĐĂNG KÝ GIAO DỊCH TTHC"/>
 						</div>
 						<div style = "clear:both;">
 								<label>Nội dung thông báo</label>
-								<textarea id='emailcontent' name='emailcontent' class="normal_textarea"  >Hồ sơ của ông/bà không hợp lệ. Yêu cầu ông/bà sớm sửa đổi</textarea>
+								<textarea id='emailcontent' name='emailcontent' class="normal_textarea"  >Đăng ký giao dịch của ông/bà <?php echo $this->fullname?> đã được duyệt. Đề nghị ông/bà đem hồ sơ gốc đến giao dịch tại Một cửa <?=G_User::getInstance()->getIdentity()->C_UNIT_NAME;?> theo đúng thời gian hẹn đăng ký.</textarea>
 						</div>
-
 					</div>
 				</div>
 				<!--Hien thi nut!-->
 				<div id="button">
 					<button name="btn_guimail" id="gui_mail" type="button" value="Gửi mail" class="add_large_button" onClick="document.getElementById('hdh_option').value='GUI_MAIL',actionUrl('');"><?='Gửi mail'?></button>					
-					<input type="button" style="margin-left:0px;" name="quaylai" id="quaylai" value="<?='Quay l&#7841;i'?>" onClick="actionUrl('../index/');" class="add_large_button">						
+					<input type="button" style="margin-left:0px;" name="quaylai" id="quaylai" value="<?='Quay l&#7841;i'?>" onClick="actionUrl('../orderonnet/index');" class="add_large_button">
 				</div>	
 			</td>
 		</tr>	

@@ -111,14 +111,11 @@ class record_modReceiveonnet extends Efy_DB_Connection {
 		};				
 		return $Result;	
 	}
-/**
- 	* Nguoi tao: Tientk
-	* Ngay tao: 18/05/2011
-	* Y nghia: Lay chi tiet mot ho so
-	* adodbExecSqlString: lay mang 1 chieu
-	* adodbQueryDataInNameMode: lay mang da chieu
- 	* @param unknown_type $sRecordTypeID
-*/
+
+    /**
+     * @param $sRecordTypeID
+     * @return Mang|null
+     */
 	public function eCSNetReceiveRecordGetSingle($sRecordTypeID){
 		$arrResult = null;
 		$sql = "Exec eCS_NetReceiveRecordGetSingle ";
@@ -132,36 +129,25 @@ class record_modReceiveonnet extends Efy_DB_Connection {
 		};
 		return $arrResult;
 	}
-	/**
-	 * Ham lay danh sach ho so tiep nhan chinh thuc
-	 * @param unknown_type $sRecordTypeId -- ma ho so
-	 * @param unknown_type $sOwnerCode	-- Ma don vi su dung
-	 * @param unknown_type $sfulltextsearch -- Tu, cum tu tim kiem
-	 * @param unknown_type $iPage -- Trang hien thoi
-	 * @param unknown_type $iNumberRecordPerPage -- So ho so tren trang
-	 *
-	public function eCSOfficialRecordGetAll($sRecordTypeId,$sOwnerCode, $sfulltextsearch, $iPage, $iNumberRecordPerPage){		
-		$objConn = new  Efy_DB_Connection(); 
-		$sql = "Exec eCS_RecordTransitionGetAll ";
-		$sql = $sql . "'" . $sRecordTypeId . "'";
-		$sql = $sql . ",'" . $sOwnerCode . "'";
-		$sql = $sql . ",'" . $sfulltextsearch . "'";
-		$sql = $sql . ",'" . $iPage . "'";
-		$sql = $sql . ",'" . $iNumberRecordPerPage . "'";	
-		echo $sql . '<br>';// exit;
-		try{
-			$arrResul = $this->adodbQueryDataInNameMode($sql);
-		}catch (Exception $e){
-			echo $e->getMessage();
-		}		
-		return $arrResul;
-	}*/
-	/**
-	 * Ngươi tao: Tientk
-	 * Ngay tao: 20/05/2011
-	 * Ham cap nhat thong tin mot ho so
-	 * @param array $arrParameter: Mang du lieu luu thong tin ho so
-	 */
+
+    /**
+     * @param $sRecordTypeID
+     * @return Mang|null
+     */
+    public function eCSNetOrderGetSingle($sRecordID){
+        $arrResult = null;
+        $sql = "Exec eCS_NetOrderGetSingle ";
+        $sql .= "'" . $sRecordID . "'";
+        //echo $sql; exit;
+        try{
+            //Thuc thi lenh sql va tra ra mot mang 2 chieu
+            $arrResult = $this->adodbQueryDataInNameMode($sql);
+        }catch (Exception $e){
+            echo $e->getMessage();
+        };
+        return $arrResult;
+    }
+
 	public function eCSNetReceiveRecordUpdate($arrParameter){
 		$psSql = "Exec [dbo].[eCS_NetReceiveRecordUpdate] ";	
 		$psSql .= "'" . $arrParameter['PK_NET_RECORD'] . "'";

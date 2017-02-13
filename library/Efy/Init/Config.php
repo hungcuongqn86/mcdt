@@ -560,7 +560,7 @@ class Efy_Init_Config{
 	public static function configMail() {
 		return array(
 			'mail_name' => 'dichvuconglethuy@gmail.com',
-			'mail_password' => 'lethuy@123'
+			'mail_password' => 'lethuy@123456qwerty'
 			);
 	}
 }

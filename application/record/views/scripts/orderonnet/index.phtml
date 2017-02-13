@@ -27,13 +27,13 @@
 			<td align="right" colspan="2">
 				<div style="text-align:right; width:98%;">
 					<label>
-							<a   class="small_link"  onclick="btn_update_onclick(document.getElementsByName('chk_item_id'),'../viewrecord/')">  <?=$arrConst['_DUYET']?> | </a>
+							<a   class="small_link"  onclick="btn_update_onclick(document.getElementsByName('chk_item_id'),'../orderonnet/viewrecord')">  <?=$arrConst['_DUYET']?> | </a>
                         <?php
                         if(in_array(G_User::getInstance()->getIdentity()->C_ROLE, array('ADMIN', 'ADMIN_SYSTEM'))){?>
                             <a   class="small_link"  onclick="btn_delete_onclick(document.getElementsByName('chk_item_id'),document.getElementById('hdn_object_id_list'),'../delete/','<?=$this->UrlAjax?>','HO_SO','T_eCS_NET_RECORD');">  <?=$arrConst['_XOA']?> | </a>
                         <?php
                         }?>
-							<a   class="small_link"  onclick="btn_update_onclick(document.getElementsByName('chk_item_id'),'../sendmail/')"><?=$arrConst['_GUI_THONG_BAO']?></a>
+							<a   class="small_link"  onclick="btn_update_onclick(document.getElementsByName('chk_item_id'),'../orderonnet/sendmail')"><?=$arrConst['_GUI_THONG_BAO']?></a>
 
 					</label>
 				</div>	
