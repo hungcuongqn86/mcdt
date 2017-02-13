@@ -23,18 +23,6 @@
 		<?=$this->titleBody;?>				
 	</div>
 	<?php echo $this->filter_form;?>
-	<table width='99%'  border='0' cellspacing='0' cellpadding='0' class="table_title">
-		<col width="85%" align="left"/><col width="15%" align="right"/>
-		<tr>
-			<td align="right" colspan="2">
-				<div style="text-align:right; width:98%;">
-					<label>
-						<a   class="small_link"  onclick="btn_update_onclick(document.getElementsByName('chk_item_id'),'../sendmail/')"><?=$arrConst['_GUI_THONG_BAO']?></a>
-					</label>
-				</div>	
-			</td>
-		</tr>
-	</table>
 	<?php echo $this->genlist;?>
 	<!--Hien thi trang can xem!-->
 	
@@ -53,14 +41,6 @@
 				//Hien thi so trang
 				echo $this->generateHtmlSelectBoxPage;?>
 			</td>
-		</tr>
-	</table>
-	
-	<table width='100%'  border='0' cellspacing='0' cellpadding='0' align="center">
-		<tr>
-			<td style="padding-top: 10px; padding-bottom: 10px;" align="center" valign="middle">
-				<input type="button" class="add_large_button" value="<?=$arrConst['_GUI_THONG_BAO']?>" onclick="btn_update_onclick(document.getElementsByName('chk_item_id'),'../senmail/')">
-			</td>	
 		</tr>
 	</table>
 </div>

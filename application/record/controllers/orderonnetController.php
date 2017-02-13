@@ -204,121 +204,27 @@ class record_orderonnetController extends Zend_Controller_Action
      */
     public function approvedAction()
     {
-        //Left menu (Hien thi danh sach HS da tiep nhan so bo)
         $this->view->currentModulCodeForLeft = 'DADUYET';
         //Hien thi left menu
         $this->_response->insert('left', $this->view->renderLayout('left.phtml', './application/views/scripts/'));
-
-        //Tieu de man hinh danh sach
         $this->view->titleBody = "DANH SÁCH ĐĂNG KÝ ĐÃ DUYỆT";
-        // Class thiet lap cac cau hinh cua he thong
         $objconfig = new Efy_Init_Config();
-        //Class xu ly cac phuong thuc dung chung cua he thong
         $objrecordfun = new Efy_Function_RecordFunctions();
-        //Class xu ly cac phuong thuc lien quan den xml
         $objxml = new Efy_Publib_Xml();
-        //Lay mang hang so dung chung
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
-        //Class xu ly du lieu cua module
-        $objReceiveonnet = new record_modReceiveonnet();
+        $objReceiveonnet = new record_modReceiveonnet();//tao doi tuong cua lop mode va su dung cac function cua mode qua obj do.
         $arrRecordType = $_SESSION['arr_all_record_type'];
+
+        $arrNetRecordType = $_SESSION['arr_all_record_type'];
+
+
         //Lay id cua loai ho so hien tai
-        $sRecordTypeId = $this->_request->getParam('recordType');//controller lay gia tri bien $sRecordTypeId tu view qua bien recordType ? bien recordType lay gia tri tu dau?
+        $sRecordTypeId = $this->_request->getParam('recordType');
+        $NetRecordTypeId = $this->_request->getParam('recordType');
         if ($sRecordTypeId == "")
             $sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];
-        //Lay id can bo dang nhap hien thoi
-        $iCurrentStaffId = $_SESSION['staff_id'];
-        $sStatusList = 'TIEP_NHAN_SO_BO';
-        //lay ma don vi su dung cua nguoi dang nhap hien thoi
-        $sOwnerCode = $_SESSION['OWNER_CODE'];
-        $sfullTextSearch = '';
-        //lay duong dan action:/g4t-mcdt-lethuy/record/receiveonnet/officialrecordlist/
-        $pUrl = $_SERVER['REQUEST_URI'];
-        //lay gia tri cua chuoi gia tri tim kiem
-        $sfullTextSearch = trim($this->_request->getParam('txtfullTextSearch', ''));
-        //lay gia tri cua trang hien thoi
-        $iPage = $this->_request->getParam('hdn_current_page', 0);
-        if ($iPage <= 1) {
-            $iPage = 1;
-        }
-        //lay so ban ghi tren mot trang
-        $iNumberRecordPerPage = $this->_request->getParam('cbo_nuber_record_page', 0);
-        if ($iNumberRecordPerPage == 0)
-            $iNumberRecordPerPage = 15;
-        //$arrinfoRecordType mang luu thong tin cua bang T_eCS_RecordType
-        $arrinfoRecordType = $objrecordfun->getinforRecordType($sRecordTypeId, $arrRecordType);
-        $sRecordTypeCode = $arrinfoRecordType['C_CODE'];// ma cua loai ho so
-        $srecordType = $arrinfoRecordType['C_NAME']; //loai ho so
-        //$sRecordTypeId = $arrinfoRecordType['PK_RECORDTYPE'];
-        $this->view->srecordType = $srecordType;
-        $this->view->sRecordTypeCode = $sRecordTypeCode;
-        //lay duong dan file xml mo ta hien thi man hinh danh sach
-        if ($sRecordTypeId == '')
-            $sRecordTypeCode = '00';
-        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/' . $sRecordTypeCode . '/danh_sach_hs_tiep_nhan_chinh_thuc_qua_mang.xml';
-        if (!file_exists($sxmlFileName)) {
-            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/other/danh_sach_hs_tiep_nhan_chinh_thuc_qua_mang.xml';
-        }
-        //echo $sxmlFileName;exit;
-        //Day gia tri tim kiem ra view
-        $sfullTextSearch = trim($this->_request->getParam('txtfullTextSearch', ''));
-        $arrInputfilter = array('fullTextSearch' => $sfullTextSearch, 'pUrl' => '../officialrecordlist/', 'RecordTypeId' => $sRecordTypeId);
-        //Hien thi tieu chi tim kiem gom: loai ho so va chuoi ky tu tim kiem
-        $this->view->filter_form = $objrecordfun->genEcsFilterFrom($iCurrentStaffId, 'TIEP_NHAN', $arrRecordType, $arrInputfilter);
-        // Goi ham search de hien thi ra Complete Textbox
-        $sRecordTypeID = $arrinfoRecordType['FK_RECORDTYPE'];
-        $sDetailStatusCompare = " And A.C_DETAIL_STATUS = 10";
-        $arrRecord = $objReceiveonnet->eCSNetOfficialRecordGetAll($sRecordTypeId, $sOwnerCode, $sfullTextSearch, $sStatusList, $iPage, $iNumberRecordPerPage);
-        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName, 'col', $arrRecord, "C_XML_DATA", "PK_NET_RECORD", $sfullTextSearch, false, false, '../viewrecord/');
-        $iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
-        //khai bao bien iNumberRecord de dung trong view
-        $this->view->iNumberRecord = $iNumberRecord;
-        if (count($arrRecord) > 0) {
-            $this->view->sdocpertotal = "Danh sách có: " . sizeof($arrRecord) . '' . $iNumberRecord . " hồ sơ";
-            $this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage, $pUrl);
-            $this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage, $this->view->getStatusLeftMenu);
-        }
-    }
-
-    /**
-     * Creater : Tientk
-     * Date : 31/05/2011
-     * Idea : Tao phuong thuc hien thi danh sach ho cho bo sung
-     * Enter description here ...
-     */
-    public function supplementrecordlistAction()
-    {
-        //Left menu (Hien thi danh sach HS cho bo sung)
-        $this->view->currentModulCodeForLeft = 'SUPPLEMENT';
-        //Hien thi left menu
-        $this->_response->insert('left', $this->view->renderLayout('left.phtml', './application/views/scripts/'));
-
-        //Tieu de man hinh danh sach
-        $this->view->titleBody = "DANH SÁCH HỒ SƠ CHỜ CÔNG DÂN BỔ SUNG";
-        // Class thiet lap cac cau hinh cua he thong
-        $objconfig = new Efy_Init_Config();
-        //Class xu ly cac phuong thuc dung chung cua he thong
-        $objrecordfun = new Efy_Function_RecordFunctions();
-        //Class xu ly cac phuong thuc lien quan den xml
-        $objxml = new Efy_Publib_Xml();
-        //Lay mang hang so dung chung
-        $this->view->arrConst = $objconfig->_setProjectPublicConst();
-        //Class xu ly du lieu cua module
-        $objReceiveonnet = new record_modReceiveonnet();
-        //mang luu thong tin danh sach thu tuc hanh chinh cua can bo dang nhap hien thoi
-        $arrRecordType = $_SESSION['arr_all_record_type'];
-        //var_dump($arrRecordType); exit;
-        //Lay id cua loai ho so hien tai
-        $sRecordTypeId = $this->_request->getParam('recordType');//ham getparam(id bien/ten bien)
-        if ($sRecordTypeId == "")
-            $sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];//var_dump($arrRecordType);exit;
         //Lay id cua nguoi dang nhap hien thoi
         $iCurrentStaffId = $_SESSION['staff_id'];
-        //$sReceiveDate = '';
-        $sStatusList = 'CHO_BO_SUNG';
-        //$sDetailStatusCompare = '';
-        //$sRole = '';
-        //$sOrderClause = '';
         //lay ma don vi su dung cua nguoi dang nhap hien thoi
         $sOwnerCode = $_SESSION['OWNER_CODE'];
         $sfullTextSearch = '';
@@ -334,46 +240,43 @@ class record_orderonnetController extends Zend_Controller_Action
         $iNumberRecordPerPage = $this->_request->getParam('cbo_nuber_record_page', 0);
         if ($iNumberRecordPerPage == 0)
             $iNumberRecordPerPage = 15;
-        //var_dump($arrRecordType);
-        //echo $sRecordTypeId . '<br>'.
+        //Neu ton tai gia tri tim kiem tron session thi lay trong session
+        if (isset($_SESSION['seArrParameter'])) {
+            $Parameter = $_SESSION['seArrParameter'];
+            $sRecordTypeId = $Parameter['sRecordTypeId'];
+            $sfullTextSearch = $Parameter['sfullTextSearch'];
+            $iPage = $Parameter['iPage'];
+            $iNumberRecordPerPage = $Parameter['iNumberRecordPerPage'];
+            unset($_SESSION['seArrParameter']);
+        }
+        $sListStatus = 'DUYET,TU_CHOI';
         $arrinfoRecordType = $objrecordfun->getinforRecordType($sRecordTypeId, $arrRecordType);
-        $arrinfoNetRecordType = $objrecordfun->getinforNetRecordType($sRecordTypeId, $arrRecordType);
-        //var_dump($arrinfoNetRecordType);exit;
+        $arrinfoNetRecordType = $objrecordfun->getinforNetRecordType($NetRecordTypeId, $arrNetRecordType);
         $sRecordTypeCode = $arrinfoRecordType['C_CODE'];
-        $srecordType = $arrinfoRecordType['C_NAME'];
-        $sRecordStatus = $arrinfoRecordType['C_STATUS'];
-        $this->view->srecordType = $srecordType;
         $this->view->sRecordTypeCode = $sRecordTypeCode;
         $this->view->sRecordTypeId = $sRecordTypeId;
-        $this->view->sRecordStatus = $sRecordStatus;
-
         //lay duong dan file xml mo ta hien thi man hinh danh sach
-        if ($sRecordTypeId == '')
-            $sRecordTypeCode = '00';
-
-        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/' . $sRecordTypeCode . '/danh_sach_hs_cho_cong_dan_bo_sung.xml';
+        $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/' . $sRecordTypeCode . '/danh_sach_dang_ky_qua_mang.xml';
         if (!file_exists($sxmlFileName)) {
-            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/other/danh_sach_hs_cho_cong_dan_bo_sung.xml';
+            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/other/danh_sach_dang_ky_qua_mang.xml';
         }
-        // echo $sxmlFileName;exit;
+        if ($sRecordTypeCode == '')
+            $sRecordTypeCode = '00';
+        /*if(!is_file($sxmlFileName)){
+            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/danh_sach_hs_tiep_nhan_qua_mang.xml';
+        }*/
         //Day gia tri tim kiem ra view
-
         $sfullTextSearch = trim($this->_request->getParam('txtfullTextSearch', ''));
-        //$sRecordStatus = $this->_request->getParam('sRecordStatus');
-        //$sStatusList = 'CHO_BO_SUNG';
-        $arrInputfilter = array('fullTextSearch' => $sfullTextSearch, 'pUrl' => '../supplementrecordlist/', 'RecordTypeId' => $sRecordTypeId);
-
+        $arrInputfilter = array('fullTextSearch' => $sfullTextSearch, 'pUrl' => '../orderonnet/index', 'RecordTypeId' => $sRecordTypeId);
+        //var_dump($arrInputfilter);exit;
         //Hien thi tieu chi tim kiem gom: loai ho so va chuoi ky tu tim kiem
         $this->view->filter_form = $objrecordfun->genEcsFilterFrom($iCurrentStaffId, 'TIEP_NHAN', $arrRecordType, $arrInputfilter);
-
         // Goi ham search de hien thi ra Complete Textbox
-        $sRecordTypeID = $arrinfoRecordType['FK_RECORDTYPE'];
-        $sDetailStatusCompare = " And A.C_DETAIL_STATUS = 10";
-        $arrRecord = $objReceiveonnet->eCSNetReceiveRecordGetAll($sRecordTypeId, $sOwnerCode, $sfullTextSearch, $sStatusList, $iPage, $iNumberRecordPerPage);
-        //$this->view->arrRecord = $arrRecord;
-        //var_dump($iNumberRecordPerPage);exit;
-        //echo $sxmlFileName;exit;
-        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName, 'col', $arrRecord, "C_XML_DATA", "PK_NET_RECORD", $sfullTextSearch, false, false, '../viewrecord/');
+        $arrRecord = $objReceiveonnet->eCSNetOrderGetAll($sRecordTypeId, $sOwnerCode, $sfullTextSearch, $sListStatus, $iPage, $iNumberRecordPerPage);
+        // var_dump($arrRecord);exit;
+        //Hien thi thong tin ho so
+        //echo $sxmlFileName;
+        $this->view->genlist = $objxml->_xmlGenerateList($sxmlFileName, 'col', $arrRecord, "C_XML_DATA", "PK_NET_ORDER", $sfullTextSearch, false, false, '../viewrecord/');
         $iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
         $this->view->iNumberRecord = $iNumberRecord;
         $sdocpertotal = "Danh sách này không có hồ sơ nào";
