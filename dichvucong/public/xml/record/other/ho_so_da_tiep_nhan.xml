@@ -8,7 +8,7 @@
 		</common_para>
 	</common_para_list>
 	<list_of_object>
-		<list_body> 
+		<list_body>
 			<col>
 				<label>&lt;input type="checkbox" name="chk_all_item_id"  onclick="checkbox_all_item_id(document.forms[0].chk_item_id);"&gt;</label>
 				<type>checkbox</type>
@@ -53,12 +53,12 @@
 				<xml_data>false</xml_data>
 				<column_name>C_APPOINTED_DATE</column_name>
 				<xml_tag_in_db></xml_tag_in_db>
-			</col>			
+			</col>
 		</list_body>
 	</list_of_object>
 	<update_object>
-		<table_struct_of_update_form> 
-			<update_row_list>	<!--Phan mo ta cac dong Form cap nhat doi tuong--> 
+		<table_struct_of_update_form>
+			<update_row_list>	<!--Phan mo ta cac dong Form cap nhat doi tuong-->
 				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>label_nguoi_tham_gia_kc</tag_list>
@@ -163,7 +163,7 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>tl_khac</tag_list>
 					<row_id>tl_khac</row_id>
-				</update_row>		
+				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>ghi_chu</tag_list>
@@ -173,7 +173,7 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>txtAttachFile</tag_list>
 					<row_id>txtAttachFile</row_id>
-				</update_row>			
+				</update_row>
 			</update_row_list>
 		</table_struct_of_update_form>
 		<update_formfield_list>
@@ -525,12 +525,12 @@
 				<checkbox_multiple_value_list>C_CODE</checkbox_multiple_value_list>
 				<data_format></data_format>
 				<width>98%</width>
-				<optional>true</optional>			
+				<optional>true</optional>
 				<max_length></max_length>
 				<dsp_status>1</dsp_status>
 				<message>Phai xac dinh it nhat mot TAI LIEU KEM THEO DON</message>
 				<note></note>
-				<xml_data>true</xml_data>			
+				<xml_data>true</xml_data>
 				<js_function_list></js_function_list>
 				<js_action_list>onChange</js_action_list>
 				<xml_tag_in_db>tai_lieu_kt</xml_tag_in_db>
@@ -543,7 +543,7 @@
 				<data_format>text</data_format>
 				<width>72.4%</width>
 				<optional>true</optional>
-				<max_length>1000</max_length>			
+				<max_length>1000</max_length>
 				<message>Ban phai nhap danh sach tai lieu ho so khac</message>
 				<note></note>
 				<row></row>
@@ -553,7 +553,7 @@
 				<xml_tag_in_db>tl_khac</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</tl_khac>				
+			</tl_khac>
 			<ghi_chu>
 				<label>Ghi chú</label>
 				<type>textarea</type>

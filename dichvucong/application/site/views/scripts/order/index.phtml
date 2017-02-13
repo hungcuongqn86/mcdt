@@ -14,26 +14,6 @@
         <div class="searh-fixed">
             <div class="formfield">
                 <div class="label"  style="width:20%">
-                    <span class="labeltext" style="line-height: 28px;">Đơn vị giao dịch</span>
-                    <span class="labeltext" style="padding-right:10px;">&nbsp</span>
-                </div>
-                <div class="value"  style="width:80%">
-                    <select class="textbox"  id="ownerTrade" name="ownerTrade">
-                        <?php
-                        $arrRecordType = $this->arrRecordType;
-                        $option = '';
-                        for ($i=0; $i < sizeof($arrRecordType); $i++) {
-                            $option .= '<option code="' . $arrRecordType[$i]['C_CODE'] . '" value="' . $arrRecordType[$i]['PK_RECORDTYPE'] . '">' . $arrRecordType[$i]['C_NAME'] . '</option>';
-                        }
-
-                        echo $option;
-                        ?>
-                    </select>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="formfield">
-                <div class="label"  style="width:20%">
                     <span class="labeltext" style="line-height: 28px;">Loại hồ sơ</span>
                     <span class="labeltext" style="padding-right:10px;">&nbsp</span>
                 </div>
@@ -88,7 +68,7 @@
 <script type="text/javascript">
     baseUrl = "<?=$this->baseUrl();?>";
     var pathxml = "<?=$this->sPath;?>";
-    var obj_site_record = new site_record(baseUrl, 'site', 'record');
+    var obj_site_record = new site_order(baseUrl, 'site', 'order');
     $(document).ready(function ($) {
         $('form#frm_record_index').process_paging({
             autoStart: 0,

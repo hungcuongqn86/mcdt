@@ -115,6 +115,7 @@ class G_Objects_Xml extends Zend_Config_Xml
      */
     public function _xmlGenerateFormfield($spXmlFileName, $pathXmlTagStruct, $pathXmlTag, $column_xml, $p_arr_item_value, $p_view_mode = false, $readonly = false)
     {
+        $spXmlFileName = 'public/xml/record/other/dang_ky_giao_dich.xml';
         //Lay mang du lieu
         $arrData = array();
         if (isset($p_arr_item_value[$column_xml])) {

@@ -20,7 +20,7 @@ class orderController extends Zend_Controller_Action
             $this->view->headTitle(Zend_Registry::get('__sysConst__')->title); 
             $this->view->JSPublicConst = G_Global::getInstance()->_setJavaScriptPublicVariable();
 
-            $this->view->LoadAllFileJsCss = $objGen->_gCssJs('', 'js', 'ui/jquery-ui.js,ui/external/jquery.ui.datepicker-vi.js,process/paging.js,chosen/chosen.jquery.js,libXml.js,site/record.js', ',', 'js')
+            $this->view->LoadAllFileJsCss = $objGen->_gCssJs('', 'js', 'ui/jquery-ui.js,ui/external/jquery.ui.datepicker-vi.js,process/paging.js,chosen/chosen.jquery.js,libXml.js,site/order.js', ',', 'js')
                 .$objGen->_gCssJs('', 'js', 'ui/jquery-ui.css', ',', 'css')
                 .$objGen->_gCssJs('', 'css', 'chosen/chosen.css,main.css', ',', 'css');
             $params = $this->_request->getParams();
@@ -58,6 +58,7 @@ class orderController extends Zend_Controller_Action
         $recordTypeCode = $this->_request->getParam('recordTypeCode', '');
         $recordtype = $this->_request->getParam('recordtype', '');
         $xmlFile = $this->getDirectoryFileXml($recordTypeCode);
+        //echo $xmlFile;exit;
         $arrInput = array(
                 'recordtype' => $recordtype,
                 'userId' => G_Account::getInstance()->getIdentity()->ID,
@@ -80,10 +81,10 @@ class orderController extends Zend_Controller_Action
         $fileName = '';
         switch ($type) {
             case 'listview':
-                $fileName = 'ho_so_da_dang_ky_qua_mang.xml';
+                $fileName = 'ho_so_da_dang_ky_giao_dich.xml';
                 break;
             case 'formfield':
-                $fileName = 'ho_so_da_tiep_nhan.xml';
+                $fileName = 'dang_ky_giao_dich.xml';
                 break;
         }
         // $recordTypeCode = 'sdf';
@@ -122,7 +123,7 @@ class orderController extends Zend_Controller_Action
             $status = $record['C_STATUS'];
             $received_date = date('d/m/Y', strtotime($record['C_INPUT_DATE']));
         } else{
-            $this->view->bodyTitle = "ĐĂNG KÝ HỒ SƠ MỚI";
+            $this->view->bodyTitle = "ĐĂNG KÝ GIAO DỊCH MỚI";
             $recordCode = $this->generateRecordCodeNET($recordTypeCode);
             $received_date = date('d/m/Y');
             $status = 'CHO_TIEP_NHAN_SO_BO';
@@ -208,7 +209,9 @@ class orderController extends Zend_Controller_Action
                 'C_STATUS' => 'CHO_TIEP_NHAN_SO_BO',
                 'C_MESSAGE' => '',
                 'C_UNIT' =>$user->sOwnerCode
-            ); 
+            );
+            var_dump($arrInput);
+            exit;
             $dbconnect->BeginTrans();
             $arrResult = $dbconnect->_querySql($arrInput, 'dbo.eCS_NetRecordUpdate', 0, 0);
             if ($arrResult) {
