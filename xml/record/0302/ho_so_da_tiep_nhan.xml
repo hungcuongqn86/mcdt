@@ -1234,9 +1234,9 @@
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
-				<width>70%</width>
+				<width>30%</width>
 				<message></message>
-				<note>m2</note>
+				<note>m2 (Phân cách phần thập phân bằng dấu ",")</note>
 				<xml_data>true</xml_data>
                 <js_function_list>convert_number_to_string_acreage(this,&quot;string_acreage_cn&quot;)</js_function_list>
                 <js_action_list>OnBlur</js_action_list>

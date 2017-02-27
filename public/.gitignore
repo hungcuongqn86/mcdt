@@ -1,0 +1,4 @@
+/export
+/attach-file
+/tmp
+!.gitignore
