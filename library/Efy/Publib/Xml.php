@@ -928,6 +928,18 @@ class Efy_Publib_Xml extends RAX {
 									//})
 								</script>';
                 break;
+            case "formfieldata";
+                $arrList = json_decode($this->value,true);
+                $row = count($arrList);
+                $spRetHtml = $v_str_label;
+                $spRetHtml .= '<div style="display:none"><input type="textbox" value=\''.$this->value.'\' id="input_'.$this->formFielName.'" name="'.$this->formFielName.'"  optional="false" xml_data="true" xml_tag_in_db="'.$this->formFielName.'"><input id="NAME_XML_TAB_FORM_FIEL_DATA" value= "'.$this->formFielName.'"/></div>';
+                $spRetHtml .= '<div style="overflow:auto;width:'.$this->width.'" id="div_'.$this->formFielName.'" >';
+                $spRetHtml .= self::_generateHtmlForFormFiel($this->spTableDataXmlFileName,$this->formFielName,$arrList);
+                $spRetHtml .= '</div>';
+                $spRetHtml .= '<script>
+									
+								</script>';
+                break;
             default:
 				$spRetHtml = '<label style="width:100%">' . $this->sLabel.$this->optOptionalLabel . '</label>';
 		}
@@ -1007,12 +1019,73 @@ class Efy_Publib_Xml extends RAX {
         }
         return $psHtmlString;
     }
-	/**
-	 * Tao chuoi HTML chua thuoc tinh rang buoc du lieu cua cac doi tuong tren from
-	 *-----------
-	 * @param 	$spDataFormat gia tri can dinh dang
-	 * @return Gia tri dinh dang
-	 */
+
+    Public function _generateHtmlForFormFiel($psXmlFile,$sformFielName,$arrList){
+        $objconfig = new Efy_Init_Config();
+        $sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/table/'.$psXmlFile.'.xml';
+        $psHtmlString = '';
+        if(!file_exists($sxmlFileName)){
+            $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/table/'.$psXmlFile.'.xml';
+        }
+
+        if(file_exists($sxmlFileName)){
+            Zend_Loader::loadClass('Zend_Config_Xml');
+            $objConfigXml = new Zend_Config_Xml($sxmlFileName);
+            $sContentXmlBottom = '<div id="Bottom_contentXml">';
+            $arrTable_truct_rows = $objConfigXml->update_object->table_struct_of_update_form->update_row_list->update_row->toArray();
+            $arrTable_rows = $objConfigXml->update_object->update_formfield_list->toArray();
+            foreach ($arrTable_truct_rows as $row){
+                $rowId = $row["row_id"];
+                $v_have_line_before = $row["have_line_before"];
+                $v_tag_list = $row["tag_list"];
+                $arr_tag = explode(",", $v_tag_list);
+                $spHtmlString_temp = '';
+                $strdiv = '<div>';
+                if ($rowId != '')
+                    $strdiv = '<div id = "id_' . $rowId . '" class="normal_label">';
+                $sContentXmlBottom .= $strdiv;
+
+                $psHtmlTable = "";
+                $psHtmlTag = "";
+                for($i=0;$i < sizeof($arr_tag);$i++){
+                    isset($arrTable_rows[$arr_tag[$i]]["label"]) ? $label = $arrTable_rows[$arr_tag[$i]]["label"] : $label = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["width_label"]) ? $width_label = $arrTable_rows[$arr_tag[$i]]["width_label"] : $width_label = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["type"]) ? $type = $arrTable_rows[$arr_tag[$i]]["type"] : $type = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["data_format"]) ? $data_format = $arrTable_rows[$arr_tag[$i]]["data_format"] : $data_format = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["input_data"]) ? $input_data = $arrTable_rows[$arr_tag[$i]]["input_data"] : $input_data = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["width"]) ? $width = $arrTable_rows[$arr_tag[$i]]["width"] : $width = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["php_function"]) ? $php_function = $arrTable_rows[$arr_tag[$i]]["php_function"] : $php_function = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["note"]) ? $note = $arrTable_rows[$arr_tag[$i]]["note"] : $note = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["xmlData"]) ? $xmlData = $arrTable_rows[$arr_tag[$i]]["xmlData"] : $xmlData = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["column_name"]) ? $column_name = $arrTable_rows[$arr_tag[$i]]["column_name"] : $column_name = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["xml_tag_in_db"]) ? $xml_tag_in_db = $arrTable_rows[$arr_tag[$i]]["xml_tag_in_db"] : $xml_tag_in_db = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["js_function_list"]) ? $js_function_list = $arrTable_rows[$arr_tag[$i]]["js_function_list"] : $js_function_list = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["js_action_list"]) ? $js_action_list = $arrTable_rows[$arr_tag[$i]]["js_action_list"] : $js_action_list = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["default_value"]) ? $default_value = $arrTable_rows[$arr_tag[$i]]["default_value"] : $default_value = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["session_name"]) ? $session_name = $arrTable_rows[$arr_tag[$i]]["session_name"] : $session_name = '';
+
+                    if ($type=="selectbox"){
+                        $selectBoxOptionSql = $arrTable_rows[$arr_tag[$i]]["selectbox_option_sql"];
+                        $selectBoxIdColumn = $arrTable_rows[$arr_tag[$i]]["selectbox_option_id_column"];
+                        $selectBoxNameColumn = $arrTable_rows[$arr_tag[$i]]["selectbox_option_name_column"];
+                        $theFirstOfIdValue = $arrTable_rows[$arr_tag[$i]]["the_first_of_id_value"];
+                    }
+
+                    $sContentXmlBottom .= Efy_Publib_Xml::_generateHtmlInput();
+                }
+                $sContentXmlBottom .= '</div>';
+            }
+
+            return $sxmlFileName;
+
+        }
+        return $psHtmlString;
+    }
+
+    /**
+     * @param $spDataFormat
+     * @return string
+     */
 	private function _generateVerifyProperty($spDataFormat){
 		switch($spDataFormat) {
 			case "isemail";

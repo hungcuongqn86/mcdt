@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<update_object>
+		<table_struct_of_update_form>
+			<update_row_list>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_name,obj_year</tag_list>
+					<row_id>obj_name</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_address,obj_phone</tag_list>
+					<row_id>obj_address</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_id,obj_id_day,obj_id_unit</tag_list>
+					<row_id>obj_id</row_id>
+				</update_row>
+			</update_row_list>
+		</table_struct_of_update_form>
+		<update_formfield_list>
+			<obj_name>
+				<label>Ông</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>30%</width>
+				<max_length>100</max_length>
+				<message>BEN CHUYEN NHUONG khong duoc de trong</message>
+				<note></note>
+				<xml_data>true</xml_data>
+				<js_function_list>set_upcase_value(this);</js_function_list>
+				<js_action_list>onblur</js_action_list>
+				<xml_tag_in_db>obj_name</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</obj_name>
+			<obj_year>
+				<label>Sinh năm</label>
+				<width_label>10%;text-align:left;padding-left:5px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>10%</width>
+				<message>Phải nhập thông tin năm sinh bên A</message>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>obj_year</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</obj_year>
+			<obj_address>
+				<label>Địa chỉ thường trú</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>30%</width>
+				<message>DIA CHI khong duoc de trong</message>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>obj_address</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</obj_address>
+			<obj_phone>
+				<label>Số điện thoại</label>
+				<width_label>10%;text-align:left;padding-left:5px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>15%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>obj_phone</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</obj_phone>
+			<obj_id>
+				<label>Số CMND</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>30%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>obj_id</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</obj_id>
+			<obj_id_day>
+				<label>Ngày cấp</label>
+				<width_label>10%;text-align:left;padding-left:5px;</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<width>10%</width>
+				<optional>true</optional>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>obj_id_day</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</obj_id_day>
+			<obj_id_unit>
+				<label>Nơi cấp</label>
+				<width_label>5%;text-align:left;padding-left:5px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>15%</width>
+				<max_length>100</max_length>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>obj_id_unit</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</obj_id_unit>
+		</update_formfield_list>
+	</update_object>
+</root>
