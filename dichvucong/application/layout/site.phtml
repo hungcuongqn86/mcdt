@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<?php
+// $sysConst = Zend_Registry::get('__sysConst__');
+$userIdentity = G_Account::getInstance()->getIdentity();
+$urlmini = $this->baseUrl . 'min/index.php?f=';
+?>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<?php echo $this->headTitle() ?>
+<link rel="stylesheet" href="<?= $this->baseUrl ?>/css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<?= $this->baseUrl ?>/css/responsive.css" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?= $this->baseUrl ?>css/jAlerts/jquery.alerts.css">
+<link rel="icon" href="<?= $this->baseUrl() ?>/public/images/img_skin/favicon.ico" type="image/x-icon">
+<!-- <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script src="<?= $urlmini . 'js/util.js' ?>" type="text/javascript"></script>
+<script src="<?= $this->baseUrl ?>js/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+<?php
+$src = $urlmini . 'js/jquery-migrate-1.2.1.min.js';
+$src .= ',js/html5.js,js/script.js';
+$src .= ',js/jquery.base64.js,js/jquery.alerts.js';    
+?>
+
+<script src="<?= $src ?>" type="text/javascript"></script>
+<?= $this->LoadAllFileJsCss; ?>
+<script>
+	var baseUrl = '<?=$this->baseUrl()?>'
+		$(function(){
+			<!-- quick loock -->
+			$('.quickloockbutton').click(function(){
+				$('#quick-look').fadeIn(500);
+			});
+			$('.bgql').click(function(){
+				$('#quick-look').fadeOut(500);
+			});
+			$('.button-close').click(function(){
+				$('#quick-look').fadeOut(500);
+			});
+			
+			<!-- singnin -->
+			$('.sign-in-link').click(function(){
+				$('#sign_up').fadeOut(500);
+				$('#sign_in').fadeIn(500);
+			});
+			$('.button-close').click(function(){
+				$('#sign_in').fadeOut(500);
+			});	
+
+			<!-- singn up -->
+			$('.sign-up-link').click(function() {
+				$('#getCaptcharImg').trigger('click')
+				$('#sign_in').fadeOut(500);
+				$('#sign_up').fadeIn(500);
+			});
+			$('.button-close').click(function(){
+				$('#sign_up').fadeOut(500);
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<div id="header">		
+			<div class="header_area">
+				<div class="logo">
+					<a href="<?php echo $this->baseUrl()?>" class="img_logo"></a>
+				</div>
+				<div class="text_logo">
+					<p class="text_top">UBND huyện Lệ Thủy - Quảng Bình</p>
+					<p class="text_bt">Hệ thống dịch vụ công trực tuyến</p>
+				</div>
+			</div>
+			<?php
+				if (G_Account::getInstance()->hasIdentity()) { ?>					
+					<ul class="visitor_tabs">
+						<li>
+							<a class="name" href=""><?= G_Account::getInstance()->getIdentity()->sFullName ?></a>
+						</li>
+						<li><a href="<?=$this->baseUrl()?>/dang-xuat">Thoát</a></li>
+					</ul>
+			<?php
+				} ?>
+
+		</div>	
+	</header>
+
+	<div id="wrapper">
+		<div class="wrapper_area home">
+			<div class="banner">
+				<div class="img_banner">
+					<span>
+						<img src="<?=$this->baseUrl()?>/public/images/img_skin/banner.png">
+					</span>
+				</div>
+				<div class="box_login_regis">
+				<?php
+				if (!G_Account::getInstance()->hasIdentity()) { ?>
+					<a href="#sign_in" class="login sign-in-link sign-in-link-face" href="#sign_in" rel="sign_in">Đăng nhập</a>
+					<a href="#sign_up" class="register sign-up-link" rel="sign_up">Đăng ký</a>
+					<div id="sign_in">
+						<?= $this->layout()->sign_in; ?>
+					</div>
+					<div id="sign_up">
+						<?= $this->layout()->sign_up; ?>
+					</div>
+				<?php
+					}
+				?>
+				</div>
+				<div class="main_content">
+					<div class="row_01">
+						<div class="menu">
+
+							<ul>
+								<li>
+									<a href="<?= $this->baseUrl()?>" class="">
+										<p class="sprite_icon icon_home"></p>
+										<p class="title">Trang chủ</p>
+									</a>
+								</li>
+								<li>
+									<a href="<?= $this->baseUrl()?>/dk-giao-dich" class="">
+										<p class="sprite_icon icon_about"></p>
+										<p class="title">Đăng ký giao dịch</p>
+									</a>
+								</li>
+								<li>
+									<a href="<?= $this->baseUrl()?>/tra-cuu-ho-so" class="">
+										<p class="sprite_icon icon_searchdata"></p>
+										<p class="title">Tra cứu hồ sơ</p>
+									</a>
+								</li>
+                                <li>
+                                    <a href="<?= $this->baseUrl()?>/gui-ho-so" class="">
+                                        <p class="sprite_icon icon_senddata"></p>
+                                        <p class="title">gửi hồ sơ</p>
+                                    </a>
+                                </li>
+								<li>
+									<a href="<?= $this->baseUrl()?>/huong-dan" class="">
+										<p class="sprite_icon icon_help"></p>
+										<p class="title">hướng dẫn</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>	
+	<footer style="z-index: -4;">
+		<div id="footer" class="footer_home">
+			<?= $this->layout()->footer; ?>
+		</div>
+	</footer>
+</body>

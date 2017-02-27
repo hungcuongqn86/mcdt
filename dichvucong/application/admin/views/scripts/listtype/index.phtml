@@ -1,0 +1,139 @@
+<script>
+    if (typeof(System_Listtype) != 'function') {
+        var arrJsCss = $.parseJSON('<?=$this->arrJsCss; ?>');
+        loadfileJsCss(arrJsCss);
+    }
+</script>
+<div id="IndexFrm">
+    <form action="index" method="POST" id="frmAllListType">
+        <!--Sinh mot hidden luu list ID ma NSD chon!-->
+        <?php
+        echo $this->formHidden("hdn_current_page", $this->iCurrentPage, null);
+        echo $this->formHidden("hdn_record_number_page", $this->iNumberRecordPerPage, null);
+        echo $this->formHidden("hdn_object_id_list", "", null);
+        echo $this->formHidden("hdn_order", $this->iCountElement + 1, null);
+        echo $this->formHidden("hdn_listtype_id", "", null);
+        echo $this->formHidden("filexml", $this->filexml, null);
+        ?>
+
+        <input type="hidden" name="showLeftMenu" id="showLeftMenu"/>
+
+        <div class="searh-fixed">
+            <div class="normal_title">
+                <?= $this->bodyTitle; ?>
+            </div>
+            <!--Màn hình tìm kiếm!-->
+            <div class="search-container">
+                <div class="search-item">
+                    <?= $this->formText('txtSearch', $this->listTypeName, array('size' => 99, 'class' => 'textbox', 'optional' => false, 'message' => 'Ma LOAI DANH MUC khong duoc de trong!',
+                    'onkeyup' => 'ResetSearch()')); ?>
+                    &nbsp;
+                </div>
+            </div>
+            <div class="button-link-container" align="right">
+                <div class="blc-left">
+                    <input name="btn_filter" id="btn_filter" type="button" value="Tìm kiếm"
+                           class="but_formfield clsearch">
+                </div>
+                <div class="blc-right">
+                    <input name="btn_add" id="btn_add" type="button" value="Thêm" class="but_formfield cladd">
+                    <input name="btn_edit" id="btn_edit" type="button" value="Sửa" class="but_formfield cledit">
+                    <input name="btn_delete" id="btn_delete" type="button" value="Xóa" class="but_formfield cldelete">
+                    <input type="button" class="but_formfield clxml" value="Xuất Xml">
+                </div>
+            </div>
+        </div>
+        <!-- Màn hình danh sách -->
+        <div id="table-container"></div>
+        <!-- Phân trang dữ liệu -->
+        <table class="table-page-number" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td class="left-col small_label" valign="top">
+                    <small class="small_starmark" id="sdocpertotal"></small>
+                </td>
+                <td class="center-col" align="center" id="generateStringNumberPage"></td>
+                <td class="right-col normal_label" id="generateHtmlSelectBoxPage">
+                Hiển thị <select class="textbox" id="cbo_nuber_record_page" name="cbo_nuber_record_page" optional="true" style="width:60">
+                <?php
+                        echo G_Gen::getInstance()->_generateSelectOption($this->arrListItem, 'sCode', 'sCode', 'sName', $this->arrListItem[0]);
+                        ?></select>Hồ sơ/1 trang
+                </td>
+            </tr>
+        </table>
+        <!-- Các tùy chọn -->
+        <div class="button-container">
+            <input name="btn_add" id="btn_add" type="button" value="Thêm" class="but_formfield cladd">
+            <input type="button" class="but_formfield cledit" value="Sửa">
+            <input name="btn_delete" id="btn_delete" type="button" value="Xóa" class="but_formfield cldelete">
+            <input type="button" class="but_formfield clxml" value="Xuất Xml">
+        </div>
+    </form>
+</div>
+<div id="UpdateFrm"></div>
+<div id="modal_xml_file_name">
+    <?php
+    $files = $this->files;
+    $htmls = '<ul>';
+    for ($i = 0; $i < sizeof($files); $i++) {
+        $htmls .= '<li class="xmlfilename">' . $files[$i] . '</li>';
+    }
+    $htmls .= '</ul>';
+    echo $htmls;
+    ?>
+</div>
+<script type="text/javascript">
+    if (typeof(System_Listtype) === 'function') {
+        var objListtype = new System_Listtype(baseUrl, 'system', 'listtype');
+    }
+
+    $('form#frmAllListType').process_paging({
+        getData: function (callback) {
+            objListtype.ldmod(callback);
+        },
+        obj: objListtype
+    });
+    objListtype.loadIndexfrm();
+
+    $('.xmlfilename').click(function () {
+        $('#txt_xml_file_name').val($(this).text());
+        $("#modal_xml_file_name").dialog('close');
+    })
+    // Create modal
+    createModalDialog("#modal_xml_file_name", function () {
+        $("#modal_xml_file_name").dialog({
+            autoOpen: false,
+            title: 'CHỌN FILE XML',
+            modal: true,
+            resizable: true,
+            width: 350,
+            height: 400,
+            autoResize: false,
+            dialogClass: 'dialog-class',
+            draggable: true,
+            overlay: {
+                opacity: 0.5,
+                background: 'blue'
+            },
+            buttons: [
+                {
+                    text: "Đóng",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+    })
+</script>
+<style type="text/css">
+    div#form-content div label {
+        float: left;
+    }
+
+    .xmlfilename:hover {
+        cursor: pointer;
+        background-color: #4971a6;
+        color: white;
+        font-weight: bold;
+    }
+</style>

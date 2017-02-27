@@ -1,0 +1,157 @@
+<form action="../index/" method="POST" id="frmAll" autocomplete="off">
+<?php
+	$arrConst = $this->arrConst;
+?>
+<table cellpadding="0" cellspacing="0" width="100%" border="0">
+	<!--tao tac hidden!-->
+	<tr>
+		<!--Sinh mot hidden luu list ID ma NSD chon!-->
+			<?php echo $this->formHidden("hdn_reporttype_filter",$this->v_reporttype_filter); ?>			
+			<!--Sinh mot hidden luu ID loai danh muc!-->
+			<?php echo $this->formHidden("hdn_Report_id",$this->sreportId ,null); ?>				
+			<!--Bien hdn_xml_tag_list dung de luu danh sach cac THE XML tuong ung voi cac THUOC TINH cua mot doi tuong dang duoc cap nhat-->			
+			<?php echo $this->formHidden("hdn_xml_tag_list",'',null); ?>			
+			<!--Bien hdn_xml_value_list dung de luu danh sach cac gia tri cua cac THE XML tuong ung voi cac THUOC TINH cua mot doi tuong-->			
+			<?php echo $this->formHidden("hdn_xml_value_list",'',null); ?>	
+			<!--Bien hdn_filter_xml_tag_list dung de luu danh sach cac THE XML tuong ung voi cac tieu thuc loc tren giao dien DANH SACH DOI TUONG-->
+			<?php echo $this->formHidden("hdn_filter_xml_tag_list",$this->filterXmlTagList,null); ?>
+			<!--Bien hdn_filter_xml_tag_list dung de luu gia tri cua cac THE XML tuong ung voi cac tieu thuc loc tren giao dien DANH SACH DOI TUONG-->	
+			<?php echo $this->formHidden("hdn_filter_xml_value_list",$this->filterXmlValueList,null); ?>					
+			<?php echo $this->formHidden("hdn_exporttype","",null); ?>
+			<?php echo $this->formHidden("hdn_xmlfilename","",null); ?>	
+			<?php echo $this->formHidden("hdn_recordtype_id",$this->RecordType,null); ?>							
+	</tr>
+</table>
+<div class = "large_title" style="height: 15px;padding: 5px 0 0 5px;">
+	<?=$this->bodyTitle;?>			
+</div>	
+<div style="border: 1px solid #E2CA81;margin: 10px 5px 5px;position: relative;width: auto;">
+	<div id="header_update_form">
+		<div style="margin: 0 20px 20px;">
+			<label class="small_title" style="width:25%;clear: left;">B&#432;&#7899;c 1: Ch&#7885;n b&#225;o c&#225;o</label>
+			<div id='reportTypeShowList' style="width:75%;clear: left;display: block;float: right;">	
+			</div>		
+		</div>	
+		<div id="clear"></div>
+		<div style="margin: 0 20px 20px;">
+			<label class="small_title" style="width:25%;">Bước 2: Ch&#7885;n các tiêu thức l&#7885;c</label>
+			<div id="reportFillterList" style="width:75%;clear: left;display:block;float: right;">
+			</div>
+		</div>
+		<div id="clear"></div>
+		<div style="margin: 0 20px 20px;">
+			<label class="small_title" style="width:25%;">Bước 3: Ch&#7885;n định dạng tệp kết xuất</label>
+			<div style="width:75%;clear: left;display: block;float: right;">
+				<table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+					<tr align="left">
+						<td class="normal_label"
+							onclick="btn_checkOrNotOption('rad_exporttype',0,document.getElementById('hdn_exporttype'));">
+						<input type='radio' class='normal_radio' id="rad_exporttype"
+							name="rad_exporttype" value='1' checked
+							onClick="btn_rad_onclick(this,document.getElementById('hdn_exporttype'));">
+						&#272;&#7883;nh dạng Web</td>
+						<td class="normal_label"
+							onclick="btn_checkOrNotOption('rad_exporttype',1,document.getElementById('hdn_exporttype'));">
+						<input type='radio' class='normal_radio' id="rad_exporttype"
+							name="rad_exporttype" value='2'
+							onClick="btn_rad_onclick(this,document.getElementById('hdn_exporttype'));">
+						&#272;&#7883;nh dạng Word</td>
+						<td class="normal_label"
+							onclick="btn_checkOrNotOption('rad_exporttype',2,document.getElementById('hdn_exporttype'));">
+						<input type='radio' class='normal_radio' id="rad_exporttype"
+							name="rad_exporttype" value='3'
+							onClick="btn_rad_onclick(this,document.getElementById('hdn_exporttype'));">
+						&#272;&#7883;nh dạng Excel</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="clear"></div>
+	</div>
+</div>
+<table width="98%" align="center" cellpadding="0" cellspacing="0" border="0" class="buton_table">
+	<tr><td height="10"></td></tr>
+	<tr>
+		<td align="center" class="body"><input type='button'
+			class='add_large_button' name="btn_output"
+			value='<?php echo 'Kết xuất';?>'
+			onClick="btn_show_detail_report(document.forms[0].hdn_Report_id,document.forms[0].hdn_filter_xml_tag_list,document.forms[0].hdn_filter_xml_value_list);">
+		</td>
+	</tr>
+</table>
+</form>
+<script language="JavaScript">	
+	function btn_show_detail_report(p_hdn_obj_reporttype,p_hdn_tag_obj,p_hdn_value_obj){
+		var v_url = '';
+		var v_exporttype = document.forms[0].hdn_exporttype.value;
+		_save_xml_tag_and_value_list(document.forms[0], p_hdn_tag_obj, p_hdn_value_obj, true);
+		if (verify(document.forms[0])){
+			if(v_exporttype==''){
+				v_exporttype='1';
+			}
+			v_url = '../printview/?hdn_exporttype=' + v_exporttype;
+			//Id cua loai ho so
+			v_url = v_url + '&hdn_recordtype_id=BCTH';
+			//Id cua loai bao cao
+			v_url = v_url + '&hdn_reporttype_filter=' + p_hdn_obj_reporttype.value;
+			//Xau luu cac the
+			v_url = v_url + '&hdn_filter_xml_tag_list=' + p_hdn_tag_obj.value;
+			//Xau luu gia tri tuong ung voi cac the
+			v_url = v_url + '&hdn_filter_xml_value_list=' + p_hdn_value_obj.value;
+			//Ten file XML
+			v_url = v_url + '&hdn_file_xml=' + $('#hdn_xmlfilename').val();
+			v_url = v_url + '&modal_dialog_mode=1';
+			//alert(v_url);
+			sRtn = window.open(v_url);
+		}
+	}
+	//Chon loai TTHC
+	changeRecordType();
+	function changeRecordType(){
+		$('#reportTypeShowList').show();
+		var p_url = _WEBSITE_PATH + 'public/ajax/ajaxFunction.php';	
+		$.ajax({
+			url: p_url,type: 'POST',dataType: 'html',
+			data: '&recordtype=BCTH'+'&ownercode=<?=$_SESSION['OWNER_CODE']?>'+'&FuntionName=getReportTypeList',
+			success: function(data){
+				$('#reportTypeShowList').html(data);
+			}
+		});				
+	}	
+</script>
+<script language="JavaScript">	
+	//Chon loai bao cao
+	function changeReportType(p_rad_obj_value,xmlname){
+		recordtype = $('#sel_recordtype').val();
+		var value = p_rad_obj_value;
+		$('#hdn_Report_id').attr("value",value);
+		$('#hdn_xmlfilename').attr("value",xmlname);
+		$('#reportFillterList').show();
+		var p_url = _WEBSITE_PATH + 'public/ajax/ajaxFunction.php';	
+		$.ajax({
+			url: p_url,type: 'POST',dataType: 'html',
+			data: '&recordtype='+recordtype+'&reporttype='+value+'&xmlname='+xmlname+'&ownercode=<?=$_SESSION['OWNER_CODE']?>'+'&FuntionName=getReportFillterList',
+			success: function(data){
+				$('#reportFillterList').html(data);
+			}
+		});				
+	}		
+	function set_checked_onlabel(obj, value, option,xmlname){
+		for(i = 0; i< obj.length; i++){
+			if(obj[i].value == value && obj[i].disabled == false){
+				obj[i].checked = true;
+			}else{
+				if(option == 'checkbox')
+					obj[i].checked = false;
+			}		
+		}
+		changeReportType(value,xmlname)
+	}
+	function btn_checkOrNotOption(obj,index,p_hdn_obj){
+		document.getElementsByName(obj)[index].checked=true;
+		p_hdn_obj.value = document.getElementsByName(obj)[index].value;
+	}
+	function btn_rad_onclick(p_rad_obj,p_hdn_obj){
+		p_hdn_obj.value = p_rad_obj.value;
+	}
+</script>

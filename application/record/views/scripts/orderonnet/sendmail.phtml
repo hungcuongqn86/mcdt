@@ -1,0 +1,97 @@
+<form action="index" method="POST" id="frmReceived" autocomplete="off" enctype="multipart/form-data">
+	<?php echo $this->formHidden("hdn_type","",null); ?>
+	<!--Cac doi tuong hidden tren form-->
+	<?php echo $this->formHidden("hdn_current_page",$this->iCurrentPage,null); ?>
+	<?php echo $this->formHidden("cbo_nuber_record_page",$this->iNumRowOnPage,null); ?>
+	<?php echo $this->formHidden("hdn_record_number_page",$this->iNumRowOnPage,null); ?>
+	<?php echo $this->formHidden("hdn_object_id_list","",null); ?>
+	<?php echo $this->formHidden("hdh_option","",null); ?>
+	<?php echo $this->formHidden("hdn_is_update","",null); ?>
+	<?php echo $this->formHidden("hdn_record_type_id",$this->RecordTypeId,null); ?>
+	<?php echo $this->formHidden("hdn_filter_xml_tag_list",$this->filterXmlTagList,null); ?>
+	<?php echo $this->formHidden("hdn_filter_xml_value_list",$this->filterXmlValueList,null); ?>
+	<?php echo $this->formHidden("hdn_object_id",$this->srecordId,null); ?>
+	<?php echo $this->formHidden("hdn_xml_tag_list","",null); ?>
+	<?php echo $this->formHidden("hdn_xml_value_list","",null); ?>
+	<?php echo $this->formHidden("hdn_XmlTagValueList","",null); ?>
+	<!--Bien hdn_deleted_new_file_id_list dung de luu Id cua nhung doi tuong file dinh kem se xoa-->	
+	<?php echo $this->formHidden("hdn_deleted_new_file_id_list","",null); ?>	
+	<?php echo $this->formHidden("htn_leftModule",$this->currentModulCodeForLeft,null); ?>	
+	<!--Bien hdn_deleted_exist_file_id_list dung de ...-->	
+	<?php echo $this->formHidden("hdn_deleted_exist_file_id_list","",null);?>
+	<!--Bien hdn_back_option dung de quay tro lai man hinh danh sach da dinh...-->	
+	<?php echo $this->formHidden("hdn_back_option",$this->sBackOption,null);?>
+	<?php
+		$arrConst = $this->arrConst;
+		$sUrlEdit  = "../edit/";
+		$urlCalendar = $this->urlCalendar;
+		$arrSingleRecord = $this->arrSingleRecord;
+	?>
+	<table width="100%" id="workadd" align="center" border="0">
+		<col width="85%">	
+		<tr>		
+			<td class="left" valign="top">
+				<div class = "large_title">
+					<?=$this->titleBody;?>			
+				</div>
+				<table width='99%'  border='0' cellspacing='0' cellpadding='0' class="table_title">
+					<col width="85%" align="left"/><col width="15%" align="right"/>
+					<tr>
+						<td align="right" colspan="2">
+							<div style="text-align:right; width:98%;">
+								<label>
+									<a  class="small_link"  onclick="document.getElementById('hdh_option').value='GHI_THEMMOI';btn_save_record(document.getElementById('hdn_xml_tag_list'),document.getElementById('hdn_xml_value_list'),'../index/','<?=$this->UrlAjax?>');"><?='Gửi mail'?></a>									
+									<a  class="small_link"  onclick="actionUrl('../index/');"> | <?='Quay l&#7841;i'?></a> 
+								</label>
+							</div>	
+						</td>
+					</tr>
+				</table>
+				<div id="contentXml">
+					<div id= "header_update_form">
+						<div>
+							<label><?php echo $arrConst['_LOAI_HO_SO'];?></label>
+							<input disabled value = "<?=$this->RecodeTypeName?>" class="textbox" style="width:60%;"  id ="C_RECORDTYPE" name="C_RECORDTYPE" type="text"  xml_tag_in_db="" xml_data="false" column_name="C_RECORDTYPE"  />
+						</div>
+											
+						<div>
+							<label>Mã đăng ký</label>
+							<input readonly class="textbox" style="width:20%;" value = "<?= $this->RecodeCode?>"  id ="C_CODE" name="C_CODE" type="text" option ="false"  xml_data="false" column_name="C_CODE"  />
+						</div>
+					</div>
+						<?php echo $this->generateFormHtml;?>
+						
+					<div id= "header_update_form">
+						<!--<div style = "clear:both;">
+								<label >Tên công dân</label>
+								<input id='fullname' name='fullname' class="textbox" style="width:60%;height:10%;"  value="<?php /*echo $this->fullname*/?>"/>
+						</div>-->
+						<div style = "clear:both;">
+								<label>Email công dân</label>
+								<input id='useremail' name='useremail' class="textbox" style="width:74%;height:10%;"  value='chienbn@gmail.com'/>
+						</div>
+						<div style = "clear:both;">
+								<label>Email của phòng tiếp nhận</label>
+								<input disabled id='unitemail' name='unitemail' class="textbox" style="width:74%;height:10%;" value='<?php echo $this->unitemail;?>'/>
+						</div>
+						<div style = "clear:both;">
+								<label>Tiêu đề mail</label>
+								<input id='emailtitle' name='mailtitle' class="textbox" style="width:74%;height:10%;" value="<?=G_User::getInstance()->getIdentity()->C_UNIT_NAME;?> THÔNG BÁO ĐĂNG KÝ GIAO DỊCH TTHC"/>
+						</div>
+						<div style = "clear:both;">
+								<label>Nội dung thông báo</label>
+								<textarea id='emailcontent' name='emailcontent' class="normal_textarea"  >Đăng ký giao dịch của ông/bà <?php echo $this->fullname?> đã được duyệt. Đề nghị ông/bà đem hồ sơ gốc đến giao dịch tại Một cửa <?=G_User::getInstance()->getIdentity()->C_UNIT_NAME;?> theo đúng thời gian hẹn đăng ký.</textarea>
+						</div>
+					</div>
+				</div>
+				<!--Hien thi nut!-->
+				<div id="button">
+					<button name="btn_guimail" id="gui_mail" type="button" value="Gửi mail" class="add_large_button" onClick="document.getElementById('hdh_option').value='GUI_MAIL',actionUrl('');"><?='Gửi mail'?></button>					
+					<input type="button" style="margin-left:0px;" name="quaylai" id="quaylai" value="<?='Quay l&#7841;i'?>" onClick="actionUrl('../orderonnet/index');" class="add_large_button">
+				</div>	
+			</td>
+		</tr>	
+	</table>
+</form>
+<div id = "ajax" style = "display:none;"></div>
+

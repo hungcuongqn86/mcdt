@@ -1,0 +1,85 @@
+<?php
+    $mysession = new Zend_Session_Namespace('authtoken');
+    $hash = $mysession->authtoken;
+    $data = $this->data;
+?>
+<form id="g4tlogin" name="g4tlogin" class="item" method="POST" autocomplete="off" enctype="multipart/form-data">
+        <input type="hidden" name="authtoken" value="<?=$hash?>" />
+<div class="row_01">
+    <div class="box_login">
+        <p class="title">
+            Đăng nhập
+        </p>
+        <div class="img_avatar">
+            <span class="avatar_login"></span>
+        </div>
+        <div class="text_field">
+            <label class="">Email</label>
+            <input type="email" value="<?=$data['email']?>" class="text" name="newsletterEmail" id="newsletterEmail" placeholder="" required oninput="InvalidMsg(this);" oninvalid="InvalidMsg(this);" requiredmessage="Bạn phải nhập Email!">
+        </div>
+        <div class="text_field">
+            <label class="">Mật khẩu</label>
+            <input type="password" value="<?=$data['password']?>" class="text" name="newsletterpass" id="newsletterpass" placeholder="" required oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" requiredmessage="Bạn phải nhập mật khẩu!">
+        </div>
+        <label for="remember_me" class="unlabeled">
+            <input class="checkbox" type="checkbox" checked="checked" name="dwfrm_login_rememberme" id="dwfrm_login_rememberme" value="true" maxlength="2147483647">
+            <span>  Duy trì đăng nhập</span>
+        </label>
+        <div class="button">
+            <button class="btn_login" type="submit" name="sign_in" >Đăng nhập</button>
+        </div>
+        <div class="forgot-container">
+         <a href="">Quên mật khẩu ?</a>
+        </div>
+    </div>
+        <a href="" class="create_acc">Đăng ký tài khoản</a>
+</div>
+</form>
+
+<script>
+(function ($) {
+    $.fn.account_login = function (options) {
+        var self = this;
+
+        options = $.extend({
+            url: baseUrl + '/dang-nhap'
+        }, options);
+
+        var initialize = function () {
+            eventForm();
+        };
+
+        function eventForm() {
+            $(self).submit(function(event) {
+
+                if ($(self)[0].checkValidity()) {
+                    $('#newsletterEmail', self).val($.base64.encode($('#newsletterEmail', self).val()))
+                    $('#newsletterpass', self).val($.base64.encode($('#newsletterpass', self).val()))
+                }
+            })
+        }
+
+        // Khoi tao
+        initialize.call(this);
+    }
+
+
+})(jQuery);
+
+var msg = '<?=$this->message?>';
+if (msg) {
+    jAlert(msg, 'Thông báo');
+}
+$(function(){
+    $('form#g4tlogin').account_login({});
+    $('#footer').addClass('footer_home')
+})
+</script>
+<style>
+    #wrapper .login .main_content {
+        background: #ebebeb none repeat scroll 0 0;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
+</style>

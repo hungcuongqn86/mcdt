@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<common_para_list>
+	</common_para_list>
+	<table_struct_of_filter_form><!--xac dinh cau truc table cua form chua cac tieu thuc loc du lieu-->
+			<filter_row>				
+				<tag_list>from_date,to_date</tag_list>
+			</filter_row>
+	</table_struct_of_filter_form>
+	<filter_formfield_list><!-- phan mo ta cac dong cua  form chua cac tieu thuc loc du lieu-->
+		<from_date>
+			<label>Từ ngày: </label>
+			<width_label>text-align:left;padding-right:8px;</width_label>
+			<type>textbox</type>
+			<data_format>isdate</data_format>
+			<width>20%</width>
+			<optional>false</optional>
+			<max></max>
+			<min></min>
+			<max_length></max_length>
+			<message>TU NGAY khong duoc de trong</message>
+			<note></note>
+			<js_function_list></js_function_list>
+			<js_action_list></js_action_list>
+			<xml_data>true</xml_data>
+			<xml_tag_in_db>from_date</xml_tag_in_db>
+			<colume_name></colume_name>
+			<compare_operator></compare_operator> 
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</from_date>
+		<to_date>
+			<label>Đến ngày: </label>
+			<width_label>10%;text-align:left;padding-left:5px;padding-right:8px;</width_label>
+			<type>textbox</type>
+			<data_format>isdate</data_format>
+			<width>20%</width>
+			<optional>false</optional>
+			<max></max>
+			<min></min>
+			<max_length></max_length>
+			<message>DEN NGAY khong duoc de trong</message>
+			<note></note>
+			<js_function_list></js_function_list>
+			<js_action_list></js_action_list>
+			<xml_data>true</xml_data>
+			<xml_tag_in_db>to_date</xml_tag_in_db>
+			<colume_name></colume_name>
+			<compare_operator></compare_operator>
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</to_date>
+	</filter_formfield_list>
+	<!--Dinh nghia file hien thi tieu de bao cao-->
+	<report_table_format>
+		 <report_label_file>templates/report-template/BCTH/Bieu_so_tiep_nhan_va_tra_ket_qua_dang_ky_gd.tpl</report_label_file>
+	</report_table_format>
+	<report_sql> <!--Phan mo ta cau lenh SQL ket xuat du lieu cho bao cao -->
+	<sql>		
+			Exec eCS_BC09 '#record_type#','#from_date#','#to_date#'
+	</sql>
+		<xml_data></xml_data> <!--Cot Du lieu duoc nhom co phai nam trong the xml hay khong?-->
+		<group_by></group_by>  <!--The nay xac dinh du lieu da duoc nhom theo cot nao-->
+		<group_name></group_name> <!--Cot chua ten cua nhom khi tinh toan nhom du lieu-->
+		<firt_row>5</firt_row> <!--Row bat dau hien thi bang du lieu-->
+	</report_sql>
+	<report_header> <!--Phan dau cua bao cao-->
+		<large_title></large_title>		
+		<filter_list>record_type,from_date,to_date</filter_list>
+		<thead></thead>
+	</report_header>
+	<report_footer> <!--Ket thuc bao cao-->
+		<footer_colspan>report_creator,report_approver,report_signer|2,2,3</footer_colspan><!-- Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao -->
+		<report_creator>Người lập</report_creator>
+		<report_approver>Người duyệt</report_approver>
+		<report_signer>Người ký</report_signer>
+	</report_footer>
+	<pageSetup> <!--PageSetup-->
+		<orientation>portrait</orientation>
+		<paperSize>7</paperSize>
+	</pageSetup>
+</root>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<replace_list>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#NAME_A1#</find_string>
+            <xml_tag_in_db>registor_name</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DC_A1#</find_string>
+			<xml_tag_in_db>registor_address</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#CMT_A1#</find_string>
+            <xml_tag_in_db>so_cmnd</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NOICAP_A1#</find_string>
+			<xml_tag_in_db>noi_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NGAYCAP_A1#</find_string>
+			<xml_tag_in_db>ngay_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+	</replace_list>
+</root>

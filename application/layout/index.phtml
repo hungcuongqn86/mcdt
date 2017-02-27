@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>HE THONG PHAN MEM MOT CUA DIEN TU</title>
+    <link rel="icon" href="<?= $this->baseUrl ?>images/efy.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl ?>efy-style/style.css">
+    <link rel="stylesheet" type="text/css"
+          href="<?= $this->baseUrl ?>efy-style/themes/humanity/jquery-ui-1.8.13.custom.css">
+    <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl ?>efy-style/themes/base/calendar.css">
+    <!--Dinh nghia hang so dung chung cho JS!-->
+    <?= $this->JSPublicConst; ?>
+    <script src="<?= $this->baseUrl ?>efy-js/util.js" type="text/javascript"></script>
+	<script src="<?= $this->baseUrl ?>efy-js/ajax.js" type="text/javascript"></script>
+    <script src="<?= $this->baseUrl ?>efy-js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="<?= $this->baseUrl ?>efy-js/jquery-migrate-1.0.0.js" type="text/javascript"></script>
+    <script src="<?= $this->baseUrl ?>efy-js/ui/jquery-ui.custom.js" type="text/javascript"></script>
+
+    <script src="<?= $this->baseUrl ?>efy-js/ui/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="<?= $this->baseUrl ?>efy-js/ui/jquery.ui.datepicker.js" type="text/javascript"></script>
+    <script src="<?= $this->baseUrl ?>efy-js/ui/jquery.ui.dialog.js" type="text/javascript"></script>
+    <script src="<?= $this->baseUrl ?>efy-js/ui/i18n/jquery.ui.datepicker-vi.js" type="text/javascript"></script>
+    <!--Load javascript va Css cho Tung module-->
+    <?php
+    echo $this->LoadAllFileJsCss;
+    $userIdentity = G_Account::getInstance()->getIdentity();
+    $ownerName = str_replace('UBND', '', $userIdentity->OWNER_NAME);
+    //var_dump($userIdentity);
+    ?>
+</head>
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" rightmargin="0" width="100%">
+<div id="all">
+    <div id="div_TopBanner">
+        <div id="bannerhead">
+            <div id="bgrightbanner">
+                <div class="banner_left" id="banner_left">
+                    <div class="efy-title-banner-big">
+                        <div class="efy-title-banner-sub-big">
+                            <div class="efy-title-banner-title1">ỦY BAN NHÂN DÂN <?php echo $ownerName; ?></div>
+                            <div class="efy-title-banner-title2">PHẦN MỀM MỘT CỬA ĐIỆN TỬ LIÊN THÔNG XÃ HUYỆN - LĨNH VỰC TÀI NGUYÊN & MÔI TRƯỜNG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" height="100%" align="center">
+        <tr>
+            <td valign="top">
+                <table width="100%" cellpadding="0" cellspacing="0" align="center" id="header">
+                    <tr>
+                        <?
+                        if ($this->hideDisplayMenuHeader != "") {
+                            ?>
+                            <td colspan="10" width="20%" valign="top" bgcolor="#fff8e3" style="display:none">
+                                <?= $this->layout()->header; ?>                                </td>
+                        <? } else {
+                            ?>
+                            <td colspan="10" width="5%" valign="top">
+                                <?= $this->layout()->header; ?>
+                            </td>
+                        <? } ?>
+                    </tr>
+                    <tr>
+                        <td width="100%" valign="top">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="body1" border="0">
+                                <tr>
+                                    <?
+                                    $statusLeftMenu = "block";
+                                    if ($this->hideDisplayMeneLeft == "") {
+                                        $statusLeftMenu = "none";
+                                    } ?>
+                                    <td width="5%" valign="top" bgcolor="#fff8e3"
+                                        style="display:<?= $statusLeftMenu; ?>;" id="Iddiv_leftmenu">
+                                        <?= $this->layout()->left; ?>
+                                    </td>
+                                    <?php
+                                    if ($this->showModelDialog != 1) { ?>
+                                        <td valign="middle" class="anmenu"><img id="pictureShowHileMenu"
+                                                                                src="<?= $this->ShowHideimageUrlPath; ?>"
+                                                                                onclick="showHideMenuLeft('showHideMenu');"
+                                                                                title="Ẩn hoặc hiện menu"></td>
+                                        <?php
+                                    } ?>
+                                    <td width="100%" style="background:#fff;" valign="top">
+                                        <?= $this->layout()->content; ?>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <?
+                        if ($this->hideDisplayMenuFooter != "") {
+                            ?>
+                            <td colspan="10" width="20%" valign="top" bgcolor="#fff8e3" style="display:none">
+                                <?= $this->layout()->footer; ?>
+                            </td>
+                        <? } else {
+                            ?>
+                            <td colspan="10" width="5%" valign="top">
+                                <?= $this->layout()->footer; ?>
+                            </td>
+                        <? } ?>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="vY nq" id="note-process">
+    <div id="loadingpage">
+        <img src="<?= $this->baseUrl ?>images/loaderpage.gif"/>
+    </div>
+</div>
+</body>
+</html>

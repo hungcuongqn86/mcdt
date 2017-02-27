@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<common_para_list>
+		<common_para>
+			<list_form_title>Danh sách các đối tượng của một loại danh mục</list_form_title>
+			<update_form_title>Cập nhật một đối tượng của một loại danh mục</update_form_title>
+			<first_col_width>20%</first_col_width>
+			<number_of_object_per_page>10</number_of_object_per_page>
+			<js_file_name></js_file_name>
+			<js_function>set_input()</js_function>
+		</common_para>
+	</common_para_list>
+	<!--Phan mo ta cau truc Form cap nhat doi tuong-->
+	<list_of_object>
+		<table_struct_of_filter_form> 
+			<filter_row_list>	<!--Phan mo ta cac dong Form cua cac doi tuong can loc-->
+				<filter_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>registor_name</tag_list>
+					<row_id></row_id>
+				</filter_row>
+				<filter_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>registor_address</tag_list>
+					<row_id></row_id>
+				</filter_row>  	
+				<!--<filter_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>so_cmnd_nk</tag_list>
+					<row_id></row_id>
+				</filter_row>	-->
+			</filter_row_list>
+		</table_struct_of_filter_form>
+		<filter_formfield_list>  <!-- phan mo ta cac dong cua  form chua cac tieu thuc loc du lieu-->
+				<registor_name>
+				<label>Tên tổ chức/ cá nhân</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72%</width>
+				<max_length>100</max_length>
+				<message></message>
+				<note></note>
+				<only>true</only>
+				<js_function_list></js_function_list>
+				<js_action_list></js_action_list>
+				<xml_data>true</xml_data>
+				<column_name>false</column_name>
+				<compare_operator>like</compare_operator> 
+				<xml_tag_in_db>registor_name</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</registor_name>
+			<registor_address>
+				<label>Địa chỉ</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72%</width>
+				<max_length>300</max_length>
+				<message></message>
+				<note></note>
+				<only>true</only>
+				<js_function_list></js_function_list>
+				<js_action_list></js_action_list>
+				<xml_data>true</xml_data>
+				<compare_operator>like</compare_operator> 
+				<xml_tag_in_db>registor_address</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</registor_address>				
+			<so_cmnd_nk>
+				<label>Số CMT nhân dân </label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>38%</width>
+				<max_length>300</max_length>
+				<message></message>
+				<note></note>
+				<only>true</only>
+				<js_function_list></js_function_list>
+				<js_action_list></js_action_list>
+				<xml_data>true</xml_data>
+				<compare_operator>=</compare_operator> 
+				<xml_tag_in_db>so_cmnd_nk</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</so_cmnd_nk>	
+		</filter_formfield_list>
+	</list_of_object>
+</root>

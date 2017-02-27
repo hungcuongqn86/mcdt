@@ -1,0 +1,72 @@
+<?php
+$baseUrl = $this->baseUrl();
+$sRole = G_Account::getInstance()->getIdentity()->sRole;
+
+?>
+<div class="categories">
+    <input id="menu_categories" <?= ($this->leftmenu == 0 ? 'checked' : '') ?> name="menu_categories" type="checkbox"
+           style="display: none;"/>
+    <label onclick="showHideMenu()" for="menu_categories" class="">
+        <span class="icon_menu_categories"></span>
+        <span class="icon_arow"></span>
+    </label>
+
+    
+    <div class="list_categories">
+        <!-- ADMIN -->
+        <?php if($sRole =='ADMIN') {
+        ?>
+        <div class="row row_admin">
+            <p class="title" title="Quản trị hệ thống">
+                <span class="icon_categories"></span>
+                <span class="text">Quản trị hệ thống</span>
+                <span class="icon_arrow_tiny"></span>
+                <span class="icon_arrow_tiny_hide"></span>
+            </p>
+            <ul class="list">
+                <li id = "admin_index_index" title="Bảng điều khiển">
+                    <a href="<?= $baseUrl; ?>/admin/index/index/" >
+                    <span class="icon_PQND"></span>
+                    <span class="text">Bảng điều khiển</span></a>
+                </li>
+
+                <li id = "admin_account_index" title="Quản trị tài khoản">
+                    <a href="<?= $baseUrl; ?>/admin/account/index/" >
+                    <span class="icon_PQND"></span>
+                    <span class="text">Quản trị tài khoản</span></a>
+                </li>
+
+            </ul>
+        </div>
+        <?php } ?>
+
+        <div class="row row_02">
+            <p class="title" title="Hồ sơ cá nhân">
+                <span class="icon_categories icon_hosocanhan"></span>
+                <span class="text">Hồ sơ cá nhân</span>
+                <span class="icon_arrow_tiny"></span>
+                <span class="icon_arrow_tiny_hide"></span>
+            </p>
+            <ul class="list">
+                <li id="account_profile_index" title="Thông tin cá nhân">
+                    <a href="<?= $baseUrl; ?>/account/profile/index/">
+                        <span class="icon_TTCN"></span>
+                        <span class="text">Thông tin cá nhân</span>
+                    </a>
+                </li>
+                <li id="account_profile_changepass" title="Thay đổi mật khẩu">
+                    <a href="<?= $baseUrl; ?>/account/profile/changepass/">
+                        <span class="icon_TDMK"></span>
+                        <span class="text">Thay đổi mật khẩu</span>
+                    </a>
+                </li>
+                <li title="Thoát">
+                    <a act="logout" href="<?= $baseUrl; ?>/dang-xuat/">
+                        <span class="icon_Thoat"></span>
+                        <span class="text">Thoát</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

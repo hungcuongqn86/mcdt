@@ -1,0 +1,225 @@
+
+/*fix reponsive top menu */
+
+.top_menu_area #menu-button {
+  display: none;
+}
+.top_menu_area #menu-button > ul.visitor_tabs {
+  display: block;
+}
+.top_menu_area.small-screen > ul {
+	width: 100%;
+}
+.top_menu_area.small-screen > ul > li,
+.top_menu_area.small-screen.align-center {
+  float: none;
+  display: block;
+  border-top: 1px solid rgba(100, 100, 100, 0.1);
+}
+
+.top_menu_area.small-screen #menu-button {
+  display: block;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #3db2e1;
+  text-align: left;
+}
+/* END fix reponsive top menu */
+
+@media only screen
+and (max-width : 980px) {
+	.wrapper_area.home .main_content {
+		position: relative;
+		bottom: 0;
+	}
+	.home .main_content .row_01 {
+		width: 100%;
+	}
+}
+@media only screen
+and (max-width : 768px) {
+	body {
+		font-size: 12px;
+	}
+	.text_logo .text_top {
+		font-size: 20px
+	}
+	#header .visitor_tabs li a {
+		font-size: 12px;
+	}
+	.home .banner .box_login_regis {
+        display: none;
+	}
+	.wrapper_area.home .main_content {
+		position: relative;
+		bottom: 0;
+	}
+	.home .main_content .row_01 {
+		width: 100%;
+	}
+	.home .main_content .row_01 .header p.title {
+		font-size: 18px;
+	}
+	.home .main_content .row_01 .header p.caption {
+		font-size: 14px;
+	}
+	.home .menu ul li a p.title {
+		font-size: 14px;
+	}
+	.top_menu ul li {
+		padding:5px 3px;
+	}
+	.top_menu ul li a {
+		font-size: 12px;
+		padding: 10px 5px;
+	}
+	.top_menu_area {
+		width: 100%;
+		position: relative;
+	}
+	.wrapper_area {
+		width: 100%;
+	}
+	.wrapper_area .main_content > .row_01 > .header .title {
+		font-size: 18px;
+	}
+	.help_content_detail ul li >.cl_left {
+		width: 12%;
+	}
+	.help_content_detail ul li >.cl_right {
+		width: 83%;
+	}
+	.wrapper_area .main_content .content p {
+		font-size: 12px;
+	}
+	.top_menu ul li.active {
+		border: none;
+	}
+	.top_menu ul li:hover {
+		border-bottom: 5px solid #2980b9;
+	}
+	.search_bar_area .textinput {
+		width: 70%;
+	}
+	.top_menu_area.small-screen > ul.visitor_tabs {
+		float: right;
+		display: inline-block !important; 
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		text-align: right;
+		width: 40%;
+		border:none;
+	}
+	.top_menu_area.small-screen > ul.visitor_tabs > li {
+		float: right;
+	
+	}
+}
+@media only screen
+and (max-width : 640px) {
+	#header {
+		height: auto;
+	}
+	.header_area {
+		width: 100%;
+		text-align: center;
+	}
+	.header_area .logo {
+		float: none;
+	}
+	.text_logo .text_top {
+		font-size: 14px;
+	}
+	.text_logo .text_bt {
+		font-size: 18px;
+	}
+	.img_logo {
+		display: none;
+	}
+	#sign_in {
+		right: 0;
+	}
+	#sign_up {
+		width: 320px;
+	}
+	#AddressForm .label, #RegistrationForm .label {
+		width: 60px;
+	}
+	.home .menu ul li {
+		width: 30%;
+		padding-bottom: 20px;
+	}
+	.huongdan .main_content > .row_01 .content >.cl_left {
+		width: 100%;
+	}
+	.huongdan .main_content > .row_01 .content >.cl_right {
+		width: 100%;
+	}
+	.search_bar_area .textinput {
+		width: 70%;
+	}
+}
+@media only screen
+and (max-width : 480px) {
+	.home .menu ul li {
+		width: 48%;
+		padding-bottom: 20px;
+	}
+	.wrapper_area .main_content > .row_01 .content >.cl_left {
+		width: 100%
+	}
+	.huongdan .main_content > .row_01 .content >.cl_right {
+		width: 100%;
+	}
+	.search_bar_area .textinput {
+		width: 96%;
+		margin-bottom: 10px;
+	}
+
+	.search_bar_area .button-submit {
+		width: 100%;
+	}
+	TABLE.list-table-data TR TD {
+		display: block;
+		padding: 10px 5px;
+	}
+	#table-work tr.header td {
+		display: none;
+	}
+	#table-work tr td:before {
+		font-weight: bold;
+		display: inline-block;
+		width: 100px;
+		text-align: left;
+		margin-right: 10px;
+		content: attr(data-th)": ";
+	}
+	.wrapper_area.tracuuhoso_kq .main_content .content p {
+		font-size: 16px;
+	}
+	.normal_label {
+		margin-bottom: 15px;
+		display: block;
+	}
+	#table-work tr {
+		margin-bottom: 15px;
+		display: block;
+	}
+	.top_menu_area.small-screen > ul.visitor_tabs {
+		width: 50%;
+	}
+
+}
+
+@media only screen
+and (max-width : 380px) {
+	.top_menu_area.small-screen > ul.visitor_tabs {
+		width: 70%;
+	}
+}

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<common_para_list>
+		<orientation>Landscape</orientation>
+	</common_para_list>
+	<table_struct_of_filter_form><!--xac dinh cau truc table cua form chua cac tieu thuc loc du lieu-->
+ 			<filter_row>				
+				<tag_list>cate</tag_list>
+			</filter_row>   
+			<filter_row>				
+				<tag_list>from_date,to_date</tag_list>
+			</filter_row>
+	</table_struct_of_filter_form>
+	<filter_formfield_list><!-- phan mo ta cac dong cua  form chua cac tieu thuc loc du lieu-->
+ 		<cate>
+			<label>Lĩnh vực </label>
+			<width_label>text-align:left;padding-right:8px;</width_label>
+			<type>selectbox</type>
+			<selectbox_option_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', 'DANH_MUC_LINH_VUC'</selectbox_option_sql>
+			<selectbox_option_id_column>0</selectbox_option_id_column>
+			<selectbox_option_name_column>1</selectbox_option_name_column>
+			<selectbox_option_value_column>1</selectbox_option_value_column>
+			<data_format></data_format>
+			<width>45%</width>
+			<optional>false</optional>
+			<max_length></max_length>
+			<message>Phai xac dinh TRANG THAI HO SO!</message>
+			<note></note>
+			<tooltip></tooltip>
+			<xml_data>true</xml_data>
+			<js_function_list></js_function_list>
+			<js_action_list></js_action_list>
+			<xml_tag_in_db>cate</xml_tag_in_db>
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</cate>   
+		<from_date>
+			<label>Từ ngày: </label>
+			<width_label>text-align:left;padding-right:8px;</width_label>
+			<type>textbox</type>
+			<data_format>isdate</data_format>
+			<width>20%</width>
+			<optional>false</optional>
+			<max></max>
+			<min></min>
+			<max_length></max_length>
+			<message>TU NGAY khong duoc de trong</message>
+			<note></note>
+			<js_function_list></js_function_list>
+			<js_action_list></js_action_list>
+			<xml_data>true</xml_data>
+			<xml_tag_in_db>from_date</xml_tag_in_db>
+			<colume_name></colume_name>
+			<compare_operator></compare_operator> 
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</from_date>
+		<to_date>
+			<label>Đến ngày: </label>
+			<width_label>10%;text-align:left;padding-left:5px;padding-right:8px;</width_label>
+			<type>textbox</type>
+			<data_format>isdate</data_format>
+			<width>20%</width>
+			<optional>false</optional>
+			<max></max>
+			<min></min>
+			<max_length></max_length>
+			<message>DEN NGAY khong duoc de trong</message>
+			<note></note>
+			<js_function_list></js_function_list>
+			<js_action_list></js_action_list>
+			<xml_data>true</xml_data>
+			<xml_tag_in_db>to_date</xml_tag_in_db>
+			<colume_name></colume_name>
+			<compare_operator></compare_operator>
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</to_date>
+	</filter_formfield_list>
+	<!--Dinh nghia file hien thi tieu de bao cao-->
+	<report_table_format>
+		 <report_label_file>templates/report-template/BCTH/so_theo_doi_tiep_nhan_ho_so.tpl</report_label_file>
+		 <report_label_excel_file>templates/report-template/BCTH/so_theo_doi_tiep_nhan_ho_so.xls</report_label_excel_file>
+	</report_table_format>
+	<report_sql> <!--Phan mo ta cau lenh SQL ket xuat du lieu cho bao cao -->
+		<sql>		
+			Exec eCS_BCTH01 '#cate#','#from_date#','#to_date#'
+		</sql>
+		<xml_data></xml_data> <!--Cot Du lieu duoc nhom co phai nam trong the xml hay khong?-->
+		<group_by></group_by>  <!--The nay xac dinh du lieu da duoc nhom theo cot nao-->
+		<group_name></group_name> <!--Cot chua ten cua nhom khi tinh toan nhom du lieu-->
+		<firt_row>10</firt_row> <!--Row bat dau hien thi bang du lieu-->
+	</report_sql>
+	<report_header> <!--Phan dau cua bao cao-->
+		<large_title>SỔ TIẾP NHẬN VÀ TRẢ KẾT QUẢ</large_title>
+		<filter_list>cate</filter_list>
+		<thead>true</thead>
+	</report_header>
+	<report_footer> <!--Ket thuc bao cao-->
+		<footer_colspan>report_creator,report_approver,report_signer|3,2,2</footer_colspan><!-- Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao -->
+		<report_creator>Người lập</report_creator>
+		<report_approver>Người duyệt</report_approver>
+		<report_signer>Người ký</report_signer>
+	</report_footer>
+	<pageSetup> <!--PageSetup-->
+		<orientation>landscape</orientation>
+		<paperSize>9</paperSize>
+	</pageSetup>    
+</root>

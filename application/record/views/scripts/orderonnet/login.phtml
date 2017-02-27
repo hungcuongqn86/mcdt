@@ -1,0 +1,41 @@
+<form action="index.php" method="post" Name="f_dsp_login">
+<table width="100%" id="login" align="center" border="0">
+	<col width="65%"><col width="35%">	
+	<tr>
+		<td class="left" valign="top">
+				<ul>
+					<li class="title_bg_1"></li>
+                    <li class="title_bg_2">D&#7883;ch v&#7909; c&#244;ng tr&#7921;c tuy&#7871;n</li>
+                    <li class="title_bg_3"></li>
+				</ul>
+                <?php
+                 //echo $this->baseUrl;	
+                 include 'dich_vu_cong_tt.html';
+                 //$dvctt = file_get_contents('../../../../../public/templates/other/dichvucongtt.html');
+                    //echo $dvctt;
+                ?>
+		</td>        
+<td class="right" valign="top" align="right">
+        	<div class="large_title">&#272;&#259;ng nh&#7853;p h&#7879; th&#7889;ng <?php echo $this->message?></div>
+			<table width="100%" class="login_form" cellpadding="0" cellspacing="0">
+					<col width="40%"><col width="60%">
+					<tr>
+						<td class="normal_label"><?php echo 'T&#234;n &#273;&#259;ng nh&#7853;p';?></td>
+						<td><input name="txt_usename" id="txt_usename" type="text" class="normal_textbox" value="<?echo $this->username ?>" message = "Chua nhap ten dang nhap" onKeyDown="change_focus_on_firefox(document.forms['f_dsp_login'],this,event)"></td>
+					</tr>
+					<tr>
+						<td class="normal_label"><?php echo 'M&#7853;t kh&#7849;u';?></td>
+						<td><input Name="txt_password" Type="password" class="normal_textbox" message = "Chua nhap mat khau"  onKeyDown="change_focus_on_firefox(document.forms['f_dsp_login'],this,event)"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td align="center" width="100%" valign="top">
+							<input Type="button" Name="btn_save" class="large_button" value="&#272;&#259;ng nh&#7853;p"  onclick = "actionUrl('/g4t-mcdt-lethuy/record/sendrecord/worklogin/');"  onKeyDown="change_focus_on_firefox(document.forms['f_dsp_login'],this,event)">
+							<input Type="button" Name="btn_register" class="large_button" style="margin:0 0 0 5px;" value="&#272;&#259;ng k&#253;" onclick="btn_link_onclick_register('DSP_REGISTER')" onKeyDown="change_focus_on_firefox(document.forms['f_dsp_login'],this,event)">
+						</td>
+					</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</form>

@@ -1,0 +1,32 @@
+<?php 
+	if($this->sRecordType == "LIEN_THONG"){;	
+		global $dspDiv, $readonlyInEditMode, $disabledInEditMode, $formFielName;
+		session_start();
+		$this->dspDiv = 1;
+		$this->readonlyInEditMode = true; $this->disabledInEditMode = true;
+		$this->formFielName	= "C_TRASITION_OWNER_CODE_LIST";				
+		//var_dump($_SESSION['SesGetAllOwnerNotCurrentOwner']);
+		/*unset($_SESSION['SesGetAllOwnerNotCurrentOwner']);
+		if (!isset($_SESSION['SesGetAllOwnerNotCurrentOwner'])){
+			$arrOwner = array();
+			$icount=sizeof($_SESSION['SesGetAllOwner']);
+			$arrResult=$_SESSION['SesGetAllOwner'];
+			//var_dump($arrResult[0][]);
+			for($i=0;$i<$icount;$i++){
+				if($_SESSION['SesGetAllOwner'][$i]['code']!=$_SESSION['OWNER_CODE']){
+					$arr1Owner = array("name"=>$arrResult[$i]['name'],"code"=>$arrResult[$i]['code'],"order"=>$arrResult[$i]['order'],"address"=>$arrResult[$i]['address'],"email"=>$arrResult[$i]['email'],"phone"=>$arrResult[$i]['phone']);
+					array_push($arrOwner,$arr1Owner);
+				}
+			}
+			//var_dump($arrOwner);
+			$_SESSION['SesGetAllOwnerNotCurrentOwner'] = $arrOwner;
+			//var_dump($_SESSION['SesGetAllOwnerNotCurrentOwner']);
+		}	*/
+		$spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=false xml_tag_in_db='' message=''></div>";
+		echo $spRetHtml . Efy_Xml::_generateHtmlForMultipleCheckboxFromSession('SesGetAllOwnerNotCurrentOwner', 'code','name',$arrRecordTypeGetSingle['C_OWNER_LIST'],'auto');
+?>
+	<div>
+		<label>Số ngày thụ lý hồ sơ</label>
+		<input style="width:33%"  type="text"  id ="C_PROCESS_DATE_NUMBER" name="C_PROCESS_DATE_NUMBER"  optional="true" >			
+	</div>
+<?php }	exit; ?>

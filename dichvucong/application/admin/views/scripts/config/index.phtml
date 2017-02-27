@@ -1,0 +1,138 @@
+<?php
+$configs = $this->configs;
+$delmiter = $this->delmiter;
+?>
+<div class="normal_title">CẤU HÌNH THAM SỐ HỆ THỐNG</div>
+<form action="" method="POST" id="frmIndex" name="frmIndex" autocomplete="off">
+    <?php echo $this->formHidden("token", $this->token, null); ?>
+    <?php echo $this->formHidden("hdndelList", '', null); ?>
+    <table cellpadding="0" cellspacing="0" border="0" align="center" class="table-config"
+           id="table-data-record-info">
+        <?php
+        $delimitor = "!~~!";
+        //Hien thi cac cot cua bang hien thi du lieu
+        $StrHeader = explode("!~~!", G_Gen::_GenerateHeaderTable(
+            "5%"
+            . $delimitor . "20%"
+            . $delimitor . "25%"
+            . $delimitor . "45%"
+            . $delimitor . "5%"
+            , 'Thứ tự'
+            . $delimitor . 'Tên tham số'
+            . $delimitor . 'Giá trị'
+            . $delimitor . 'Mô tả'
+            . $delimitor . '#'
+            , $delimitor));
+        echo $StrHeader[0];
+        $class = 'odd_row';
+        foreach ($configs as $key => $value) {
+            ?>
+        <tr class="<?php echo $class; ?>">
+            <td class='normal_label' align="left">
+            <input type="hidden" name="id_param[]" value="<?php echo $value['ConfigID'] ?>"/>
+            <input type="textbox" name="orders_param[]" value="<?php echo $value['Orders'] ?>" class="textbox" style="text-align: center;"/>
+            </td>
+            <td class='normal_label' align="left">
+                <input placeholder="Nhập tên tham số" type="textbox" name="name_param[]"
+                       value="<?php echo $value['Name'] ?>" class="textbox"/>
+            </td>
+            <td class='normal_label' align="left">
+                <input placeholder="Nhập giá trị tham số" type="textbox" name="value_param[]" value="<?php echo $value['Value'] ?>" class="textbox"/>
+            </td>
+            <td class='normal_label' align="left">
+                <input placeholder="Nhập mô tả" type="textbox" name="des_param[]" value="<?php echo $value['Description'] ?>" class="textbox"/>
+            </td>
+            <td class='normal_label' align="center">
+                <span onclick="delConfig('<?php echo $value['ConfigID'] ?>', this)" class="fa fa-times fa-red"></span>
+            </td>
+            </tr>
+        <?php
+        }?>
+    </table>
+    <div class="button-container">
+        <input type="button" name="btn_add_param" id="btn_add_param" value="Thêm tham số" class="link-button">
+        <input type="submit" name="btn_save_param" id="btn_save_param" value="Ghi lại" class="link-button"/>
+    </div>
+</form>
+<script>
+    $(function() {
+        $('#btn_add_param').click(function () {
+            var tr = $('table#table-data-record-info tr:last').clone();
+            var orders = parseInt(tr.find('td:eq(0) input[name="orders_param[]"]').val()) + 1;
+            tr.find('input').val('');
+            tr.find('td:eq(0) input[name="orders_param[]"]').val(orders)
+            $('table#table-data-record-info tbody').append(tr);
+        });
+        // css
+        $( "table#table-data-record-info tr.header td" ).disableSelection();
+        $('input[name="orders_param[]').css({pointerEvents: 'none', 'background-color': '-moz-buttonhoverface',width: $('table tr td:eq(0)').width(), 'margin-left': '-1px'})
+
+        $('input[name="name_param[]').css({width: $('table tr td:eq(1)').width()})
+        $('input[name="value_param[]').css({width: $('table tr td:eq(2)').width()})
+        $('input[name="des_param[]').css({width: $('table tr td:eq(3)').width()})
+        // sort
+        $("#table-data-record-info tbody").sortable({
+            items: 'tr:not(.header)',
+            update: function( event, ui ) {
+                $('input[name="orders_param[]').each(function(i) {
+                    $(this).val(i+1)
+                })
+            }
+        });
+    })
+    function delConfig(id, obj) {
+        $('#hdndelList').val($('#hdndelList').val() + '<?php echo $delmiter;?>' + id);
+        jConfirm('Bạn có chắc chắn muốn xóa tham số này', 'Xác nhận', function (r) {
+            if (r) {
+                $(obj).parent().parent().remove();
+            }
+        })
+    }
+</script>
+<style>
+    .fa-red {
+        color: #FF0000;
+        font-size: 20px;
+    }
+
+    #table-data-record-info td input {
+        width: 99%;
+    }
+
+    .fa-times:before {
+        content: "✘";
+        cursor: pointer;
+    }
+
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    TABLE.table-config TR:nth-child(2n) {
+        background-color: #f8f8f8;
+    }
+    TABLE.table-config tr.header:first-child TD {
+        border-top: 1px solid #dddddd;
+    }
+    TABLE.table-config tr.header TD {
+        background-color: #ffffff;
+        background-image: linear-gradient(#ffffff, #f5f5f5);
+        color: #464343;
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+        height: 28px;
+        line-height: 28px;
+    }
+    TABLE.table-config tr.header TD:first-child {
+        border-left: 1px solid #dddddd;
+    }
+    TABLE.table-config tr:nth-child(2n) TD INPUT {
+        background: infobackground none repeat scroll 0 0;
+    }
+</style>

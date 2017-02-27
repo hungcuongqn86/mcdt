@@ -1,0 +1,63 @@
+<script>
+    if (typeof(Account_Profile) != 'function') {
+        var arrJsCss = $.parseJSON('<?=$this->arrJsCss; ?>');
+        loadfileJsCss(arrJsCss);
+    }
+</script>
+<?php
+$model = $this->model;
+?>
+<div id="local_update">
+    <div class="head normal_title">Cập nhật thông tin cá nhân</div>
+    <div class="update_area large_area frmxml" style="overflow: hidden;">
+        <form id="infor" class="item">
+            <div class="frm">
+                <div class="row">
+                    <label>Tên cán bộ*</label>
+                    <input type="text" id="sFullName" name="sFullName" value="<?= $model['sFullName'] ?>" class="w25" required
+                           readonly="readonly"/>
+                </div>
+                <div class="row">
+                    <label>Ngày sinh</label>
+                    <input type="text" id="Birthday" name="Birthday" value="<?= date('d/m/Y', strtotime($model['dBirthday'])) ?>" class="w25"
+                           onkeyup="DateOnkeyup(this,event)"/>
+                    <label class="lb2">Giới tính</label>
+                    <select name="Sex" id="Sex" style="width:26%;" class="normal text_formfield">
+                        <option id="" value="" name="">--Chọn giới tính--</option>
+                        <option id="male" value="1" name="Nam" <?= ($model['iSex'] == '1') ? 'selected' : ''; ?> >Nam
+                        </option>
+                        <option id="female" value="0" name="Nữ" <?= ($model['iSex'] == '0') ? 'selected' : ''; ?> >Nữ
+                        </option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label>Địa chỉ</label>
+                    <input type="text" id="Adress" name="Adress" value="<?= $model['sAddress'] ?>" class="w70"/>
+                </div>
+                <div class="row">
+                    <label>Số điện thoại</label>
+                    <input type="text" id="Mobile" name="Mobile" value="<?= $model['sMobile'] ?>" class="w25"/>
+                    <label class="lb2">Email</label>
+                    <input type="email" id="Email" name="Email" value="<?= $model['sEmail'] ?>" class="w25 normal"/>
+                </div>
+                <div style="padding: 10px 10px 2px 0;text-align:center;" class="row">
+                    <input type="submit" class="but_formfield" id="saveinfo" name="saveinfo" value="Cập nhật"/>
+                    <input type="reset" class="but_formfield" id="btncancel" name="btncancel" value="Reset"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    var dProfile = new Account_Profile({module: 'account', controller: 'profile'});
+    dProfile.initialize();
+</script>
+<style>
+    .w25 {
+        width: 25%
+    }
+
+    .w70 {
+        width: 70%
+    }
+</style>
