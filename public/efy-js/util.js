@@ -2942,6 +2942,12 @@ function business_capital_onchange(p_obj) {
 }
 
 function numberic_to_string(so) {
+    var kq = _numberic_to_string(so);
+    kq = kq.charAt(0).toUpperCase() + kq.substring(1, kq.length);
+    return kq;
+}
+
+function _numberic_to_string(so) {
     var i;
     var j;
     var kq = "";
@@ -3024,7 +3030,7 @@ function numberic_to_string(so) {
         if (a[i] == 1) {
             //doc la muoi neu no la hang chuc
             if ((l - i) % 3 == 1) {
-                kq = kq + "mừơi ";	//doc la mot neu la hang don vi	//va hang chuc >1
+                kq = kq + "mười ";	//doc la mot neu la hang don vi	//va hang chuc >1
             } else {
                 if ((l - i) % 3 == 0 && (i > 1)) {
                     if (a[i - 1] > 1) {
@@ -3126,19 +3132,13 @@ function numberic_to_string(so) {
     }
 
     //Viet hoa chu cai dau tien
-    if (kq == "") kq = "không"
+    if (kq == "") kq = "không ";
     while (kq.charAt(kq.length) == ",") {
         kq = kq.substring(0, kq.length - 1);
     }
-    kq = kq.charAt(0).toUpperCase() + kq.substring(1, kq.length);
     return kq;
 }
-/**
- * Des: Ham thuc hien chon radio hoac checkbox khi click vao label cua no
- * @param obj
- * @param value
- * option: 'radio' or 'checkbox'
- */
+
 function set_checked_onlabel(obj, value, option) {
     for (i = 0; i < obj.length; i++) {
         if (obj[i].value == value && obj[i].disabled == false) {
@@ -3610,14 +3610,34 @@ function set_registor_option(objectid, taglisten, taglistdis, option) {
 function convert_number_to_string_acreage(p_obj, stringobj) {
     numcheck = /[A-z]/;
     var number_val = $(p_obj).val();
-    if (numcheck.test(number_val)) {
-        alert('Số không hợp lệ');
-        p_obj.focus();
-        return false;
-    }
-    var str = numberic_to_string(replace(number_val, ',', ''));
-    if (str != "Số không hợp lệ") {
+    var arrVal = number_val.split('.');
+    number_val = arrVal.join(',');
+    arrVal = number_val.split(',');
+    var str = '';
+    if(arrVal.length > 0){
+        if (numcheck.test(arrVal[0])) {
+            alert('Diện tích phải nhập là số');
+            $(p_obj).val('');
+            $('#' + stringobj).val('');
+            return false;
+        }
+        str = _numberic_to_string(replace(arrVal[0], ',', ''));
+        if(arrVal.length > 1){
+            if (numcheck.test(arrVal[1])) {
+                alert('Diện tích phải nhập là số');
+                $(p_obj).val('');
+                $('#' + stringobj).val('');
+                return false;
+            }
+            str += "phẩy ";
+            str += _numberic_to_string(replace(arrVal[1], ',', ''));
+            number_val = arrVal[0]+','+arrVal[1];
+        }else{
+            number_val = arrVal[0];
+        }
         str += "mét vuông";
     }
+    str = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    $(p_obj).val(number_val);
     $('#' + stringobj).val(str);
 }
