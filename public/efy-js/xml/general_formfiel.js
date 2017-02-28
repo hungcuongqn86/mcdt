@@ -6,7 +6,7 @@ function Js_GeneralFormFiel(){
 	//Loai doi tuong
 	this.item_type = '';
 	//Mang du lieu 
-	this.arrListValue = new Array();	
+	this.arrListValue = [];
 	//ID doi tuong
 	this.input_id = '';
 
@@ -31,66 +31,51 @@ Js_GeneralFormFiel.prototype.setInput = function(oSettings){
 // Tao doi tuong
 Js_GeneralFormFiel.prototype.general = function(oSettings){
 	this.setInput(oSettings);
+	if(!this.arrListValue){
+	    this.addObj();
+    }
 };
 // them moi
 Js_GeneralFormFiel.prototype.addObj = function(){
-    $('#pane_'+this.input_id).before(this.html_add);
-};
-
-
-
-
-
-// Ham them moi 1 row
-Js_GeneralFormFiel.prototype.general_html_item_attach_doc = function(){
-    style=this.style;
-    if(style == 'round_row'){
-		style = 'odd_row';
-	}else{
-		style = 'round_row';
-	}
     var irow = this.row;
-    var irow_delete = irow;
-    irow_delete++;
-    //alert(irow);
-    shtml = '<tr class="'+style+'">';
-    $('#father_'+this.input_id+' >tbody> tr:eq('+irow_delete+') input[type=textdata1]').each(function() {         
-        idname = $(this).attr('id');      
-        val = $(this).val();
-        if(idname !==''){
-           shtml += '<td class="normal_label" align="center"><input type="textdata1" id="'+idname+'" onchange="Js_GeneralDataTable_'+this.input_id+'.insert_value_to_div()" style="width:96%;" optional="true" class="normal_textbox" value="'+val+'"></td>';
-          $(this).val(''); 
-        } 
-    })
-    shtml += '<td id="td_'+irow_delete+'" class="normal_label" "><span class="delete_datatable_row" onclick="Js_GeneralDataTable_'+this.input_id+'.delete_row('+irow_delete+');"></span></td></tr>';
-    $('table#father_'+ this.input_id +' tr:eq('+irow+')').after(shtml);
-    this.row = irow_delete;
+    var arrHtmladd = this.html_add.split('#row');
+    var htmladd = arrHtmladd.join(irow.toString());
+    $('#pane_'+this.input_id).before(htmladd);
+    irow++;
+    this.row = irow;
+    //formfielgen
+    this.setEvens();
 };
-// Ham xoa 1 row
-Js_GeneralFormFiel.prototype.delete_row = function(row){
-    var checkObj = $('#td_'+row).parent();
-    checkObj.remove();
-    var row1 = this.row;
-    row1 = row1 - 1;
-    this.row = row1;
-    this.insert_value_to_div();
+
+Js_GeneralFormFiel.prototype.setEvens = function(){
+    var myjs = this;
+    var id = this.input_id;
+    var row = this.row;
+    var i = 0;
+    for(i=0;i<row;i++){
+        $('.'+id+'_formfielgen_'+i.toString()).each(function(){
+            $(this).unbind('blur').bind('blur',function () {
+                myjs.insert_value_to_div();
+            })
+        });
+    }
 };
+
 //Ham lay du lieu tren table sau do day ra bien an
 Js_GeneralFormFiel.prototype.insert_value_to_div = function(){
     // lay mang du lieu tu bang cha
     var arrValue = new Array();
     var id = this.input_id;
     var row = this.row;
-    var i = 1;
-    
-    $('#father_'+id+' >tbody> tr:not(:last-child):not(:first-child)').each(function(){  
+    var i = 0;
+    for(i=0;i<row;i++){
         var item = [];
         var check = false;
         var idname ='';
         var val = '';
-        var str = ''; 
-        str = 'item={';                             
-        $('#father_'+id+' >tbody> tr:eq('+i+') input[type=textdata1]').each(function() { 
+        var str = '';
+        str = 'item={';
+        $('.'+id+'_formfielgen_'+i.toString()).each(function(){
             idname = $(this).attr('id');
             val = $(this).val();
             if(val!=''){
@@ -99,12 +84,12 @@ Js_GeneralFormFiel.prototype.insert_value_to_div = function(){
             str += idname + ':\''+val+'\',';
         });
         str += '}';
-        eval(str);   
+        eval(str);
         if(check){
-           arrValue.push(item); 
-        }             
-        i++;
-    });
+            arrValue.push(item);
+        }
+    }
+    //console.log(arrValue);
     var strrJson = JSON.stringify(arrValue);
     $("#input_"+this.input_id).val(strrJson);
 };

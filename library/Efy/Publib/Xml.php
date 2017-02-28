@@ -933,10 +933,9 @@ class Efy_Publib_Xml extends RAX {
                 $row = count($arrList);
                 $spRetHtml .= '<div style="display:none"><input type="textbox" value=\''.$this->value.'\' id="input_'.$this->formFielName.'" name="'.$this->formFielName.'"  optional="false" xml_data="true" xml_tag_in_db="'.$this->formFielName.'"><input id="NAME_XML_TAB_FORM_FIEL_DATA" value= "'.$this->formFielName.'"/></div>';
                 $spRetHtml .= '<div style="overflow:auto;" id="div_'.$this->formFielName.'" >';
-                $htmlFormFiel = self::_generateHtmlForFormFiel($this->spTableDataXmlFileName,$this->formFielName);
-                $spRetHtml .= $htmlFormFiel;
                 $spRetHtml .= '<div id="pane_'.$this->formFielName.'" class="normal_label"><label class="normal_label" style="float: none;"></label><img onclick="Js_GeneralFormFiel_'.$this->formFielName.'.addObj()" title="Thêm" src="'.$this->efyListWebSitePath.'public/images/add.png"></div>';
                 $spRetHtml .= '</div>';
+                $htmlFormFiel = self::_generateHtmlForFormFiel($this->spTableDataXmlFileName,$this->formFielName);
                 $spRetHtml .= '<script>var Js_GeneralFormFiel_'.$this->formFielName.' = new Js_GeneralFormFiel();
 										Js_GeneralFormFiel_'.$this->formFielName.'.general({
 											"type":"form_fiel"
@@ -1092,12 +1091,12 @@ class Efy_Publib_Xml extends RAX {
         $v_str_label = '<label class="normal_label" style = "float: none;'.$styleLabel.'">' . $label . '</label>';
 
         $value = '';
-        $inputid = $sformFielName.'_'.$xml_tag_in_db;
+        $inputid = $sformFielName.'_'.$xml_tag_in_db.'_#row';
 
         switch($type){
             case "textbox";
                 $spRetHtml .= $v_str_label;
-                $spRetHtml .= '<input type="text" id="'.$inputid.'"  name="'.$inputid.'" class="normal_textbox" value="'.$value.'" style="width:'.$width.'" '.self::_generateEventAndFunction($js_function_list, $js_action_list).'" >';
+                $spRetHtml .= '<input type="text" id="'.$inputid.'"  name="'.$inputid.'" class="normal_textbox formfielgen '.$sformFielName.'_formfielgen_#row" value="'.$value.'" style="width:'.$width.'" '.self::_generateEventAndFunction($js_function_list, $js_action_list).'" >';
                 $spRetHtml .= $note;
                 break;
             default:
