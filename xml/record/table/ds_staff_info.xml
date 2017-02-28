@@ -22,7 +22,7 @@
 		</table_struct_of_update_form>
 		<update_formfield_list>
 			<obj_name>
-				<label>Ông</label>
+				<label>Ông, Bà</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
