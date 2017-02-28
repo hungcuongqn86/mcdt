@@ -933,10 +933,18 @@ class Efy_Publib_Xml extends RAX {
                 $row = count($arrList);
                 $spRetHtml .= '<div style="display:none"><input type="textbox" value=\''.$this->value.'\' id="input_'.$this->formFielName.'" name="'.$this->formFielName.'"  optional="false" xml_data="true" xml_tag_in_db="'.$this->formFielName.'"><input id="NAME_XML_TAB_FORM_FIEL_DATA" value= "'.$this->formFielName.'"/></div>';
                 $spRetHtml .= '<div style="overflow:auto;" id="div_'.$this->formFielName.'" >';
-                $spRetHtml .= self::_generateHtmlForFormFiel($this->spTableDataXmlFileName,$this->formFielName,$arrList);
-                $spRetHtml .= '<div class="normal_label"><label class="normal_label" style="float: none;"></label><img onclick="Js_GeneralDataTable.update_data_list()" title="Thêm" src="'.$this->efyListWebSitePath.'public/images/add.png"></div>';
+                $htmlFormFiel = self::_generateHtmlForFormFiel($this->spTableDataXmlFileName,$this->formFielName);
+                $spRetHtml .= $htmlFormFiel;
+                $spRetHtml .= '<div id="pane_'.$this->formFielName.'" class="normal_label"><label class="normal_label" style="float: none;"></label><img onclick="Js_GeneralFormFiel_'.$this->formFielName.'.addObj()" title="Thêm" src="'.$this->efyListWebSitePath.'public/images/add.png"></div>';
                 $spRetHtml .= '</div>';
-                $spRetHtml .= '<script></script>';
+                $spRetHtml .= '<script>var Js_GeneralFormFiel_'.$this->formFielName.' = new Js_GeneralFormFiel();
+										Js_GeneralFormFiel_'.$this->formFielName.'.general({
+											"type":"form_fiel"
+											,"html_add": "'.htmlspecialchars($htmlFormFiel).'"
+											,"input_id":"'.$this->formFielName.'"
+											,"list_value":\''.json_encode($arrList).'\'
+                                            ,"rowid":\''.$row.'\'
+										});</script>';
                 break;
             default:
 				$spRetHtml = '<label style="width:100%">' . $this->sLabel.$this->optOptionalLabel . '</label>';
@@ -1018,7 +1026,7 @@ class Efy_Publib_Xml extends RAX {
         return $psHtmlString;
     }
 
-    Public function _generateHtmlForFormFiel($psXmlFile,$sformFielName,$arrList){
+    Public function _generateHtmlForFormFiel($psXmlFile,$sformFielName){
         $objconfig = new Efy_Init_Config();
         $sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/table/'.$psXmlFile.'.xml';
         $psHtmlString = '';
@@ -1039,7 +1047,7 @@ class Efy_Publib_Xml extends RAX {
                 $psHtmlString .= '<div id = "id_' . $rowId . '" class="normal_label">';
                 for($i=0;$i < sizeof($arr_tag);$i++){
                     isset($arrTable_rows[$arr_tag[$i]]) ? $arrProp = $arrTable_rows[$arr_tag[$i]] : $arrProp = array();
-                    $psHtmlString .= self::_generateHtmlInputForFormFiel($arrProp,$sformFielName,$arrList);
+                    $psHtmlString .= self::_generateHtmlInputForFormFiel($arrProp,$sformFielName);
                 }
                 $psHtmlString .= '</div>';
             }
@@ -1054,7 +1062,7 @@ class Efy_Publib_Xml extends RAX {
      * @param $arrList
      * @return string
      */
-    private function _generateHtmlInputForFormFiel($arrProp,$sformFielName,$arrList){
+    private function _generateHtmlInputForFormFiel($arrProp,$sformFielName){
         /*echo '<pre>';
         var_dump($arrProp);*/
 
