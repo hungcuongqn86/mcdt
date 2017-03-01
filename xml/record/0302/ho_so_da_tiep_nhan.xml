@@ -18,7 +18,6 @@
 				<align>center</align>
 				<xml_data>false</xml_data>
 				<column_name>PK_RECORD</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
 			</col>
 			<col>
 				<label>Mã hồ sơ</label>
@@ -27,25 +26,24 @@
 				<align>left</align>
 				<xml_data>false</xml_data>
 				<column_name>C_CODE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
 			</col>
 			<col>
 				<label>Bên chuyển</label>
-				<type>text</type>
+				<type>json</type>
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<column_name></column_name>
-				<xml_tag_in_db>registor_name</xml_tag_in_db>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_chuyen_nhuong_obj_name</attr>
 			</col>
 			<col>
 				<label>Bên nhận</label>
-				<type>text</type>
+				<type>json</type>
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<column_name></column_name>
-				<xml_tag_in_db>nguoi_nhan_b1</xml_tag_in_db>
+				<xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_nhan_chuyen_nhuong_obj_name</attr>
 			</col>
 			<col>
 				<label>Địa chỉ</label>
@@ -53,7 +51,6 @@
 				<width>25%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<column_name></column_name>
 				<xml_tag_in_db>registor_address</xml_tag_in_db>
 			</col>
 			<col>
@@ -63,7 +60,6 @@
 				<align>CENTER</align>
 				<xml_data>false</xml_data>
 				<column_name>C_APPOINTED_DATE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
 			</col>			
 		</list_body>
 	</list_of_object>
@@ -148,9 +144,6 @@
 					<tag_list>ben_chuyen_nhuong</tag_list>
 					<row_id>row_ben_chuyen_nhuong</row_id>
 				</update_row>
-
-
-
                 <update_row>
                     <have_line_before>true</have_line_before>
                     <tag_list>thong_tin_ben_b</tag_list>
@@ -161,6 +154,8 @@
 					<tag_list>ben_nhan_chuyen_nhuong</tag_list>
 					<row_id>row_ben_nhan_chuyen_nhuong</row_id>
 				</update_row>
+
+
 
 				<update_row>
 					<have_line_before>true</have_line_before>

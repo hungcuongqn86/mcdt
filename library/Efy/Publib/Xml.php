@@ -1437,6 +1437,20 @@ class Efy_Publib_Xml extends RAX {
 					$this->publicListCode = $col["public_list_code"];	
 					if($this->xmlData == 'false'){
 						$this->value = $pArrAllItem[$iRow][$this->columnName];
+						if($v_type=='json'){
+                            $arrList = json_decode($this->value,true);
+                            $sValue = '';
+                            $sAttr = $col["attr"];
+                            foreach ($arrList as $key=>$item){
+                                $sAttrItem = $sAttr.'_'.$key;
+                                if(!$key){
+                                    $sValue .= $item[$sAttrItem];
+                                }else{
+                                    $sValue .= '<br>'.$item[$sAttrItem];
+                                }
+                            }
+                            $this->value = $sValue;
+                        }
 						$p_arr_item = $pArrAllItem[$iRow];
 						if ($v_id_column=="true"){
 							$this->value_id = $pArrAllItem[$iRow][$this->columnName];
@@ -1454,6 +1468,20 @@ class Efy_Publib_Xml extends RAX {
 						if($strxml !=''){
 							$strxml = '<?xml version="1.0" encoding="UTF-8"?>' . $strxml;
 							$this->value = $this->_xmlGetXmlTagValue($strxml, 'data_list', $this->xmlTagInDb);
+                            if($v_type=='json'){
+                                $arrList = json_decode(html_entity_decode($this->value),true);
+                                $sValue = '';
+                                $sAttr = $col["attr"];
+                                foreach ($arrList as $key=>$item){
+                                    $sAttrItem = $sAttr.'_'.$key;
+                                    if(!$key){
+                                        $sValue .= $item[$sAttrItem];
+                                    }else{
+                                        $sValue .= '<br>'.$item[$sAttrItem];
+                                    }
+                                }
+                                $this->value = $sValue;
+                            }
 						}else{
 							$this->value = '';
 						}
@@ -1472,6 +1500,11 @@ class Efy_Publib_Xml extends RAX {
 		return $psHtmlString;
 		
 	}
+
+    /**
+     * @param $psXmlFile
+     * @return string
+     */
     public function genEcsPrintGenerate($psXmlFile){
         $objConfiXml = new Zend_Config_Xml($psXmlFile);
         $psHtmlString = "<div id='cssmenu' style='display: inline-block;'><ul><li class='has-sub' style='border-top: none;'><a href='#'><span>IN</span></a><ul>";
@@ -1684,13 +1717,16 @@ class Efy_Publib_Xml extends RAX {
 				
 			case "text";
 				if($this->xmlTagInDb=='ho_ten_nk'){
-					
 					$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchStringColor2($this->sFullTextSearch, $this->value).'&nbsp;</td>';
-					
 				}
 				else 
 					$psRetHtml = '<td style="padding-left:5px" class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchStringColor($this->sFullTextSearch, $this->value).'&nbsp;</td>';
 				break;
+
+            case "json";
+                    $psRetHtml = '<td style="padding-left:5px" class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchStringColor($this->sFullTextSearch, $this->value).'&nbsp;</td>';
+                break;
+
 			case "char";
 				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.'&nbsp;'.Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch, $this->value).'&nbsp;</td>';
 				break;
