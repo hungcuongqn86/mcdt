@@ -1,4 +1,4 @@
 /export
 /attach-file
-/tmp
+tmp
 !.gitignore
