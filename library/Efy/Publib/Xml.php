@@ -1356,28 +1356,25 @@ class Efy_Publib_Xml extends RAX {
 		$psTemp = substr($pStr,1,strlen($pStr));
 		$psTemp = strtolower(substr($pStr,0,1)).$psTemp ;
 		return $psTemp;
-	}	
-	/**
-	 * @Idea: Hien thi man hinh danh sach cac doi tuong
-	 *
-	 * @param $p_xml_file : Ten file XML mo ta danh sach
-	 * @param $psXmlTag : The cha mo ta cau truc hien thi danh sach
-	 * @param $pArrAllItem : Mang du lieu cua danh sach
-	 * @param $psColumeNameOfXmlString : 
-	 * @param $pHaveMove : Co hien thi bieu tuong cho phep thay doi vi tri khong
-	 * @param $NamOfColId : Ten cot luu Id cua row
-	 * @param $pOnclick :
-	 * VD:
-	 * 	_XML_generate_list($v_xml_file, 'col', $arr_all_list, "C_XML_DATA");
-	 * @return Xau HTML mo ta danh sach
-	 */
+	}
+
+    /**
+     * @param $psXmlFile
+     * @param $psXmlTag
+     * @param $pArrAllItem
+     * @param $psColumeNameOfXmlString
+     * @param $NamOfColId
+     * @param $sFullTextSearch
+     * @param bool $pHaveMove
+     * @param bool $pOnclick
+     * @param string $sAction
+     * @return string
+     */
 	public function _xmlGenerateList($psXmlFile, $psXmlTag, $pArrAllItem, $psColumeNameOfXmlString, $NamOfColId, $sFullTextSearch, $pHaveMove=false, $pOnclick= false,$sAction = ''){	
-		global $row_index,$v_current_style_name,$v_id_column;
+		global $v_current_style_name,$v_id_column;
 		global $v_onclick_up,$v_onclick_down,$v_have_move;
-		global $v_table, $v_pk_column,$v_filename_column,$content_column,$v_append_column;
 		global $p_arr_item;
-		global $display_option,$url_exec;
-		global $pClassname,$objectId;		
+		global $objectId;
 		$v_current_style_name = "round_row";		
 		$v_have_move = $pHaveMove;		
 		//Goi class lay tham so cau hinh he thong
@@ -1401,6 +1398,8 @@ class Efy_Publib_Xml extends RAX {
 		$psHtmlString = $psHtmlString . '<table class="list_table2" width="99%" cellpadding="0" cellspacing="0" border="0" align="center" id="table1">';
 		$arrTable_Struct = $arrXml['list_of_object']['list_body']['col'];
 		//Tao header cho bang
+        $psHtmlTempWidth = '';
+        $psHtmlTempLabel = '';
 		foreach ($arrTable_Struct as $col){
 			$this->v_label = $col["label"];
 			$this->width = $col["width"];
@@ -1430,7 +1429,6 @@ class Efy_Publib_Xml extends RAX {
 					$this->xmlTagInDb = $col["xml_tag_in_db"];
 					$this->phpFunction = $col["php_function"];
 					$v_id_column = $col["id_column"];
-					$v_repeat = $col["repeat"];
 					$this->selectBoxOptionSql = $col["selectbox_option_sql"];
 					$this->readonlyInEditMode = $col["readonly_in_edit_mode"];
 					$this->disabledInEditMode = $col["disabled_in_edit_mode"];				
@@ -1498,7 +1496,6 @@ class Efy_Publib_Xml extends RAX {
 		}
 		$psHtmlString = $psHtmlString  .'</table>';		
 		return $psHtmlString;
-		
 	}
 
     /**
@@ -1649,10 +1646,6 @@ class Efy_Publib_Xml extends RAX {
 	private function _generateHtmlForColumn($pType){			
 		global $row_index,$v_id_column,$v_onclick_up,$v_onclick_down;
 		global $v_have_move;
-		global $v_table, $v_pk_column,$v_filename_column,$content_column,$v_append_column;
-		global $p_arr_item;
-		global $v_dataformat;
-		global $display_option,$url_exec;		
 		global $pClassname,$objectId;
 		//Click
 		$sAction = "item_onclick('".$objectId."','".$this->sAction."')";
@@ -1683,9 +1676,8 @@ class Efy_Publib_Xml extends RAX {
 					//thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL												
 					$this->selectBoxOptionSql = str_replace("#OWNER_CODE#",$_SESSION['OWNER_CODE'],$this->selectBoxOptionSql);
 					$arr_list_item = Efy_DB_Connection::adodbQueryDataInNumberMode($this->selectBoxOptionSql,$this->cacheOption);					
-				} 
-				$psRetHtml = $v_str_label;
-				$psRetHtml = $psRetHtml . "<td align='.$this->v_align.'><select class='normal_selectbox' name='sel_item' title='$this->tooltip' style='width:100%' ".$this->_generatePropertyType("optional",$v_optional).$this->_generatePropertyType("readonly",$this->readonlyInEditMode).$this->_generatePropertyType("disabled",$this->disabledInEditMode).Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList)." xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$v_message' onKeyDown='change_focus(document.forms[0],this,event)'>";
+				}
+				$psRetHtml = "<td align='.$this->v_align.'><select class='normal_selectbox' name='sel_item' title='$this->tooltip' style='width:100%' ".$this->_generatePropertyType("optional",$v_optional).$this->_generatePropertyType("readonly",$this->readonlyInEditMode).$this->_generatePropertyType("disabled",$this->disabledInEditMode).Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList)." xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$v_message' onKeyDown='change_focus(document.forms[0],this,event)'>";
 				$psRetHtml = $psRetHtml . "<option id='' value=''>--- Ch&#7885;n $this->v_label ---</option>". Efy_Library::_generateSelectOption($arr_list_item,$this->selectBoxIdColumn,$this->selectBoxIdColumn,$this->selectBoxNameColumn,$this->value);
 				$psRetHtml = $psRetHtml . "</select></td>";				
 				break;
@@ -1730,6 +1722,7 @@ class Efy_Publib_Xml extends RAX {
 			case "char";
 				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.'&nbsp;'.Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch, $this->value).'&nbsp;</td>';
 				break;
+
 			case "identity";
 				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.$this->v_inc.'&nbsp;</td>';
 				break;
@@ -1737,6 +1730,7 @@ class Efy_Publib_Xml extends RAX {
 			case "money";
 				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch,$this->_dataFormat($this->value)).'&nbsp;</td>';
 				break;
+
 			case "natural";
 				if($this->value <= 0){
 					$psRetHtml = '<td style="padding-left:5px" class="data" align="center">-&nbsp;</td>';
@@ -1748,13 +1742,12 @@ class Efy_Publib_Xml extends RAX {
 				$psRetHtml = $this->value;
 		}
 		return $psRetHtml;
-	}	
-/**
-	 * Idea: Tao chuoi HTML cho cac cot cua danh sach
-	 *
-	 * @param $pType : Kieu du lieu can sinh chuoi html
-	 * @return Chuoi html duoc sinh theo kieu tuong ung
-	 */
+	}
+
+    /**
+     * @param $pType
+     * @return string
+     */
 	private function _generateHtmlForColumn2($pType){			
 		global $row_index,$v_id_column,$v_onclick_up,$v_onclick_down;
 		global $v_have_move;
