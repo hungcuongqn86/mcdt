@@ -1439,12 +1439,22 @@ class Efy_Publib_Xml extends RAX {
                             $arrList = json_decode($this->value,true);
                             $sValue = '';
                             $sAttr = $col["attr"];
-                            foreach ($arrList as $key=>$item){
-                                $sAttrItem = $sAttr.'_'.$key;
-                                if(!$key){
-                                    $sValue .= $item[$sAttrItem];
-                                }else{
-                                    $sValue .= '<br>'.$item[$sAttrItem];
+                            isset( $col["ItemIndex"]) ? $sIndex = $col["ItemIndex"] : $sIndex = '';
+                            if($sIndex!=''){
+                                foreach ($arrList as $key=>$item){
+                                    if($sIndex == $key){
+                                        $sAttrItem = $sAttr.'_'.$key;
+                                        $sValue .= $item[$sAttrItem];
+                                    }
+                                }
+                            }else{
+                                foreach ($arrList as $key=>$item){
+                                    $sAttrItem = $sAttr.'_'.$key;
+                                    if(!$key){
+                                        $sValue .= $item[$sAttrItem];
+                                    }else{
+                                        $sValue .= '<br>'.$item[$sAttrItem];
+                                    }
                                 }
                             }
                             $this->value = $sValue;
@@ -1470,12 +1480,22 @@ class Efy_Publib_Xml extends RAX {
                                 $arrList = json_decode(html_entity_decode($this->value),true);
                                 $sValue = '';
                                 $sAttr = $col["attr"];
-                                foreach ($arrList as $key=>$item){
-                                    $sAttrItem = $sAttr.'_'.$key;
-                                    if(!$key){
-                                        $sValue .= $item[$sAttrItem];
-                                    }else{
-                                        $sValue .= '<br>'.$item[$sAttrItem];
+                                isset( $col["ItemIndex"]) ? $sIndex = $col["ItemIndex"] : $sIndex = '';
+                                if($sIndex!=''){
+                                    foreach ($arrList as $key=>$item){
+                                        if($sIndex == $key){
+                                            $sAttrItem = $sAttr.'_'.$key;
+                                            $sValue .= $item[$sAttrItem];
+                                        }
+                                    }
+                                }else{
+                                    foreach ($arrList as $key=>$item){
+                                        $sAttrItem = $sAttr.'_'.$key;
+                                        if(!$key){
+                                            $sValue .= $item[$sAttrItem];
+                                        }else{
+                                            $sValue .= '<br>'.$item[$sAttrItem];
+                                        }
                                     }
                                 }
                                 $this->value = $sValue;
@@ -1520,129 +1540,11 @@ class Efy_Publib_Xml extends RAX {
         $psHtmlString .= "</ul></li></ul></div>";
         return $psHtmlString;
     }
+
     /**
-     * @param $psXmlFile
-     * @param $psXmlTag
-     * @param $pArrAllItem
-     * @param $psColumeNameOfXmlString
-     * @param $NamOfColId
-     * @param $sFullTextSearch1
-     * @param $sFullTextSearch2
-     * @param bool $pHaveMove
-     * @param bool $pOnclick
-     * @param string $sAction
+     * @param $pType
      * @return string
      */
-	public function _xmlGenerateList2($psXmlFile, $psXmlTag, $pArrAllItem, $psColumeNameOfXmlString, $NamOfColId, $sFullTextSearch1,$sFullTextSearch2, $pHaveMove=false, $pOnclick= false,$sAction = ''){	
-		global $row_index,$v_current_style_name,$v_id_column;
-		global $v_onclick_up,$v_onclick_down,$v_have_move;
-		global $v_table, $v_pk_column,$v_filename_column,$content_column,$v_append_column;
-		global $p_arr_item;
-		global $display_option,$url_exec;
-		global $pClassname,$objectId;		
-		$v_current_style_name = "round_row";		
-		$v_have_move = $pHaveMove;		
-		//Goi class lay tham so cau hinh he thong
-		//Zend_Loader::loadClass('Efy_Init_Config');
-		$ojbEfyInitConfig = new Efy_Init_Config();
-		$objConfiXml = new Zend_Config_Xml($psXmlFile);
-		$arrXml = $objConfiXml->toArray();
-		//var_dump($arrXml);
-		//Lay tham so cau hinh
-		$this->efyImageUrlPath = $ojbEfyInitConfig->_setImageUrlPath();
-		$this->efyLibUrlPath = $ojbEfyInitConfig->_setLibUrlPath();
-		$this->efyWebSitePath = $ojbEfyInitConfig->_setWebSitePath();	
-		$this->sFullTextSearch1 = $sFullTextSearch1;
-		$this->sFullTextSearch2 = $sFullTextSearch2;
-		$this->sAction = $sAction;
-		//Doc file XML
-		$this->xmlStringInFile = Efy_Publib_Library::_readFile($psXmlFile);	
-		//Dem so phan tu cua mang
-		$this->count = sizeof($pArrAllItem);
-		//Bang chua cac thanh phan cua form
-		$psHtmlString = '';
-		$psHtmlString = $psHtmlString . '<table class="list_table2" width="99%" cellpadding="0" cellspacing="0" border="0" align="center" id="table1">';
-		$arrTable_Struct = $arrXml['list_of_object']['list_body']['col'];
-		//Tao header cho bang
-		foreach ($arrTable_Struct as $col){
-			$this->v_label = $col["label"];
-			$this->width = $col["width"];
-			$psHtmlTempWidth = $psHtmlTempWidth . '<col width="'.$this->width.'">';
-			$psHtmlTempLabel = $psHtmlTempLabel . "<td class='title' align='center'  >".$this->v_label.'</td>';
-		}
-		$psHtmlString = $psHtmlString  . $psHtmlTempWidth;
-		$psHtmlString = $psHtmlString  . '<tr class="header">';
-		$psHtmlString = $psHtmlString  . $psHtmlTempLabel;
-		$psHtmlString = $psHtmlString  . '<tr>';		
-		//Day du lieu vao bang
-		for($iRow = 0; $iRow < sizeof($pArrAllItem); $iRow++){
-			$objectId = $pArrAllItem[$iRow][$NamOfColId];
-			if ($v_current_style_name == "odd_row"){
-				$v_current_style_name = "round_row";
-			}else{
-				$v_current_style_name = "odd_row";
-			}
-			$psHtmlString = $psHtmlString  . '<tr class="'.$v_current_style_name.' ">';
-				foreach ($arrTable_Struct as $col){
-					$v_type = $col["type"];
-					$this->v_align = $col["align"];
-					$this->xmlData = $col["xml_data"];
-					$this->inputData = $col["input_data"];
-					$this->columnName = $col["column_name"];
-					//echo $this->columnName;
-					//$s.=$v_type.'.'.$this->columnName;
-					$this->xmlTagInDb = $col["xml_tag_in_db"];
-					$this->phpFunction = $col["php_function"];
-					$v_id_column = $col["id_column"];
-					$v_repeat = $col["repeat"];
-					$this->selectBoxOptionSql = $col["selectbox_option_sql"];
-					$this->readonlyInEditMode = $col["readonly_in_edit_mode"];
-					$this->disabledInEditMode = $col["disabled_in_edit_mode"];				
-					$this->publicListCode = $col["public_list_code"];	
-					if($this->xmlData == 'false'){
-						$this->value = $pArrAllItem[$iRow][$this->columnName];
-						$p_arr_item = $pArrAllItem[$iRow];
-						if ($v_id_column=="true"){
-							$this->value_id = $pArrAllItem[$iRow][$this->columnName];
-							if(!$pOnclick){
-								$this->url ="item_onclick('" . $this->value_id . "')";
-							}else{
-								$this->url ="";
-							}
-							$v_onclick_up = "btn_move_updown('".$this->value_id . "','UP')";
-							$v_onclick_down = "btn_move_updown('".$this->value_id . "','DOWN')";
-						}
-						$psHtmlString = $psHtmlString . $this->_generateHtmlForColumn2($v_type); 
-					}else{
-						$strxml = $pArrAllItem[$iRow][$psColumeNameOfXmlString];
-						if($strxml !=''){
-							$strxml = '<?xml version="1.0" encoding="UTF-8"?>' . $strxml;
-							$this->value = $this->_xmlGetXmlTagValue($strxml, 'data_list', $this->xmlTagInDb);
-						}else{
-							$this->value = '';
-						}
-						$psHtmlString = $psHtmlString . $this->_generateHtmlForColumn2($v_type);
-					}
-			}
-			$psHtmlString = $psHtmlString  . '</tr>';
-		}
-		//echo $s;exit;
-		if(!$pOnclick){
-			$psHtmlString = $psHtmlString  . Efy_Library::_addEmptyRow(sizeof($pArrAllItem),15,$v_current_style_name,sizeof($arrTable_Struct));
-		}else{
-			$psHtmlString = $psHtmlString  . Efy_Library::_addEmptyRow(sizeof($pArrAllItem),15,$v_current_style_name,sizeof($arrTable_Struct));
-			
-		}
-		$psHtmlString = $psHtmlString  .'</table>';		
-		return $psHtmlString;
-		
-	}
-	/**
-	 * Idea: Tao chuoi HTML cho cac cot cua danh sach
-	 *
-	 * @param $pType : Kieu du lieu can sinh chuoi html
-	 * @return Chuoi html duoc sinh theo kieu tuong ung
-	 */
 	private function _generateHtmlForColumn($pType){			
 		global $row_index,$v_id_column,$v_onclick_up,$v_onclick_down;
 		global $v_have_move;
@@ -1731,13 +1633,6 @@ class Efy_Publib_Xml extends RAX {
 				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch,$this->_dataFormat($this->value)).'&nbsp;</td>';
 				break;
 
-			case "natural";
-				if($this->value <= 0){
-					$psRetHtml = '<td style="padding-left:5px" class="data" align="center">-&nbsp;</td>';
-				}else{
-					$psRetHtml = '<td style="padding-left:5px" class="data" align="'.$this->v_align.'">'.$this->value.'&nbsp;</td>';
-				}
-				break;					
 			default:
 				$psRetHtml = $this->value;
 		}
@@ -1745,113 +1640,13 @@ class Efy_Publib_Xml extends RAX {
 	}
 
     /**
-     * @param $pType
-     * @return string
+     * @param $p_sql_replace
+     * @param $p_xml_string_in_file
+     * @param $p_xml_tag
+     * @param $p_filter_xml_string
+     * @param string $p_path_filter_form
+     * @return mixed
      */
-	private function _generateHtmlForColumn2($pType){			
-		global $row_index,$v_id_column,$v_onclick_up,$v_onclick_down;
-		global $v_have_move;
-		global $v_table, $v_pk_column,$v_filename_column,$content_column,$v_append_column;
-		global $p_arr_item;
-		global $v_dataformat;
-		global $display_option,$url_exec;		
-		global $pClassname,$objectId;
-		//Click
-		$sAction = "item_onclick('".$objectId."','".$this->sAction."')";
-		//Tao doi tuong trong class Efy_Library
-		$objEfyLib = new Efy_Library();	
-		//$s='';	
-		switch($pType) {
-			case "checkbox";
-				$psRetHtml = '<td align="'.$this->v_align.'"><input type="checkbox" onclick="selectrow(this)" name="chk_item_id" id="chk_item_id" '.' value="'.$this->value.'" />';
-				if ($v_id_column =="true" && $v_have_move){
-					if ($row_index !=0){
-						$psRetHtml = $psRetHtml. '<img src="'.$this->efyImageUrlPath.'/up.gif" border="0" style="cursor:pointer;" ondbClick="'.$v_onclick_up.'">';
-					}else{
-						$psRetHtml = $psRetHtml. '&nbsp;&nbsp;&nbsp;';
-					}
-					if ($row_index != $this->count-1){
-						$psRetHtml = $psRetHtml. '<img src="'.$this->efyImageUrlPath.'/down.gif" border="0" style="cursor:pointer;" ondbClick="'.$v_onclick_down.'">';
-					}else{
-						$psRetHtml = $psRetHtml. '&nbsp;&nbsp;&nbsp;&nbsp;';
-					}
-				}
-				$psRetHtml  = $psRetHtml .'</td>';
-				break;
-			case "selectbox";			
-				if ($this->inputData == "efylist"){
-					$v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath."listxml/output/".$this->publicListCode.".xml");
-					$arr_list_item = Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url,"item");
-				}else{
-					//thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL												
-					$this->selectBoxOptionSql = str_replace("#OWNER_CODE#",$_SESSION['OWNER_CODE'],$this->selectBoxOptionSql);
-					$arr_list_item = Efy_DB_Connection::adodbQueryDataInNumberMode($this->selectBoxOptionSql,$this->cacheOption);					
-				} 
-				$psRetHtml = $v_str_label;
-				$psRetHtml = $psRetHtml . "<td align='.$this->v_align.'><select class='normal_selectbox' name='sel_item' title='$this->tooltip' style='width:100%' ".$this->_generatePropertyType("optional",$v_optional).$this->_generatePropertyType("readonly",$this->readonlyInEditMode).$this->_generatePropertyType("disabled",$this->disabledInEditMode).Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList)." xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$v_message' onKeyDown='change_focus(document.forms[0],this,event)'>";
-				$psRetHtml = $psRetHtml . "<option id='' value=''>--- Ch&#7885;n $this->v_label ---</option>". Efy_Library::_generateSelectOption($arr_list_item,$this->selectBoxIdColumn,$this->selectBoxIdColumn,$this->selectBoxNameColumn,$this->value);
-				$psRetHtml = $psRetHtml . "</select></td>";				
-				break;
-				
-			case "textbox";			
-				if($this->phpFunction !="" && !is_null($this->phpFunction)){
-					$this->value = call_user_func($this->phpFunction,$this->value);
-				}
-				$psRetHtml = '<td align="'.$this->v_align.'"><input type="text" name="txt_item_id" value="'.$this->value.'" style="width:100%" '.$this->_generatePropertyType("readonly",$this->readonlyInEditMode). $this->_generatePropertyType("disabled",$this->disabledInEditMode).' maxlength="'.$this->maxlength.'"'.Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList).'>';
-				$psRetHtml  = $psRetHtml .'</td>';
-				break;
-				
-			case "function";
-				//Load class $pClassname
-				Zend_Loader::loadClass($pClassname);
-				//Tao doi tuong $objClass
-				$objClass = new $pClassname;				
-				$psRetHtml = '<td class="data"   align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.$objClass->$this->phpFunction($this->value) .'&nbsp;</td>';
-				break;
-				
-			case "date";
-				$sDate = Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch,$objEfyLib->_yyyymmddToDDmmyyyy($this->value));
-				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.'&nbsp;'.$sDate.'&nbsp;</td>';
-				break;
-				
-			case "time";
-				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.'&nbsp;'. Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch,$objEfyLib->_yyyymmddToHHmm($this->value)).'&nbsp;</td>';
-				break;
-				
-			case "text";
-				if($this->xmlTagInDb=='ho_ten_nk'){
-					$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchStringColor2($this->sFullTextSearch1, $this->value).'&nbsp;</td>';	
-				}
-				else if($this->columnName=='C_CODE'){
-					$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchStringColor2($this->sFullTextSearch2, $this->value).'&nbsp;</td>';
-					}
-					else {
-						$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchStringColor($this->sFullTextSearch, $this->value).'&nbsp;</td>';
-					}
-				break;
-			case "char";				
-				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.'&nbsp;'.Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch, $this->value).'&nbsp;</td>';				
-				break;
-			case "identity";
-				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.$this->v_inc.'&nbsp;</td>';
-				break;
-				
-			case "money";
-				$psRetHtml = '<td class="data" align="'.$this->v_align.'" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\''.$objectId.'\')" ondblclick="'.$sAction.'">'.Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch,$this->_dataFormat($this->value)).'&nbsp;</td>';
-				break;						
-			default:
-				$psRetHtml = $this->value;
-		}
-		return $psRetHtml;
-	}
-	/**
-	 * Des: Ham Thay the cac the cac gia tri trong cau lenh Query du lieu
-	 * $p_sql_replace  : Chuoi can thay the
-	 * $p_xml_string_in_file  : chuoi XML mo ta cac tieu thuc loc
-	 * $p_xml_tag : duong dan toi the khai bao filter_row vd:table_struct_of_filter_form/filter_row
-	 * $p_filter_xml_string  : chuoi XML gom cac the va gia tri cua tung tieu thuc loc do.
-	 * $p_path_filter_form : Duong dan toi the mo ta cac filter row vd: filter_formfield/filter_formfield_list
-	 */
 	
 	function _replaceTagXmlValueInSql($p_sql_replace,$p_xml_string_in_file,$p_xml_tag,$p_filter_xml_string,$p_path_filter_form = ''){
 		//Tao mang luu thong tin cua cac phan tu tren form
