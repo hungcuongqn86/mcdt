@@ -429,10 +429,7 @@
 		}
 		if($sxmlname!=''){
 			$v_xml_file = $objconfig->_setXmlFileUrlPath(2) . "listreport/". $sxmlname;
-			//echo $v_xml_file;exit;
 			$sGenlist = $sGenlist . $objxml->_xmlGenerateFormfield($v_xml_file, 'table_struct_of_filter_form/filter_row','filter_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>', array(),true,true);
-			$sGenlist = $sGenlist . '<script language="JavaScript">'. $objxml->_xmlGenerateCalendar($v_xml_file,  'table_struct_of_filter_form/filter_row','filter_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
-			$sGenlist = $sGenlist . '</script>';
 		}		
 		echo $sGenlist;	
 	}

@@ -547,8 +547,6 @@ class record_receiveonnetController extends Zend_Controller_Action
         if ($this->_request->getParam('hdh_option') == "QUAYLAI")
             $this->_redirect('record/receiveonnet/index/');
         $this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row', 'update_object/update_formfield_list', 'C_XML_DATA', $arrSingleRecord, true, true);
-        $this->view->generateCalendar = $objxml->_xmlGenerateCalendar($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row', 'update_object/update_formfield_list', '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
-
     }
 
     //----------------------------------------------------------------------------------------------------------------------------------//

@@ -360,7 +360,6 @@ class record_wreceiveController extends  Zend_Controller_Action {
 		$this->view->iNumberProcessDate = $arrinfoRecordType['C_WARDS_PROCESS_NUMBER_DATE'];
 		//echo '$sxmlFileName:'.$sxmlFileName;
 		$this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>', array(),true,true);
-		$this->view->generateCalendar = $objxml->_xmlGenerateCalendar($sxmlFileName,  'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
 		//Lay thong tin file dinh kem
 		$arrFileNameUpload = $ojbEfyLib->_uploadFileList(10,$this->_request->getBaseUrl() . "/public/attach-file/",'FileName','!#~$|*');
 		$arFileAttach = array();	
@@ -538,7 +537,6 @@ class record_wreceiveController extends  Zend_Controller_Action {
 				$this->_redirect('record/wreceive/index');
 		}
 		$this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', 'C_RECEIVED_RECORD_XML_DATA', $arrSingleRecord,true,true);
-		$this->view->generateCalendar = $objxml->_xmlGenerateCalendar($sxmlFileName,  'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
 	}
 
     /**
@@ -646,7 +644,6 @@ class record_wreceiveController extends  Zend_Controller_Action {
                 $this->_redirect('record/wreceive/additional');
         }
         $this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', 'C_RECEIVED_RECORD_XML_DATA', $arrSingleRecord,true,true);
-        $this->view->generateCalendar = $objxml->_xmlGenerateCalendar($sxmlFileName,  'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
     }
     /**
      *

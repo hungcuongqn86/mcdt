@@ -398,94 +398,6 @@ class Efy_Publib_Xml extends RAX
     }
 
     /**
-     * Ham generate calenda
-     * Enter description here ...
-     * @param unknown_type $spXmlFileName : Ten file XML
-     * @param unknown_type $pathXmlTagStruct : Duong dan den the chua cau truc form
-     * @param unknown_type $pathXmlTag : Duong dan den the chua thong tin cua cac phan tu tren form
-     * @param unknown_type $p_xml_string_in_db : Gia tri trong cot XML vi du: C_XML_DATA
-     * @param unknown_type $p_arr_item_value :
-     * @param unknown_type $p_input_file_name :
-     * @param unknown_type $p_view_mode :
-     */
-    public function _xmlGenerateCalendar($spXmlFileName, $pathXmlTagStruct, $pathXmlTag, $p_xml_string_in_db)
-    {
-        global $i;
-        $ojbEfyInitConfig = new Efy_Init_Config();
-        $_SESSION['NET_RECORDID'] = $p_arr_item_value[0]['PK_NET_RECORD'];
-        $_SESSION['RECORDID'] = $p_arr_item_value[0]['PK_RECORD'];
-        //Lay tham so cau hinh
-        $this->efyImageUrlPath = $ojbEfyInitConfig->_setImageUrlPath();
-        $this->efyWebSitePath = $ojbEfyInitConfig->_setWebSitePath();
-        // Lay toan bo URL cua web
-        $this->efyListWebSitePath = $ojbEfyInitConfig->_getCurrentHttpAndHost();
-        // Tao doi tuong trong thu vien dung trung
-        $ojbEfyLib = new Efy_Library();
-        $ojbEfyXmlLib = new Efy_Xml();
-        $this->viewMode = $p_view_mode;
-        if ($p_input_file_name)
-            $this->xmlStringInFile = $ojbEfyLib->_readFile($spXmlFileName);
-        Zend_Loader::loadClass('Zend_Config_Xml');
-        $objConfigXml = new Zend_Config_Xml($spXmlFileName);
-        $v_first_col_width = $objConfigXml->common_para_list->common_para->first_col_width;
-        $v_js_file_name = $objConfigXml->common_para_list->common_para->js_file_name;
-        $v_js_function = $objConfigXml->common_para_list->common_para->js_function;
-        $objXmlData = new Zend_Config_Xml($p_xml_string_in_db, 'data_list');
-        //Tao mang luu cau truc cua form
-        $arrTagsStruct = explode("/", $pathXmlTagStruct);
-        $strcode = '$arrTable_truct_rows = $objConfigXml->' . $arrTagsStruct[0];
-        for ($i = 1; $i < sizeof($arrTagsStruct); $i++)
-            $strcode .= '->' . $arrTagsStruct[$i];
-        eval($strcode . '->toArray();');
-        //Tao mang luu thong tin cua cac phan tu tren form
-        $arrTags = explode("/", $pathXmlTag);
-        $strcode = '$arrTable_rows = $objConfigXml->' . $arrTags[0];
-        for ($i = 1; $i < sizeof($arrTags); $i++)
-            $strcode .= '->' . $arrTags[$i];
-        eval($strcode . '->toArray();');
-        $sContentXmlTop = '<div id = "Top_contentXml">';
-        $sContentXmlTopLeft = '<div id = "Topleft_contentXml">';
-        $sContentXmlTopRight = '<div id = "Topright_contentXml">';
-        $sContentXmlBottom = '<div id="Bottom_contentXml">';
-        //Kiem tra $arrTable_truct_rows co phai la mang 1 chieu hay ko
-        if (!is_array($arrTable_truct_rows[0])) {
-            $arrTemp = array();
-            array_push($arrTemp, $arrTable_truct_rows);
-            $arrTable_truct_rows = $arrTemp;
-        }
-        $spHtmlStr = '';
-        foreach ($arrTable_truct_rows as $row) {
-            $v_tag_list = $row["tag_list"];
-            $arr_tag = explode(",", $v_tag_list);
-            for ($i = 0; $i < sizeof($arr_tag); $i++) {
-                if ($arrTable_rows[$arr_tag[$i]]["data_format"] == 'isdate') {//neu la kieu date
-                    if ($arrTable_rows[$arr_tag[$i]]["xml_data"] == 'true') {//neu la du lieu trong the xml
-                        $spHtmlStr .= '
-										$(function() {
-											$( "#' . $arrTable_rows[$arr_tag[$i]]["xml_tag_in_db"] . '" ).datepicker({
-											changeMonth: true,
-											gotoCurrent: true,
-											minDate: new Date(1945, 1 - 1, 1),
-											changeYear: true
-											});	
-										});';
-                    } else {
-                        $spHtmlStr .= '$(function() {
-										$( "#' . $arrTable_rows[$arr_tag[$i]]["column_name"] . '" ).datepicker({;
-											changeMonth: true,
-											gotoCurrent: true,
-											minDate: new Date(1945, 1 - 1, 1),>
-											changeYear: true
-										});
-									});';
-                    }
-                }
-            }
-        }
-        return $spHtmlStr;
-    }
-
-    /**
      * @idea:Tao chuoi html ung voi doi tuong de generate form fields
      */
     private function _generateHtmlInput()
@@ -1016,6 +928,11 @@ class Efy_Publib_Xml extends RAX
         return $psHtmlString;
     }
 
+    /**
+     * @param $psXmlFile
+     * @param $sformFielName
+     * @return string
+     */
     Public function _generateHtmlForFormFiel($psXmlFile, $sformFielName)
     {
         $objconfig = new Efy_Init_Config();
@@ -1631,10 +1548,6 @@ class Efy_Publib_Xml extends RAX
                 $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . $this->v_inc . '&nbsp;</td>';
                 break;
 
-            case "money";
-                $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch, $this->_dataFormat($this->value)) . '&nbsp;</td>';
-                break;
-
             default:
                 $psRetHtml = $this->value;
         }
@@ -1722,42 +1635,11 @@ class Efy_Publib_Xml extends RAX
         }
         return $v_sql_replace_temp;
     }
-    /**
-     * Dinh dang tien te, so theo dung dinh dang
-     *
-     * @param $psValue : Gia tri can dinh dang
-     * @return Tra lai gia tri da dinh dang theo kieu tuong ung
-     */
-    //
-    public function _dataFormat($psValue)
-    {
-        $psRetValue = strval($psValue);
-        if ($psRetValue == "" || is_null($psRetValue)) {
-            return "";
-        }
-        $arrValue = explode(".", $psRetValue);
-        if (isset($arrValue[1]) && $arrValue[1] * 1 == 0) {
-            $psRetValue = $arrValue[0];
-        }
-        if (strpos($psRetValue, ".") === false) {
-            $psRetValue = number_format($psRetValue, 0, '.', ',');
-        } else {
-            $psRetValue = number_format($psRetValue, 2, '.', ',');
-        }
-        if ($psRetValue == "0.00") $psRetValue = "0";
-        return $psRetValue;
-    }
 
     /**
-     * Creater: HUNGVM
-     * Date: 14/01/2009
-     * editor: Phuongtt
-     * Date: 22/10/2010
-     * @Idea: Ham tao chuoix XML de ghi vao CSDL
-     *
-     * @param $psXmlTagList : danh sach cac the XML (phan cach boi _CONST_SUB_LIST_DELIMITOR)
-     * @param $psValueList :  danh sach cac gia tri tuong ung voi moi the XML (phan cach boi _CONST_SUB_LIST_DELIMITOR)
-     * @return unknown
+     * @param $psXmlTagList
+     * @param $psValueList
+     * @return string
      */
     public function _xmlGenerateXmlDataString($psXmlTagList, $psValueList)
     {

@@ -254,9 +254,8 @@ class listxml_ListController extends  Zend_Controller_Action {
 			
 			$psXmlStr = '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>';
 			$arrGetSingleList = array();
-			echo $psFileName; 
+			//echo $psFileName;
 			$this->view->generateFormHtml = $ojbXmlLib->_xmlGenerateFormfield($psFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', $psXmlStr, $arrGetSingleList,true,true);
-			$this->view->generateCalendar = $ojbXmlLib->_xmlGenerateCalendar($psFileName,  'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
 			//Lay danh sash THE va GIA TRI tuong ung mo ta chuoi XML, cau truc bien hdn_XmlTagValueList luu TagList|{*^*}|ValueList		
 			$psXmlTagValueList = $this->_request->getParam('hdn_XmlTagValueList','');			
 			//Tao xau XML luu CSDL
@@ -407,7 +406,6 @@ class listxml_ListController extends  Zend_Controller_Action {
 			}
 			//Tao xau html mo ta form field cap nhat thong tin va gui ra VIEW hien thi ket qua				
 			$this->view->generateFormHtml = $ojbXmlLib->_xmlGenerateFormfield($psFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', $psXmlStr, $arrGetSingleList,true,true);
-			$this->view->generateCalendar = $ojbXmlLib->_xmlGenerateCalendar($psFileName,  'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>');
 			//Lay danh sash THE va GIA TRI tuong ung mo ta chuoi XML, cau truc bien hdn_XmlTagValueList luu TagList|{*^*}|ValueList		
 			$psXmlTagValueList = $this->_request->getParam('hdn_XmlTagValueList','');			
 			
