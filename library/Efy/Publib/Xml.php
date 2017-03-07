@@ -145,8 +145,12 @@ class Efy_Publib_Xml extends RAX
         if ($p_input_file_name)
             $this->xmlStringInFile = $ojbEfyLib->_readFile($spXmlFileName);
 
+
+
         Zend_Loader::loadClass('Zend_Config_Xml');
         $objConfigXml = new Zend_Config_Xml($spXmlFileName);
+
+
 
         $v_first_col_width = $objConfigXml->common_para_list->common_para->first_col_width;
         $v_js_file_name = $objConfigXml->common_para_list->common_para->js_file_name;

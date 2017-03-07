@@ -6,10 +6,10 @@
 	// Dinh nghia duong dan den thu vien cua Zend
 	set_include_path('../../library/'
 			. PATH_SEPARATOR . '../../application/models/'
-			. PATH_SEPARATOR . '../../config/');			
+			. PATH_SEPARATOR . '../../config/');
 	// Goi class Zend_Load
-	include "../../library/Zend/Loader.php";	
-	Zend_Loader::loadClass('Zend_Db');	
+	include "../../library/Zend/Loader.php";
+	Zend_Loader::loadClass('Zend_Db');
 	Zend_Loader::loadClass('Extra_Db');
 	Zend_Loader::loadClass('Extra_Init');
 	Zend_Loader::loadClass('Zend_Config_Ini');
@@ -29,7 +29,7 @@
 	session_start();
 	//Lay ten ham thuc hien
 	$sFunctionName = $_REQUEST['FuntionName'];
-	if($sFunctionName != '' && $sFunctionName != null){	
+	if($sFunctionName != '' && $sFunctionName != null){
 		$sFunctionName .= '();';
 		eval($sFunctionName);
 	}
@@ -47,13 +47,13 @@
 		isset($_REQUEST['recordType'])?$sRecordTypeId = $_REQUEST['recordType']:$sRecordTypeId = '';
 		isset($_REQUEST['txtfullTextSearch'])?$sfullTextSearch = $_REQUEST['txtfullTextSearch']:$sfullTextSearch = '';
 		isset($_REQUEST['hdn_current_page'])?$iPage = $_REQUEST['hdn_current_page']:$iPage = '1';
-		isset($_REQUEST['iNumberRecordPerPage'])?$iNumberRecordPerPage = $_REQUEST['iNumberRecordPerPage']:$iNumberRecordPerPage = '15';	
+		isset($_REQUEST['iNumberRecordPerPage'])?$iNumberRecordPerPage = $_REQUEST['iNumberRecordPerPage']:$iNumberRecordPerPage = '15';
 		isset($_REQUEST['iCurrentStaffId'])?$iCurrentStaffId = $_REQUEST['iCurrentStaffId']:$iCurrentStaffId = '';
-		isset($_REQUEST['sOwnerCode'])?$sOwnerCode = $_REQUEST['sOwnerCode']:$sOwnerCode = '';		
-		isset($_REQUEST['dataordername'])?$dataordername = $_REQUEST['dataordername']:$dataordername = '';		
-		isset($_REQUEST['datatype'])?$datatype = $_REQUEST['datatype']:$datatype = '';	
+		isset($_REQUEST['sOwnerCode'])?$sOwnerCode = $_REQUEST['sOwnerCode']:$sOwnerCode = '';
+		isset($_REQUEST['dataordername'])?$dataordername = $_REQUEST['dataordername']:$dataordername = '';
+		isset($_REQUEST['datatype'])?$datatype = $_REQUEST['datatype']:$datatype = '';
 		isset($_REQUEST['hdn_recordTypeCode'])?$sRecordTypeCode = $_REQUEST['hdn_recordTypeCode']:$sRecordTypeCode = '';
-		isset($_REQUEST['hdn_order'])?$shdn_order = $_REQUEST['hdn_order']:$shdn_order = '1';		
+		isset($_REQUEST['hdn_order'])?$shdn_order = $_REQUEST['hdn_order']:$shdn_order = '1';
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$ojbEfyLib = new Efy_Library();
@@ -61,9 +61,9 @@
 		if ($iPage <= 1)
 			$iPage = 1;
 		if ($iNumberRecordPerPage == 0)
-			$iNumberRecordPerPage = 15;	
+			$iNumberRecordPerPage = 15;
 		$dFromDateTemp = $ojbEfyLib->_ddmmyyyyToYYyymmdd($dFromDate);
-		$dToDateTemp = $ojbEfyLib->_ddmmyyyyToYYyymmdd($dToDate);		
+		$dToDateTemp = $ojbEfyLib->_ddmmyyyyToYYyymmdd($dToDate);
 		$sOrderClause = '';
 		if($datatype=='column_name'){
 			$sOrderClause = ' Order by '.$dataordername;
@@ -76,8 +76,8 @@
 		$arrRecord = $objrecordfun->eCSRecordGetAll($sRecordTypeId,$sRecordType,$iCurrentStaffId,'',$sStatusList,$sDetailStatusCompare,$sRole,$sOrderClause,$sOwnerCode,$sfullTextSearch,$iPage,$iNumberRecordPerPage,$dFromDateTemp,$dToDateTemp);
 		$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$sRecordTypeCode.'/ho_so_da_tiep_nhan.xml';
 		if(!file_exists($sxmlFileName)){
-			$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/ho_so_da_tiep_nhan.xml';	
-		}	
+			$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/ho_so_da_tiep_nhan.xml';
+		}
 		$sGenlist = "<input type='hidden' id='hdn_OrderClause' name='hdn_OrderClause' value='".$sOrderClause."' >";
 		$sGenlist = $sGenlist . $objxml->_xmlGenerateList($sxmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../viewrecord/',$dataordername,$shdn_order);
 		$iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
@@ -98,7 +98,7 @@
 		$sGenlist = $sGenlist.'<td width="30%" align="right" style="font-size:13px; padding-right:1%; font:tahoma" class="normal_label">';
 		$sGenlist = $sGenlist.$generateHtmlSelectBoxPage;
 		$sGenlist = $sGenlist.'</td></tr></table>';
-		echo $sGenlist;	
+		echo $sGenlist;
 	}
 	/**
 	 * cuongnh
@@ -113,11 +113,11 @@
 		isset($_REQUEST['recordType'])?$sRecordTypeId = $_REQUEST['recordType']:$sRecordTypeId = '';
 		isset($_REQUEST['txtfullTextSearch'])?$sfullTextSearch = $_REQUEST['txtfullTextSearch']:$sfullTextSearch = '';
 		isset($_REQUEST['hdn_current_page'])?$iPage = $_REQUEST['hdn_current_page']:$iPage = '1';
-		isset($_REQUEST['iNumberRecordPerPage'])?$iNumberRecordPerPage = $_REQUEST['iNumberRecordPerPage']:$iNumberRecordPerPage = '15';	
+		isset($_REQUEST['iNumberRecordPerPage'])?$iNumberRecordPerPage = $_REQUEST['iNumberRecordPerPage']:$iNumberRecordPerPage = '15';
 		isset($_REQUEST['iCurrentStaffId'])?$iCurrentStaffId = $_REQUEST['iCurrentStaffId']:$iCurrentStaffId = '';
-		isset($_REQUEST['sOwnerCode'])?$sOwnerCode = $_REQUEST['sOwnerCode']:$sOwnerCode = '';		
-		isset($_REQUEST['hdn_xml_file_name'])?$sxmlFileName = $_REQUEST['hdn_xml_file_name']:$sxmlFileName = '';	
-		isset($_REQUEST['hdn_OrderClause'])?$sOrderClause = $_REQUEST['hdn_OrderClause']:$sOrderClause = '';	
+		isset($_REQUEST['sOwnerCode'])?$sOwnerCode = $_REQUEST['sOwnerCode']:$sOwnerCode = '';
+		isset($_REQUEST['hdn_xml_file_name'])?$sxmlFileName = $_REQUEST['hdn_xml_file_name']:$sxmlFileName = '';
+		isset($_REQUEST['hdn_OrderClause'])?$sOrderClause = $_REQUEST['hdn_OrderClause']:$sOrderClause = '';
 		$arrRecordType = $_SESSION['arr_all_record_type'];
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
@@ -126,7 +126,7 @@
 		if ($iPage <= 1)
 			$iPage = 1;
 		if ($iNumberRecordPerPage == 0)
-			$iNumberRecordPerPage = 15;	
+			$iNumberRecordPerPage = 15;
 		$dFromDateTemp = $ojbEfyLib->_ddmmyyyyToYYyymmdd($dFromDate);
 		$dToDateTemp = $ojbEfyLib->_ddmmyyyyToYYyymmdd($dToDate);
 		//Lay cac tham so truyen vao sp
@@ -151,23 +151,23 @@
 					//Kiem tra xem la ho lien thong hay ko lien thong
 					if($sHandleType == 'THULY_CAP_MOT') $sDetailStatusCompare = 'And (A.C_DETAIL_STATUS = 21 or A.C_DETAIL_STATUS = 41)';
 					if($sHandleType == 'THULY_CAP_HAI') $sDetailStatusCompare = 'And (A.C_DETAIL_STATUS = 31 or A.C_DETAIL_STATUS = 41)';
-				break;				
+				break;
 				default:
 					$sDetailStatusCompare = "";
 				break;
-			}			
-			$sRole = $sApproveLevel;			
+			}
+			$sRole = $sApproveLevel;
 		}
 		if(($sStatusList=='CHO_PHAN_CONG')||($sStatusList == 'DA_PHAN_CONG')){
 			//Lay phong ban
-			$iFkUnit = $objrecordfun->doc_get_all_unit_permission_form_staffIdList($iCurrentStaffId);			
+			$iFkUnit = $objrecordfun->doc_get_all_unit_permission_form_staffIdList($iCurrentStaffId);
 			//Kiem tra xem la ho lien thong hay ko lien thong
 			if($objrecordfun->eCSPermisstionApproveForRecordType($iCurrentStaffId, 'DUYET_CAP_MOT', $arrRecordType,$sRecordTypeId) == 'DUYET_CAP_MOT'){
 				$sDetailStatusCompare = " Inner Join T_eCS_RECORD_RELATE_UNIT Z On PK_RECORD = Z.FK_RECORD And Z.FK_UNIT=''".$iFkUnit."'' ";
-			}	
+			}
 			if($objrecordfun->eCSPermisstionApproveForRecordType($iCurrentStaffId, 'DUYET_CAP_HAI', $arrRecordType,$sRecordTypeId) == 'DUYET_CAP_HAI'){
 				$sDetailStatusCompare = " Inner Join T_eCS_RECORD_RELATE_UNIT Z On PK_RECORD = Z.FK_RECORD And Z.FK_UNIT=''".$iFkUnit."''  And (A.C_DETAIL_STATUS = 31)";
-			}	
+			}
 			if ($sStatusList == 'DA_PHAN_CONG') $sStatusList = "THU_LY";
 		}
 		$arrinfoRecordType = $objrecordfun->getinforRecordType($sRecordTypeId, $arrRecordType);
@@ -197,8 +197,8 @@
 		$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$sRecordTypeCode.'/'.$sxmlFileName;
 		//echo $sxmlFileName;exit;
 		if(!file_exists($sxmlFileName)){
-			$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/ho_so_da_tiep_nhan.xml';	
-		}	
+			$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/ho_so_da_tiep_nhan.xml';
+		}
 		//echo $sxmlFileName;//exit;
 		$sGenlist = "<input type='hidden' id='hdn_OrderClause' name='hdn_OrderClause' value='".$sOrderClause."' >";
 		$sGenlist = $sGenlist . $objxml->_xmlGenerateList($sxmlFileName,'col',$arrRecord,$sXml_data,$sColId,$sfullTextSearch,false,false,'../viewrecord/');
@@ -220,8 +220,8 @@
 		$sGenlist = $sGenlist.'<td width="30%" align="right" style="font-size:13px; padding-right:1%; font:tahoma" class="normal_label">';
 		$sGenlist = $sGenlist.$generateHtmlSelectBoxPage;
 		$sGenlist = $sGenlist.'</td></tr></table>';
-		echo $sGenlist;	
-	}	
+		echo $sGenlist;
+	}
 	/**
 	 * cuongnh
 	 * Lay danh sach ho so
@@ -230,7 +230,7 @@
 		isset($_REQUEST['hdn_recordTypeCode'])?$sRecordTypeCode = $_REQUEST['hdn_recordTypeCode']:$sRecordTypeCode = '';
 		isset($_REQUEST['sOwnerCode'])?$sOwnerCode = $_REQUEST['sOwnerCode']:$sOwnerCode = '';
 		isset($_REQUEST['iPage'])?$iPage = $_REQUEST['iPage']:$iPage = '1';
-		isset($_REQUEST['iNumberRecordPerPage'])?$iNumberRecordPerPage = $_REQUEST['iNumberRecordPerPage']:$iNumberRecordPerPage = '15';	
+		isset($_REQUEST['iNumberRecordPerPage'])?$iNumberRecordPerPage = $_REQUEST['iNumberRecordPerPage']:$iNumberRecordPerPage = '15';
 		isset($_REQUEST['sSearchCheck'])?$sSearchCheck = $_REQUEST['sSearchCheck']:$sSearchCheck = '';
 		isset($_REQUEST['sStatus'])?$sStatus = $_REQUEST['sStatus']:$sStatus = '';
 		isset($_REQUEST['sfullTextSearch'])?$sfullTextSearch = $_REQUEST['sfullTextSearch']:$sfullTextSearch = '';
@@ -239,28 +239,28 @@
 		isset($_REQUEST['sRecordTypeId'])?$sRecordTypeId = $_REQUEST['sRecordTypeId']:$sRecordTypeId = '';
 		isset($_REQUEST['hdn_xml_value_list'])?$hdn_xml_value_list = $_REQUEST['hdn_xml_value_list']:$hdn_xml_value_list = '';
 		isset($_REQUEST['hdn_xml_tag_list'])?$hdn_xml_tag_list = $_REQUEST['hdn_xml_tag_list']:$hdn_xml_tag_list = '';
-		
+
 		$objconfig = new Extra_Init();
 		$ojbEfyLib = new Efy_Library();
 		$objxml = new Efy_Xml();
 		if ($iPage <= 1)
 			$iPage = 1;
 		if ($iNumberRecordPerPage == 0)
-			$iNumberRecordPerPage = 15;	
+			$iNumberRecordPerPage = 15;
 		$dFromDateTemp = $ojbEfyLib->_ddmmyyyyToYYyymmdd($dFromDate);
 		$dToDateTemp = $ojbEfyLib->_ddmmyyyyToYYyymmdd($dToDate);
 		//Lay file XML mo ta form danh sach ho so tim kiem
 		$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$sRecordTypeCode.'/tim_kiem_nang_cao.xml';
 		if(!file_exists($sSearchXmlFileName)){
-			$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/tim_kiem_nang_cao.xml';	
-		}		
+			$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/tim_kiem_nang_cao.xml';
+		}
 		$sXmlOperatorList = '';
 		$sXmlTrueFalseList = '';
 		$sDelimetor = '!~~!';
 		if($sSearchCheck){
 			//Lay the chua noi dung toan tu
-			$sXmlOperatorList = $objxml->_xmlGetXmlTagValueFromFile($sSearchXmlFileName,'list_of_object','filter_formfield_list',$hdn_xml_tag_list,"compare_operator",$sDelimetor);	
-			$sXmlTrueFalseList = $objxml->_xmlGetXmlTagValueFromFile($sSearchXmlFileName,'list_of_object','filter_formfield_list',$hdn_xml_tag_list,"xml_data",$sDelimetor);	
+			$sXmlOperatorList = $objxml->_xmlGetXmlTagValueFromFile($sSearchXmlFileName,'list_of_object','filter_formfield_list',$hdn_xml_tag_list,"compare_operator",$sDelimetor);
+			$sXmlTrueFalseList = $objxml->_xmlGetXmlTagValueFromFile($sSearchXmlFileName,'list_of_object','filter_formfield_list',$hdn_xml_tag_list,"xml_data",$sDelimetor);
 		}
 		Zend_Loader::loadClass('record_modSearch');
 		$objSearch = new Record_modSearch();
@@ -269,8 +269,8 @@
 		//
 		$sXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$sRecordTypeCode.'/danh_sach_ho_so_tim_kiem.xml';
 		if(!file_exists($sXmlFileName)){
-			$sXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/danh_sach_ho_so_tim_kiem.xml';	
-		}		
+			$sXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/danh_sach_ho_so_tim_kiem.xml';
+		}
 		$sGenlist = $objxml->_xmlGenerateList($sXmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,$sAction = '../viewdetailsrecord/');
 		$iNumberRecord = $arrRecord[0]['C_TOTAL_RECORD'];
 		if (count($arrRecord) > 0){
@@ -290,8 +290,8 @@
 		$sGenlist = $sGenlist.'<td width="30%" align="right" style="font-size:13px; padding-right:1%; font:tahoma" class="normal_label">';
 		$sGenlist = $sGenlist.$generateHtmlSelectBoxPage;
 		$sGenlist = $sGenlist.'</td></tr></table>';
-		echo $sGenlist;	
-	}		
+		echo $sGenlist;
+	}
 	/**
 	 * cuongnh
 	 * Lay danh sach ho so
@@ -302,15 +302,15 @@
 		if(trim($sFilterXmlString) == '') $sFilterXmlString = '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>';
 		//Lay file XML mo ta form cac tieu thuc loc phuc vu tim kiem nang cao
 		$objconfig = new Extra_Init();
-		$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$sRecordTypeCode.'/tim_kiem_nang_cao.xml';	
+		$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$sRecordTypeCode.'/tim_kiem_nang_cao.xml';
 		if(!file_exists($sSearchXmlFileName)){
-			$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/tim_kiem_nang_cao.xml';	
-		}		
+			$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/tim_kiem_nang_cao.xml';
+		}
 		$objxml = new Efy_Xml();
-		//Tao form hien thi tieu tri loc	
+		//Tao form hien thi tieu tri loc
 		$sfilter = $objxml->_xmlGenerateFormfield($sSearchXmlFileName, 'list_of_object/table_struct_of_filter_form/filter_row_list/filter_row','list_of_object/filter_formfield_list',$sFilterXmlString,null,true,false);
-		echo $sfilter;	
-	}		
+		echo $sfilter;
+	}
 	/**
 	 * cuongnh
 	 * Lay danh sach ho so trung lap ...
@@ -349,8 +349,8 @@
 			$sql = $sql." And (".$sqltablist.")";
 		}
 		//echo $sql;
-		try {			
-			$arrResult = $conn->adodbQueryDataInNameMode($sql); 
+		try {
+			$arrResult = $conn->adodbQueryDataInNameMode($sql);
 		}catch (Exception $e){
 			return $e->getMessage();
 		}
@@ -359,78 +359,10 @@
 			$objxml = new Efy_Xml();
 			$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$recordtype.'/ho_so_trung_lap.xml';
 			if(!file_exists($sxmlFileName)){
-				$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/ho_so_trung_lap.xml';	
-			}	
+				$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/ho_so_trung_lap.xml';
+			}
 			$sGenlist = $sGenlist . $objxml->_xmlGenerateIdenticalRecordList($sxmlFileName,'col',$arrResult, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",'','../viewrecord/');
-		}	
-		echo $sGenlist;	
-	}
-	/**
-	 * cuongnh
-	 * Lay loai bao cao theo tung TTHC
-	 */
-	function getReportTypeList(){
-		global $conn;
-		$sGenlist = '';
-		isset($_REQUEST['recordtype'])?$recordtype = $_REQUEST['recordtype']:$recordtype = '';
-		isset($_REQUEST['ownercode'])?$ownercode = $_REQUEST['ownercode']:$ownercode = '';
-		// Tao doi tuong cho lop tren
-		Zend_Loader::loadClass('Listxml_modListReport');
-		$objReport = new Listxml_modListReport() ;
-		$arrreport=$objReport->getAllListReport('HOAT_DONG','',$ownercode,$recordtype);	
-		$sGenlist =	'<table style="border:1px solid #DDDDDD;" width="100%" cellpadding="0" cellspacing="0"><col width="5%"><col width="95%">';
-		for ($i=0;$i<sizeof($arrreport);$i++) {
-			$v_report_list_id = $arrreport[$i]['PK_LIST_RECORD'];
-			$v_report_name = $arrreport[$i]['C_NAME'];														
-			$sGenlist = $sGenlist . '<tr style="border:1px solid #CCCC99;height: 25px">';
-			$sGenlist = $sGenlist . '<td style="font-size:13px;padding: 0 3pt 3pt 3pt;font-family:Arial;">';
-			$sGenlist = $sGenlist . '<input type="radio" name="sel_reporttype" readonly="true" value="'.$v_report_list_id.'" onClick="changeReportType(\''.$v_report_list_id.'\',\''.$arrreport[$i]['C_XML_FILE_NAME'].'\');" message="Phải chọn báo cáo"></td>';
-			$sGenlist = $sGenlist . '<td colspan="10" style="font-size:13px;padding: 0 3pt 0 3pt;font-family:Arial;color:#000000;">';
-			$sGenlist = $sGenlist . '<font onclick = "set_checked_onlabel(document.getElementsByName(\'sel_reporttype\'),\''.$v_report_list_id.'\',\'radio\',\''.$arrreport[$i]['C_XML_FILE_NAME'].'\')" class="normal_label; ">'.$v_report_name.'</font>';
-			$sGenlist = $sGenlist .	'</td></tr>';
 		}
-		$sGenlist = $sGenlist .	'</table>';	
-		echo $sGenlist;	
-	}
-	/**
-	 * cuongnh
-	 * Lay tieu chi loc theo loai bao cao
-	 */
-	function getReportFillterList(){
-		global $conn;
-		$ojbEfyLib = new Efy_Library();
-		$objconfig = new Extra_Init();
-		$objxml = new Efy_Xml();
-		$sGenlist = '';
-		isset($_REQUEST['recordtype'])?$recordtype = $_REQUEST['recordtype']:$recordtype = '';
-		isset($_REQUEST['reporttype'])?$sReportID = $_REQUEST['reporttype']:$sReportID = '';
-		isset($_REQUEST['xmlname'])?$sxmlname = $_REQUEST['xmlname']:$sxmlname = '';
-		isset($_REQUEST['ownercode'])?$ownercode = $_REQUEST['ownercode']:$ownercode = '';
-		//Goi lop Listxml_modListType
-		Zend_Loader::loadClass('listxml_modRecordtype');
-		$objRecordtype	  = new listxml_modRecordtype();
-		$arrRecordType = $objRecordtype->eCSRecordTypeGetAll($ownercode,'','','');
-		//var_dump($arrRecordType);exit;
-		///Lay sesion can bo thu ly cua TTHC
-		for ($i=0;$i<sizeof($arrRecordType);$i++){
-			if($recordtype==$arrRecordType[$i]['C_CODE']){
-				$sHandleList = $arrRecordType[$i]['C_HANDLER_ID_LIST'];
-				break;
-			}
-		}		
-		if($sHandleList<>''){
-			$arrHandleList = array();
-			$arrHandleIdList = explode(',',$sHandleList);
-			for ($index = 0; $index<sizeof($arrHandleIdList); $index++){
-				$arrHandleList[$index]['id'] = $arrHandleIdList[$index];
-				$arrHandleList[$index]['name'] =  $ojbEfyLib->_getItemAttrById($_SESSION['arr_all_staff'],$arrHandleIdList[$index],'name');
-			}
-			$_SESSION['arrHandleList'] = $arrHandleList;
-		}
-		if($sxmlname!=''){
-			$v_xml_file = $objconfig->_setXmlFileUrlPath(2) . "listreport/". $sxmlname;
-			$sGenlist = $sGenlist . $objxml->_xmlGenerateFormfield($v_xml_file, 'table_struct_of_filter_form/filter_row','filter_formfield_list','<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>', array(),true,true);
-		}		
-		echo $sGenlist;	
+		echo $sGenlist;
 	}
 ?>

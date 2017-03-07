@@ -740,13 +740,11 @@ class record_publicController extends  Zend_Controller_Action {
      * @throws Zend_Exception
      */
     public function getreporttypeAction(){
-        isset($_REQUEST['hdn_type'])?$typereport = $_REQUEST['hdn_type']:$typereport = '';
         isset($_REQUEST['recordtype'])?$recordtype = $_REQUEST['recordtype']:$recordtype = '';
-        isset($_REQUEST['ownercode'])?$ownercode = $_REQUEST['ownercode']:$ownercode = $_SESSION['OWNER_CODE'];
-        $ownercode = $ownercode.','.'ALL';
+        isset($_REQUEST['ownercode'])?$ownercode = $_REQUEST['ownercode']:$ownercode = '';
         // Tao doi tuong cho lop tren
         Zend_Loader::loadClass('Listxml_modListReport');
-        $objReport = new Listxml_modListReport();
+        $objReport = new Listxml_modListReport() ;
         $arrreport=$objReport->getAllListReport('HOAT_DONG','',$ownercode,$recordtype);
         $sGenlist =	'<table style="border:1px solid #DDDDDD;" width="100%" cellpadding="0" cellspacing="0"><col width="5%"><col width="95%">';
         for ($i=0;$i<sizeof($arrreport);$i++) {
@@ -760,7 +758,7 @@ class record_publicController extends  Zend_Controller_Action {
             $sGenlist = $sGenlist .	'</td></tr>';
         }
         $sGenlist = $sGenlist .	'</table>';
-        echo $sGenlist; exit;
+        echo $sGenlist;exit;
     }
 
     /**
@@ -779,7 +777,7 @@ class record_publicController extends  Zend_Controller_Action {
         if($recordtype !== ''){
             Zend_Loader::loadClass('listxml_modRecordtype');
             $objRecordtype	  = new listxml_modRecordtype();
-            $arrRecordType = $objRecordtype->eCSRecordTypeGetAll($ownercode,'','');
+            $arrRecordType = $objRecordtype->eCSRecordTypeGetAll($ownercode,'','','');
             ///Lay sesion can bo thu ly cua TTHC
             $sHandleList = '';
             for ($i=0;$i<sizeof($arrRecordType);$i++){

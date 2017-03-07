@@ -2189,7 +2189,7 @@ class Efy_Function_RecordFunctions
     {
         //Goi class xu ly
         Zend_Loader::loadClass('Zend_Config_Xml');
-        Zend_Loader::loadClass('Efy_IOFactory');
+        Zend_Loader::loadClass('Extra_Excel');
         //Tao doi tuong
         $objXmlLib = new Efy_Publib_Xml();
         $objConfig = new Extra_Init();
@@ -2209,7 +2209,7 @@ class Efy_Function_RecordFunctions
         //Bao cao co su dung temp hay ko
         $v_report_temp = $objConfigXml->report_table_format->report_label_excel_file;
         if ($v_report_temp) {
-            $objReader = Efy_IOFactory::createReader('Excel5');
+            $objReader = Extra_Excel::createReader('Excel5');
             $objPHPExcel = $objReader->load($v_report_temp);
             $objPHPExcel->setActiveSheetIndex(0);
             $objWorksheet = $objPHPExcel->getActiveSheet();

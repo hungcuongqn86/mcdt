@@ -10,8 +10,7 @@ class Extra_Init
      */
     public function _setWebSitePath()
     {
-        $registry = Zend_Registry::getInstance();
-        $conDirApp = $registry->get('conDirApp');
+        $conDirApp = new Zend_Config_Ini('./config/config.ini', 'dirApp');
         return $conDirApp->root;
     }
 
@@ -122,10 +121,7 @@ class Extra_Init
      */
     public function _getCurrentHttpAndHost()
     {
-        //
-        $sCurrentHttpHost = 'http://' . $_SERVER['HTTP_HOST'] . self::_setWebSitePath();
-        //
-        return $sCurrentHttpHost;
+        return 'http://' . $_SERVER['HTTP_HOST'] . self::_setWebSitePath();
     }
 
     /**

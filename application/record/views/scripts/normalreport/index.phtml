@@ -161,15 +161,15 @@
 	function changeRecordType(){
 		var value = $('#sel_recordtype').val();
 		$('#reportTypeShowList').show();
-		var p_url = _WEBSITE_PATH + 'public/ajax/ajaxFunction.php';	
+		var p_url = _WEBSITE_PATH + 'record/public/getreporttype';
 		$.ajax({
 			url: p_url,type: 'POST',dataType: 'html',
-			data: '&recordtype='+value+'&ownercode=<?=$_SESSION['OWNER_CODE']?>'+'&FuntionName=getReportTypeList',
+			data: '&recordtype='+value+'&ownercode=<?=$_SESSION['OWNER_CODE']?>',
 			success: function(data){
 				$('#reportTypeShowList').html(data);
 			}
-		});				
-	}	
+		});
+	}
 </script>
 <script language="JavaScript">	
 	//Chon loai bao cao
@@ -179,10 +179,10 @@
 		$('#hdn_Report_id').attr("value",value);
 		$('#hdn_xmlfilename').attr("value",xmlname);
 		$('#reportFillterList').show();
-		var p_url = _WEBSITE_PATH + 'public/ajax/ajaxFunction.php';	
+		var p_url = _WEBSITE_PATH + 'record/public/getreportfillter';
 		$.ajax({
 			url: p_url,type: 'POST',dataType: 'html',
-			data: '&recordtype='+recordtype+'&reporttype='+value+'&xmlname='+xmlname+'&ownercode=<?=$_SESSION['OWNER_CODE']?>'+'&FuntionName=getReportFillterList',
+			data: '&recordtype='+recordtype+'&reporttype='+value+'&xmlname='+xmlname+'&ownercode=<?=$_SESSION['OWNER_CODE']?>',
 			success: function(data){
 				$('#reportFillterList').html(data);
 			}
