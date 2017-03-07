@@ -37,6 +37,7 @@ $connAdo = Efy_Db_Connection::connectADO($connectSQL->db->adapter, $connectSQL->
 $df_url = Efy_Function_RecordFunctions::curPageURL();
 // Goi ham kiem tra user login
 Efy_Function_RecordFunctions::CheckLogin($df_url);
+
 // setup controller
 $frontController = Zend_Controller_Front::getInstance();
 $frontController->addControllerDirectory('./application/controllers');
@@ -44,11 +45,6 @@ $frontController->addControllerDirectory('./application/listxml/controllers', 'l
 $frontController->addControllerDirectory('./application/record/controllers', 'record');
 $frontController->addControllerDirectory('./application/logout/controllers', 'logout');
 $frontController->addControllerDirectory('./application/login/controllers', 'login');
-
 $frontController->throwExceptions(true);
 $frontController->setDefaultModule('public');
-try {
-    $frontController->dispatch();
-} catch (Exception  $e) {
-    echo 'Kh&#244;ng t&#236;m th&#7845;y trang b&#7841;n y&#234;u c&#7847;u! C&#243; th&#7875; &#273;&#432;&#7901;ng d&#7851;n kh&#244;ng ch&#237;nh x&#225;c!';
-}
+$frontController->dispatch();
