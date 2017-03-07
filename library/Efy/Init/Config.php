@@ -160,12 +160,16 @@ class Efy_Init_Config{
      */
 	public function _setDefaultUrl(){
 		return self::_getCurrentHttpAndHost() . 'record/reminder/index/';	
-	}	
-	/***
-	 * @see: Thiet ke DBLink vao CSDL QT NSD
-	*/
-	public function _setDbLinkUser(){
-		return "DBLink.[ecs-user-qb]";
+	}
+
+    /**
+     * @return string
+     */
+	public function _getUserDb(){
+        $registry = Zend_Registry::getInstance();
+        $connectSQL = $registry->get('connectSQL');
+        $dblink = '['.$connectSQL->db->config->userdbname.']';
+		return $dblink;
 	}
 
     /**

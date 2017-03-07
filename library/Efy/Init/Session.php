@@ -14,7 +14,7 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 		//global $p_arr_items, $p_level1_tag_name, $p_level2_tag_name_list, $p_delimitor;
 		$p_arr_items = array();	
 		$arrResul = array();
-		$sql = "Exec " . Efy_Init_Config::_setDbLinkUser() . ".dbo.USER_GetPersonalInfoOfAllStaff ";
+		$sql = "Exec " . Efy_Init_Config::_getUserDb() . ".dbo.USER_GetPersonalInfoOfAllStaff ";
 		//echo $sql . '<br>';
 		try{
 			$arrResul = Efy_DB_Connection::adodbQueryDataInNameMode($sql);
@@ -49,7 +49,7 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 	public function SesGetDetailInfoOfAllUnit(){
 		$p_arr_items = array();
 		$arrResul = array();
-		$sql = "Exec " . Efy_Init_Config::_setDbLinkUser() . ".dbo.USER_GetDetailInfoOfAllUnit ";
+		$sql = "Exec " . Efy_Init_Config::_getUserDb() . ".dbo.USER_GetDetailInfoOfAllUnit ";
 		try{
 			$arrResul = Efy_DB_Connection::adodbQueryDataInNameMode($sql);
 		}catch (Exception $e){
@@ -123,7 +123,7 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 	public function SesGetAllOwner($option=''){
 		$arrOwner = array();
 		$arrResult = array();
-		$sql = "Exec " . Efy_Init_Config::_setDbLinkUser() . ".dbo.USER_OwnerGetAll ";
+		$sql = "Exec " . Efy_Init_Config::_getUserDb() . ".dbo.USER_OwnerGetAll ";
 		$sql = $sql . "'".  "'";
 		$sql = $sql . ",'" . 'DM_DON_VI_TRIEN_KHAI' . "'";
 		//echo 'sql:' . $sql.'<br>';
