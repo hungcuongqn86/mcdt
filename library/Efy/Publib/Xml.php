@@ -451,17 +451,6 @@ class Efy_Publib_Xml extends RAX
                     }
                 }
                 break;
-            case "file_upload";
-                $spRetHtml .= $v_str_label;
-                $spRetHtml = $spRetHtml . "<input type='file' name='file_media_upload' value='$this->value' class='normal_textbox' title='$this->tooltip' style='width:$this->width' onKeyDown='change_focus(document.forms[0],this,event)'" . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ">";
-                $spRetHtml = $spRetHtml . $this->note;
-                break;
-
-            case "file";
-                $spRetHtml = $spRetHtml . $v_str_label;
-                $spRetHtml = $spRetHtml . "<input type='file' name='file_attach' value='$this->value' class='normal_textbox' title='$this->tooltip' size='$this->width' onKeyDown='change_focus(document.forms[0],this,event)'" . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ">";
-                $spRetHtml = $spRetHtml . $this->note;
-                break;
 
             case "fileclient";
                 $v_file_attack_name = "txt_xml_file_name" . $this->counterFileAttack;
@@ -739,12 +728,6 @@ class Efy_Publib_Xml extends RAX
             case "treeuser";
                 $spRetHtml = $this->sLabel;
                 $spRetHtml = $spRetHtml . "<input type='text' style='display:none' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
-                $spRetHtml = $spRetHtml . self::_generateHtmlForTreeUser($this->value);
-                break;
-            /*Tao ra mot cay user ma co parrent_id != parrent_id cua NSD dang nhap hien thoi*/
-            case "treealluser";
-                $spRetHtml = $this->sLabel;
-                $spRetHtml = $spRetHtml . "<input type='text' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                 $spRetHtml = $spRetHtml . self::_generateHtmlForTreeUser($this->value);
                 break;
             case "textboxorder";
