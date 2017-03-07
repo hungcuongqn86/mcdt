@@ -1978,38 +1978,6 @@ class Efy_Publib_Xml extends RAX
     }
 
     /**
-     * @param $a
-     * @param $b
-     * @return int
-     */
-    public function _compareTwoValue($a, $b)
-    {
-        if ($this->xmlDataCompare == "true") {
-            $v_xml_string_a = $a['C_RECEIVED_RECORD_XML_DATA'];
-            $v_xml_string_b = $b['C_RECEIVED_RECORD_XML_DATA'];
-            //Lay gia tri tu mang a
-            $column_rax = new RAX();
-            $column_rax->open($v_xml_string_a);
-            $column_rax->record_delim = 'data_list';
-            $column_rax->parse();
-            $column_rec = $column_rax->readRecord();
-            $column_row = $column_rec->getRow();
-            $value_a = _restore_XML_bad_char($column_row[$this->groupBy]);
-            //Lay gia tri tu mang b
-            $column_rax = new RAX();
-            $column_rax->open($v_xml_string_b);
-            $column_rax->record_delim = 'data_list';
-            $column_rax->parse();
-            $column_rec = $column_rax->readRecord();
-            $column_row = $column_rec->getRow();
-            $value_b = _restore_XML_bad_char($column_row[$this->groupBy]);
-            return strcmp($value_a, $value_b);
-        } else {
-            return strcmp($a[$this->groupBy], $b[$this->groupBy]);
-        }
-    }
-
-    /**
      * @param $spXmlFile
      * @param $sListObject1
      * @param $sListObject2
@@ -2034,60 +2002,5 @@ class Efy_Publib_Xml extends RAX
         } else {
             return "";
         }
-    }
-
-    /**
-     * @param $p_string
-     * @param $p_delimitor
-     * @return int
-     */
-    function _list_get_len($p_string, $p_delimitor)
-    {
-        $ret_value = 0;
-        if (strlen($p_string) <> 0) {
-            $array = explode($p_delimitor, $p_string);
-            $ret_value = sizeof($array);
-        }
-        return $ret_value;
-    }
-
-    /**
-     * @param $p_list
-     * @param $p_index
-     * @param $p_delimitor
-     * @return string
-     */
-    function _list_get_at($p_list, $p_index, $p_delimitor)
-    {
-        $ret_value = "";
-        if (strlen($p_list) == 0) {
-            return $ret_value;
-        }
-        $arr_element = explode($p_delimitor, $p_list);
-        $ret_value = $arr_element[$p_index];
-        return $ret_value;
-    }
-
-    function _restore_XML_bad_char($v_html)
-    {
-        $v_html = str_replace('&amp;', '&', $v_html);
-        $v_html = str_replace('&quot;', '"', $v_html);
-        $v_html = str_replace('&#39;', "'", $v_html);
-        $v_html = str_replace('&lt;', '<', $v_html);
-        $v_html = str_replace('&gt;', '>', $v_html);
-        $v_html = str_replace('&#34;', '"', $v_html);
-        $v_html = htmlspecialchars($v_html);
-        return $v_html;
-    }
-
-    function _replace_XML_bad_char($v_html)
-    {
-        $v_html = stripslashes($v_html);
-        $v_html = str_replace('&', '&amp;', $v_html);
-        $v_html = str_replace('"', '&quot;', $v_html);
-        $v_html = str_replace('<', '&lt;', $v_html);
-        $v_html = str_replace('>', '&gt;', $v_html);
-        $v_html = str_replace("'", '&#39;', $v_html);
-        return $v_html;
     }
 }
