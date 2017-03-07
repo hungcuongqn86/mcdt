@@ -1,11 +1,11 @@
+
 <?php
 
-	require_once "/Efy/Phpdocx/pclzip.lib.php";
+	require_once 'Plugin/Phpdocx/pclzip.lib.php';
 
-class Efy_Phpdocx_phpdocx{
-		
+	class Extra_Word{
 		private $template;
-		private $tmpDir = "/tmp/phpdocx"; // must be writable
+		private $tmpDir = "public/tmp"; // must be writable
 		private $assigned_field = array();
 		private $assigned_block = array();
 		private $assigned_nested_block = array();
@@ -15,7 +15,11 @@ class Efy_Phpdocx_phpdocx{
 		private $nested_block_count = array();
 
 		public function __construct($template){
-		
+			$tmpDir = $this->tmpDir;
+			if(!file_exists($tmpDir)){
+				mkdir($tmpDir);	
+			}
+			//$this->tmpDir = dirname(__FILE__)."\\tmp";
 			if(file_exists($template)){
 				$this->template = $template;
 			} else {
@@ -42,8 +46,8 @@ class Efy_Phpdocx_phpdocx{
 		
 		public function assign($field,$value){
 			$this->assigned_field[$field] = $this->filter($value);
-		}
-		
+				}
+
 		public function assignToHeader($field,$value){
 			$this->assigned_header_field[$field] = $this->filter($value);
 		}
@@ -116,7 +120,7 @@ class Efy_Phpdocx_phpdocx{
 		}
 		
 		private function saveHeader(){
-			$this->headerContent = file_get_contents($this->tmpDir."/word/header1.xml");
+			$this->headerContent = @file_get_contents($this->tmpDir."/word/header1.xml");
 						
 			foreach($this->assigned_header_field as $field => $value){
 				$this->headerContent = str_replace($field,$value,$this->headerContent);
@@ -127,7 +131,7 @@ class Efy_Phpdocx_phpdocx{
 		
 		
 		private function saveFooter(){
-			$this->footerContent = file_get_contents($this->tmpDir."/word/footer1.xml");
+			$this->footerContent = @file_get_contents($this->tmpDir."/word/footer1.xml");
 		
 			foreach($this->assigned_footer_field as $field => $value){
 				$this->footerContent = str_replace($field,$value,$this->footerContent);
@@ -267,7 +271,6 @@ class Efy_Phpdocx_phpdocx{
 		}
 		
 		private function addBlock($blockname,$values){
-			
 			$block = $this->block_content[$blockname];
 			
 			if(array_key_exists($blockname,$this->block_count)){

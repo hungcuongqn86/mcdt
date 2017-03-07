@@ -733,7 +733,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
     private function ecs_printTempDoc($sPathXmlFile, $sParrentTagName, $TagName, $sPathTemplateFile, $sXmlData = '', $arrRecord = array(), $sPathTemplateFile, $sTemplateFile,$sOwnerCode){
         //Goi class xu ly
         Zend_Loader::loadClass('Zend_Config_Xml');
-        Zend_Loader::loadClass('Efy_phpDocx');
+        Zend_Loader::loadClass('Extra_Word');
         $objConfig = new Extra_Init();
         //Tao doi tuong
         $ojbConfigXml = new Zend_Config_Xml($sPathXmlFile,$sParrentTagName);
@@ -741,7 +741,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         $objQLDTFun = new Efy_Function_RecordFunctions();
         $objLib = new Efy_Library();
         $dirTemplate = $sPathTemplateFile.$sTemplateFile;
-        $phpdocx = new Efy_phpDocx($dirTemplate);
+        $phpdocx = new Extra_Word($dirTemplate);
         $phpdocx->assignToHeader("#HEADER1#","Header 1"); // basic field mapping to header
         $phpdocx->assignToFooter("#FOOTER1#","Footer 1"); // basic field mapping to footer
         $sXmlData = '<?xml version="1.0" encoding="UTF-8"?>'.$sXmlData;
