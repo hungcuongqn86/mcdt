@@ -48,7 +48,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 		$this->view->LoadAllFileJsCss =Efy_Publib_Library::_getAllFileJavaScriptCss('public/efy-js/ListType','','','','js') 
 										.Efy_Publib_Library::_getAllFileJavaScriptCss('public/efy-js/ListType','','','','css')
 										.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jsList.js,jquery-1.5.1.js,jquery.simplemodal.js',',','js')
-										.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-style','simpleModal.css',',','css');;										
+										.Efy_Publib_Library::_getAllFileJavaScriptCss('','style','simpleModal.css',',','css');;
 		/* Ket thuc*/
 		
 		//Dinh nghia current modul code

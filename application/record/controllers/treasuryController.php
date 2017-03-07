@@ -45,7 +45,7 @@ class record_treasuryController extends  Zend_Controller_Action {
 										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','js_calendar.js',',','js');								
 		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jquery-1.5.1.js',',','js');
 		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','ui/jquery.ui.core.js,ui/jquery.ui.widget.js,ui/jquery.ui.datepicker.js,ui/i18n/jquery.ui.datepicker-vi.js',',','js');
-		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-style','simpleModal.css,themes/humanity/jquery-ui-1.8.13.custom.css,themes/base/calendar.css',',','css');			
+		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','style','simpleModal.css,themes/humanity/jquery-ui-1.8.13.custom.css,themes/base/calendar.css',',','css');
 		$this->view->LoadAllFileJsCss = $sStyle;
 		/* Ket thuc*/
 		

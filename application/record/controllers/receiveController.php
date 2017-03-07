@@ -32,7 +32,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		// Load tat ca cac file Js va Css
         $objLibrary = new Efy_Library();
 		$sStyle= $objLibrary->_getAllFileJavaScriptCss('','efy-js','js-record/receive.js,xml/general_datatable.js,xml/general_formfiel.js',',','js');
-        $sStyle.= $objLibrary->_getAllFileJavaScriptCss('','efy-style','printmenu/printmenu.css',',','css');
+        $sStyle.= $objLibrary->_getAllFileJavaScriptCss('','style','printmenu/printmenu.css',',','css');
 		$this->view->LoadAllFileJsCss = $sStyle;
 
 		//Lay tra tri trong Cookie

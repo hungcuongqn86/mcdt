@@ -49,7 +49,7 @@ class Listxml_backupController extends  Zend_Controller_Action {
 		
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jsList.js,jquery-1.5.1.js,jquery.simplemodal.js',',','js')
-										.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-style','simpleModal.css',',','css');;										
+										.Efy_Publib_Library::_getAllFileJavaScriptCss('','style','simpleModal.css',',','css');;
 		/* Ket thuc*/
 		
 		//Dinh nghia current modul code

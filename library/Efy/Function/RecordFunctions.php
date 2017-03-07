@@ -2132,7 +2132,7 @@ class Efy_Function_RecordFunctions
 								<style>
 										@page{margin:.4in .4in .4in .4in;mso-header-margin:1in;mso-footer-margin:1in;mso-page-orientation:' . $sOrientation . ';}
 								</style>';
-            $sStyleFileName = "public/efy-style/report_style.css";
+            $sStyleFileName = "public/style/report_style.css";
             $sStyleContent = $objEfyLib->_readFile($sStyleFileName);
             $sHtmlContent = $sHtmlContent . '<style type=text/css>' . $sStyleContent . '</style>';
             $sHTML_string = $sHtmlContent . '</head><body><div class=Section1>' . $sHTML_string . '</div></body>';
