@@ -1154,10 +1154,9 @@ class record_receiveController extends  Zend_Controller_Action {
 			Zend_Loader::loadClass('Efy_Mail_Phpmailer');
 			Zend_Loader::loadClass('Efy_Mail_Smtp');
 			//Lay dia chỉ mail
-			$arrMailInfo = $objRecordFunction->getAllObjectbyListCode($sOwnerCode,"DM_EMAIL");
-			$from = $arrMailInfo[0]['C_CODE'];
-			$pass = $arrMailInfo[0]['C_NAME'];
-			//var_dump($arrMailInfo);exit;
+			$arrMailInfo = $objInitConfig->configMail();
+			$from = $arrMailInfo['mail_name'];
+			$pass = $arrMailInfo['mail_password'];
 			$to_name= 'Ông/Bà';
 			$from_name = $_SESSION['OWNER_NAME'];
 			$subject =$_SESSION['OWNER_NAME'].': Thông báo kết quả giải quyết TTHC';
