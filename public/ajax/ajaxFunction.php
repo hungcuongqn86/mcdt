@@ -11,7 +11,7 @@
 	include "../../library/Zend/Loader.php";	
 	Zend_Loader::loadClass('Zend_Db');	
 	Zend_Loader::loadClass('Efy_DB_Connection');
-	Zend_Loader::loadClass('Efy_Init_Config');
+	Zend_Loader::loadClass('Extra_Init');
 	Zend_Loader::loadClass('Zend_Config_Ini');
 	Zend_Loader::loadClass('Zend_Config_Xml');
 	Zend_Loader::loadClass('Zend_Registry');
@@ -19,7 +19,7 @@
 	Zend_Loader::loadClass('Efy_Library');
 	Zend_Loader::loadClass('Efy_Xml');
 	$conn = new Efy_DB_Connection();
-	$sConfig = new Efy_Init_Config();
+	$sConfig = new Extra_Init();
 	//Ket noi CSDL SQL theo kieu ADODB
 	$connectSQL = new Zend_Config_Ini('../../config/config.ini','dbmssql');
 	$registry = Zend_Registry::getInstance();
@@ -54,7 +54,7 @@
 		isset($_REQUEST['datatype'])?$datatype = $_REQUEST['datatype']:$datatype = '';	
 		isset($_REQUEST['hdn_recordTypeCode'])?$sRecordTypeCode = $_REQUEST['hdn_recordTypeCode']:$sRecordTypeCode = '';
 		isset($_REQUEST['hdn_order'])?$shdn_order = $_REQUEST['hdn_order']:$shdn_order = '1';		
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$ojbEfyLib = new Efy_Library();
 		$objxml = new Efy_Xml();
@@ -119,7 +119,7 @@
 		isset($_REQUEST['hdn_xml_file_name'])?$sxmlFileName = $_REQUEST['hdn_xml_file_name']:$sxmlFileName = '';	
 		isset($_REQUEST['hdn_OrderClause'])?$sOrderClause = $_REQUEST['hdn_OrderClause']:$sOrderClause = '';	
 		$arrRecordType = $_SESSION['arr_all_record_type'];
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$ojbEfyLib = new Efy_Library();
 		$objxml = new Efy_Xml();
@@ -240,7 +240,7 @@
 		isset($_REQUEST['hdn_xml_value_list'])?$hdn_xml_value_list = $_REQUEST['hdn_xml_value_list']:$hdn_xml_value_list = '';
 		isset($_REQUEST['hdn_xml_tag_list'])?$hdn_xml_tag_list = $_REQUEST['hdn_xml_tag_list']:$hdn_xml_tag_list = '';
 		
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$ojbEfyLib = new Efy_Library();
 		$objxml = new Efy_Xml();
 		if ($iPage <= 1)
@@ -301,7 +301,7 @@
 		$sFilterXmlString = '';
 		if(trim($sFilterXmlString) == '') $sFilterXmlString = '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>';
 		//Lay file XML mo ta form cac tieu thuc loc phuc vu tim kiem nang cao
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$sRecordTypeCode.'/tim_kiem_nang_cao.xml';	
 		if(!file_exists($sSearchXmlFileName)){
 			$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/tim_kiem_nang_cao.xml';	
@@ -355,7 +355,7 @@
 			return $e->getMessage();
 		}
 		if(sizeof($arrResult)>0){
-			$objconfig = new Efy_Init_Config();
+			$objconfig = new Extra_Init();
 			$objxml = new Efy_Xml();
 			$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$recordtype.'/ho_so_trung_lap.xml';
 			if(!file_exists($sxmlFileName)){
@@ -399,7 +399,7 @@
 	function getReportFillterList(){
 		global $conn;
 		$ojbEfyLib = new Efy_Library();
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$objxml = new Efy_Xml();
 		$sGenlist = '';
 		isset($_REQUEST['recordtype'])?$recordtype = $_REQUEST['recordtype']:$recordtype = '';

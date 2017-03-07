@@ -35,8 +35,8 @@ class Record_normalreportController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Listxml_modListReport');
 
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 
         //Lay tra tri trong Cookie

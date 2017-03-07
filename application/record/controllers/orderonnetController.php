@@ -31,9 +31,9 @@ class record_orderonnetController extends Zend_Controller_Action
         //Load ca thanh phan cau vao trang layout (index.phtml)
         $response = $this->getResponse();
         //Lay cac hang so su dung trong JS public
-        Zend_Loader::loadClass('Efy_Init_Config');
+        Zend_Loader::loadClass('Extra_Init');
         Zend_Loader::loadClass('Efy_Mail_Phpmailer');
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         $this->view->UrlAjax = $objConfig->_setUrlAjax();
         //Load cau hinh thu muc trong file config.ini de lay ca hang so dung chung
         $tempConstPublic = Zend_Registry::get('ConstPublic');
@@ -111,7 +111,7 @@ class record_orderonnetController extends Zend_Controller_Action
         //Hien thi left menu
         $this->_response->insert('left', $this->view->renderLayout('left.phtml', './application/views/scripts/'));
         $this->view->titleBody = "DANH SÁCH ĐĂNG KÝ CHỜ DUYỆT";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Efy_Publib_Xml();
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
@@ -208,7 +208,7 @@ class record_orderonnetController extends Zend_Controller_Action
         //Hien thi left menu
         $this->_response->insert('left', $this->view->renderLayout('left.phtml', './application/views/scripts/'));
         $this->view->titleBody = "DANH SÁCH ĐĂNG KÝ ĐÃ DUYỆT";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Efy_Publib_Xml();
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
@@ -298,7 +298,7 @@ class record_orderonnetController extends Zend_Controller_Action
     public function viewrecordAction()
     {
         $this->view->titleBody = "CHI TIẾT ĐĂNG KÝ GIAO DỊCH";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Efy_Publib_Xml();
         $ojbEfyLib = new Efy_Library();
@@ -390,7 +390,7 @@ class record_orderonnetController extends Zend_Controller_Action
     Public function sendmailAction()
     {
         $this->view->titleBody = "GỬI EMAIL CHO CÔNG DÂN";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objReceiveonnet = new record_modReceiveonnet();
 

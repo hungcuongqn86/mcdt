@@ -13,8 +13,8 @@ class record_seachrecordresultController extends Zend_Controller_Action{
 		//Load ca thanh phan cau vao trang layout (index.phtml)
 		$response = $this->getResponse();
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->UrlAjax = $objConfig->_setUrlAjax();	
 		//Load cau hinh thu muc trong file config.ini de lay ca hang so dung chung
         $tempConstPublic = Zend_Registry::get('ConstPublic');
@@ -46,7 +46,7 @@ class record_seachrecordresultController extends Zend_Controller_Action{
   	}	
 	public function indexAction(){
 		$obj_reach = new record_modSeachRecordResult();
-		$objInitConfig  = new Efy_Init_Config();
+		$objInitConfig  = new Extra_Init();
 		$sRecordPk = $this->_request->getParam('hdn_id_record','');
 		$this->view->arrResult = $obj_reach->SeachRecordResult($sRecordPk);
 		$this->view->arrWork = $obj_reach->eCS_SeachRecordWork($sRecordPk);

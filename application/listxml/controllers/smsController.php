@@ -34,9 +34,9 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Efy_Publib_Xml');
 		$objDocFun = new Efy_Function_DocFunctions();	
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
+		Zend_Loader::loadClass('Extra_Init');
 		Zend_Loader::loadClass('Efy_Init_Session');
-		$objConfig = new Efy_Init_Config();
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		/* Dung de load file Js va css		/*/
 		// Goi lop public		
@@ -64,7 +64,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		$objSession = new Efy_Init_Session();
 		$objFunction =	new	Efy_Function_DocFunctions()	;
 		$objSms = new Sms_modSms();
-		$ojbEfyInitConfig = new Efy_Init_Config();
+		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac gia tri const
 		$this->view->arrConst =	$ojbEfyInitConfig->_setProjectPublicConst();
 		//Xu ly Autocomplete
@@ -110,7 +110,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		$objSession = new Efy_Init_Session();
 		$objFunction =	new	Efy_Function_DocFunctions()	;
 		$objSms = new Sms_modSms();
-		$ojbEfyInitConfig = new Efy_Init_Config();
+		$ojbEfyInitConfig = new Extra_Init();
 		$objFilter = new Zend_Filter();	
 		//Lay cac gia tri const
 		$this->view->arrConst =	$ojbEfyInitConfig->_setProjectPublicConst();
@@ -175,7 +175,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		$objSession = new Efy_Init_Session();
 		$objFunction =	new	Efy_Function_DocFunctions()	;
 		$objSms = new Sms_modSms();
-		$ojbEfyInitConfig = new Efy_Init_Config();
+		$ojbEfyInitConfig = new Extra_Init();
 		$objFilter = new Zend_Filter();	
 		//Lay cac gia tri const
 		$this->view->arrConst =	$ojbEfyInitConfig->_setProjectPublicConst();

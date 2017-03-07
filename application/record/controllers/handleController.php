@@ -28,7 +28,7 @@ class record_handleController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('record_modHandle');
 		Zend_Loader::loadClass('record_modReceive');
 		//Lay cac hang so su dung trong JS public
-		$objConfig = new Efy_Init_Config();
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
@@ -101,7 +101,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
 	public function indexAction(){
 		//Goi cac doi tuong
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objXml					 = new Efy_Publib_Xml();
         $ojbEfyLib				 = new Efy_Library();
@@ -186,7 +186,7 @@ class record_handleController extends  Zend_Controller_Action {
         Zend_Loader::loadClass('record_modHandle');
 
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
         $objrecordfun            = new Efy_Function_RecordFunctions();
@@ -212,7 +212,7 @@ class record_handleController extends  Zend_Controller_Action {
         Zend_Loader::loadClass('record_modHandle');
 
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
         $objrecordfun            = new Efy_Function_RecordFunctions();
@@ -238,7 +238,7 @@ class record_handleController extends  Zend_Controller_Action {
         Zend_Loader::loadClass('record_modHandle');
 
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
         $objrecordfun            = new Efy_Function_RecordFunctions();
@@ -344,7 +344,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
     public function resultAction(){
 		//Goi cac doi tuong
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objXml					 = new Efy_Publib_Xml();
 		$objLibrary 			 = new Efy_Library();
@@ -458,7 +458,7 @@ class record_handleController extends  Zend_Controller_Action {
         Zend_Loader::loadClass('record_modHandle');
 
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
         $objrecordfun            = new Efy_Function_RecordFunctions();
@@ -532,7 +532,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
 	public function listAction(){	
 		//Goi cac doi tuong
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objXml					 = new Efy_Publib_Xml();
         $ojbEfyLib               = new Efy_Library();
@@ -612,7 +612,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
     public function approvedAction(){
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
         $objXml					 = new Efy_Publib_Xml();
         $ojbEfyLib               = new Efy_Library();
@@ -756,7 +756,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
     public function transitionAction(){
         $this->view->titleBody = "DANH SÁCH HỒ SƠ LIÊN THÔNG CHỜ NHẬN";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Efy_Publib_Xml();
         $ojbEfyLib = new Efy_Library();

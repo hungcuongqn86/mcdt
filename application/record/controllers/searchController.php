@@ -22,7 +22,7 @@ class record_searchController extends  Zend_Controller_Action {
         Zend_Loader::loadClass('record_modSearch');
 
         //Lay cac hang so su dung trong JS public
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         $this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 
         $objLibrary = new Efy_Library();
@@ -74,7 +74,7 @@ class record_searchController extends  Zend_Controller_Action {
 	 */
 	public function indexAction(){
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $this->view->arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->bodyTitle = 'TRA C&#7912;U H&#7890; S&#416; ';
         //Mang danh sach cac don vi
@@ -97,7 +97,7 @@ class record_searchController extends  Zend_Controller_Action {
      *
      */
     public function loadfilterAction(){
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $arrInput                = $this->_request->getParams();
         Zend_Loader::loadClass('listxml_modRecordtype');
         $objRecordtype	        = new listxml_modRecordtype();
@@ -120,7 +120,7 @@ class record_searchController extends  Zend_Controller_Action {
      */
     public function loadlistrecordAction(){
         $arrInput                = $this->_request->getParams();
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $ojbEfyLib				 = new Efy_Library();
         Zend_Loader::loadClass('listxml_modRecordtype');
         $objRecordtype	        = new listxml_modRecordtype();
@@ -196,7 +196,7 @@ class record_searchController extends  Zend_Controller_Action {
      */
 	public function generalAction(){
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
 		//Lay Danh muc TTHC
         $sOwnerCode = $_SESSION['OWNER_CODE'];
         $sOwnerCodeRoot = $objconfig->_getOwnerCode();
@@ -280,7 +280,7 @@ class record_searchController extends  Zend_Controller_Action {
         Zend_Loader::loadClass('record_modHandle');
 
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
         $objrecordfun            = new Efy_Function_RecordFunctions();

@@ -47,8 +47,8 @@ class listxml_modList extends Efy_DB_Connection {
 	public function getAllList($arrAllListType, $piIdListType, $piPage, $piNumRecordOnPage, $psFilterXmlString){							
 		
 		//Goi lop config
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		
 		//Tao mang luu thong tin doi tuong danh muc		
 		$arrAllList = array();
@@ -132,8 +132,8 @@ class listxml_modList extends Efy_DB_Connection {
 	public function updateList($piIdListType, $arrParameter, $psXmlStringInDb){							
 		
 		//Goi lop config
-		//Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		//Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		
 		//Tao mang luu thong tin doi tuong danh muc		
 		$arrAllList = array();

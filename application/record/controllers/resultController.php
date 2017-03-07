@@ -21,8 +21,8 @@ class record_archivesController extends  Zend_Controller_Action {
 		//Load ca thanh phan cau vao trang layout (index.phtml)
 		$response = $this->getResponse();
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->UrlAjax = $objConfig->_setUrlAjax();	
 		
 		//Load cau hinh thu muc trong file config.ini de lay ca hang so dung chung
@@ -136,7 +136,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$this->view->iCurrentPage 		= $iCurrentPage;
 		$this->view->iNumRowOnPage 		= $iNumRowOnPage;
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		// Tao doi tuong Zend_Filter
 		$objFilter = new Zend_Filter();
@@ -174,9 +174,9 @@ class record_archivesController extends  Zend_Controller_Action {
 		$ojbXmlLib = new Efy_Publib_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
-		$ojbEfyInitConfig = new Efy_Init_Config();	
+		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		$this->view->currentModulCodeForLeft = "RECORD-ARCHIVES";
 		//Lay tham so cau hinh
@@ -220,7 +220,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$psFileName = $this->_request->getParam('hdn_xml_file','');
 		//Neu khong ton tai file XML thi doc file XML mac dinh
 		if($psFileName == "" || !is_file($psFileName)){
-			$psFileName = Efy_Init_Config::_setXmlFileUrlPath(1) . "Record/thong_tin_nguoi_xem.xml";
+			$psFileName = Extra_Init::_setXmlFileUrlPath(1) . "Record/thong_tin_nguoi_xem.xml";
 		}
 		$psXmlStr = "";
 		$arrGetSingleList = array();
@@ -275,9 +275,9 @@ class record_archivesController extends  Zend_Controller_Action {
 		$ojbXmlLib = new Efy_Publib_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
-		$ojbEfyInitConfig = new Efy_Init_Config();	
+		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		//Lay tham so cau hinh
 		$efyLibUrlPath = $ojbEfyInitConfig->_setLibUrlPath();
@@ -306,7 +306,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$psFileName = $this->_request->getParam('hdn_xml_file','');
 		//Neu khong ton tai file XML thi doc file XML mac dinh
 		if($psFileName == "" || !is_file($psFileName)){
-			$psFileName = Efy_Init_Config::_setXmlFileUrlPath(1) . "Record/thong_tin_nguoi_xem.xml";
+			$psFileName = Extra_Init::_setXmlFileUrlPath(1) . "Record/thong_tin_nguoi_xem.xml";
 		}
 		//Lay id ho so tu view
 		$sRecordArchivedId = $this->_request->getParam('hdn_object_id','');
@@ -391,7 +391,7 @@ class record_archivesController extends  Zend_Controller_Action {
 	public function deleteAction(){
 		$objDocFun 			 = new Efy_Function_DocFunctions();
 		$objRecordArchive	 = new record_modRecord();
-		$ojbEfyInitConfig	 = new Efy_Init_Config();	
+		$ojbEfyInitConfig	 = new Extra_Init();
 		$RecordArchiveIdList = $this->_request->getParam('hdn_object_id_list','');
 		$arrDocIdList        = $objRecordArchive->DocRecordArchiveDocIdGetAllInRecord($RecordArchiveIdList);
 		$sRetError			 = $objRecordArchive->DocRecordArchivesDelete($RecordArchiveIdList,1);
@@ -437,9 +437,9 @@ class record_archivesController extends  Zend_Controller_Action {
 		$ojbXmlLib = new Efy_Publib_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
-		$ojbEfyInitConfig = new Efy_Init_Config();	
+		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		//Lay tham so cau hinh
 		$efyLibUrlPath = $ojbEfyInitConfig->_setLibUrlPath();
@@ -494,7 +494,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$objRecordArchive = new record_modRecord();
 		$sUrl = $_SERVER['REQUEST_URI'];			
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		// Tao doi tuong Zend_Filter
 		$objFilter = new Zend_Filter();
@@ -532,7 +532,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$objRecordArchive = new record_modRecord();
 		$sUrl = $_SERVER['REQUEST_URI'];			
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		// Tao doi tuong Zend_Filter
 		$objFilter = new Zend_Filter();
@@ -595,7 +595,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$creport->ExportOptions->DestinationType = 1; // export to file
 		$creport->ExportOptions->FormatType= 14; // Type file
 		$creport->Export(false);
-		$my_report_file = 'http://'.$_SERVER['HTTP_HOST'].Efy_Init_Config::_setWebSitePath().'public/'.$report_file;
+		$my_report_file = 'http://'.$_SERVER['HTTP_HOST'].Extra_Init::_setWebSitePath().'public/'.$report_file;
 		$this->view->my_report_file = $my_report_file; 
 	}
 	public function adddocotherAction(){
@@ -610,9 +610,9 @@ class record_archivesController extends  Zend_Controller_Action {
 		$ojbXmlLib = new Efy_Publib_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
-		$ojbEfyInitConfig = new Efy_Init_Config();	
+		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		$this->view->currentModulCodeForLeft = "RECORD-ARCHIVES";
 		//Lay tham so cau hinh
@@ -633,7 +633,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$arrAgentcyGroupt = $objRecordArchive->getPropertiesDocument('DM_CAP_NOI_GUI_VAN_BAN');
 		$arrAgentcyName   = $objRecordArchive->getPropertiesDocument('DM_NOI_GUI_VAN_BAN');
 		//Lay cac hang so dung chung
-		$arrCount = Efy_Init_Config::_setProjectPublicConst();
+		$arrCount = Extra_Init::_setProjectPublicConst();
 		$this->view->arrCount = $arrCount;
 		//Goi ham thuc hien lay thong tin cho selectbox
 		// Goi ham search lay ra loai van ban
@@ -706,9 +706,9 @@ class record_archivesController extends  Zend_Controller_Action {
 		$ojbXmlLib = new Efy_Publib_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
-		$ojbEfyInitConfig = new Efy_Init_Config();	
+		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		$this->view->currentModulCodeForLeft = "RECORD-ARCHIVES";
 		//Lay tham so cau hinh
@@ -729,7 +729,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$arrAgentcyGroupt = $objRecordArchive->getPropertiesDocument('DM_CAP_NOI_GUI_VAN_BAN');
 		$arrAgentcyName   = $objRecordArchive->getPropertiesDocument('DM_NOI_GUI_VAN_BAN');
 		//Lay cac hang so dung chung
-		$arrCount = Efy_Init_Config::_setProjectPublicConst();
+		$arrCount = Extra_Init::_setProjectPublicConst();
 		$this->view->arrCount = $arrCount;
 		//Goi ham thuc hien lay thong tin cho selectbox
 		// Goi ham search lay ra loai van ban
@@ -854,7 +854,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$this->view->iCurrentPage 		= $iCurrentPage;
 		$this->view->iNumRowOnPage 		= $iNumRowOnPage;
 		//Lay cac hang so dung chung
-		$arrConst = Efy_Init_Config::_setProjectPublicConst();
+		$arrConst = Extra_Init::_setProjectPublicConst();
 		$this->view->arrConst = $arrConst;
 		// Tao doi tuong Zend_Filter
 		$objFilter = new Zend_Filter();

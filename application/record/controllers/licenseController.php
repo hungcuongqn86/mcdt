@@ -12,8 +12,8 @@ class record_licenseController extends  Zend_Controller_Action {
 		//Load ca thanh phan cau vao trang layout (index.phtml)
 		$response = $this->getResponse();
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->UrlAjax = $objConfig->_setUrlAjax();	
 		$this->view->arrConst = $objConfig->_setProjectPublicConst();
 		//Load cau hinh thu muc trong file config.ini de lay ca hang so dung chung
@@ -91,7 +91,7 @@ class record_licenseController extends  Zend_Controller_Action {
 	
 	public function indexAction(){
 		$this->view->titleBody = "";
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Efy_Publib_Xml();
 		$ojbEfyLib = new Efy_Library();
@@ -180,7 +180,7 @@ class record_licenseController extends  Zend_Controller_Action {
 		//Tao doi tuong trong thu hien cac ham ma modul dung chung
 		$objQLDTFun = new Efy_Function_RecordFunctions();		
 		//Tao doi tuong config
-		$objConfig = new Efy_Init_Config();		
+		$objConfig = new Extra_Init();
 		// Lay toan bo tham so truyen tu form			
 		$arrInput = $this->_request->getParams();
 		//$barcodelink = $objConfig->_setWebSitePath();

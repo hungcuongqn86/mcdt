@@ -34,7 +34,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('listxml_modRecordtype');
 		
 		//Lay cac hang so su dung trong JS public
-		$objConfig = new Efy_Init_Config();
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
@@ -83,7 +83,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
  */
 	public function indexAction(){
 		//Goi cac doi tuong
-		$ojbEfyInitConfig = new Efy_Init_Config();
+		$ojbEfyInitConfig = new Extra_Init();
 		$objRecordtype	  = new listxml_modRecordtype();
 		$objFunction	  = new Efy_Function_RecordFunctions();		
 		//Tieu de man hinh danh sach
@@ -122,7 +122,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
      */
     public function addAction(){
         //Goi cac doi tuong
-        $ojbEfyInitConfig = new Efy_Init_Config();
+        $ojbEfyInitConfig = new Extra_Init();
         $objFunction	  = new Efy_Function_RecordFunctions();
         $objRecordtype	  = new listxml_modRecordtype();
         //Tieu de man hinh danh sach
@@ -221,7 +221,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
      */
 	public function configAction(){
         //Goi cac doi tuong
-        $ojbEfyInitConfig = new Efy_Init_Config();
+        $ojbEfyInitConfig = new Extra_Init();
         $objFunction	  = new Efy_Function_RecordFunctions();
         $objRecordtype	  = new listxml_modRecordtype();
         //Tieu de man hinh danh sach
@@ -359,7 +359,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 		$sApproveIdList = $this->_request->getParam('C_APP_TEMP',"");
 		$this->view->sApproveIdList = $sApproveIdList;
 		//echo $sApproveIdList;
-		$arrPostionGroup=Efy_Init_Config::_setLeaderPostionGroup();
+		$arrPostionGroup=Extra_Init::_setLeaderPostionGroup();
 		$arrLeader = $objFunction->docGetAllUnitLeader($arrPostionGroup['_CONST_POSITION_GROUP'],"arr_all_staff");
 		//var_export($arrLeader);
 		//Lay Autocomplete Lanh dao
@@ -410,7 +410,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
      */
 	public function editAction(){
 		//Goi cac doi tuong
-		$ojbEfyInitConfig = new Efy_Init_Config();
+		$ojbEfyInitConfig = new Extra_Init();
 		$objFunction	  = new Efy_Function_RecordFunctions();	
 		$objRecordtype	  = new listxml_modRecordtype();
 		//Tieu de man hinh danh sach

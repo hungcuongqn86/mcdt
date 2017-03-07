@@ -40,8 +40,8 @@ class listxml_ListController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Listxml_modList');
 		
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
@@ -249,7 +249,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 			//echo $psFileName;
 			//Neu khong ton tai file XML thi doc file XML mac dinh
 			if($psFileName == "" || !is_file($psFileName)){
-				$psFileName = Efy_Init_Config::_setXmlFileUrlPath(1) . "list/quan_tri_doi_tuong_danh_muc.xml";
+				$psFileName = Extra_Init::_setXmlFileUrlPath(1) . "list/quan_tri_doi_tuong_danh_muc.xml";
 			}
 			
 			$psXmlStr = '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>';
@@ -389,7 +389,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 			$psFileName = $this->_request->getParam('hdn_xml_file','');
 			//Neu khong ton tai file XML thi doc file XML mac dinh
 			if($psFileName == "" || !is_file($psFileName)){
-				$psFileName = Efy_Init_Config::_setXmlFileUrlPath(1) . "list/quan_tri_doi_tuong_danh_muc.xml";
+				$psFileName = Extra_Init::_setXmlFileUrlPath(1) . "list/quan_tri_doi_tuong_danh_muc.xml";
 			}	
 			//Lay thong tin danh muc doi tuong
 			if($iListId != 0){

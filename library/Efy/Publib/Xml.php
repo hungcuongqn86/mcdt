@@ -126,7 +126,7 @@ class Efy_Publib_Xml extends RAX
     public function _xmlGenerateFormfield($spXmlFileName, $pathXmlTagStruct, $pathXmlTag, $p_xml_string_in_db, $p_arr_item_value, $p_input_file_name = true, $p_view_mode = false)
     {
         global $i;
-        $ojbEfyInitConfig = new Efy_Init_Config();
+        $ojbEfyInitConfig = new Extra_Init();
         if (sizeof($p_arr_item_value) > 0) {
             $_SESSION['NET_RECORDID'] = $p_arr_item_value[0]['PK_NET_RECORD'];
             $_SESSION['RECORDID'] = $p_arr_item_value[0]['PK_RECORD'];
@@ -817,7 +817,7 @@ class Efy_Publib_Xml extends RAX
      */
     Public function _generateHtmlForDataTable($psXmlFile, $sformFielName, $arrList)
     {
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $sxmlFileName = $objconfig->_setXmlFileUrlPath(2) . 'record/table/' . $psXmlFile . '.xml';
         $psHtmlString = '';
         if (!file_exists($sxmlFileName)) {
@@ -891,7 +891,7 @@ class Efy_Publib_Xml extends RAX
      */
     Public function _generateHtmlForFormFiel($psXmlFile, $sformFielName)
     {
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $sxmlFileName = $objconfig->_setXmlFileUrlPath(2) . 'record/table/' . $psXmlFile . '.xml';
         $psHtmlString = '';
         if (!file_exists($sxmlFileName)) {
@@ -1246,8 +1246,8 @@ class Efy_Publib_Xml extends RAX
         $v_current_style_name = "round_row";
         $v_have_move = $pHaveMove;
         //Goi class lay tham so cau hinh he thong
-        //Zend_Loader::loadClass('Efy_Init_Config');
-        $ojbEfyInitConfig = new Efy_Init_Config();
+        //Zend_Loader::loadClass('Extra_Init');
+        $ojbEfyInitConfig = new Extra_Init();
         $objConfiXml = new Zend_Config_Xml($psXmlFile);
         $arrXml = $objConfiXml->toArray();
         //var_dump($arrXml);
@@ -1594,7 +1594,7 @@ class Efy_Publib_Xml extends RAX
         //Tao doi tuong Efy_Library
         $objLib = new Efy_Library();
         //Tao doi tuong config
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         $arrConst = $objConfig->_setProjectPublicConst();
 
         $strXML = '<?xml version="1.0"?><root><data_list>';
@@ -1760,7 +1760,7 @@ class Efy_Publib_Xml extends RAX
             $i = 0;
             $v_item_url_onclick = "_change_item_checked(this,\"table_$this->formFielName\")";
             // duong dan den noi chua file attach
-            $urlFileAttach = new Efy_Init_Config();
+            $urlFileAttach = new Extra_Init();
             //ma ho so
             $v_record_id = $_SESSION['NET_RECORDID'];
             if (is_null($v_record_id) || $v_record_id == '') {

@@ -28,8 +28,8 @@ class Login_IndexController extends  Zend_Controller_Action {
 	public function indexAction(){
 		//Zend_Loader::loadClass('Zend_Session');
 		//Zend_Session::destroy();
-		$sReURL = Efy_Init_Config::_setUserLoginUrl();
-		$objInitConfig 		= new Efy_Init_Config();
+		$sReURL = Extra_Init::_setUserLoginUrl();
+		$objInitConfig 		= new Extra_Init();
 		$objmodLogin		= new login_modCheckLogin();
 		//
 		//$this->_helper->layout()->disableLayout();
@@ -102,7 +102,7 @@ class Login_IndexController extends  Zend_Controller_Action {
 				}
 				//var_dump($_SESSION['staff_id']);exit;
 				//Thanh cong thi thuc hien URL mac dinh duoc cau hinh trong file Config
-				$this->_redirect(Efy_Init_Config::_setDefaultUrl());
+				$this->_redirect(Extra_Init::_setDefaultUrl());
 			}else{?>
 				<script>
 					alert('Ten dang nhap hoac mat khau khong dung!');

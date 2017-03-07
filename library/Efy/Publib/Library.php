@@ -626,9 +626,9 @@ abstract class Efy_Publib_Library
         // chuoi ket qua tra ve
         $sResHtml = null;
 
-        Zend_Loader::loadClass(Efy_Init_Config);
+        Zend_Loader::loadClass(Extra_Init);
 
-        $objInitConfif = new Efy_Init_Config();
+        $objInitConfif = new Extra_Init();
 
         //
         $filetype = strtolower($psExtension);
@@ -933,7 +933,7 @@ abstract class Efy_Publib_Library
         global $_EFY_IMAGE_URL_PATH;
         //global $_MODAL_DIALOG_MODE;
 
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         $sPath = $objConfig->_setImageUrlPath();
 
         $strTop = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";

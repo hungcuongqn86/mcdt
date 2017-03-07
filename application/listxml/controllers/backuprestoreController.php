@@ -40,8 +40,8 @@ class Listxml_backuprestoreController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Listxml_modList');
 		
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML

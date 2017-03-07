@@ -1,6 +1,6 @@
 <?php
 //Ham Const
-$objconfig = new Efy_Init_Config();
+$objconfig = new Extra_Init();
 $arrConst = $objconfig->_setProjectPublicConst();
 $sOwnerCode = $_SESSION['OWNER_CODE'];
 $sOwnerCodeRoot = $objconfig->_getOwnerCode();
@@ -279,7 +279,7 @@ $sOwnerCodeRoot = $objconfig->_getOwnerCode();
             <tr>
                 <td valign="top">
                     <table width="98%" cellpadding="0" cellspacing="0" align="center" class="left_menu_table">
-                        <? if ($_SESSION['STAFF_PERMISSTION'] == Efy_Init_Config::_setPermisstionSystem(1)) { ?>
+                        <? if ($_SESSION['STAFF_PERMISSTION'] == Extra_Init::_setPermisstionSystem(1)) { ?>
                             <tr>
                                 <td id="left_report_general" class="level1">
                                     <a href="<?php echo $this->baseUrl; ?>../record/normalreport/general/">Báo cáo

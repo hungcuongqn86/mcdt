@@ -40,8 +40,8 @@ class Listxml_backupController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Listxml_modBackup');
 		
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
@@ -90,7 +90,7 @@ class Listxml_backupController extends  Zend_Controller_Action {
 		$this->view->bodyTitle = 'SAO L&#431;U D&#7918; LI&#7878;U';
 		$RecordFunctions 	= new Efy_Function_RecordFunctions();
 		$objBackup 			= new Listxml_modBackup();
-		$objConfig			= new Efy_Init_Config();
+		$objConfig			= new Extra_Init();
 		$ojbXmlLib 			= new Efy_Publib_Xml();
 		$connectSQL = new Zend_Config_Ini('./config/config.ini','dbmssql');
 		$arrConfig = $connectSQL->db->config->toArray();					

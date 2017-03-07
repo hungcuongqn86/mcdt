@@ -8,11 +8,11 @@ class Logout_IndexController extends  Zend_Controller_Action {
 	}
 	public function indexAction(){
 		Zend_Loader::loadClass('Zend_Session');
-		//Load class Efy_Init_Config
-		Zend_Loader::loadClass('Efy_Init_Config');
+		//Load class Extra_Init
+		Zend_Loader::loadClass('Extra_Init');
 		Zend_Session::start();
 		Zend_Session::destroy();	
-		$sReURL = Efy_Init_Config::_setUserLoginUrl();?>
+		$sReURL = Extra_Init::_setUserLoginUrl();?>
 		<script>
 			window.location.href = '<?=$sReURL;?>';
 		</script>

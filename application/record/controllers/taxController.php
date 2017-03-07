@@ -33,7 +33,7 @@ class record_taxController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('record_modTax');
 		
 		//Lay cac hang so su dung trong JS public
-		$objConfig = new Efy_Init_Config();
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
@@ -81,7 +81,7 @@ class record_taxController extends  Zend_Controller_Action {
 	 */
 	public function indexAction(){	
 		//Goi cac doi tuong
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objXml					 = new Efy_Publib_Xml();
 		$objTax					 = new record_modTax();	
@@ -188,7 +188,7 @@ class record_taxController extends  Zend_Controller_Action {
 		//Goi doi tuong
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objTax	  				 = new record_modTax();
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$ojbEfyLib				 = new Efy_Library();
 		//Lay Lich JS
 		$efyLibUrlPath = $objInitConfig->_setLibUrlPath();
@@ -267,7 +267,7 @@ class record_taxController extends  Zend_Controller_Action {
 		//Goi doi tuong
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objTax	  				 = new record_modTax();
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$ojbEfyLib				 = new Efy_Library();
 		//Lay Lich JS
 		$efyLibUrlPath = $objInitConfig->_setLibUrlPath();
@@ -336,7 +336,7 @@ class record_taxController extends  Zend_Controller_Action {
 		}	
 	}
 	public function printAction222(){	//In thong bao thue
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		//Pk cua HS
 		$sRecordPk = $this->_request->getParam('hdn_object_id','');
 		//Duong dan Url
@@ -374,7 +374,7 @@ class record_taxController extends  Zend_Controller_Action {
 	}
 	//----------------------------------------
 	public function printAction(){	//In thong bao thue
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objTax	  				 = new record_modTax();
 		$ojbEfyLib				 = new Efy_Library();	
@@ -448,7 +448,7 @@ class record_taxController extends  Zend_Controller_Action {
 	//-----------------------------------------------------
 	public function worklistAction(){
 		//Goi cac doi tuong
-		$objInitConfig 			 	= new Efy_Init_Config();
+		$objInitConfig 			 	= new Extra_Init();
 		$objRecordFunction	     	= new Efy_Function_RecordFunctions();	
 		$ojbEfyLib				 	= new Efy_Library();
 		//Tieu de 
@@ -481,7 +481,7 @@ class record_taxController extends  Zend_Controller_Action {
 	}
 	public function viewrecordAction(){
 		$this->view->titleBody = "CHI TIẾT HỒ SƠ";
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Efy_Publib_Xml();
 		$ojbEfyLib = new Efy_Library();
@@ -572,7 +572,7 @@ class record_taxController extends  Zend_Controller_Action {
 			
 		}		
 		//Goi cac doi tuong
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$ojbEfyLib				 = new Efy_Library();
 		$objXml					 = new Efy_Publib_Xml();
@@ -663,7 +663,7 @@ class record_taxController extends  Zend_Controller_Action {
 			
 		}	
 		//Goi cac doi tuong
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$ojbEfyLib				 = new Efy_Library();
 		$objXml					 = new Efy_Publib_Xml();
@@ -758,7 +758,7 @@ class record_taxController extends  Zend_Controller_Action {
 		$objRecordFunction->eCSHandleWorkDelete($sRecordWorkIdList);
 		//xoa file tren o cung
 		$fileNameList =$arrFile[0]['C_FILE_NAME'];
-		$objconfig = new Efy_Init_Config();	
+		$objconfig = new Extra_Init();
 		if($fileNameList != '' && $fileNameList != null){	
 			$scriptUrl = $_SERVER['SCRIPT_FILENAME'];
 			$scriptFileName = explode("/", $scriptUrl);
@@ -785,7 +785,7 @@ class record_taxController extends  Zend_Controller_Action {
 		$this->_redirect('record/tax/worklist/status/'.$sStatus.'/?hdn_object_id='.$sRecordPk.'&recordType='.$sRecordTypeId);	
 	}
 	public function workprintAction(){
-		$objInitConfig 			 = new Efy_Init_Config();
+		$objInitConfig 			 = new Extra_Init();
 		//Pk cua HS
 		$sRecordPk = $this->_request->getParam('hdn_object_id','');
 		//echo '$sRecordPk:'.$sRecordPk;exit;

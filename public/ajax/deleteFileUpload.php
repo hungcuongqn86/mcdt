@@ -9,7 +9,7 @@
 	Zend_Loader::loadClass('Zend_Db');	
 	Zend_Loader::loadClass('Efy_DB_Connection');
 	Zend_Loader::loadClass('Zend_Registry');
-	$sConfig = new Efy_Init_Config;
+	$sConfig = new Extra_Init;
 	$conn = new Efy_DB_Connection();
 	//Ket noi CSDL SQL theo kieu ADODB
 	$connectSQL = new Zend_Config_Ini('../../config/config.ini','dbmssql');

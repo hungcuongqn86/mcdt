@@ -45,7 +45,7 @@ class Listxml_reportController extends  Zend_Controller_Action {
 		$this->view->currentModulCodeForLeft = "REPORT";
 		
 		//Lay cac hang so su dung trong JS public		
-		$objConfig = new Efy_Init_Config();
+		$objConfig = new Extra_Init();
 		$this->view->arrConst = $objConfig->_setProjectPublicConst();	
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();			
 
@@ -335,7 +335,7 @@ class Listxml_reportController extends  Zend_Controller_Action {
  * 	*/
 	private function showDialog(){
 		$dir = "./xml/listreport/";				
-		$objConfig = new Efy_Init_Config();
+		$objConfig = new Extra_Init();
 		$sResHtml = $sResHtml. "<div style='overflow:auto;height:95%; width:98%; padding: 6px 2px 2px 2px;'>";	
 		if (is_dir($dir)) {
 		    if ($dh = opendir($dir)) {

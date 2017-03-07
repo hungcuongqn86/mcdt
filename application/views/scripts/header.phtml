@@ -34,7 +34,7 @@ function _generate_day_of_week($p_lang, $status = ''){
     return $RetStr;
 }
 //Ham Const
-$objconfig = new Efy_Init_Config();
+$objconfig = new Extra_Init();
 $arrConst	=	$objconfig->_setProjectPublicConst();
 $sOwnerCode	= $_SESSION['OWNER_CODE'];
 $sOwnerCodeRoot = $objconfig->_getOwnerCode();
@@ -98,7 +98,7 @@ $objfunction = new Efy_Function_RecordFunctions();
 
                 <!--He thong danh muc-->
                 <?php
-                if($_SESSION['STAFF_PERMISSTION']==Efy_Init_Config::_setPermisstionSystem(1)){
+                if($_SESSION['STAFF_PERMISSTION']==Extra_Init::_setPermisstionSystem(1)){
                     $urlRe = $this->baseUrl . "../listxml/recordtype/index/"; ?>
                     <li  id ="header_list" align="left" style="cursor:pointer;" onclick="href('<?=$urlRe;?>')"><?=$arrConst['_DANH_MUC']?></li>	<?php
                 }?>

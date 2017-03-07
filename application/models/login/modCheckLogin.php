@@ -10,7 +10,7 @@ class login_modCheckLogin extends Efy_DB_Connection {
      * @return Mang
      */
 	public function UserCheckLogin($sUserName,$sPassWord){		
-		$sql = Efy_Init_Config::_getUserDb() . ".dbo.USER_UserCheckLogin ";
+		$sql = Extra_Init::_getUserDb() . ".dbo.USER_UserCheckLogin ";
 		$sql = $sql . "'" . $sUserName . "'";
 		$sql = $sql . ",'" . $sPassWord . "'";
 		// echo '<br>'.$sql . '<br>';exit;

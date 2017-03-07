@@ -16,7 +16,7 @@ Zend_Loader::loadClass('Efy_Db_Connection');
 Zend_Loader::loadClass('Efy_Library');
 Zend_Loader::loadClass('Efy_Xml');
 Zend_Loader::loadClass('Efy_Init_Session');
-Zend_Loader::loadClass('Efy_Init_Config');
+Zend_Loader::loadClass('Extra_Init');
 Zend_Loader::loadClass('Efy_Function_RecordFunctions');
 
 //Khai bao bien toan cuc

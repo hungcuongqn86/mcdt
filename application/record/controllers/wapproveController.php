@@ -17,8 +17,8 @@ class record_wapproveController extends  Zend_Controller_Action {
 		//Load ca thanh phan cau vao trang layout (index.phtml)
 		$response = $this->getResponse();
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->UrlAjax = $objConfig->_setUrlAjax();
 		
 		//Lay duong dan thu muc goc (path directory root)
@@ -77,7 +77,7 @@ class record_wapproveController extends  Zend_Controller_Action {
      */
 	public function indexAction(){
 		$this->view->titleBody = "DANH S&#193;CH H&#7890; S&#416; CH&#7900; PH&#202; DUY&#7878;T";
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Efy_Publib_Xml();
         $ojbEfyLib = new Efy_Library();
@@ -154,7 +154,7 @@ class record_wapproveController extends  Zend_Controller_Action {
      */
     public function approvedAction(){
         $this->view->titleBody = "DANH S&#193;CH H&#7890; S&#416; ĐÃ PH&#202; DUY&#7878;T";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Efy_Publib_Xml();
         $ojbEfyLib = new Efy_Library();
@@ -229,7 +229,7 @@ class record_wapproveController extends  Zend_Controller_Action {
      *
      */
 	public function approveAction(){
-		$objconfig = new Efy_Init_Config();
+		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objApprove = new record_modApprove();
 
@@ -310,7 +310,7 @@ class record_wapproveController extends  Zend_Controller_Action {
         Zend_Loader::loadClass('Zend_Session_Namespace');
 
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
         $objrecordfun	     = new Efy_Function_RecordFunctions();
@@ -338,7 +338,7 @@ class record_wapproveController extends  Zend_Controller_Action {
         Zend_Loader::loadClass('Zend_Session_Namespace');
 
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
         $objrecordfun	     = new Efy_Function_RecordFunctions();

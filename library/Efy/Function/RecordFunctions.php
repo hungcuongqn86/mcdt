@@ -49,7 +49,7 @@ class Efy_Function_RecordFunctions
     {
         $objXml = new Efy_Publib_Xml();
         $ojbEfyLib = new Efy_Library();
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         $spkrecord = $arrRecord['PK_RECORD'];
         $arrFile = $arrRecord['file'];
         $ResHtmlString = "<div class = 'large_title' style='padding-left:0px; text-align: left; float: left;'>" . $arrConst['_THONG_TIN_HS'] . "</div>";
@@ -198,7 +198,7 @@ class Efy_Function_RecordFunctions
         $strHTML = "<table width='75%' cellpadding='0' cellspacing='0'><col width = '6%'><col width = '94%'>";
 
         //Tao doi tuong thong tin config
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
 
         //ID File dinh kem
         if (($piCountFile > 0) && ($arrFileList != '')) {
@@ -256,7 +256,7 @@ class Efy_Function_RecordFunctions
         $strHTML = "<table width='75%' cellpadding='0' cellspacing='0'><col width = '6%'><col width = '94%'>";
 
         //Tao doi tuong thong tin config
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
 
         //ID File dinh kem
         if (($piCountFile > 0) && ($arrFileList != '')) {
@@ -326,7 +326,7 @@ class Efy_Function_RecordFunctions
             Zend_Loader::loadClass('Zend_Session_Namespace');
             $SesCheckLogin = new Zend_Session_Namespace('varCheckLogin');
         }
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         $substr_count = substr_count($df_url, $objConfig->_setSeachrecordresultUrlPath());
 
         if (($substr_count == 0) && ($df_url != $objConfig->_setUserLoginUrl()) && ((!isset($_SESSION['staff_id']) || is_null($_SESSION['staff_id']) || $_SESSION['staff_id'] == ''))) {
@@ -570,7 +570,7 @@ class Efy_Function_RecordFunctions
     function doc_search_ajax($arrRes, $ColumnIdRes, $ColumnTexRes, $TextRes, $hndRes, $single = 1, $sColumName = "", $editable = 0)
     {
         // doc_search_ajax($arrLeader,"id","name","C_LEADER_LIST_3","hdn_leader_list_3",0,"position_code",0);
-        $sWebsitePart = Efy_Init_Config::_setWebSitePath();
+        $sWebsitePart = Extra_Init::_setWebSitePath();
         $sHtmlRes = '';
         $sHtmlRes = $sHtmlRes . ' <script type="text/javascript">  ';//
         $sHtmlNameId = '';
@@ -1390,7 +1390,7 @@ class Efy_Function_RecordFunctions
      */
     function generateRecordCodeNET($srecordtype)
     {
-        $ow = new Efy_Init_Config();
+        $ow = new Extra_Init();
         $ownercode = $ow->_getOwnerCode();
         $objConn = new  Efy_DB_Connection();
         $v_inc_code_length = 5;//Do dai cua ma theo tung loai, tung nam cua ho so
@@ -1456,7 +1456,7 @@ class Efy_Function_RecordFunctions
         $objLib = new Efy_Library();
         $objRecordFunction = new Efy_Function_RecordFunctions();
         //Lay cac gia tri const
-        $ojbEfyInitConfig = new Efy_Init_Config();
+        $ojbEfyInitConfig = new Extra_Init();
         $arrConst = $ojbEfyInitConfig->_setProjectPublicConst();
         try {
             // Chuoi SQL
@@ -1825,7 +1825,7 @@ class Efy_Function_RecordFunctions
         $sHTML_string = '';
         $objXmlLib = new Efy_Publib_Xml();
         $objEfyLib = new Efy_Library();
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         //Duyet mang du lieu và xuat ma html
         $v_count_row = sizeof($arrResult);
         $v_count_col = sizeof($arrReportCol);
@@ -2192,7 +2192,7 @@ class Efy_Function_RecordFunctions
         Zend_Loader::loadClass('Efy_IOFactory');
         //Tao doi tuong
         $objXmlLib = new Efy_Publib_Xml();
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         //Tao doi tuong xml
         $objConfigXml = new Zend_Config_Xml($psXmlStringInFile);
         //Kiem tra xem co nhom du lieu khong
@@ -2654,9 +2654,9 @@ class Efy_Function_RecordFunctions
     public function showLeftMenu($arrRecordtype)
     {
         //
-        Zend_Loader::loadClass('Efy_Init_Config');
+        Zend_Loader::loadClass('Extra_Init');
         //
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         //
         $sHtmlString = '<table width="100%" height="100%" cellpadding="0" border="0" cellspacing="0" align="center"  class="left_menu_table">';
         $sHtmlString .= '<tr><td id="td_seach" class="level1" ><a href="/g4t-mcdt-lethuy/record/sendrecord/index">TRA C&#7912;U TR&#7840;NG TH&#193;I H&#7890; S&#416;</a></td></tr>';

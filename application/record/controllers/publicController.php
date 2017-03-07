@@ -47,7 +47,7 @@ class record_publicController extends  Zend_Controller_Action {
         //Nguoi dang nhap hien thoi
         $iCurrentStaffId = $_SESSION['staff_id'];
         $arrRecordType = $_SESSION['arr_all_record_type'];
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $ojbEfyLib = new Efy_Library();
         $objxml = new Efy_Xml();
@@ -129,7 +129,7 @@ class record_publicController extends  Zend_Controller_Action {
         isset($_REQUEST['pkrecord'])?$sRecordPk = $_REQUEST['pkrecord']:$sRecordPk = '';
         isset($_REQUEST['ownercode'])?$sOwnerCode = $_REQUEST['ownercode']:$sOwnerCode = $_SESSION['OWNER_CODE'];
         //Goi cac doi tuong
-        $objInitConfig 			 = new Efy_Init_Config();
+        $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
         $ojbEfyLib				 = new Efy_Library();
         $conn 					 = new G_Db();
@@ -337,7 +337,7 @@ class record_publicController extends  Zend_Controller_Action {
             return $e->getMessage();
         }
         if(sizeof($arrResult)>0){
-            $objconfig = new Efy_Init_Config();
+            $objconfig = new Extra_Init();
             $objxml = new Efy_Xml();
             $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$recordtype.'/ho_so_trung_lap.xml';
             if(!file_exists($sxmlFileName)){
@@ -384,7 +384,7 @@ class record_publicController extends  Zend_Controller_Action {
         isset($_REQUEST['sRecordTypeId'])?$sRecordTypeId = $_REQUEST['sRecordTypeId']:$sRecordTypeId = '';
         isset($_REQUEST['hdn_xml_value_list'])?$hdn_xml_value_list = $_REQUEST['hdn_xml_value_list']:$hdn_xml_value_list = '';
         isset($_REQUEST['hdn_xml_tag_list'])?$hdn_xml_tag_list = $_REQUEST['hdn_xml_tag_list']:$hdn_xml_tag_list = '';
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $ojbEfyLib = new Efy_Library();
         $objxml = new Efy_Xml();
         if ($iPage <= 1)
@@ -452,7 +452,7 @@ class record_publicController extends  Zend_Controller_Action {
         $sFilterXmlString = '';
         if(trim($sFilterXmlString) == '') $sFilterXmlString = '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>';
         //Lay file XML mo ta form cac tieu thuc loc phuc vu tim kiem nang cao
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/tim_kiem_nang_cao.xml';
         if(!file_exists($sSearchXmlFileName)){
             $sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/tim_kiem_nang_cao.xml';
@@ -767,7 +767,7 @@ class record_publicController extends  Zend_Controller_Action {
      * @throws Zend_Exception
      */
     function getreportfillterAction(){
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objxml = new Efy_Xml();
         $objlibrary = new Efy_Library();
         $sGenlist = '';

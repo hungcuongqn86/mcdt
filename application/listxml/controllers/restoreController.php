@@ -37,8 +37,8 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Listxml_modlist');
 		
 		//Lay cac hang so su dung trong JS public
-		Zend_Loader::loadClass('Efy_Init_Config');
-		$objConfig = new Efy_Init_Config();
+		Zend_Loader::loadClass('Extra_Init');
+		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
@@ -89,7 +89,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 		$this->view->bodyTitle = 'PHỤC HỒI DỮ LIỆU';
 		$RecordFunctions 	= new Efy_Function_RecordFunctions();
 		//$objBackup 			= new Listxml_modBackup();
-		$objConfig			= new Efy_Init_Config();
+		$objConfig			= new Extra_Init();
 		$ojbXmlLib 			= new Efy_Publib_Xml();
 		// goi load div 
 		$this->view->divDialog = $this->showDialog();
@@ -153,7 +153,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 		$arrResult = $RecordFunctions->getAllObjectbyListCode($_SESSION['OWNER_CODE'],'DM_TS_HT');
 		$dir = $ojbXmlLib->_xmlGetXmlTagValue('<?xml version="1.0" encoding="UTF-8"?>'.$arrResult[0]['C_XML_DATA'],'data_list','path_backup');
 		//$dir = "./xml/list/";				
-		$objConfig = new Efy_Init_Config();
+		$objConfig = new Extra_Init();
 		
 		$sResHtml = $sResHtml. "<div style='overflow:auto;height:95%; width:98%; padding: 6px 2px 2px 2px;'>";	
 		

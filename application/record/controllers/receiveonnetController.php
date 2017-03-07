@@ -31,9 +31,9 @@ class record_receiveonnetController extends Zend_Controller_Action
         //Load ca thanh phan cau vao trang layout (index.phtml)
         $response = $this->getResponse();
         //Lay cac hang so su dung trong JS public
-        Zend_Loader::loadClass('Efy_Init_Config');
+        Zend_Loader::loadClass('Extra_Init');
         Zend_Loader::loadClass('Efy_Mail_Phpmailer');
-        $objConfig = new Efy_Init_Config();
+        $objConfig = new Extra_Init();
         $this->view->UrlAjax = $objConfig->_setUrlAjax();
         //Load cau hinh thu muc trong file config.ini de lay ca hang so dung chung
         $tempConstPublic = Zend_Registry::get('ConstPublic');
@@ -111,7 +111,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         //Hien thi left menu
         $this->_response->insert('left', $this->view->renderLayout('left.phtml', './application/views/scripts/'));
         $this->view->titleBody = "DANH SÁCH HỒ SƠ CHỜ TIẾP NHẬN SƠ BỘ";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Efy_Publib_Xml();
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
@@ -212,7 +212,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         //Tieu de man hinh danh sach
         $this->view->titleBody = "DANH SÁCH HỒ SƠ ĐÃ TIẾP NHẬN SƠ BỘ";
         // Class thiet lap cac cau hinh cua he thong
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         //Class xu ly cac phuong thuc dung chung cua he thong
         $objrecordfun = new Efy_Function_RecordFunctions();
         //Class xu ly cac phuong thuc lien quan den xml
@@ -296,7 +296,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         //Tieu de man hinh danh sach
         $this->view->titleBody = "DANH SÁCH HỒ SƠ CHỜ CÔNG DÂN BỔ SUNG";
         // Class thiet lap cac cau hinh cua he thong
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         //Class xu ly cac phuong thuc dung chung cua he thong
         $objrecordfun = new Efy_Function_RecordFunctions();
         //Class xu ly cac phuong thuc lien quan den xml
@@ -399,7 +399,7 @@ class record_receiveonnetController extends Zend_Controller_Action
     {
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objReceiveonnet = new record_modReceiveonnet();
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $sNetReceiveRecordIDList = $this->_request->getParam('hdn_object_id_list', '');
         $sRetError = $objReceiveonnet->eCSNetReceiveRecordDelete($sNetReceiveRecordIDList);
         //Luu cac dieu kien tim kiem len session
@@ -431,7 +431,7 @@ class record_receiveonnetController extends Zend_Controller_Action
     public function viewrecordAction()
     {
         $this->view->titleBody = "CHI TIẾT HỒ SƠ";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Efy_Publib_Xml();
         $ojbEfyLib = new Efy_Library();
@@ -559,7 +559,7 @@ class record_receiveonnetController extends Zend_Controller_Action
     Public function sendmailAction()
     {
         $this->view->titleBody = "GỬI EMAIL CHO CÔNG DÂN";
-        $objconfig = new Efy_Init_Config();
+        $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objReceiveonnet = new record_modReceiveonnet();
 
