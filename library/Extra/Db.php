@@ -1,5 +1,5 @@
 <?php
-require_once 'Efy/adodb/adodb.inc.php';
+require_once 'Plugin/adodb/adodb.inc.php';
 
 /**
  * Class Extra_Db
