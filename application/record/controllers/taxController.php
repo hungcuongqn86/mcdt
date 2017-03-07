@@ -40,9 +40,9 @@ class record_taxController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Efy_Publib_Xml');		
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','handle/handle.js,jquery-1.5.1.js',',','js');
-										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js/Autocomplete','actb_search.js,common_search.js',',','js');
-										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','js_calendar.js',',','js');								
+		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','handle/handle.js,jquery-1.5.1.js',',','js');
+										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','js/Autocomplete','actb_search.js,common_search.js',',','js');
+										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','js','js_calendar.js',',','js');
 		/* Ket thuc*/
 		
 		//Dinh nghia current modul code

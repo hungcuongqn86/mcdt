@@ -43,10 +43,10 @@ class record_archivesController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','Record.js',',','js') 
-										. Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','ajax.js',',','js') 
-										. Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jquery-1.4.2.min.js',',','js');
-										//. Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js/LibSearch','actb_search.js,common_search.js',',','js');,jQuery.equalHeights.js
+		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','Record.js',',','js')
+										. Efy_Publib_Library::_getAllFileJavaScriptCss('','js','ajax.js',',','js')
+										. Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.4.2.min.js',',','js');
+										//. Efy_Publib_Library::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');,jQuery.equalHeights.js
 
 		//Lay tra tri trong Cookie
 		$sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");

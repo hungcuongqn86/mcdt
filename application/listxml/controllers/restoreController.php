@@ -31,7 +31,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";	
 		
 		//Duong dan file JS xu ly modul
-		$this->view->baseJavaUrl = "efy-js/jsList.js";
+		$this->view->baseJavaUrl = "js/jsList.js";
 		
 		//Goi lop Listxml_modList
 		Zend_Loader::loadClass('Listxml_modlist');
@@ -45,9 +45,9 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Efy_Publib_Xml');		
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss =Efy_Publib_Library::_getAllFileJavaScriptCss('public/efy-js/ListType','','','','js') 
-										.Efy_Publib_Library::_getAllFileJavaScriptCss('public/efy-js/ListType','','','','css')
-										.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jsList.js,jquery-1.5.1.js,jquery.simplemodal.js',',','js')
+		$this->view->LoadAllFileJsCss =Efy_Publib_Library::_getAllFileJavaScriptCss('public/js/ListType','','','','js')
+										.Efy_Publib_Library::_getAllFileJavaScriptCss('public/js/ListType','','','','css')
+										.Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jsList.js,jquery-1.5.1.js,jquery.simplemodal.js',',','js')
 										.Efy_Publib_Library::_getAllFileJavaScriptCss('','style','simpleModal.css',',','css');;
 		/* Ket thuc*/
 		

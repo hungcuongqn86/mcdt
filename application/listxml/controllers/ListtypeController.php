@@ -38,8 +38,8 @@ class Listxml_ListTypeController extends  Zend_Controller_Action {
 		$objPublicLibrary = new Efy_Library();
 
         // Load tat ca cac file Js va Css
-        $this->view->LoadAllFileJsCss = $objPublicLibrary->_getAllFileJavaScriptCss('','efy-js','ListType/ListType.js,ListType/dhtmlwindow.js',',','js')
-            .$objPublicLibrary->_getAllFileJavaScriptCss('','efy-js','ListType/dhtmlwindow.css',',','css');
+        $this->view->LoadAllFileJsCss = $objPublicLibrary->_getAllFileJavaScriptCss('','js','ListType/ListType.js,ListType/dhtmlwindow.js',',','js')
+            .$objPublicLibrary->_getAllFileJavaScriptCss('','js','ListType/dhtmlwindow.css',',','css');
 				
 		/* Ket thuc 		*/
 		//Dinh nghia current modul code

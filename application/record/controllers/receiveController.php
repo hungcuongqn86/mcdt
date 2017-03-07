@@ -31,7 +31,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 		// Load tat ca cac file Js va Css
         $objLibrary = new Efy_Library();
-		$sStyle= $objLibrary->_getAllFileJavaScriptCss('','efy-js','js-record/receive.js,xml/general_datatable.js,xml/general_formfiel.js',',','js');
+		$sStyle= $objLibrary->_getAllFileJavaScriptCss('','js','js-record/receive.js,xml/general_datatable.js,xml/general_formfiel.js',',','js');
         $sStyle.= $objLibrary->_getAllFileJavaScriptCss('','style','printmenu/printmenu.css',',','css');
 		$this->view->LoadAllFileJsCss = $sStyle;
 

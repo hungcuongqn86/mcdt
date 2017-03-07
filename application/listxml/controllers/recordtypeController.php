@@ -41,7 +41,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Efy_Publib_Xml');		
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','recordtype/recordtype.js,jquery-1.5.1.js,jQuery.equalHeights.js',',','js').Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js/Autocomplete','actb_search.js,common_search.js',',','js');
+		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','recordtype/recordtype.js,jquery-1.5.1.js,jQuery.equalHeights.js',',','js').Efy_Publib_Library::_getAllFileJavaScriptCss('','js/Autocomplete','actb_search.js,common_search.js',',','js');
 		/* Ket thuc*/
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "LIST";

@@ -15,7 +15,7 @@ class Login_IndexController extends  Zend_Controller_Action {
 			    'layout' => 'login'
 			    ));	
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','position.js,jquery-1.5.1.js,ajax.js',',','js');
+		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','position.js,jquery-1.5.1.js,ajax.js',',','js');
 		$this->view->showModelDialog = 1;//An menu
 		//Lay duong dan thu muc goc (path directory root)
 		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";

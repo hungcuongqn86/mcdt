@@ -53,9 +53,9 @@ class record_receiveonnetController extends Zend_Controller_Action
         $this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 
         // Load tat ca cac file Js va Css
-        $this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('', 'efy-js', 'record.js', ',', 'js');
+        $this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('', 'js', 'record.js', ',', 'js');
 
-        //. Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js/LibSearch','actb_search.js,common_search.js',',','js');
+        //. Efy_Publib_Library::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');
 
         //Lay tra tri trong Cookie
         $sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");

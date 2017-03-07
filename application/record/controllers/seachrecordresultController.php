@@ -29,7 +29,7 @@ class record_seachrecordresultController extends Zend_Controller_Action{
 		Zend_Loader::loadClass('record_modSeachRecordResult');
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','Record.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','ajax.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jquery-1.5.1.js,jQuery.equalHeights.js',',','js'). Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js/LibSearch','actb_search.js,common_search.js',',','js');
+		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','Record.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','js','ajax.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.5.1.js,jQuery.equalHeights.js',',','js'). Efy_Publib_Library::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "RECORD";
 		$pcurrentModulCodeForLeft = $this->_request->getParam('htn_leftModule',"");

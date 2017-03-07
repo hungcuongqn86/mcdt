@@ -26,7 +26,7 @@ class record_searchController extends  Zend_Controller_Action {
         $this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 
         $objLibrary = new Efy_Library();
-        $sStyle = $objLibrary->_getAllFileJavaScriptCss('', 'efy-js', 'js-record/search.js', ',', 'js');
+        $sStyle = $objLibrary->_getAllFileJavaScriptCss('', 'js', 'js-record/search.js', ',', 'js');
         $this->view->LoadAllFileJsCss = $sStyle;
 
         //Dinh nghia current modul code

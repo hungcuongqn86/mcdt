@@ -37,7 +37,7 @@ class Listxml_reportController extends  Zend_Controller_Action {
 		$objPublicLibrary = new Efy_Library();
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = $objPublicLibrary->_getAllFileJavaScriptCss('public/efy-js/ListType','','','','js') . $objPublicLibrary->_getAllFileJavaScriptCss('public/efy-js/ListType','','','','css').Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jquery-1.5.1.js',',','js');
+		$this->view->LoadAllFileJsCss = $objPublicLibrary->_getAllFileJavaScriptCss('public/js/ListType','','','','js') . $objPublicLibrary->_getAllFileJavaScriptCss('public/js/ListType','','','','css').Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.5.1.js',',','js');
 				
 		/* Ket thuc 		*/
 		//Dinh nghia current modul code

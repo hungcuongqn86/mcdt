@@ -40,11 +40,11 @@ class record_treasuryController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Efy_Publib_Xml');		
 		
 		// Load tat ca cac file Js va Css
-		$sStyle = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','handle/handle.js,jquery-1.5.1.js',',','js');
-										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js/Autocomplete','actb_search.js,common_search.js',',','js')
-										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','js_calendar.js',',','js');								
-		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jquery-1.5.1.js',',','js');
-		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','ui/jquery.ui.core.js,ui/jquery.ui.widget.js,ui/jquery.ui.datepicker.js,ui/i18n/jquery.ui.datepicker-vi.js',',','js');
+		$sStyle = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','handle/handle.js,jquery-1.5.1.js',',','js');
+										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','js/Autocomplete','actb_search.js,common_search.js',',','js')
+										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','js','js_calendar.js',',','js');
+		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.5.1.js',',','js');
+		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','js','ui/jquery.ui.core.js,ui/jquery.ui.widget.js,ui/jquery.ui.datepicker.js,ui/i18n/jquery.ui.datepicker-vi.js',',','js');
 		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','style','simpleModal.css,themes/humanity/jquery-ui-1.8.13.custom.css,themes/base/calendar.css',',','css');
 		$this->view->LoadAllFileJsCss = $sStyle;
 		/* Ket thuc*/

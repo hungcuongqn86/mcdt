@@ -34,7 +34,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";	
 		
 		//Duong dan file JS xu ly modul
-		//$this->view->baseJavaUrl = "efy-js/jsList.js";
+		//$this->view->baseJavaUrl = "js/jsList.js";
 		
 		//Goi lop Listxml_modList
 		Zend_Loader::loadClass('Listxml_modList');
@@ -48,7 +48,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Efy_Publib_Xml');		
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','list/jsList.js,jquery-1.5.1.js',',','js');
+		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','list/jsList.js,jquery-1.5.1.js',',','js');
 		/* Ket thuc*/	
 		
 		//Dinh nghia current modul code

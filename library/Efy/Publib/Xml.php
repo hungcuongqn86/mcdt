@@ -360,7 +360,7 @@ class Efy_Publib_Xml extends RAX
         }
         $spHtmlStr = '';
         if ($v_js_file_name != '' && !(is_null($v_js_file_name))) {
-            $spHtmlStr .= Efy_Publib_Library::_getAllFileJavaScriptCss('', 'efy-js/js-record', $v_js_file_name, ',', 'js');
+            $spHtmlStr .= Efy_Publib_Library::_getAllFileJavaScriptCss('', 'js/js-record', $v_js_file_name, ',', 'js');
         }
         if ($v_js_function != '' && !(is_null($v_js_function))) {
             $spHtmlStr .= '<script>try{' . $v_js_function . '}catch(e){;}</script>';

@@ -42,7 +42,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		// Goi lop public		
 		$objPublicLibrary = new Efy_Library();			
 			// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','sent.js',',','js') .Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jsUser.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','ajax.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js','jquery-1.4.2.min.js,jQuery.equalHeights.js',',','js'). Efy_Publib_Library::_getAllFileJavaScriptCss('','efy-js/LibSearch','actb_search.js,common_search.js',',','js');
+		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','sent.js',',','js') .Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jsUser.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','js','ajax.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.4.2.min.js,jQuery.equalHeights.js',',','js'). Efy_Publib_Library::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');
 		
 		//-------------Lay ma giai doan thuc hien-------------------------	
 		$sPeriodCode = $this->_request->getParam('period',"");
@@ -75,7 +75,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		//Lay ID don vi
 		$iOwnerId = $_SESSION['OWNER_ID'];
 		
-		$this->view->bodyTitle = 'DANH S�?CH C�?N BỘ NHẬN TIN SMS';
+		$this->view->bodyTitle = 'DANH S�?CH C�?N BỘ NHẬN TIN SMS';
 		
 		// Lay toan bo tham so truyen tu form			
 		$arrInput = $this->_request->getParams();		
@@ -156,7 +156,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 			//quy dinh so record/page	
 			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($piNumRowOnPage,"../send/?htn_leftModule=SENT" );
 		}
-		$this->view->bodyTitle = 'CẬP NHẬT C�?N BỘ GỬI TIN SMS';
+		$this->view->bodyTitle = 'CẬP NHẬT C�?N BỘ GỬI TIN SMS';
 		$psOption = $this->_request->getParam('hdh_option','');
 		//Truong hop ghi va them moi
 		if ($psOption == "GHI_THEMMOI"){
@@ -225,7 +225,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 			//quy dinh so record/page	
 			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($piNumRowOnPage,"../send/?htn_leftModule=SENT" );
 		}
-		$this->view->bodyTitle = 'CẬP NHẬT C�?N BỘ GỬI TIN SMS';
+		$this->view->bodyTitle = 'CẬP NHẬT C�?N BỘ GỬI TIN SMS';
 		$psOption = $this->_request->getParam('hdh_option','');
 		//Truong hop ghi va quay lai
 		if ($psOption == "GHI_QUAYLAI"){
