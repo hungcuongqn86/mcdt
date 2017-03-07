@@ -31,7 +31,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		//Goi lop Listxml_modProject
 		Zend_Loader::loadClass('Sms_modSms');		
 		//Tao doi tuong XML
-		Zend_Loader::loadClass('Efy_Publib_Xml');
+		Zend_Loader::loadClass('Extra_Xml');
 		$objDocFun = new Efy_Function_DocFunctions();	
 		//Lay cac hang so su dung trong JS public
 		Zend_Loader::loadClass('Extra_Init');

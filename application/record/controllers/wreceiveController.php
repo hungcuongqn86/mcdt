@@ -113,7 +113,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
 		$this->view->titleBody = "DANH S&#193;CH H&#7890; S&#416; &#272;&#195; TI&#7870;P NH&#7852;N";
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
-		$objxml = new Efy_Publib_Xml();
+		$objxml = new Extra_Xml();
         $ojbEfyLib = new Efy_Library();
 
 		$arrRecordType = $_SESSION['arr_all_record_type'];
@@ -334,7 +334,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
 		$this->view->titleBody = "TI&#7870;P NH&#7852;N H&#7890; S&#416; M&#7898;I";
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
-		$objxml = new Efy_Publib_Xml();
+		$objxml = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objReceive = new record_modReceive();
 		//Lay thong tin cua loai ho so TTHC
@@ -433,7 +433,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
 		$this->view->titleBody = "TH&#212;NG TIN H&#7890; S&#416;";
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
-		$objxml = new Efy_Publib_Xml();
+		$objxml = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objReceive = new record_modReceive();
 
@@ -546,7 +546,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         $this->view->titleBody = "TH&#212;NG TIN H&#7890; S&#416;";
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         $ojbEfyLib = new Efy_Library();
         $objReceive = new record_modReceive();
 
@@ -737,7 +737,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         $objConfig = new Extra_Init();
         //Tao doi tuong
         $ojbConfigXml = new Zend_Config_Xml($sPathXmlFile,$sParrentTagName);
-        $objXml = new Efy_Xml();
+        $objXml = new Extra_Xml();
         $objQLDTFun = new Efy_Function_RecordFunctions();
         $objLib = new Efy_Library();
         $dirTemplate = $sPathTemplateFile.$sTemplateFile;
@@ -1164,7 +1164,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
-        $objXml					 = new Efy_Publib_Xml();
+        $objXml					 = new Extra_Xml();
         $ojbEfyLib               = new Efy_Library();
         //ID NSD dang nhap hien thoi
         $iCurrentStaffId = $_SESSION['staff_id'];
@@ -1245,7 +1245,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
-        $objXml					 = new Efy_Publib_Xml();
+        $objXml					 = new Extra_Xml();
         //ID NSD dang nhap hien thoi
         $iCurrentStaffId = $_SESSION['staff_id'];
         //Lay mang cac TTHC
@@ -1327,7 +1327,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         $this->view->titleBody = "DANH SÁCH HỒ SƠ LIÊN THÔNG CHUYỂN HUYỆN";
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
 
         $arrRecordType = $_SESSION['arr_all_record_type'];
         $sRecordTypeId = $this->_request->getParam('recordType');
@@ -1404,7 +1404,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
-        $objXml					 = new Efy_Publib_Xml();
+        $objXml					 = new Extra_Xml();
         Zend_Loader::loadClass('record_modHandle');
         $objHandle	  			 = new record_modHandle();
         //ID NSD dang nhap hien thoi
@@ -1523,7 +1523,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
         $ojbEfyLib				 = new Efy_Library();
-        $objxml 				 = new Efy_Publib_Xml();
+        $objxml 				 = new Extra_Xml();
         $objResult	  			 = new record_modResult();
         //Lay mang hang so dung chung
         $this->view->arrConst = $objInitConfig->_setProjectPublicConst();
@@ -1601,7 +1601,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
         $ojbEfyLib				 = new Efy_Library();
-        $objxml 				 = new Efy_Publib_Xml();
+        $objxml 				 = new Extra_Xml();
         $objResult	  			 = new record_modResult();
         //Lay mang hang so dung chung
         $this->view->arrConst = $objInitConfig->_setProjectPublicConst();

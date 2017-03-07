@@ -113,7 +113,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         $this->view->titleBody = "DANH SÁCH HỒ SƠ CHỜ TIẾP NHẬN SƠ BỘ";
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
         $objReceiveonnet = new record_modReceiveonnet();//tao doi tuong cua lop mode va su dung cac function cua mode qua obj do.
         $arrRecordType = $_SESSION['arr_all_record_type'];
@@ -216,7 +216,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         //Class xu ly cac phuong thuc dung chung cua he thong
         $objrecordfun = new Efy_Function_RecordFunctions();
         //Class xu ly cac phuong thuc lien quan den xml
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         //Lay mang hang so dung chung
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
         //Class xu ly du lieu cua module
@@ -300,7 +300,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         //Class xu ly cac phuong thuc dung chung cua he thong
         $objrecordfun = new Efy_Function_RecordFunctions();
         //Class xu ly cac phuong thuc lien quan den xml
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         //Lay mang hang so dung chung
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
         //Class xu ly du lieu cua module
@@ -433,7 +433,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         $this->view->titleBody = "CHI TIẾT HỒ SƠ";
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         $ojbEfyLib = new Efy_Library();
         $objReceiveonnet = new record_modReceiveonnet();
 

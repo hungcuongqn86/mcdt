@@ -113,7 +113,7 @@ class record_orderonnetController extends Zend_Controller_Action
         $this->view->titleBody = "DANH SÁCH ĐĂNG KÝ CHỜ DUYỆT";
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
         $objReceiveonnet = new record_modReceiveonnet();//tao doi tuong cua lop mode va su dung cac function cua mode qua obj do.
         $arrRecordType = $_SESSION['arr_all_record_type'];
@@ -210,7 +210,7 @@ class record_orderonnetController extends Zend_Controller_Action
         $this->view->titleBody = "DANH SÁCH ĐĂNG KÝ ĐÃ DUYỆT";
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
         $objReceiveonnet = new record_modReceiveonnet();//tao doi tuong cua lop mode va su dung cac function cua mode qua obj do.
         $arrRecordType = $_SESSION['arr_all_record_type'];
@@ -300,7 +300,7 @@ class record_orderonnetController extends Zend_Controller_Action
         $this->view->titleBody = "CHI TIẾT ĐĂNG KÝ GIAO DỊCH";
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         $ojbEfyLib = new Efy_Library();
         $objReceiveonnet = new record_modReceiveonnet();
 

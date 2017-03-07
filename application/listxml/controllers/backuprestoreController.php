@@ -45,7 +45,7 @@ class Listxml_backuprestoreController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
-		Zend_Loader::loadClass('Efy_Publib_Xml');		
+		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jsList.js,jquery-1.4.2.min.js',',','js');

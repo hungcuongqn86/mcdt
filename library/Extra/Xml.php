@@ -1,10 +1,10 @@
 <?php
-require_once 'Efy/prax.php';
+require_once 'Plugin/prax.php';
 
 /**
- * Class Efy_Publib_Xml
+ * Class Extra_Xml
  */
-class Efy_Publib_Xml extends RAX
+class Extra_Xml extends RAX
 {
     public $sLabel;
     public $efyImageUrlPath;
@@ -146,10 +146,8 @@ class Efy_Publib_Xml extends RAX
             $this->xmlStringInFile = $ojbEfyLib->_readFile($spXmlFileName);
 
 
-
         Zend_Loader::loadClass('Zend_Config_Xml');
         $objConfigXml = new Zend_Config_Xml($spXmlFileName);
-
 
 
         $v_first_col_width = $objConfigXml->common_para_list->common_para->first_col_width;
@@ -343,11 +341,11 @@ class Efy_Publib_Xml extends RAX
                     $this->disabledInEditMode = "false";
                 }
                 if ($this->viewPosition == 'left') {
-                    $sContentXmlTopLeft .= Efy_Publib_Xml::_generateHtmlInput();
+                    $sContentXmlTopLeft .= Extra_Xml::_generateHtmlInput();
                 } else if ($this->viewPosition == 'right') {
-                    $sContentXmlTopRight .= Efy_Publib_Xml::_generateHtmlInput();
+                    $sContentXmlTopRight .= Extra_Xml::_generateHtmlInput();
                 } else {
-                    $sContentXmlBottom .= Efy_Publib_Xml::_generateHtmlInput();
+                    $sContentXmlBottom .= Extra_Xml::_generateHtmlInput();
                 }
             }
             if ($this->viewPosition == 'left')
@@ -390,7 +388,7 @@ class Efy_Publib_Xml extends RAX
     {
         global $i;
         //Sinh ra cac thuoc tinh dung cho viec kiem hop du lieu tren form
-        $this->sDataFormatStr = Efy_Publib_Xml::_generateVerifyProperty($this->spDataFormat);
+        $this->sDataFormatStr = Extra_Xml::_generateVerifyProperty($this->spDataFormat);
         $this->optOptionalLabel = "";
         $spRetHtml = '';
         if ($this->havelinebefore == "true") {
@@ -440,7 +438,7 @@ class Efy_Publib_Xml extends RAX
                 break;
             case "relaterecord";
                 $spRetHtml = $v_str_label;
-                $spRetHtml = $spRetHtml . "<input type='textbox' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" onKeyDown="change_focus(document.forms[0],this,event)">';
+                $spRetHtml = $spRetHtml . "<input type='textbox' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" onKeyDown="change_focus(document.forms[0],this,event)">';
                 $spRetHtml = $spRetHtml . "<input type='hidden' name='hdn_relate_record_code' value=''>";
                 if ($this->value == "") {
                     $spRetHtml = $spRetHtml . "<input type='button' name='btn_submit' style='width:auto' title='$this->tooltip' value='L&#7845;y th&#244;ng tin t&#7915; h&#7891; s&#417; li&#234;n quan' class='small_button' onClick=''>";
@@ -462,7 +460,7 @@ class Efy_Publib_Xml extends RAX
                     $spRetHtml = $spRetHtml . '<label class="normal_label" >' . $this->value . '</label><br>';
                     $spRetHtml = $spRetHtml . '<label class="normal_label" >&nbsp;</label>';
                 }
-                $spRetHtml = $spRetHtml . "<div name='$this->formFielName' style='display:none'><input id = '$this->formFielName' type='text' name='$this->formFielName'class='normal_textbox' title='$this->tooltip' value='$this->value'  style='width:$this->width' style='border=0' readonly  $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . "></div>";
+                $spRetHtml = $spRetHtml . "<div name='$this->formFielName' style='display:none'><input id = '$this->formFielName' type='text' name='$this->formFielName'class='normal_textbox' title='$this->tooltip' value='$this->value'  style='width:$this->width' style='border=0' readonly  $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . "></div>";
                 $spRetHtml = $spRetHtml . "<input type='file' name='$v_file_attack_name' value='$this->value' class='normal_textbox' title='$this->tooltip' size='$this->width' onKeyDown='change_focus(document.forms[0],this,event)' OnChange=\"GetFileName(this,document.getElementById('" . $this->formFielName . "'))\">";
                 $spRetHtml = $spRetHtml . "";
                 $spRetHtml = $spRetHtml . $this->note;
@@ -481,9 +479,9 @@ class Efy_Publib_Xml extends RAX
                     $spRetHtml = $spRetHtml . $this->value;
                 } else {
                     if ($this->spDataFormat == "isdate") {
-                        $spRetHtml = $spRetHtml . '<input type="text" id="' . $this->formFielName . '"  name="' . $this->formFielName . '" class="normal_textbox" value="' . $this->value . '" title="' . $this->tooltip . '" style="width:' . $this->width . '" ' . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" >';
+                        $spRetHtml = $spRetHtml . '<input type="text" id="' . $this->formFielName . '"  name="' . $this->formFielName . '" class="normal_textbox" value="' . $this->value . '" title="' . $this->tooltip . '" style="width:' . $this->width . '" ' . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" >';
                     } else {
-                        $spRetHtml = $spRetHtml . '<input type="text" id="' . $this->formFielName . '" name="' . $this->formFielName . '" class="normal_textbox" value="' . $this->value . '" title="' . $this->tooltip . '" store_in_child_table="' . $this->storeInChildTable . '" style="width:' . $this->width . '" ' . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" maxlength="' . $this->maxlength . '" ';
+                        $spRetHtml = $spRetHtml . '<input type="text" id="' . $this->formFielName . '" name="' . $this->formFielName . '" class="normal_textbox" value="' . $this->value . '" title="' . $this->tooltip . '" store_in_child_table="' . $this->storeInChildTable . '" style="width:' . $this->width . '" ' . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" maxlength="' . $this->maxlength . '" ';
                         if (rtrim($this->max) != '' && !is_null($this->max)) {
                             $spRetHtml = $spRetHtml . ' max="' . $this->max . '"';
                         }
@@ -523,7 +521,7 @@ class Efy_Publib_Xml extends RAX
                     $spRetHtml = "";
                 }
                 $spRetHtml = $spRetHtml . '<label>&nbsp;</label>';
-                $spRetHtml = $spRetHtml . "<input type='checkbox' id = '" . $this->formFielName . "' name='$this->formFielName' class='normal_checkbox' title='$this->tooltip' $v_checked value='1' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)'>";
+                $spRetHtml = $spRetHtml . "<input type='checkbox' id = '" . $this->formFielName . "' name='$this->formFielName' class='normal_checkbox' title='$this->tooltip' $v_checked value='1' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)'>";
                 $spRetHtml = $spRetHtml . "<font class='normal_label'>" . $this->sLabel . $this->optOptionalLabel . "</font>";
                 break;
             case "radio";
@@ -532,7 +530,7 @@ class Efy_Publib_Xml extends RAX
                 } else {
                     $v_checked = " ";
                 }
-                $spRetHtml = "<input type='radio' id = '" . $this->formFielName . "' name='$this->rowId' class='normal_checkbox' $v_checked value='$this->radioValue' title='$this->tooltip' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)'>";
+                $spRetHtml = "<input type='radio' id = '" . $this->formFielName . "' name='$this->rowId' class='normal_checkbox' $v_checked value='$this->radioValue' title='$this->tooltip' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)'>";
                 $spRetHtml = $spRetHtml . "" . $this->sLabel . $this->optOptionalLabel . "";
                 break;
 
@@ -541,7 +539,7 @@ class Efy_Publib_Xml extends RAX
                 if ($this->viewMode && $this->readonlyInEditMode == "true") {
                     $spRetHtml = $spRetHtml . $this->value;
                 } else {
-                    $spRetHtml = $spRetHtml . '<textarea class="normal_textarea" id = "' . $this->formFielName . '" name="' . $this->formFielName . '" rows="' . $this->row . '" title="' . $this->tooltip . '" style="width:' . $this->width . '" ' . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '">' . $this->value . '</textarea>';
+                    $spRetHtml = $spRetHtml . '<textarea class="normal_textarea" id = "' . $this->formFielName . '" name="' . $this->formFielName . '" rows="' . $this->row . '" title="' . $this->tooltip . '" style="width:' . $this->width . '" ' . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '">' . $this->value . '</textarea>';
                 }
                 break;
             case "selectbox";
@@ -559,15 +557,15 @@ class Efy_Publib_Xml extends RAX
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->sessionIdIndex];
                         }
-                        $spRetHtml = $spRetHtml . Efy_Publib_Xml::_getValueFromArray($arrListItem, $this->sessionIdIndex, $this->sessionNameIndex, $this->value);
+                        $spRetHtml = $spRetHtml . Extra_Xml::_getValueFromArray($arrListItem, $this->sessionIdIndex, $this->sessionNameIndex, $this->value);
                     } elseif ($this->inputData == "efylist") {//Lay du lieu tu file XML
                         $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                         //
-                        $arrListItem = Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
+                        $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->selectBoxIdColumn];
                         }
-                        $spRetHtml = $spRetHtml . Efy_Publib_Xml::_getValueFromArray($arrListItem, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
+                        $spRetHtml = $spRetHtml . Extra_Xml::_getValueFromArray($arrListItem, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
                     } else {
                         //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                         $this->selectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->selectBoxOptionSql);
@@ -577,7 +575,7 @@ class Efy_Publib_Xml extends RAX
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->selectBoxIdColumn];
                         }
-                        $spRetHtml = $spRetHtml . Efy_Publib_Xml::_getValueFromArray($arrListItem, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
+                        $spRetHtml = $spRetHtml . Extra_Xml::_getValueFromArray($arrListItem, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
                     }
                 } else {
                     if ($this->inputData == "session") {
@@ -592,8 +590,8 @@ class Efy_Publib_Xml extends RAX
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->sessionIdIndex];
                         }
-                        //$spRetHtml = $spRetHtml . "<select id='$this->formFielName' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' ".Efy_Publib_Xml::_generatePropertyType("optional",$optOptional).Efy_Publib_Xml::_generatePropertyType("readonly",$this->readonlyInEditMode).Efy_Publib_Xml::_generatePropertyType("disabled",$this->disabledInEditMode).Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList)." xml_tag_in_db='$this->xmlTagInDb' xml_data='$v_xml_data' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
-                        $spRetHtml = $spRetHtml . "<select id='$this->rowId' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
+                        //$spRetHtml = $spRetHtml . "<select id='$this->formFielName' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' ".Extra_Xml::_generatePropertyType("optional",$optOptional).Extra_Xml::_generatePropertyType("readonly",$this->readonlyInEditMode).Extra_Xml::_generatePropertyType("disabled",$this->disabledInEditMode).Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList)." xml_tag_in_db='$this->xmlTagInDb' xml_data='$v_xml_data' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
+                        $spRetHtml = $spRetHtml . "<select id='$this->rowId' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
                         if ($this->theFirstOfIdValue == "true") {
                             $spRetHtml = $spRetHtml . Efy_Library::_generateSelectOption($arrListItem, $this->sessionIdIndex, $this->sessionValueIndex, $this->sessionNameIndex, $this->value);
                         } else {
@@ -603,11 +601,11 @@ class Efy_Publib_Xml extends RAX
 
                     } elseif ($this->inputData == "efylist") {
                         $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
-                        $arrListItem = Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
+                        $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->selectBoxIdColumn];
                         }
-                        $spRetHtml = $spRetHtml . "<select id='$this->formFielName' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
+                        $spRetHtml = $spRetHtml . "<select id='$this->formFielName' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
                         if (is_null($this->haveTitleValue) || ($this->haveTitleValue == "") || ($this->haveTitleValue == "true")) {
                             if ($this->theFirstOfIdValue != "true") {
                                 $spRetHtml = $spRetHtml . "<option id='' value='' name=''>--- Ch&#7885;n $this->sLabel ---</option>";
@@ -625,7 +623,7 @@ class Efy_Publib_Xml extends RAX
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->selectBoxIdColumn];
                         }
-                        $spRetHtml = $spRetHtml . "<select id='$this->formFielName' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
+                        $spRetHtml = $spRetHtml . "<select id='$this->formFielName' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
                         if (is_null($this->haveTitleValue) || ($this->haveTitleValue == "") || ($this->haveTitleValue == "true")) {
                             if ($this->theFirstOfIdValue != "true") {
                                 $spRetHtml = $spRetHtml . "<option id='' value='' name=''>--- Ch&#7885;n $this->sLabel ---</option>";
@@ -639,63 +637,63 @@ class Efy_Publib_Xml extends RAX
             case "multiplecheckbox";
                 $spRetHtml = $v_str_label;
                 if ($this->inputData == "session") {
-                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
-                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
+                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
+                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } elseif ($this->inputData == "efylist") {
                     $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
-                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckbox(Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
+                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox(Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } else {
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                     $this->checkBoxMultipleSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->checkBoxMultipleSql);
-                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
-                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckbox(Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
+                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
+                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox(Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 }
                 break;
             //kieu mulriplecheckbox co file dinh kem
             case "multiplecheckbox_fileAttach";
                 $spRetHtml = $v_str_label;
                 if ($this->inputData == "session") {
-                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
-                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
+                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
+                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } elseif ($this->inputData == "efylist") {
                     $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
-                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
+                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } else {
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                     $this->checkBoxMultipleSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->checkBoxMultipleSql);
-                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
-                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
+                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
+                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 }
                 break;
             case "multipleradio";
                 if ($this->inputData == "efylist") {
                     $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
-                    $arrListItem = Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
+                    $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } else {
                     $arrListItem = Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption);
                 }
 
                 if ($this->direct == 'true') {
                     $spRetHtml = $this->sLabel . $this->optOptionalLabel;
-                    $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='$this->value' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                    $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='$this->value' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                     $spRetHtml = $spRetHtml . _generate_html_for_multiple_radio($arrListItem, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value, $this->direct);
                 } else {
                     if ($this->sLabel != "" && isset($this->sLabel)) {
                         $spRetHtml = $this->sLabel . $this->optOptionalLabel;
                         if ($this->inputData == "session") {
-                            $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                            $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                             $spRetHtml = $spRetHtml . _generate_html_for_multiple_radio_from_session($this->sessionName, $this->sessionIdIndex, $this->sessionNameIndex, $this->value);
                         } else {
-                            $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='$this->value' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                            $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='$this->value' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                             $spRetHtml = $spRetHtml . _generate_html_for_multiple_radio($arrListItem, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value, $this->direct);
                         }
                     } else {
                         if ($this->inputData == "session") {
-                            $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                            $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                             $spRetHtml = $spRetHtml . _generate_html_for_multiple_radio_from_session($this->sessionName, $this->sessionIdIndex, $this->sessionNameIndex, $this->value);
                         } else {
                             $spRetHtml = $this->sLabel . $this->optOptionalLabel;
-                            $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='$this->value' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                            $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' value='$this->value' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                             $spRetHtml = $spRetHtml . _generate_html_for_multiple_radio($arrListItem, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value, $this->direct);
                         }
                     }
@@ -704,7 +702,7 @@ class Efy_Publib_Xml extends RAX
             case "multipletextbox";
                 if ($this->inputData == "efylist") {
                     $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "listxml/output/" . $this->publicListCode . ".xml");
-                    $arrListItem = Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
+                    $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } elseif ($this->inputData == "session") {
                     $j = 0;
                     $arrListItem = array();
@@ -722,12 +720,12 @@ class Efy_Publib_Xml extends RAX
                     $arrListItem = Extra_Db::adodbQueryDataInNumberMode($this->textBoxMultipleSql, $this->cacheOption);
                 }
                 $spRetHtml = $this->sLabel;
-                $spRetHtml = $spRetHtml . "<input type='text' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                $spRetHtml = $spRetHtml . "<input type='text' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                 $spRetHtml = $spRetHtml . _generate_html_for_multiple_textbox($arrListItem, $this->textBoxMultipleIdColumn, $this->textBoxMultipleNameColumn, $this->value);
                 break;
             case "treeuser";
                 $spRetHtml = $this->sLabel;
-                $spRetHtml = $spRetHtml . "<input type='text' style='display:none' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                $spRetHtml = $spRetHtml . "<input type='text' style='display:none' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                 $spRetHtml = $spRetHtml . self::_generateHtmlForTreeUser($this->value);
                 break;
             case "textboxorder";
@@ -738,25 +736,25 @@ class Efy_Publib_Xml extends RAX
                         $this->value = Efy_Library::_getNextValue($this->tableName, $this->orderColumn, $this->whereClause);
                     }
                 }
-                $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' min='$this->min' max='$this->max' maxlength='$this->maxlength' onKeyDown='change_focus(document.forms[0],this,event)'>";
+                $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' min='$this->min' max='$this->max' maxlength='$this->maxlength' onKeyDown='change_focus(document.forms[0],this,event)'>";
                 break;
             case "checkboxstatus";
                 if ($this->value == "true" || $this->value == 1 || $this->value == "HOAT_DONG" || $this->value == "") {
                     $v_checked = " checked ";
                 }
                 $spRetHtml = $spRetHtml . '<label>&nbsp;</label>';
-                $spRetHtml = $spRetHtml . "<input type='checkbox' id='$this->formFielName' name='$this->formFielName' class='normal_checkbox' title='$this->tooltip' $v_checked value='1' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName'  message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)'>";
+                $spRetHtml = $spRetHtml . "<input type='checkbox' id='$this->formFielName' name='$this->formFielName' class='normal_checkbox' title='$this->tooltip' $v_checked value='1' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName'  message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)'>";
                 $spRetHtml = $spRetHtml . "<font style='font-family:arial;font-size:13px;font-weight:normal;line-height:13px;'>" . $this->sLabel . $this->optOptionalLabel . "</font>";
                 break;
             case "button";
                 if (is_null($this->className) || ($this->className == "")) {
                     $this->className = "small_button";
                 }
-                $spRetHtml = $spRetHtml . "&nbsp;&nbsp;<input type='button' name='$this->formFielName' class='$this->className' value='$this->sLabel' title='$this->tooltip' style='width:$this->width' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onClick='$this->onclickFunction'>";
+                $spRetHtml = $spRetHtml . "&nbsp;&nbsp;<input type='button' name='$this->formFielName' class='$this->className' value='$this->sLabel' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onClick='$this->onclickFunction'>";
                 $spRetHtml = $spRetHtml . $this->note;
                 break;
             case "hidden";
-                $spRetHtml = $spRetHtml . "<input type='text' style='width:0;visibility:hidden' name='$this->formFielName' value='$this->value' hide='true' xml_data='$this->xmlData' " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " store_in_child_table='" . $this->storeInChildTable . "' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                $spRetHtml = $spRetHtml . "<input type='text' style='width:0;visibility:hidden' name='$this->formFielName' value='$this->value' hide='true' xml_data='$this->xmlData' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " store_in_child_table='" . $this->storeInChildTable . "' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                 break;
             case "labelcontent";
                 $spRetHtml = $v_str_label;
@@ -1162,7 +1160,7 @@ class Efy_Publib_Xml extends RAX
             if ($this->viewMode && $this->readonlyInEditMode == "true") {
                 ;
             } else {
-                $strHTML = $strHTML . "<td><input type='checkbox' nameUnit = '$v_item_name' id='$this->formFielName' name='chk_multiple_checkbox' value='$v_item_id' xml_tag_in_db_name ='$this->formFielName' $v_item_checked " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='$v_item_url_onclick' onKeyDown='change_focus(document.forms[0],this,event)'></td>";
+                $strHTML = $strHTML . "<td><input type='checkbox' nameUnit = '$v_item_name' id='$this->formFielName' name='chk_multiple_checkbox' value='$v_item_id' xml_tag_in_db_name ='$this->formFielName' $v_item_checked " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='$v_item_url_onclick' onKeyDown='change_focus(document.forms[0],this,event)'></td>";
             }
             if ($this->dspDiv == 1) {
                 $strHTML = $strHTML . "<td onclick = \"set_checked(document.getElementsByName('chk_multiple_checkbox'),'$v_item_id','table_$this->formFielName')\">$v_item_name</td>";
@@ -1187,7 +1185,7 @@ class Efy_Publib_Xml extends RAX
         if ($this->sLabel == "") {
             $this->sLabel = "&#273;&#7889;i t&#432;&#7907;ng";
         } else {
-            $this->sLabel = Efy_Publib_Xml::_firstStringToLower($this->sLabel);
+            $this->sLabel = Extra_Xml::_firstStringToLower($this->sLabel);
         }
         $strHTML = $strHTML . "</table>";
         // = 1 thi hien thi DIV
@@ -1200,15 +1198,15 @@ class Efy_Publib_Xml extends RAX
             $strHTML = $strHTML . "<table width='100%' cellpadding='0' cellspacing='0'><colgroup width = '100%' span = '2'><col width='2%'><col width='98%'></colgroup>";
             $strHTML = $strHTML . "<tr><td class='small_radiobutton' colspan='10' align='right'>";
             if ($this->dspDiv != 1) {
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='1' hide='true' $v_checked_show_row_all " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_all($v_radio_name,$v_tr_name)' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='1' hide='true' $v_checked_show_row_all " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_all($v_radio_name,$v_tr_name)' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[0].checked = true;_show_row_all(\"table_$this->formFielName\");'>Hi&#7875;n th&#7883; t&#7845;t c&#7843; $this->sLabel</font>";
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='2' hide='true' $v_checked_show_row_selected " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_selected($v_radio_name,$v_tr_name)' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='2' hide='true' $v_checked_show_row_selected " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_selected($v_radio_name,$v_tr_name)' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[1].checked = true;_show_row_selected(\"table_$this->formFielName\");'>Ch&#7881; hi&#7875;n th&#7883; c&#225;c $this->sLabel &#273;&#432;&#7907;c ch&#7885;n</font>";
             }
             if ($this->dspDiv == 1) {
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='1' hide='true' " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,0);' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='1' hide='true' " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,0);' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[0].checked = true;_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",document.getElementsByName(\"rad_$this->formFielName\")[0],0);'>Ch&#7885;n t&#7845;t c&#7843;</font>";
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='2' hide='true' " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,1);' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='2' hide='true' " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,1);' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[1].checked = true;_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",document.getElementsByName(\"rad_$this->formFielName\")[1],1);'>B&#7887; ch&#7885;n t&#7845;t c&#7843;</font>";
             }
             $strHTML = $strHTML . "</td></tr>";
@@ -1446,13 +1444,13 @@ class Efy_Publib_Xml extends RAX
             case "selectbox";
                 if ($this->inputData == "efylist") {
                     $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "listxml/output/" . $this->publicListCode . ".xml");
-                    $arr_list_item = Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
+                    $arr_list_item = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } else {
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                     $this->selectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->selectBoxOptionSql);
                     $arr_list_item = Extra_Db::adodbQueryDataInNumberMode($this->selectBoxOptionSql, $this->cacheOption);
                 }
-                $psRetHtml = "<td align='.$this->v_align.'><select class='normal_selectbox' name='sel_item' title='$this->tooltip' style='width:100%' " . $this->_generatePropertyType("optional", $v_optional) . $this->_generatePropertyType("readonly", $this->readonlyInEditMode) . $this->_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$v_message' onKeyDown='change_focus(document.forms[0],this,event)'>";
+                $psRetHtml = "<td align='.$this->v_align.'><select class='normal_selectbox' name='sel_item' title='$this->tooltip' style='width:100%' " . $this->_generatePropertyType("optional", $v_optional) . $this->_generatePropertyType("readonly", $this->readonlyInEditMode) . $this->_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$v_message' onKeyDown='change_focus(document.forms[0],this,event)'>";
                 $psRetHtml = $psRetHtml . "<option id='' value=''>--- Ch&#7885;n $this->v_label ---</option>" . Efy_Library::_generateSelectOption($arr_list_item, $this->selectBoxIdColumn, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
                 $psRetHtml = $psRetHtml . "</select></td>";
                 break;
@@ -1461,7 +1459,7 @@ class Efy_Publib_Xml extends RAX
                 if ($this->phpFunction != "" && !is_null($this->phpFunction)) {
                     $this->value = call_user_func($this->phpFunction, $this->value);
                 }
-                $psRetHtml = '<td align="' . $this->v_align . '"><input type="text" name="txt_item_id" value="' . $this->value . '" style="width:100%" ' . $this->_generatePropertyType("readonly", $this->readonlyInEditMode) . $this->_generatePropertyType("disabled", $this->disabledInEditMode) . ' maxlength="' . $this->maxlength . '"' . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . '>';
+                $psRetHtml = '<td align="' . $this->v_align . '"><input type="text" name="txt_item_id" value="' . $this->value . '" style="width:100%" ' . $this->_generatePropertyType("readonly", $this->readonlyInEditMode) . $this->_generatePropertyType("disabled", $this->disabledInEditMode) . ' maxlength="' . $this->maxlength . '"' . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . '>';
                 $psRetHtml = $psRetHtml . '</td>';
                 break;
 
@@ -1675,7 +1673,7 @@ class Efy_Publib_Xml extends RAX
                 if ($this->viewMode && $this->readonlyInEditMode == "true") {
                     ;
                 } else {
-                    $strHTML = $strHTML . "<td><input id='$this->formFielName' type='checkbox' name='chk_multiple_checkbox' value='$v_item_id' xml_tag_in_db_name ='$this->formFielName' $v_item_checked " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='$v_item_url_onclick' onKeyDown='change_focus(document.forms[0],this,event)'></td>";
+                    $strHTML = $strHTML . "<td><input id='$this->formFielName' type='checkbox' name='chk_multiple_checkbox' value='$v_item_id' xml_tag_in_db_name ='$this->formFielName' $v_item_checked " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='$v_item_url_onclick' onKeyDown='change_focus(document.forms[0],this,event)'></td>";
                 }
                 if ($this->dspDiv == 1) {
                     $strHTML = $strHTML . "<td onclick = \"set_checked(document.getElementsByName('chk_multiple_checkbox'),'$v_item_id','table_$this->formFielName')\">$v_item_name</td>";
@@ -1712,15 +1710,15 @@ class Efy_Publib_Xml extends RAX
             $strHTML = $strHTML . "<table width='100%' cellpadding='0' cellspacing='0'><colgroup width = '100%' span = '2'><col width='2%'><col width='98%'></colgroup>";
             $strHTML = $strHTML . "<tr><td class='small_radiobutton' colspan='10' align='right'>";
             if ($this->dspDiv != 1) {
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='1' hide='true' $v_checked_show_row_all " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_all(\"table_$this->formFielName\")' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='1' hide='true' $v_checked_show_row_all " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_all(\"table_$this->formFielName\")' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[0].checked = true;_show_row_all(\"table_$this->formFielName\");'>Hi&#7875;n th&#7883; t&#7845;t c&#7843; $this->sLabel</font>";
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='2' hide='true' $v_checked_show_row_selected " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_selected(\"table_$this->formFielName\")' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='2' hide='true' $v_checked_show_row_selected " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_selected(\"table_$this->formFielName\")' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[1].checked = true;_show_row_selected(\"table_$this->formFielName\");'>Ch&#7881; hi&#7875;n th&#7883; c&#225;c $this->sLabel &#273;&#432;&#7907;c ch&#7885;n</font>";
             }
             if ($this->dspDiv == 1) {
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='1' hide='true' " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,0);' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='1' hide='true' " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,0);' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[0].checked = true;_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",document.getElementsByName(\"rad_$this->formFielName\")[0],0);'>Ch&#7885;n t&#7845;t c&#7843;</font>";
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='2' hide='true' " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,1);' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='2' hide='true' " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,1);' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[1].checked = true;_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",document.getElementsByName(\"rad_$this->formFielName\")[1],1);'>B&#7887; ch&#7885;n t&#7845;t c&#7843;</font>";
 
             }
@@ -1817,7 +1815,7 @@ class Efy_Publib_Xml extends RAX
                 if ($this->viewMode && $this->readonlyInEditMode == "true") {
                     ;
                 } else {
-                    $strHTML = $strHTML . "<td><input type='hidden' id='hdn_attach_filename$i' value='$v_file'><input id='$this->formFielName' type='checkbox' name='chk_multiple_checkbox' value='$v_item_id' xml_tag_in_db_name ='$this->formFielName' $v_item_checked " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='$v_item_url_onclick' onKeyDown='change_focus(document.forms[0],this,event)'></td>";
+                    $strHTML = $strHTML . "<td><input type='hidden' id='hdn_attach_filename$i' value='$v_file'><input id='$this->formFielName' type='checkbox' name='chk_multiple_checkbox' value='$v_item_id' xml_tag_in_db_name ='$this->formFielName' $v_item_checked " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='$v_item_url_onclick' onKeyDown='change_focus(document.forms[0],this,event)'></td>";
                 }
                 if ($this->dspDiv == 1) {
                     $strHTML = $strHTML . "<td onclick = \"set_checked(document.getElementsByName('chk_multiple_checkbox'),'$v_item_id','table_$this->formFielName')\">$v_item_name</td>";
@@ -1861,15 +1859,15 @@ class Efy_Publib_Xml extends RAX
             $strHTML = $strHTML . "<table width='100%' cellpadding='0' cellspacing='0'><colgroup width = '100%' span = '2'><col width='2%'><col width='98%'></colgroup>";
             $strHTML = $strHTML . "<tr><td class='small_radiobutton' colspan='10' align='right'>";
             if ($this->dspDiv != 1) {
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='1' hide='true' $v_checked_show_row_all " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_all(\"table_$this->formFielName\")' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='1' hide='true' $v_checked_show_row_all " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_all(\"table_$this->formFielName\")' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[0].checked = true;_show_row_all(\"table_$this->formFielName\");'>Hi&#7875;n th&#7883; t&#7845;t c&#7843; $this->sLabel</font>";
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='2' hide='true' $v_checked_show_row_selected " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_selected(\"table_$this->formFielName\")' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' value='2' hide='true' $v_checked_show_row_selected " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_show_row_selected(\"table_$this->formFielName\")' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[1].checked = true;_show_row_selected(\"table_$this->formFielName\");'>Ch&#7881; hi&#7875;n th&#7883; c&#225;c $this->sLabel &#273;&#432;&#7907;c ch&#7885;n</font>";
             }
             if ($this->dspDiv == 1) {
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='1' hide='true' " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,0);' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='1' hide='true' " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,0);' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[0].checked = true;_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",document.getElementsByName(\"rad_$this->formFielName\")[0],0);'>Ch&#7885;n t&#7845;t c&#7843;</font>";
-                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='2' hide='true' " . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,1);' onKeyDown='change_focus(document.forms[0],this,event)'>
+                $strHTML = $strHTML . "<input type='radio' name='rad_$this->formFielName' optional='true' value='2' hide='true' " . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " onClick='_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",this,1);' onKeyDown='change_focus(document.forms[0],this,event)'>
 				<font style = \"cursor:pointer;\" onClick='document.getElementsByName(\"rad_$this->formFielName\")[1].checked = true;_select_all_multiple_checkbox(document.getElementsByName(\"chk_multiple_checkbox\"),\"$this->formFielName\",document.getElementsByName(\"rad_$this->formFielName\")[1],1);'>B&#7887; ch&#7885;n t&#7845;t c&#7843;</font>";
 
             }

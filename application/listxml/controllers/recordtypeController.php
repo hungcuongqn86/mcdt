@@ -38,7 +38,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
-		Zend_Loader::loadClass('Efy_Publib_Xml');		
+		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','recordtype/recordtype.js,jquery-1.5.1.js,jQuery.equalHeights.js',',','js').Efy_Publib_Library::_getAllFileJavaScriptCss('','js/Autocomplete','actb_search.js,common_search.js',',','js');
@@ -385,7 +385,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
         $this->readonlyInEditMode = true; $this->disabledInEditMode = true;
         $this->formFielName	= "C_WARD_CODE_LIST";
         $spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=false xml_tag_in_db='' message=''></div>";
-        echo $spRetHtml . Efy_Xml::_generateHtmlForMultipleCheckboxFromSession('SesGetAllOwner', 'code','name',$arrResult['C_WARD_CODE'],'auto');
+        echo $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession('SesGetAllOwner', 'code','name',$arrResult['C_WARD_CODE'],'auto');
         exit;
     }
 

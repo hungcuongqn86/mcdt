@@ -176,7 +176,7 @@
 							$this->readonlyInEditMode = true; $this->disabledInEditMode = true;
 							$this->formFielName	= "C_RECORD_TYPE_LIST";
 							$spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=false xml_tag_in_db='' message=''></div>";
-							echo $spRetHtml . Efy_Xml::_generateHtmlForMultipleCheckbox($arrRecordType,'C_CODE','C_NAME',$arrReportColInfo[0]['C_RECORDTYPE_CODE_LIST'],'','200px');
+							echo $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox($arrRecordType,'C_CODE','C_NAME',$arrReportColInfo[0]['C_RECORDTYPE_CODE_LIST'],'','200px');
 							?>	
 						</td>
 					</tr>

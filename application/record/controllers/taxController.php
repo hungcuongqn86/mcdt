@@ -37,7 +37,7 @@ class record_taxController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
-		Zend_Loader::loadClass('Efy_Publib_Xml');		
+		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','handle/handle.js,jquery-1.5.1.js',',','js');
@@ -83,7 +83,7 @@ class record_taxController extends  Zend_Controller_Action {
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$objXml					 = new Efy_Publib_Xml();
+		$objXml					 = new Extra_Xml();
 		$objTax					 = new record_modTax();	
 		//main or support
 		$sStatus = $this->_request->getParam('status','');
@@ -483,7 +483,7 @@ class record_taxController extends  Zend_Controller_Action {
 		$this->view->titleBody = "CHI TIẾT HỒ SƠ";
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
-		$objxml = new Efy_Publib_Xml();
+		$objxml = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		//Lay tham so cau hinh
 		$efyLibUrlPath = $objconfig->_setLibUrlPath();
@@ -575,7 +575,7 @@ class record_taxController extends  Zend_Controller_Action {
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$ojbEfyLib				 = new Efy_Library();
-		$objXml					 = new Efy_Publib_Xml();
+		$objXml					 = new Extra_Xml();
 		//Lay mang hang so dung chung
 		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();
 		//Lay Lich JS
@@ -666,7 +666,7 @@ class record_taxController extends  Zend_Controller_Action {
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$ojbEfyLib				 = new Efy_Library();
-		$objXml					 = new Efy_Publib_Xml();
+		$objXml					 = new Extra_Xml();
 		//Lay mang hang so dung chung
 		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();
 		//Lay Lich JS

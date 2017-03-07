@@ -17,7 +17,7 @@
 	Zend_Loader::loadClass('Zend_Registry');
 	Zend_Loader::loadClass('Efy_Function_RecordFunctions');
 	Zend_Loader::loadClass('Efy_Library');
-	Zend_Loader::loadClass('Efy_Xml');
+	Zend_Loader::loadClass('Extra_Xml');
 	$conn = new Extra_Db();
 	$sConfig = new Extra_Init();
 	//Ket noi CSDL SQL theo kieu ADODB
@@ -57,7 +57,7 @@
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$ojbEfyLib = new Efy_Library();
-		$objxml = new Efy_Xml();
+		$objxml = new Extra_Xml();
 		if ($iPage <= 1)
 			$iPage = 1;
 		if ($iNumberRecordPerPage == 0)
@@ -122,7 +122,7 @@
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$ojbEfyLib = new Efy_Library();
-		$objxml = new Efy_Xml();
+		$objxml = new Extra_Xml();
 		if ($iPage <= 1)
 			$iPage = 1;
 		if ($iNumberRecordPerPage == 0)
@@ -242,7 +242,7 @@
 
 		$objconfig = new Extra_Init();
 		$ojbEfyLib = new Efy_Library();
-		$objxml = new Efy_Xml();
+		$objxml = new Extra_Xml();
 		if ($iPage <= 1)
 			$iPage = 1;
 		if ($iNumberRecordPerPage == 0)
@@ -306,7 +306,7 @@
 		if(!file_exists($sSearchXmlFileName)){
 			$sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/tim_kiem_nang_cao.xml';
 		}
-		$objxml = new Efy_Xml();
+		$objxml = new Extra_Xml();
 		//Tao form hien thi tieu tri loc
 		$sfilter = $objxml->_xmlGenerateFormfield($sSearchXmlFileName, 'list_of_object/table_struct_of_filter_form/filter_row_list/filter_row','list_of_object/filter_formfield_list',$sFilterXmlString,null,true,false);
 		echo $sfilter;
@@ -356,7 +356,7 @@
 		}
 		if(sizeof($arrResult)>0){
 			$objconfig = new Extra_Init();
-			$objxml = new Efy_Xml();
+			$objxml = new Extra_Xml();
 			$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/'.$recordtype.'/ho_so_trung_lap.xml';
 			if(!file_exists($sxmlFileName)){
 				$sxmlFileName = $objconfig->_setXmlFileUrlPath(2).'record/other/ho_so_trung_lap.xml';

@@ -33,7 +33,7 @@ class record_assignController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
-		Zend_Loader::loadClass('Efy_Publib_Xml');
+		Zend_Loader::loadClass('Extra_Xml');
         $objLibrary = new Efy_Library();
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','recordtype/recordtype.js,js-record/approve.js,xml/general_datatable.js',',','js');
@@ -82,7 +82,7 @@ class record_assignController extends  Zend_Controller_Action {
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$objXml					 = new Efy_Publib_Xml();
+		$objXml					 = new Extra_Xml();
         $sStatus =  "CHO_PHAN_CONG";
         //Tieu de man hinh danh sach
         $this->view->bodyTitle = 'DANH S&#193;CH H&#7890; S&#416; CH&#7900; PH&#194;N C&#212;NG TH&#7908; L&#221;';
@@ -224,7 +224,7 @@ class record_assignController extends  Zend_Controller_Action {
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
-        $objXml					 = new Efy_Publib_Xml();
+        $objXml					 = new Extra_Xml();
         $sStatus =  "";
         //Tieu de man hinh danh sach
         $this->view->bodyTitle = 'DANH S&#193;CH H&#7890; S&#416; ĐÃ PH&#194;N C&#212;NG TH&#7908; L&#221;';

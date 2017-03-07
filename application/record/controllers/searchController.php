@@ -111,7 +111,7 @@ class record_searchController extends  Zend_Controller_Action {
             $sSearchXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/other/tim_kiem_nang_cao.xml';
         }
         $sFilterXmlString = '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>';
-        $objXml	= new Efy_Publib_Xml();
+        $objXml	= new Extra_Xml();
         $shtml = $objXml->_xmlGenerateFormfield($sSearchXmlFileName, 'list_of_object/table_struct_of_filter_form/filter_row_list/filter_row','list_of_object/filter_formfield_list',$sFilterXmlString,null,true,false);
         echo $shtml;exit;
     }
@@ -129,7 +129,7 @@ class record_searchController extends  Zend_Controller_Action {
         $arrResult = $objRecordtype->eCSRecordTypeGetSingle($sRecordTypeId,$sownercode);
         $sRecordTypeCode = $arrResult['C_CODE'];
 
-        $objXml	= new Efy_Publib_Xml();
+        $objXml	= new Extra_Xml();
         //Lay file XML mo ta form cac tieu thuc loc phuc vu tim kiem nang cao
         $sSearchXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/tim_kiem_nang_cao.xml';
         if(!file_exists($sSearchXmlFileName)){

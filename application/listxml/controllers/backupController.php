@@ -45,7 +45,7 @@ class Listxml_backupController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
-		Zend_Loader::loadClass('Efy_Publib_Xml');		
+		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jsList.js,jquery-1.5.1.js,jquery.simplemodal.js',',','js')
@@ -91,7 +91,7 @@ class Listxml_backupController extends  Zend_Controller_Action {
 		$RecordFunctions 	= new Efy_Function_RecordFunctions();
 		$objBackup 			= new Listxml_modBackup();
 		$objConfig			= new Extra_Init();
-		$ojbXmlLib 			= new Efy_Publib_Xml();
+		$ojbXmlLib 			= new Extra_Xml();
 		$connectSQL = new Zend_Config_Ini('./config/config.ini','dbmssql');
 		$arrConfig = $connectSQL->db->config->toArray();					
 		$sDatabase = $arrConfig['dbname'];

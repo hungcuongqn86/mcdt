@@ -23,7 +23,7 @@
 			//var_dump($_SESSION['SesGetAllOwnerNotCurrentOwner']);
 		}	*/
 		$spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=false xml_tag_in_db='' message=''></div>";
-		echo $spRetHtml . Efy_Xml::_generateHtmlForMultipleCheckboxFromSession('SesGetAllOwnerNotCurrentOwner', 'code','name',$arrRecordTypeGetSingle['C_OWNER_LIST'],'auto');
+		echo $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession('SesGetAllOwnerNotCurrentOwner', 'code','name',$arrRecordTypeGetSingle['C_OWNER_LIST'],'auto');
 ?>
 	<div>
 		<label>Số ngày thụ lý hồ sơ</label>

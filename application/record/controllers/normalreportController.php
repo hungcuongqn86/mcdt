@@ -134,7 +134,7 @@ class Record_normalreportController extends  Zend_Controller_Action {
 		// Tao doi tuong cho lop tren
 		$objReport = new Listxml_modListReport() ;
 		//Tao doi tuong thu vien xu ly du lieu
-		$objXmlLib = new Efy_Publib_Xml();
+		$objXmlLib = new Extra_Xml();
 		$objEfyLib = new Efy_Library();	
 		$objFunction = new Efy_Function_RecordFunctions();	
 		//Lay loai TTHC

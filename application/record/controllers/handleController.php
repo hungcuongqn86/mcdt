@@ -103,7 +103,7 @@ class record_handleController extends  Zend_Controller_Action {
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$objXml					 = new Efy_Publib_Xml();
+		$objXml					 = new Extra_Xml();
         $ojbEfyLib				 = new Efy_Library();
 
 		$sStatus = $this->_request->getParam('status','');
@@ -346,7 +346,7 @@ class record_handleController extends  Zend_Controller_Action {
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$objXml					 = new Efy_Publib_Xml();
+		$objXml					 = new Extra_Xml();
 		$objLibrary 			 = new Efy_Library();
 		//ID NSD dang nhap hien thoi
 		$iCurrentStaffId = $_SESSION['staff_id'];
@@ -534,7 +534,7 @@ class record_handleController extends  Zend_Controller_Action {
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$objXml					 = new Efy_Publib_Xml();
+		$objXml					 = new Extra_Xml();
         $ojbEfyLib               = new Efy_Library();
 		//Lay mang hang so dung chung
 		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();		
@@ -614,7 +614,7 @@ class record_handleController extends  Zend_Controller_Action {
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
-        $objXml					 = new Efy_Publib_Xml();
+        $objXml					 = new Extra_Xml();
         $ojbEfyLib               = new Efy_Library();
         //Lay mang hang so dung chung
         $this->view->arrConst = $objInitConfig->_setProjectPublicConst();
@@ -758,7 +758,7 @@ class record_handleController extends  Zend_Controller_Action {
         $this->view->titleBody = "DANH SÁCH HỒ SƠ LIÊN THÔNG CHỜ NHẬN";
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $objxml = new Efy_Publib_Xml();
+        $objxml = new Extra_Xml();
         $ojbEfyLib = new Efy_Library();
 
         $arrRecordType = $_SESSION['arr_all_record_type'];

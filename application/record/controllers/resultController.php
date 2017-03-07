@@ -171,7 +171,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$arrInput = $this->_request->getParams();
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
-		$ojbXmlLib = new Efy_Publib_Xml();
+		$ojbXmlLib = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
@@ -272,7 +272,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$arrInput = $this->_request->getParams();
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
-		$ojbXmlLib = new Efy_Publib_Xml();
+		$ojbXmlLib = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
@@ -434,7 +434,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$arrInput = $this->_request->getParams();
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
-		$ojbXmlLib = new Efy_Publib_Xml();
+		$ojbXmlLib = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
@@ -607,7 +607,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$arrInput = $this->_request->getParams();
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
-		$ojbXmlLib = new Efy_Publib_Xml();
+		$ojbXmlLib = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
@@ -703,7 +703,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$arrInput = $this->_request->getParams();
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
-		$ojbXmlLib = new Efy_Publib_Xml();
+		$ojbXmlLib = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();

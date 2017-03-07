@@ -14,7 +14,7 @@ $autoloader->registerNamespace('G_');
 //Goi class Controller
 Zend_Loader::loadClass('Extra_Db');
 Zend_Loader::loadClass('Efy_Library');
-Zend_Loader::loadClass('Efy_Xml');
+Zend_Loader::loadClass('Extra_Xml');
 Zend_Loader::loadClass('Extra_Session');
 Zend_Loader::loadClass('Extra_Init');
 Zend_Loader::loadClass('Efy_Function_RecordFunctions');

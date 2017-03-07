@@ -45,7 +45,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
-		Zend_Loader::loadClass('Efy_Publib_Xml');		
+		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','list/jsList.js,jquery-1.5.1.js',',','js');
@@ -99,7 +99,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 	
 		$objFilter = new Zend_Filter();	
 		$objList = new Listxml_modList();
-		$ojbXmlLib = new Efy_Publib_Xml();	
+		$ojbXmlLib = new Extra_Xml();
 		
 		//Lay danh sach cac THE mo ta tieu tri loc 
 		$psFilterXmlTagList = $this->_request->getParam('hdn_filter_xml_tag_list',"");		
@@ -212,7 +212,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		// Tieu de cua Form cap  nhat
 		$this->view->bodyTitle = 'C&#7852;P NH&#7852;T TH&#212;NG TIN &#272;&#7888;I T&#431;&#7906;NG DANH M&#7908;C';
 		//Tao doi tuong XML
-		$ojbXmlLib = new Efy_Publib_Xml();	
+		$ojbXmlLib = new Extra_Xml();
 		//Tao doi tuong Efy_lib
 		$ojbEfyLib = new Efy_Library();
 		// Tao doi tuong cho lop tren		
@@ -350,7 +350,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		// Tieu de cua Form cap  nhat
 		$this->view->bodyTitle = 'C&#7852;P NH&#7852;T TH&#212;NG TIN &#272;&#7888;I T&#431;&#7906;NG DANH M&#7908;C';
 		//Tao doi tuong XML
-		$ojbXmlLib = new Efy_Publib_Xml();	
+		$ojbXmlLib = new Extra_Xml();
 		
 		//Tao doi tuong Efy_lib
 		$ojbEfyLib = new Efy_Library();

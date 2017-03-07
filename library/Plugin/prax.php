@@ -1,7 +1,7 @@
 <?php
+
 /**
- * @Idea: Lop xu ly XML
- *	Ngay tao: 09/01/2009
+ * Class RAX
  */
 class RAX {
 	public function RAX () {

@@ -591,12 +591,12 @@ abstract class Efy_Publib_Library
     public function _generateChangeRecordNumberPage($piValue, $pAction)
     {
         //Load class
-        //Zend_Loader::loadClass('Efy_Publib_Xml');
+        //Zend_Loader::loadClass('Extra_Xml');
         $psHtmlString = "";
         //Doc file XML mota thong tin
         $psXmlDataInUrl = Efy_Library::_readFile("./xml/list/output/so_hs_tren_trang.xml");
         //Chuyen doi thong tin trong xau XML -> Mang
-        $arrListItem = Efy_Xml::_convertXmlStringToArray($psXmlDataInUrl, "item");
+        $arrListItem = Extra_Xml::_convertXmlStringToArray($psXmlDataInUrl, "item");
         //Tao chuoi HTML
         $psHtmlString = $psHtmlString . "Hiển thị ";
         $psHtmlString = $psHtmlString . "<select class='normal_selectbox' id = 'cbo_nuber_record_page' name='cbo_nuber_record_page' optional='true' style='width:60' onChange='page_record_number_onchange(this,\"" . $pAction . "\")'" . "onKeyDown='change_focus(document.forms[0],this)'>";

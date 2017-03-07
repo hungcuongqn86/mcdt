@@ -79,9 +79,9 @@ class listxml_modList extends Extra_Db {
 			//Tao doi tuong Efy_Library
 			$objEfyLib = new Efy_Library();
 			
-			//Tao doi tuong Efy_Publib_Xml
-			Zend_Loader::loadClass('Efy_Publib_Xml');
-			$objEfyLibXml = new Efy_Publib_Xml();
+			//Tao doi tuong Extra_Xml
+			Zend_Loader::loadClass('Extra_Xml');
+			$objEfyLibXml = new Extra_Xml();
 			
 			//Doc file XML
 			$psXmlStringInFile = $objEfyLib->_readFile($psXmlFileName);
@@ -157,9 +157,9 @@ class listxml_modList extends Extra_Db {
 			//Tao doi tuong Efy_Library
 			$objEfyLib = new Efy_Library();
 			
-			//Tao doi tuong Efy_Publib_Xml
-			Zend_Loader::loadClass('Efy_Publib_Xml');
-			$objEfyLibXml = new Efy_Publib_Xml();
+			//Tao doi tuong Extra_Xml
+			Zend_Loader::loadClass('Extra_Xml');
+			$objEfyLibXml = new Extra_Xml();
 			
 			//Doc file XML
 			$psXmlStringInFile = $objEfyLib->_readFile($psXmlFileName);

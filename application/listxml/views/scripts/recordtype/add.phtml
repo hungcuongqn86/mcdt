@@ -78,7 +78,7 @@
                 $this->readonlyInEditMode = true; $this->disabledInEditMode = true;
                 $this->formFielName	= "C_WORKTYPE_LIST";
                 $spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=false xml_tag_in_db='' message=''></div>";
-                echo $spRetHtml . Efy_Xml::_generateHtmlForMultipleCheckbox($arrWorkType, 'C_CODE','C_NAME',$arrResult['C_WORK_TYPE_LIST']); ?>
+                echo $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox($arrWorkType, 'C_CODE','C_NAME',$arrResult['C_WORK_TYPE_LIST']); ?>
             </div>
         </div>
         <div id="clear"></div>
@@ -159,7 +159,7 @@
                 <?php
                 $this->formFielName	= "C_OWNER_CODE_LIST";
                 $spRetHtml = "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly optional = true xml_data=false xml_tag_in_db='' message=''></div>";
-                echo $spRetHtml . Efy_Xml::_generateHtmlForMultipleCheckboxFromSession('SesGetAllOwner', 'code','name',$arrResult['C_OWNER_CODE'],'auto'); ?>
+                echo $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession('SesGetAllOwner', 'code','name',$arrResult['C_OWNER_CODE'],'auto'); ?>
             </div>
         </div>
         <div id="clear"></div>

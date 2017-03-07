@@ -93,7 +93,7 @@ class record_licenseController extends  Zend_Controller_Action {
 		$this->view->titleBody = "";
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
-		$objxml = new Efy_Publib_Xml();
+		$objxml = new Extra_Xml();
 		$ojbEfyLib = new Efy_Library();
 		$objReceive = new record_modReceive();
 
@@ -114,7 +114,7 @@ class record_licenseController extends  Zend_Controller_Action {
 			$sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/mau_giay_phep.xml';	
 		}
 		//lay tieu de tu file xml
-		$v_form_title=Efy_Publib_Xml::_xmlGetXmlTagValue($sxmlFileName,"common_para_list","form_title");
+		$v_form_title=Extra_Xml::_xmlGetXmlTagValue($sxmlFileName,"common_para_list","form_title");
 		$this->view->v_form_title=$v_form_title;
 		//Lay thong tin cua mot ho so
 		$srecordId = $this->_request->getParam('hdn_object_id','');

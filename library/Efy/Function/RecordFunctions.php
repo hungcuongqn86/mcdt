@@ -47,7 +47,7 @@ class Efy_Function_RecordFunctions
      */
     public function generalhtmlinfo($arrConst, $arrRecord)
     {
-        $objXml = new Efy_Publib_Xml();
+        $objXml = new Extra_Xml();
         $ojbEfyLib = new Efy_Library();
         $objConfig = new Extra_Init();
         $spkrecord = $arrRecord['PK_RECORD'];
@@ -1721,7 +1721,7 @@ class Efy_Function_RecordFunctions
     {
         $ojbConfigXml = new Zend_Config_Xml($sPathXmlFile, $sParrentTagName);
         //Tao doi tuong xu ly XML
-        $objXml = new Efy_Xml();
+        $objXml = new Extra_Xml();
         $objQLDTFun = new Efy_Function_RecordFunctions();
         $objLib = new Efy_Library();
         $sXmlData = '<?xml version="1.0" encoding="UTF-8"?>' . $sXmlData;
@@ -1823,7 +1823,7 @@ class Efy_Function_RecordFunctions
     public function _exportreport($psXmlStringInFile, $arrReportCol, $arrResult, $v_colume_name_of_xml_string, $sFilterXmlString, $v_exporttype)
     {
         $sHTML_string = '';
-        $objXmlLib = new Efy_Publib_Xml();
+        $objXmlLib = new Extra_Xml();
         $objEfyLib = new Efy_Library();
         $objConfig = new Extra_Init();
         //Duyet mang du lieu và xuat ma html
@@ -2191,7 +2191,7 @@ class Efy_Function_RecordFunctions
         Zend_Loader::loadClass('Zend_Config_Xml');
         Zend_Loader::loadClass('Extra_Excel');
         //Tao doi tuong
-        $objXmlLib = new Efy_Publib_Xml();
+        $objXmlLib = new Extra_Xml();
         $objConfig = new Extra_Init();
         //Tao doi tuong xml
         $objConfigXml = new Zend_Config_Xml($psXmlStringInFile);

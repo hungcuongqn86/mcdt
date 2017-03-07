@@ -50,7 +50,7 @@ class record_publicController extends  Zend_Controller_Action {
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $ojbEfyLib = new Efy_Library();
-        $objxml = new Efy_Xml();
+        $objxml = new Extra_Xml();
 
         $objConn = new  G_Db();
         $iFkUnit = $objrecordfun->getValueInArray($_SESSION['arr_all_staff'],'id','unit_id',$iCurrentStaffId);
@@ -282,8 +282,8 @@ class record_publicController extends  Zend_Controller_Action {
                 $sxmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/other/ho_so_da_tiep_nhan.xml';
             }
         }
-        Zend_Loader::loadClass('Efy_Publib_Xml');
-        $objxml         = new Efy_Publib_Xml();
+        Zend_Loader::loadClass('Extra_Xml');
+        $objxml         = new Extra_Xml();
         $ResHtmlString .= $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', 'C_RECEIVED_RECORD_XML_DATA', $arrRecord,true,true);
         $ResHtmlString .= '</div></div>';
         //$ResHtmlString .= '<div id ="giaidoan" style="margin: 15px 5px 5px;background-color: white;">';
@@ -338,7 +338,7 @@ class record_publicController extends  Zend_Controller_Action {
         }
         if(sizeof($arrResult)>0){
             $objconfig = new Extra_Init();
-            $objxml = new Efy_Xml();
+            $objxml = new Extra_Xml();
             $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$recordtype.'/ho_so_trung_lap.xml';
             if(!file_exists($sxmlFileName)){
                 $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_trung_lap.xml';
@@ -386,7 +386,7 @@ class record_publicController extends  Zend_Controller_Action {
         isset($_REQUEST['hdn_xml_tag_list'])?$hdn_xml_tag_list = $_REQUEST['hdn_xml_tag_list']:$hdn_xml_tag_list = '';
         $objconfig = new Extra_Init();
         $ojbEfyLib = new Efy_Library();
-        $objxml = new Efy_Xml();
+        $objxml = new Extra_Xml();
         if ($iPage <= 1)
             $iPage = 1;
         if ($iNumberRecordPerPage == 0)
@@ -457,7 +457,7 @@ class record_publicController extends  Zend_Controller_Action {
         if(!file_exists($sSearchXmlFileName)){
             $sSearchXmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/tim_kiem_nang_cao.xml';
         }
-        $objxml = new Efy_Xml();
+        $objxml = new Extra_Xml();
         //Tao form hien thi tieu tri loc
         $sfilter = $objxml->_xmlGenerateFormfield($sSearchXmlFileName, 'list_of_object/table_struct_of_filter_form/filter_row_list/filter_row','list_of_object/filter_formfield_list',$sFilterXmlString,null,true,true);
         echo $sfilter;
@@ -766,7 +766,7 @@ class record_publicController extends  Zend_Controller_Action {
      */
     function getreportfillterAction(){
         $objconfig = new Extra_Init();
-        $objxml = new Efy_Xml();
+        $objxml = new Extra_Xml();
         $objlibrary = new Efy_Library();
         $sGenlist = '';
         isset($_REQUEST['recordtype'])?$recordtype = $_REQUEST['recordtype']:$recordtype = '';
@@ -812,7 +812,7 @@ class record_publicController extends  Zend_Controller_Action {
         //Goi lop Listxml_modListType
         Zend_Loader::loadClass('listxml_modRecordtype');
         $objRecordtype	  = new listxml_modRecordtype();
-        $objXML = new Efy_Xml();
+        $objXML = new Extra_Xml();
         isset($_REQUEST['ownercode'])?$sOwnerCode = $_REQUEST['ownercode']:$sOwnerCode = 'ALL';
         isset($_REQUEST['code_list'])?$scodelist = $_REQUEST['code_list']:$scodelist = '';
         $arrRecordType = $objRecordtype->eCSRecordTypeGetAll( $sOwnerCode,'','');

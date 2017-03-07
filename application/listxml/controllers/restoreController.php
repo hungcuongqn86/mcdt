@@ -42,7 +42,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
-		Zend_Loader::loadClass('Efy_Publib_Xml');		
+		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss =Efy_Publib_Library::_getAllFileJavaScriptCss('public/js/ListType','','','','js')
@@ -90,7 +90,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 		$RecordFunctions 	= new Efy_Function_RecordFunctions();
 		//$objBackup 			= new Listxml_modBackup();
 		$objConfig			= new Extra_Init();
-		$ojbXmlLib 			= new Efy_Publib_Xml();
+		$ojbXmlLib 			= new Extra_Xml();
 		// goi load div 
 		$this->view->divDialog = $this->showDialog();
 		$connectSQL = new Zend_Config_Ini('./config/config.ini','dbmssql');
@@ -149,7 +149,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 	
 	private function showDialog(){
 		$RecordFunctions 	= new Efy_Function_RecordFunctions();
-		$ojbXmlLib 			= new Efy_Publib_Xml();
+		$ojbXmlLib 			= new Extra_Xml();
 		$arrResult = $RecordFunctions->getAllObjectbyListCode($_SESSION['OWNER_CODE'],'DM_TS_HT');
 		$dir = $ojbXmlLib->_xmlGetXmlTagValue('<?xml version="1.0" encoding="UTF-8"?>'.$arrResult[0]['C_XML_DATA'],'data_list','path_backup');
 		//$dir = "./xml/list/";				
