@@ -78,27 +78,27 @@ class Login_IndexController extends  Zend_Controller_Action {
 				//Lay thong tin phong ban
 				if(!isset($_SESSION['arr_all_staff']) || is_null($_SESSION['arr_all_staff'])){
 					//Luu tru thong tin phong ban cua toan bo cac don vi trien khai
-					$_SESSION['arr_all_unit_keep'] = Efy_Init_Session::SesGetDetailInfoOfAllUnit();	
+					$_SESSION['arr_all_unit_keep'] = Extra_Session::SesGetDetailInfoOfAllUnit();
 					//Luu co cau to chuc cua can bo hien tai
-					$_SESSION['arr_all_unit'] = Efy_Init_Session::_getAllUnitsByCurrentStaff($_SESSION['OWNER_CODE']);	
+					$_SESSION['arr_all_unit'] = Extra_Session::_getAllUnitsByCurrentStaff($_SESSION['OWNER_CODE']);
 				}
 				
 				//Lay thong tin can bo
 				if(!isset($_SESSION['arr_all_staff']) || is_null($_SESSION['arr_all_staff'])){
 					//Luu thong tin can bo cua tat ca don vi trien khai
-					$_SESSION['arr_all_staff_keep'] = Efy_Init_Session::SesGetPersonalInfoOfAllStaff();	
+					$_SESSION['arr_all_staff_keep'] = Extra_Session::SesGetPersonalInfoOfAllStaff();
 					//Luu thong tin can bo thuoc don vi NSD hien thoi
-					$_SESSION['arr_all_staff'] = Efy_Init_Session::_getAllUsersByCurrentOrg($_SESSION['OWNER_CODE']);	
+					$_SESSION['arr_all_staff'] = Extra_Session::_getAllUsersByCurrentOrg($_SESSION['OWNER_CODE']);
 				}
 				//echo 'mang'.$_SESSION['arr_all_staff']['staff_id']. '   id'.$_SESSION['staff_id'];	 exit;
 				//Lay quyen cua NSD
 				if(!isset($_SESSION['arrStaffPermission']) || is_null($_SESSION['arrStaffPermission'])){
-					$_SESSION['arrStaffPermission'] = Efy_Init_Session::StaffPermisionGetAll($_SESSION['staff_id']);	
+					$_SESSION['arrStaffPermission'] = Extra_Session::StaffPermisionGetAll($_SESSION['staff_id']);
 				}				
 
 				//Lay thong tin don vi trien khai
 				if(!isset($_SESSION['SesGetAllOwner']) || is_null($_SESSION['SesGetAllOwner'])){		
-					$_SESSION['SesGetAllOwner'] = Efy_Init_Session::SesGetAllOwner();		
+					$_SESSION['SesGetAllOwner'] = Extra_Session::SesGetAllOwner();
 				}
 				//var_dump($_SESSION['staff_id']);exit;
 				//Thanh cong thi thuc hien URL mac dinh duoc cau hinh trong file Config

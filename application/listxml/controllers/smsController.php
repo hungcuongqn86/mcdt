@@ -35,7 +35,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		$objDocFun = new Efy_Function_DocFunctions();	
 		//Lay cac hang so su dung trong JS public
 		Zend_Loader::loadClass('Extra_Init');
-		Zend_Loader::loadClass('Efy_Init_Session');
+		Zend_Loader::loadClass('Extra_Session');
 		$objConfig = new Extra_Init();
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		/* Dung de load file Js va css		/*/
@@ -61,7 +61,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 	 *
 	 */
 	public function indexAction(){
-		$objSession = new Efy_Init_Session();
+		$objSession = new Extra_Session();
 		$objFunction =	new	Efy_Function_DocFunctions()	;
 		$objSms = new Sms_modSms();
 		$ojbEfyInitConfig = new Extra_Init();
@@ -107,7 +107,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		}
 	}
 	public function addAction(){
-		$objSession = new Efy_Init_Session();
+		$objSession = new Extra_Session();
 		$objFunction =	new	Efy_Function_DocFunctions()	;
 		$objSms = new Sms_modSms();
 		$ojbEfyInitConfig = new Extra_Init();
@@ -172,7 +172,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 			
 	}
 	public function editAction(){
-		$objSession = new Efy_Init_Session();
+		$objSession = new Extra_Session();
 		$objFunction =	new	Efy_Function_DocFunctions()	;
 		$objSms = new Sms_modSms();
 		$ojbEfyInitConfig = new Extra_Init();

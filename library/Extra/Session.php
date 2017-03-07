@@ -3,9 +3,9 @@
 require_once 'Zend/Session/Namespace.php';
 
 /**
- * Class Efy_Init_Session
+ * Class Extra_Session
  */
-class Efy_Init_Session extends Zend_Session_Namespace {
+class Extra_Session extends Zend_Session_Namespace {
 
     /**
      * @return array
