@@ -327,8 +327,7 @@ class Efy_Function_RecordFunctions
             $SesCheckLogin = new Zend_Session_Namespace('varCheckLogin');
         }
         $objConfig = new Efy_Init_Config();
-        $substr_count = substr_count($df_url, $objConfig->_setSenRecordOnNetModuleName());
-        $substr_count = $substr_count + substr_count($df_url, $objConfig->_setSeachrecordresultUrlPath());
+        $substr_count = substr_count($df_url, $objConfig->_setSeachrecordresultUrlPath());
 
         if (($substr_count == 0) && ($df_url != $objConfig->_setUserLoginUrl()) && ((!isset($_SESSION['staff_id']) || is_null($_SESSION['staff_id']) || $_SESSION['staff_id'] == ''))) {
             //Kiem tra thong tin NSD

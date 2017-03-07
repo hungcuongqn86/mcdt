@@ -1,9 +1,7 @@
-<?php 
+<?php
 
 /**
- * Nguoi tao: HUNGVM 
- * Ngay tao: 10/01/2009
- * Noi dung: Tao lop Efy_Init_Config dung de config cau hinh lien quan den ho thong
+ * Class Efy_Init_Config
  */
 
 class Efy_Init_Config{	
@@ -21,13 +19,6 @@ class Efy_Init_Config{
 	 */	
 	public function _getOwnerCode(){		
 		return "HLT";
-	}
-	/**
-	 * Khoi tao bien xac dinh duong dan website
-	 *	
-	 */	
-	public function _getUnit(){		
-		return "2";
 	}
 
     /**
@@ -60,6 +51,9 @@ class Efy_Init_Config{
 		return self::_setLibUrlPath() . "attach-file/";
 	}
 
+    /**
+     * @return string
+     */
     public function _setDvcAttachFileUrlPath(){
         return self::_setWebSitePath() . "dichvucong/io/attach-file/";
     }
@@ -91,12 +85,10 @@ class Efy_Init_Config{
 				break;
 		}	
 	}
-	
-	/**
-	 * Idea: Tao cac hang so dung chung cho viec xu ly JS
-	 *
-	 * @return Chuoi mo ta JS
-	 */
+
+    /**
+     * @return string
+     */
 	public function _setJavaScriptPublicVariable(){
 		$arrConst = $this->_setProjectPublicConst();		
 		$psHtml = "<script>\n";
@@ -111,8 +103,7 @@ class Efy_Init_Config{
 		$psHtml = $psHtml . "_GET_HTTP_AND_HOST='" . $arrConst['_GET_HTTP_AND_HOST'] . "';\n";
 		$psHtml = $psHtml . "_IMAGE_URL_PATH='" . $arrConst['_CONST_IMAGE_URL_PATH'] . "';\n";
 		$psHtml = $psHtml . "_WEBSITE_PATH ='" . self::_setWebSitePath() . "';\n";		
-		$psHtml = $psHtml . "</script>\n";		
-		
+		$psHtml = $psHtml . "</script>\n";
 		return $psHtml;
 	}
 
@@ -133,13 +124,11 @@ class Efy_Init_Config{
 	public function _setOnerName(){
 		return  'UBND HUYỆN LỆ THỦY';
 	}
-	/**
-	 * @see : Thuc hien viec lay ma nhom phong ban
-	 *
-	 * @return danh sach ma nhom phong ban
-	 */
+
+    /**
+     * @return array
+     */
 	public function _setLeaderPostionGroup(){
-		$arrPublicPosition = array();
 		$arrPublicPosition = array("_CONST_MAIN_LEADER_POSITION_GROUP"=>"CT,GD,TB,BT,CTH",
 								"_CONST_SUB_LEADER_POSITION_GROUP"=>"PCT,PGD,PTB,TT,PCTH",
 								"_CONST_POSITION_GROUP"=>"LANH_DAO_UB_TINH,LANH_DAO_SO,LANH_DAO_UB_QUAN_HUYEN,LANH_DAO_UB_PHUONG_XA,LANH_DAO_BO,LANH_DAO_CUC,LANH_DAO_VU,LANH_DAO_VAN_PHONG,LANH_DAO_PHONG_BAN",
@@ -148,17 +137,7 @@ class Efy_Init_Config{
 								"_CONST_PHUONG_XA_GROUP"=>"LANH_DAO_PHUONG_XA"
 								
 								);
-		return $arrPublicPosition;						
-	}
-		/**
-	 * Creater: HUNGVM
-	 * Date : 03/08/2010
-	 * Idea : Tao phuong thuc dat gia tri ID cua don vi cap cha, o day la ID cua don vi Quan/Huyen
-	 *
-	 * @return ID cua don vi cha
-	 */
-	public function _setParentOwnerId(){		
-		return 262;
+		return $arrPublicPosition;
 	}
 
 	/**
@@ -168,23 +147,17 @@ class Efy_Init_Config{
 	public function _setOnerReportName(){
 		return  'Huyện Lệ Thủy, ';
 	}
-	/**
-	 * @see : Thuc hien lay dia chi dang nhap cua user & Duong dan mac dinh vao ung dung
-	 * 	*/
+
+    /**
+     * @return string
+     */
 	public function _setUserLoginUrl(){
 		return self::_getCurrentHttpAndHost() . "login/index/";	
 	}
-	/**
-	 * @see : Thuc hien lay dia chi vao dich vu cong muc III
-	 * 	*/
-	public function _setSenRecordOnNetModuleName(){
-		return "/sendrecord/";	
-	}
-	/**
-	 * Creater : HUNGVM
-	 * Date : 29/06/2011
-	 * Idea : Phuong thuc thiet lap dia chi se chay khi dang nhap thanh cong vao he thong phan mem
-	 */
+
+    /**
+     * @return string
+     */
 	public function _setDefaultUrl(){
 		return self::_getCurrentHttpAndHost() . 'record/reminder/index/';	
 	}	
@@ -193,27 +166,12 @@ class Efy_Init_Config{
 	*/
 	public function _setDbLinkUser(){
 		return "DBLink.[ecs-user-qb]";
-	}		
-	/**
-	 * @see : Lay duong dan toi cho dat webservice
-	 * 
-	 * 	*/
-	/*
-	public function  _setWebServiceUrl(){
-		return "http://server/efy-user-namdan/login/webservice.php";
 	}
-	*/
-	/**
-	 * Thuc hien lay gan gia tri time out
-	 * 	*/
-	
-	public  function _setTimeOut(){
-		return 1900;
-	}
-/**
-	 * Lay ra gia tri quyen quan tri he thong
-	 *	
-	 */	
+
+    /**
+     * @param int $iOption
+     * @return string
+     */
 	public function _setPermisstionSystem($iOption = 0){
 		switch($iOption){
 		 	 case 1;	//Quyen quan tri toan he thong
@@ -227,41 +185,18 @@ class Efy_Init_Config{
 				break;
 		}			
 	}
-	/***
-	 * @see: Thuc hien gan ma ung dung
-		*/
-	public function _setAppCode(){
-		return "EFY-ECS-HQUANGNINH";
-	}
-	
-	/**
-	 * Thuc hien lay duong dan den file khai bao phan Header cho bao cao
-	 *
-	 * @return unknown
-	 */
-	public function _setUrlTempHeaderReport(){		
-		return self::_getCurrentHttpAndHost() . "templates/report-template/";
-	}
 
-	/**
-	 * Creater: HUNGVM
-	 * Date : 21/09/2009
-	 * Idea : Tao phuong thuc lay dia chi xu ly AJAX (Vi du: http://hungvm:8080/efy-doc-boxd/application/....)
-	 *
-	 * @return Dia chi URL
-	 */
+    /**
+     * @return string
+     */
 	public function _setUrlAjax(){		
 		return self::_getCurrentHttpAndHost() . "application/";
 	}
 
-	
-	/**
-	 * Idea: Tao phuong thuc khoi tao cac hang so dung chung
-	 *
-	 * @return Mang luu thong tin cac hang so dung chung
-	 */
+    /**
+     * @return array
+     */
 	public function _setProjectPublicConst(){
-		$arrPublicConst = array();
 		$arrPublicConst = array("_CONST_LIST_DELIMITOR"=>"!#~$|*",
 								"_CONST_SUB_LIST_DELIMITOR"=>"!~~!",
 								"_CONST_DECIMAL_DELIMITOR"=>",",
@@ -401,30 +336,7 @@ class Efy_Init_Config{
 								"_KHAC"						=>"Kh&#225;c",
 								"_TIEP_NHAN"				=>"Ti&#7871;p nh&#7853;n",
 								"_MA_HO_SO"					=>"M&#227; h&#7891; s&#417;",
-								"_LAY_VB_LIEN_QUAN"			=>"L&#7845;y VB li&#234;n quan",
 								"_TEN_HO_SO"				=>"T&#234;n lo&#7841;i h&#7891; s&#417;",
-								"_NGUOI_TAO"				=>"Ng&#432;&#7901;i t&#7841;o",
-								"_NGAY_TAO"					=>"Ng&#224;y t&#7841;o",
-								"_NGAY_PHAT_HANH"			=>"Ng&#224;y ph&#225;t h&#224;nh",
-								"_NGAY_PHAN_CONG"			=>"Ng&#224;y ph&#226;n c&#244;ng",
-								"_THEO_DOI_NHAN_VB"			=>"Theo d&#245;i nh&#7853;n VB",
-								"_NGAY_DANG_KY"				=>"Ng&#224;y &#273;&#259;ng k&#253;",
-								"_NGAY_SOAN_THAO"			=>"Ng&#224;y so&#7841;n th&#7843;o",
-								"_NGAY_TRINH"				=>"Ng&#224;y tr&#236;nh",
-								"_VAN_DE_TRINH"				=>"V&#7845;n &#273;&#7873; tr&#236;nh",
-								"_CAP_GUI"					=>"C&#7845;p g&#7917;i",
-								"_GUI"						=>"G&#7917;",
-								"_NOI_GUI"					=>"N&#417;i g&#7917;i",
-								"_NGAY_GUI"					=>"Ng&#224;y g&#7917;i",
-								"_CHI_TIET_NGUOI_XEM"		=>"Chi ti&#7871;t ng&#432;&#7901;i xem",
-								"_TINH_TRANG"				=>"T&#236;nh tr&#7841;ng",
-								"_THOI_GIAN_GUI"			=>"Th&#7901;i gian g&#7917;i",
-								"_THOI_GIAN_NHAN"			=>"Th&#7901;i gian nh&#7853;n",
-								"_LOAI_VAN_BAN"				=>"Lo&#7841;i v&#259;n b&#7843;n",
-								"_TRICH_YEU"				=>"Trích yếu",
-								"_SO_VAN_BAN"				=>"Sổ văn bản",
-								"_TINH_CHAT"				=>"Tính chất",
-								"_DO_KHAN"					=>"�?ộ khẩn",
 								"_HINH_THUC_XU_LY"			=>"Hình thức xử lý",
 								"_FILE_DINH_KEM"			=>"File &#273;&#237;nh k&#232;m",
 								"_LINH_VUC"					=>"L&#297;nh v&#7921;c",
@@ -438,7 +350,6 @@ class Efy_Init_Config{
 								"_THONG_TIN_KHAC"			=>"Th&#244;ng tin kh&#225;c",
 								"_CAN_BO_NHAN"				=>"C&#225;n b&#7897; nh&#7853;n",
 								"_DON_VI_PHONG_BAN_NHAN"	=>"&#272;&#417;n v&#7883; ph&#242;ng ban nh&#7853;n",
-								"_NGAY_THUC_HIEN"			=>"Ng&#224;y th&#7921;c hi&#7879;n",
 								"_EXPORT_WEB"				=>"Web",
 								"_EXPORT_WORD"				=>"Word",
 								"_EXPORT_EXCEL"				=>"Excel",
@@ -451,18 +362,8 @@ class Efy_Init_Config{
 								"_HAN_TRA_LOI"				=>"H&#7841;n tr&#7843; l&#7901;i",
 								"_SO_NGAY"					=>"S&#7889; ng&#224;y",
 								"_NGAY"						=>"Ng&#224;y",
-								"_CHON"						=>"Ch&#7885;n",	
-								"_NOI_DANG_KY"				=>"N&#417;i &#273;&#259;ng k&#253;",
-								"_CAP_SO"					=>"Cấp số",
-								"_NOI_NHAN_XU_LY"			=>"N&#417;i nh&#7853;n x&#7917; l&#253;",
-								"_TRINH_KY"					=>"Tr&#236;nh k&#253;",
-								"_DON_VI_PHAT_HANH"			=>"&#272;&#417;n v&#7883; ph&#225;t h&#224;nh",
-								"_Y_KIEN_CUA_CT"			=>"&#221; ki&#7871;n c&#7911;a ch&#7911; t&#7883;ch",
-								"_CAN_BO_XLC"				=>"C&#225;n b&#7897; x&#7917; l&#253; ch&#237;nh",
-								"_CAN_BO_PHXL"				=>"C&#225;n b&#7897; ph&#7889;i h&#7907;p x&#7917; l&#253;",
 								"_TRANG_THAI_XU_LY"			=>"Tr&#7841;ng th&#225;i x&#7917; l&#253;",
 								"_DANG_XU_LY"				=>"&#272;ang x&#7917; l&#253;",
-								"_DUYET_VAN_BAN"			=>"Duy&#7879;t v&#259;n b&#7843;n",
 								"_TRA_LAI"					=>"Tr&#7843; l&#7901;i",
 								"_LY_DO"					=>"L&#253; do",
 								"_KET_THUC_XU_LY"			=>"K&#7871;t th&#7913;c x&#7917; l&#253;",
@@ -503,23 +404,19 @@ class Efy_Init_Config{
 								"_GUI_TIN_TU_DONG"			=>"G&#7917;i tin t&#7921; &#273;&#7897;ng",		
 								"_DIEN_THOAI"				=>"&#272;i&#7879;n tho&#7841;i",	
 								"_NOI_DUNG"					=>"N&#7897;i dung",				
-								"_THU_TU"					=>"Th&#7913; t&#7921;",		
-								"_TRANG_CHU"				=>"Trang chủ",
+								"_THU_TU"					=>"Th&#7913; t&#7921;",
 								"_DANG_NHAP"				=>"Đăng nhập",
 								"_DANG_KY"					=>"Đăng ký",
 								"_GUI_THONG_BAO"			=>"Gửi thông báo đến công dân",
 								"_NGAY_HEN_MANG_HO_SO_GOC"	=>"Ng&#224;y h&#7865;n l&#7845;y k&#7871;t qu&#7843;",
-								"_GUI_MAIL"	   				=>"Gửi mail",
-								"_TEN_CONG_TY"				=>"CÔNG TY CỔ PHẦN CÔNG NGHỆ TIN HỌC EFY VIỆT NAM<br>
-															Tel (84-4) 287 2290 - Fax (84-4) 287 2290    Email: contact@efy.com.vn   Website: http://www.efy.com.vn",
 								"_GET_HTTP_AND_HOST"=>self::_getCurrentHttpAndHost(),
 								"_MODAL_DIALOG_MODE"=>"0");
-		return 	$arrPublicConst;					
+		return 	$arrPublicConst;
 	}
-	/**
-	 * cuongnh
-	 * Định nghĩa font cho báo cáo
-	 */
+
+    /**
+     * @return array
+     */
 	public function _setFontTitleExcell(){				
 		$arrInfor = array("name" =>"Times New Roman",
 						  		 "bold"   =>true,
