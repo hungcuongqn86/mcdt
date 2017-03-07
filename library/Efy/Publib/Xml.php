@@ -329,9 +329,7 @@ class Efy_Publib_Xml extends RAX
                     $this->orderColumn = $arrTable_rows[$arr_tag[$i]]["order_column"];
                     $this->whereClause = $arrTable_rows[$arr_tag[$i]]["where_clause"];
                 }
-                if ($this->spType == "media" || $this->spType == "iframe") {
-                    $this->height = $arrTable_rows[$arr_tag[$i]]["height"];
-                }
+
                 if ($this->spType == "labelcontent") {
                     $this->content = $arrTable_rows[$arr_tag[$i]]["content"];
                 }
@@ -1148,14 +1146,9 @@ class Efy_Publib_Xml extends RAX
                 }
             }
             $v_item_checked = "";
-            $v_item_display = "block";
-            if ($p_valuelist != "" && $this->dspDiv != 1 && $p_valuelist != 0) { //Kiem tra xem Hieu chinh hay la them moi
-                $v_item_display = "none";
-            }
             for ($j = 0; $j < $count_value; $j++)
                 if ($arrValue[$j] == $v_item_id) {
                     $v_item_checked = "checked";
-                    $v_item_display = "block";
                     break;
                 }
             if ($i % 2 == 0 && $this->dspDiv == 1) {
@@ -1224,10 +1217,8 @@ class Efy_Publib_Xml extends RAX
     }
 
     /**
-     * Chuyen chu cai dau tien cua xau thanh chu thuong
-     *
-     * @param $pStr : Sau can chuyen doi
-     * @return Xau da duoc chuyen doi ky tu dau thanh chu hoa
+     * @param $pStr
+     * @return string
      */
     public function _firstStringToLower($pStr)
     {
@@ -1546,7 +1537,6 @@ class Efy_Publib_Xml extends RAX
         $p_sql_replace = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $p_sql_replace);
         //
         $v_sql_replace_temp = $p_sql_replace;
-        global $_EfyOwnerCode;
         //neu co nhieu hon 1 dong tim kiem
         if (sizeof($arrfilter_rows) > 1) {
             foreach ($arrfilter_rows as $rows) {
@@ -1670,15 +1660,9 @@ class Efy_Publib_Xml extends RAX
                     }
                 }
                 $v_item_checked = "";
-                $v_item_display = "block";
-                if ($Valuelist != "") { //Kiem tra xem Hieu chinh hay la them moi
-                    //$v_item_display = "none";
-                }
                 for ($j = 0; $j < $count_value; $j++) {
-                    $tr_class = '';
                     if ($arr_value[$j] == $v_item_id) {
                         $v_item_checked = "checked";
-                        $v_item_display = "block";
                         break;
                     }
                 }
@@ -1818,15 +1802,9 @@ class Efy_Publib_Xml extends RAX
                     }
                 }
                 $v_item_checked = "";
-                $v_item_display = "block";
-                if ($Valuelist != "") { //Kiem tra xem Hieu chinh hay la them moi
-                    //$v_item_display = "none";
-                }
                 for ($j = 0; $j < $count_value; $j++) {
-                    $tr_class = '';
                     if ($arr_value[$j] == $v_item_id) {
                         $v_item_checked = "checked";
-                        $v_item_display = "block";
                         break;
                     }
                 }
