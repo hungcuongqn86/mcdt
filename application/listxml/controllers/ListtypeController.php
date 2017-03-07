@@ -78,9 +78,6 @@ class Listxml_ListTypeController extends  Zend_Controller_Action {
 		$response->insert('header', $this->view->renderLayout('header.phtml','./application/views/scripts/'));    	//Hien thi header 
 		$response->insert('left', $this->view->renderLayout('left.phtml','./application/views/scripts/'));    		//Hien thi header 		    
         $response->insert('footer', $this->view->renderLayout('footer.phtml','./application/views/scripts/'));  	 //Hien thi footer
-        
-        // Goi ham kiem tra user login
-		//Efy_Library::_isLogin($objConfig->_setUserLoginUrl(),$objConfig->_setAppCode(), $_SESSION['staff_id_temp'],$objConfig->_setTimeOut());
 	}	
 	
 	/**
