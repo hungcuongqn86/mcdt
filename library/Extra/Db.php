@@ -1,18 +1,15 @@
-<?php 
-
-/**
- * @see adodb.inc.php
- * Call Adodb library
- */
+<?php
 require_once 'Efy/adodb/adodb.inc.php';
 
 /**
- *
+ * Class Extra_Db
  */
-class Efy_DB_Connection extends Zend_Db {	
-	/**
-	 * 
-	 */
+class Extra_Db extends Zend_Db {
+    /**
+     * @param $adapter
+     * @param array $config
+     * @return the
+     */
 	public static function connectADO($adapter, $config = array()){		
 		global $adoConn, $ADODB_CACHE_DIR, $ADODB_CACHE_TIMEOUT;
 		if($adapter == "MSSQL"){//Ket noi MS SQL server
@@ -32,7 +29,6 @@ class Efy_DB_Connection extends Zend_Db {
         if (null === self::$_instance) {
             self::$_instance = new self();
         }
-
         return self::$_instance;
     }
 
@@ -71,28 +67,22 @@ class Efy_DB_Connection extends Zend_Db {
         return $adoConn->qstr($string);
     }
 
-	/**
-	 * Creater: HUNGVM
-	 * Date: 
-	 * Thuc thi hanh dong update / delete / getsingle / ...
-	 * @param $sql : Xau SQL can thuc thi
-	 * @return unknown
-	 */
+    /**
+     * @param $sql
+     * @return mixed
+     */
 	public function adodbExecSqlString($sql){
 		global $adoConn;
 		$adoConn->SetFetchMode(ADODB_FETCH_ASSOC);
 		$ArrSingleData = $adoConn->GetRow($sql); 
 		return $ArrSingleData;
 	}
-	
-	/**
-	 * Creater: HUNGVM
-	 * date:
-	 * Lay tat ca thong tin trong CSDL, phan tu dang chi so bat dau tu 0,1,2,...
-	 * @param $sql : Xau SQL can thuc thi
-	 * @param $optCache : Tuy chon co cache hay khong? <> "" thi thuc hien cache
-	 * @return Mang luu thong tin du lieu
-	 */
+
+    /**
+     * @param $sql
+     * @param string $optCache
+     * @return mixed
+     */
 	public function adodbQueryDataInNumberMode($sql, $optCache = ""){
 		global $adoConn;
 		//Thoi gian Cache
@@ -107,16 +97,12 @@ class Efy_DB_Connection extends Zend_Db {
 		}
 		return $ArrAllData;
 	}
-	
-	/**
-	 * Creater: HUNGVM
-	 * date:
-	 * Lay tat ca thong tin trong CSDL, phan tu dang ten cot
-	 * @param $sql : Xau SQL can thuc thi
-	 * @param $optCache : Tuy chon co cache hay khong? <> "" thi thuc hien cache
-	 * 			
-	 * @return Mang luu thong tin du lieu
-	 */
+
+    /**
+     * @param $sql
+     * @param string $optCache
+     * @return mixed
+     */
 	public function adodbQueryDataInNameMode($sql, $optCache = ""){
 		global $adoConn;
 		//Thoi gian Cache
@@ -131,6 +117,10 @@ class Efy_DB_Connection extends Zend_Db {
 		return $ArrAllData;
 	}
 
+    /**
+     * @param $arrParameter
+     * @return string
+     */
 	public function getStringSql($arrParameter)
     {
         $sql = '';
@@ -146,6 +136,13 @@ class Efy_DB_Connection extends Zend_Db {
         return $sql;
     }
 
+    /**
+     * @param $arrParameter
+     * @param $spName
+     * @param bool $optionQuery
+     * @param bool $optionReturn
+     * @return mixed|string
+     */
     public function _querySql($arrParameter, $spName, $optionQuery = true, $optionReturn = false)
     {
         $arrResult = array();

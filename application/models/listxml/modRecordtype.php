@@ -1,5 +1,5 @@
 <?php
-class listxml_modRecordtype extends Efy_DB_Connection {
+class listxml_modRecordtype extends Extra_Db {
     /**
      * @param $sOwnerCode
      * @param $sFullTextSearch

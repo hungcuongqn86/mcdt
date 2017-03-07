@@ -3,7 +3,7 @@
  * @copyright :efy.com.vn - 11/2010 
  * @see : Nguoi tao: NGHIAT
  * */
-class record_modTax extends Efy_DB_Connection {	
+class record_modTax extends Extra_Db {
 	public function eCSRecordTypeGetAll($sOwnerCode,$sFullTextSearch){
 		$sql = "eCS_RecordTypeGetAll ";
 		$sql = $sql . " '" . $sOwnerCode . "'";

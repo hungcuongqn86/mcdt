@@ -10,7 +10,7 @@
 * Y nghia:Tao lop modList xu ly du lieu doi tuong danh muc
 */
 
-class listxml_modList extends Efy_DB_Connection {
+class listxml_modList extends Extra_Db {
 	/**
 	 * Nguoi tao: HUNGVM
 	 * Ngay tao: 11/01/2009

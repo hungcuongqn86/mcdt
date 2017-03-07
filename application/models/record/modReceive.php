@@ -5,7 +5,7 @@
  * @author Trinh Thanh Phuong
  *
  */
-class record_modReceive extends Efy_DB_Connection {	
+class record_modReceive extends Extra_Db {
 	/**
 	 * 
 	 * Ham cap nhat thong tin mot ho so

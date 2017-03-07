@@ -1,6 +1,6 @@
 <?php
 
-class Sms_modSms extends Efy_DB_Connection {
+class Sms_modSms extends Extra_Db {
 	
 	/**
 	 * Nguoi tao: NGHIAT

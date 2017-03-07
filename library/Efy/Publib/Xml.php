@@ -569,7 +569,7 @@ class Efy_Publib_Xml extends RAX
                         $this->selectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->selectBoxOptionSql);
                         //echo $this->selectBoxOptionSql;
                         // thuc hien co che cache o day
-                        $arrListItem = Efy_DB_Connection::adodbQueryDataInNumberMode($this->selectBoxOptionSql, $this->cacheOption);
+                        $arrListItem = Extra_Db::adodbQueryDataInNumberMode($this->selectBoxOptionSql, $this->cacheOption);
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->selectBoxIdColumn];
                         }
@@ -617,7 +617,7 @@ class Efy_Publib_Xml extends RAX
                         $this->selectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->selectBoxOptionSql);
                         //echo $this->selectBoxOptionSql;
                         // thuc hien cach
-                        $arrListItem = Efy_DB_Connection::adodbQueryDataInNumberMode($this->selectBoxOptionSql, $this->cacheOption);
+                        $arrListItem = Extra_Db::adodbQueryDataInNumberMode($this->selectBoxOptionSql, $this->cacheOption);
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->selectBoxIdColumn];
                         }
@@ -644,7 +644,7 @@ class Efy_Publib_Xml extends RAX
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                     $this->checkBoxMultipleSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->checkBoxMultipleSql);
                     $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
-                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckbox(Efy_DB_Connection::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
+                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckbox(Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 }
                 break;
             //kieu mulriplecheckbox co file dinh kem
@@ -660,7 +660,7 @@ class Efy_Publib_Xml extends RAX
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                     $this->checkBoxMultipleSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->checkBoxMultipleSql);
                     $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
-                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Efy_DB_Connection::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
+                    $spRetHtml = $spRetHtml . Efy_Publib_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 }
                 break;
             case "multipleradio";
@@ -668,7 +668,7 @@ class Efy_Publib_Xml extends RAX
                     $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                     $arrListItem = Efy_Publib_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } else {
-                    $arrListItem = Efy_DB_Connection::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption);
+                    $arrListItem = Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption);
                 }
 
                 if ($this->direct == 'true') {
@@ -715,7 +715,7 @@ class Efy_Publib_Xml extends RAX
                 } else {
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                     $this->textBoxMultipleSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->textBoxMultipleSql);
-                    $arrListItem = Efy_DB_Connection::adodbQueryDataInNumberMode($this->textBoxMultipleSql, $this->cacheOption);
+                    $arrListItem = Extra_Db::adodbQueryDataInNumberMode($this->textBoxMultipleSql, $this->cacheOption);
                 }
                 $spRetHtml = $this->sLabel;
                 $spRetHtml = $spRetHtml . "<input type='text' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
@@ -1446,7 +1446,7 @@ class Efy_Publib_Xml extends RAX
                 } else {
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                     $this->selectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->selectBoxOptionSql);
-                    $arr_list_item = Efy_DB_Connection::adodbQueryDataInNumberMode($this->selectBoxOptionSql, $this->cacheOption);
+                    $arr_list_item = Extra_Db::adodbQueryDataInNumberMode($this->selectBoxOptionSql, $this->cacheOption);
                 }
                 $psRetHtml = "<td align='.$this->v_align.'><select class='normal_selectbox' name='sel_item' title='$this->tooltip' style='width:100%' " . $this->_generatePropertyType("optional", $v_optional) . $this->_generatePropertyType("readonly", $this->readonlyInEditMode) . $this->_generatePropertyType("disabled", $this->disabledInEditMode) . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$v_message' onKeyDown='change_focus(document.forms[0],this,event)'>";
                 $psRetHtml = $psRetHtml . "<option id='' value=''>--- Ch&#7885;n $this->v_label ---</option>" . Efy_Library::_generateSelectOption($arr_list_item, $this->selectBoxIdColumn, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);

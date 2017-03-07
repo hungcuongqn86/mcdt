@@ -12,7 +12,7 @@ $autoloader->registerNamespace('Extra_');
 $autoloader->registerNamespace('G_');
 
 //Goi class Controller
-Zend_Loader::loadClass('Efy_Db_Connection');
+Zend_Loader::loadClass('Extra_Db');
 Zend_Loader::loadClass('Efy_Library');
 Zend_Loader::loadClass('Efy_Xml');
 Zend_Loader::loadClass('Extra_Session');
@@ -33,7 +33,7 @@ $registry->set('ConstPublic', $ConstPublic);
 $connectSQL = new Zend_Config_Ini('./config/config.ini', 'dbmssql');
 $registry = Zend_Registry::getInstance();
 $registry->set('connectSQL', $connectSQL);
-$connAdo = Efy_Db_Connection::connectADO($connectSQL->db->adapter, $connectSQL->db->config->toArray());
+$connAdo = Extra_Db::connectADO($connectSQL->db->adapter, $connectSQL->db->config->toArray());
 //Lay url hien hanh
 $df_url = Efy_Function_RecordFunctions::curPageURL();
 // Goi ham kiem tra user login

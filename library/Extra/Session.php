@@ -17,7 +17,7 @@ class Extra_Session extends Zend_Session_Namespace {
 		$sql = "Exec " . Extra_Init::_getUserDb() . ".dbo.USER_GetPersonalInfoOfAllStaff ";
 		//echo $sql . '<br>';
 		try{
-			$arrResul = Efy_DB_Connection::adodbQueryDataInNameMode($sql);
+			$arrResul = Extra_Db::adodbQueryDataInNameMode($sql);
 		}catch (Exception $e){
 			echo $e->getMessage();
 		}
@@ -51,7 +51,7 @@ class Extra_Session extends Zend_Session_Namespace {
 		$arrResul = array();
 		$sql = "Exec " . Extra_Init::_getUserDb() . ".dbo.USER_GetDetailInfoOfAllUnit ";
 		try{
-			$arrResul = Efy_DB_Connection::adodbQueryDataInNameMode($sql);
+			$arrResul = Extra_Db::adodbQueryDataInNameMode($sql);
 		}catch (Exception $e){
 			echo $e->getMessage();
 		}
@@ -80,7 +80,7 @@ class Extra_Session extends Zend_Session_Namespace {
      */
 	public function SesGetAllPermissionForSession($sStaffIdList, $sDelimitor = "!~~!"){
 		//
-		$ojbConnect = new  Efy_DB_Connection();
+		$ojbConnect = new  Extra_Db();
 		$sql = "Doc_StaffPermissionGetAll ";
 		$sql = $sql . "'" . $sStaffIdList . "'";				
 		$sql = $sql . ",'" . $sDelimitor . "'";	
@@ -128,7 +128,7 @@ class Extra_Session extends Zend_Session_Namespace {
 		$sql = $sql . ",'" . 'DM_DON_VI_TRIEN_KHAI' . "'";
 		//echo 'sql:' . $sql.'<br>';
 		try{
-			$arrResult = Efy_DB_Connection::adodbQueryDataInNameMode($sql);
+			$arrResult = Extra_Db::adodbQueryDataInNameMode($sql);
 		}catch (Exception $e){
 			echo $e->getMessage();
 		}

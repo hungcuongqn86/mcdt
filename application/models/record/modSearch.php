@@ -3,7 +3,7 @@
  * @copyright :efy.com.vn - 2010 
  * @see : Lop modSearch 
  * */
-class Record_modSearch extends Efy_DB_Connection {	
+class Record_modSearch extends Extra_Db {
 	/** Nguoi tao: NGHIAT
 		* Ngay tao: 08/12/2010
 		* Y nghia: Lay danh sach hs theo tieu chi tim kiem

@@ -2,10 +2,10 @@
 /**
 * Nguoi tao: Thainv
 * Ngay tao: 06/01/2009
-* Y nghia:Tao lop modListType dan xuat (extends) tu lop Efy_DB_Connection
+* Y nghia:Tao lop modListType dan xuat (extends) tu lop Extra_Db
 */
 
-class Listxml_modListType extends Efy_DB_Connection {
+class Listxml_modListType extends Extra_Db {
 	/**
 	 * Nguoi tao: Thainv
 	 * Ngay tao: 06/01/2009

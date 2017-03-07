@@ -3,7 +3,7 @@
  * @copyright :efy.com.vn - 2009 
  * @see : Lop modReportStaff 
  * */
-class record_modHandle extends Efy_DB_Connection {	
+class record_modHandle extends Extra_Db {
 	/** Nguoi tao: NGHIAT
 		* Ngay tao: 09/11/2010
 		* Y nghia: lay danh sach cac cong viec lien quan den tien do cua mot ho so

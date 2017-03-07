@@ -1,5 +1,5 @@
 <?php
-class Listxml_modListReport extends Efy_DB_Connection {
+class Listxml_modListReport extends Extra_Db {
 	public function getAllListReport($piStatus,$psTypeName,$psOwnerCode,$psRecordTypeCode=''){							
 		$sql = "Exec EfyLib_ListReportGetAll '" . $piStatus . "','" . $psTypeName . "','" . $psOwnerCode . "','".$psRecordTypeCode."'";			
 		//echo $sql . '<br>';

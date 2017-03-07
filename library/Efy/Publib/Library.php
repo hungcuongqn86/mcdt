@@ -284,8 +284,8 @@ abstract class Efy_Publib_Library
     public function _getNextValue($psTable, $psColumn, $psWhereClause)
     {
         global $adoConn;
-        Zend_Loader::loadClass('Efy_Db_Connection');
-        $objConn = new Efy_DB_Connection();
+        Zend_Loader::loadClass('Extra_Db');
+        $objConn = new Extra_Db();
 
         $cmd = "Select max(" . $psColumn . ")" . " MAX_VALUE " . " From " . $psTable;
         if (!is_null(trim($psWhereClause)) and trim($psWhereClause) <> "") {
@@ -890,10 +890,10 @@ abstract class Efy_Publib_Library
     public function _getAllFileList($psID, $pDocumentType)
     {
         // Load Class Connection
-        Zend_Loader::loadClass('Efy_Db_Connection');
+        Zend_Loader::loadClass('Extra_Db');
 
         // Tao doi tuong
-        $objConn = new Efy_DB_Connection();
+        $objConn = new Extra_Db();
 
         $sql = "Exec Doc_GetAllDocumentFileAttach '" . $psID . "','" . $pDocumentType . "'";
         try {

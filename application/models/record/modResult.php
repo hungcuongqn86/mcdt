@@ -5,7 +5,7 @@
  * @author Tran Nghia
  *
  */
-class record_modResult extends Efy_DB_Connection {	
+class record_modResult extends Extra_Db {
 	/** Nguoi tao: NGHIAT
 		* Ngay tao: 03/12/2010
 		* Y nghia: Update Cap nhat TKQ

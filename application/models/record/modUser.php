@@ -3,7 +3,7 @@
  * @copyright :efy.com.vn - 11/2010 
  * @see : Nguoi tao: NGHIAT
  * */
-class record_modUser extends Efy_DB_Connection {		
+class record_modUser extends Extra_Db {
 	public function eCSNetUserUpdate($arrParameter){
 		$psSql = "Exec eCS_NetUserUpdate  ";	
 		$psSql .= "'"  . $arrParameter['PK_NET_ID'] . "'";

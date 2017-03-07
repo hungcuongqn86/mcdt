@@ -1,5 +1,5 @@
 <?php
-class record_modSeachRecordResult extends Efy_DB_Connection{
+class record_modSeachRecordResult extends Extra_Db{
 	/** Nguoi tao: Pham Tien Dung
 		* Ngay tao: 30/06/2011
 		* Y nghia: Lay thong tin chi tiet cua mot ho so

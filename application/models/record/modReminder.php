@@ -7,7 +7,7 @@
 * Y nghia:Lay thong tin nhac viec
 */
 
-class Record_modReminder extends Efy_DB_Connection {
+class Record_modReminder extends Extra_Db {
 	
 	/** Nguoi tao: NGHIAT
 	* Ngay tao: 05/08/2010

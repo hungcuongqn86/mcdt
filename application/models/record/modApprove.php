@@ -1,5 +1,5 @@
 <?php
-class record_modApprove extends Efy_DB_Connection {	
+class record_modApprove extends Extra_Db {
 	
 	/** Nguoi tao: PHUONGTT
 		* Ngay tao: 17/11/2010

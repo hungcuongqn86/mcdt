@@ -6,16 +6,16 @@
 	// Goi class Zend_Load
 	include "../../library/Zend/Loader.php";	
 	Zend_Loader::loadClass('Zend_Db');	
-	Zend_Loader::loadClass('Efy_DB_Connection');
+	Zend_Loader::loadClass('Extra_Db');
 	Zend_Loader::loadClass('Zend_Config_Ini');
 	Zend_Loader::loadClass('Zend_Registry');
 	$sConfig = new Extra_Init;
-	$conn = new Efy_DB_Connection();
+	$conn = new Extra_Db();
 	//Ket noi CSDL SQL theo kieu ADODB
 	$connectSQL = new Zend_Config_Ini('../../config/config.ini','dbmssql');
 	$registry = Zend_Registry::getInstance();
 	$registry->set('connectSQL', $connectSQL);
-	$connAdo = Efy_Db_Connection::connectADO($connectSQL->db->adapter,$connectSQL->db->config->toArray());
+	$connAdo = Extra_Db::connectADO($connectSQL->db->adapter,$connectSQL->db->config->toArray());
 	//Lay ten file 
 	$sListIdDoc     		= $_REQUEST['ListIdDoc'];
 	$sDocType				= $_REQUEST['DocType'];

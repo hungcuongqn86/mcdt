@@ -3,7 +3,7 @@
  * @copyright :efy.com.vn - 2009 
  * @see : Lop modReportStaff 
  * */
-class record_modSendRecord extends Efy_DB_Connection {			
+class record_modSendRecord extends Extra_Db {
 	/**
 	 * @author: KHOINV
 	 * @since :11/05/2011

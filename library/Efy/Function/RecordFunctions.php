@@ -937,7 +937,7 @@ class Efy_Function_RecordFunctions
     {
         // Tao doi tuong xu ly du lieu
         $arrObject = array();
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "EfyLib_GetAllName_TLKT ";
         $sql = $sql . " '" . $sOwnerCode . "'";
         $sql = $sql . " ,'" . $sCode . "'";
@@ -998,7 +998,7 @@ class Efy_Function_RecordFunctions
     public function getAllObjectbyListCode($sOwnerCode, $sCode, $optCache = "")
     {
         // Tao doi tuong xu ly du lieu
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "EfyLib_ListGetAllbyListtypeCode ";
         $sql = $sql . " '" . $sOwnerCode . "'";
         $sql = $sql . " ,'" . $sCode . "'";
@@ -1022,7 +1022,7 @@ class Efy_Function_RecordFunctions
     public function getNameFromCode($sOwnerCode, $sCode, $sList)
     {
         // Tao doi tuong xu ly du lieu
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "EfyLib_NameFromCode ";
         $sql = $sql . " '" . $sOwnerCode . "'";
         $sql = $sql . " ,'" . $sCode . "'";
@@ -1046,7 +1046,7 @@ class Efy_Function_RecordFunctions
      */
     public function eCSRecordTypeGetAllByStaff($sStaffId, $sOwnerCode, $sClauseString = '')
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec eCS_RecordTypeGetAllByStaff ";
         $sql = $sql . "'" . $sStaffId . "'";
         $sql = $sql . ",'" . $sOwnerCode . "'";
@@ -1168,7 +1168,7 @@ class Efy_Function_RecordFunctions
      */
     public function eCSRecordGetAll($sRecordTypeId, $sRecordType, $iCurrentStaffId, $sReceiveDate, $sStatusList, $sDetailStatusCompare, $sRole, $sOrderClause, $sOwnerCode, $sfulltextsearch, $iPage, $iNumberRecordPerPage)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $arrResul = array();
         $sql = "Exec eCS_RecordGetAll ";
         $sql = $sql . "'" . $sRecordTypeId . "'";
@@ -1200,7 +1200,7 @@ class Efy_Function_RecordFunctions
      */
     public function eCSRecordGetSingle($sRecordId, $sOwnerCode, $sRecordTransitionId = null)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec [dbo].[eCS_RecordGetSingle] ";
         $sql .= "'" . $sRecordId . "'";
         $sql .= ",'" . $sOwnerCode . "'";
@@ -1223,7 +1223,7 @@ class Efy_Function_RecordFunctions
      */
     public function eCSRecordGetSingleForPrint($sRecordId, $sOwnerCode, $stagList, $sRecordTransitionId = null)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec [dbo].[eCS_RecordGetSingleforPrint] ";
         $sql .= "'" . $sRecordId . "'";
         $sql .= ",'" . $sOwnerCode . "'";
@@ -1358,7 +1358,7 @@ class Efy_Function_RecordFunctions
      */
     function generateRecordCode($srecordtype)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $v_inc_code_length = 5;//Do dai cua ma theo tung loai, tung nam cua ho so
         $v_fix_code = $_SESSION['OWNER_CODE'] . "." . $srecordtype . "." . date("y");
         $v_str_count = strlen($v_fix_code);
@@ -1392,7 +1392,7 @@ class Efy_Function_RecordFunctions
     {
         $ow = new Extra_Init();
         $ownercode = $ow->_getOwnerCode();
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $v_inc_code_length = 5;//Do dai cua ma theo tung loai, tung nam cua ho so
         $v_fix_code = $ownercode . "." . $srecordtype . ".NET." . date("y");
         $v_str_count = strlen($v_fix_code);
@@ -1451,7 +1451,7 @@ class Efy_Function_RecordFunctions
     public function eCSRecordBasicGetSingle($sRecordPk, $iFkUnit, $sOwnerCode, $sRecordTransitionPk = '')
     {
         // Tao doi tuong xu ly du lieu
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         //Tao duoi tuong trong lop dung chung
         $objLib = new Efy_Library();
         $objRecordFunction = new Efy_Function_RecordFunctions();
@@ -1584,7 +1584,7 @@ class Efy_Function_RecordFunctions
     public function eCSGetAllDocumentFileAttach($sRecordId, $pFileTyle, $pTableObject)
     {
         // Tao doi tuong xu ly du lieu
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec Doc_GetAllDocumentFileAttach '" . $sRecordId . "'";
         $sql .= ",'" . $pFileTyle . "'";
         $sql .= ",'" . $pTableObject . "'";
@@ -1653,7 +1653,7 @@ class Efy_Function_RecordFunctions
      */
     public function eCSGetInfoRecordFromListId($sRecordIdList)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $arrResult = null;
         $sql = "Exec eCS_GetInfoRecordFromListId ";
         $sql .= "'" . $sRecordIdList . "'";
@@ -1964,7 +1964,7 @@ class Efy_Function_RecordFunctions
                             //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                             $sSelectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $arrInforFilter[$tab_value]['selectbox_option_sql']);
                             // thuc hien co che cache o day
-                            $arrListItem = Efy_DB_Connection::adodbQueryDataInNumberMode($sSelectBoxOptionSql);
+                            $arrListItem = Extra_Db::adodbQueryDataInNumberMode($sSelectBoxOptionSql);
                             $Column_value = $arrInforFilter[$tab_value]['selectbox_option_id_column'];
                             $Column_name = $arrInforFilter[$tab_value]['selectbox_option_name_column'];
                             for ($i = 0; $i < sizeof($arrListItem); $i++) {
@@ -2084,7 +2084,7 @@ class Efy_Function_RecordFunctions
                                 //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                                 $sSelectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $arrInforFilter[$tab_value]['selectbox_option_sql']);
                                 // thuc hien co che cache o day
-                                $arrListItem = Efy_DB_Connection::adodbQueryDataInNumberMode($sSelectBoxOptionSql);
+                                $arrListItem = Extra_Db::adodbQueryDataInNumberMode($sSelectBoxOptionSql);
                                 $Column_value = $arrInforFilter[$tab_value]['selectbox_option_id_column'];
                                 $Column_name = $arrInforFilter[$tab_value]['selectbox_option_name_column'];
                                 for ($i = 0; $i < sizeof($arrListItem); $i++) {
@@ -2254,7 +2254,7 @@ class Efy_Function_RecordFunctions
                                 //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                                 $sSelectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $arrInforFilter[$tab_value]['selectbox_option_sql']);
                                 // thuc hien co che cache o day
-                                $arrListItem = Efy_DB_Connection::adodbQueryDataInNumberMode($sSelectBoxOptionSql);
+                                $arrListItem = Extra_Db::adodbQueryDataInNumberMode($sSelectBoxOptionSql);
                                 $Column_value = $arrInforFilter[$tab_value]['selectbox_option_id_column'];
                                 $Column_name = $arrInforFilter[$tab_value]['selectbox_option_name_column'];
                                 for ($i = 0; $i < sizeof($arrListItem); $i++) {
@@ -2549,7 +2549,7 @@ class Efy_Function_RecordFunctions
                                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
                                     $sSelectBoxOptionSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $arrInforFilter[$tab_value]['selectbox_option_sql']);
                                     // thuc hien co che cache o day
-                                    $arrListItem = Efy_DB_Connection::adodbQueryDataInNumberMode($sSelectBoxOptionSql);
+                                    $arrListItem = Extra_Db::adodbQueryDataInNumberMode($sSelectBoxOptionSql);
                                     $Column_value = $arrInforFilter[$tab_value]['selectbox_option_id_column'];
                                     $Column_name = $arrInforFilter[$tab_value]['selectbox_option_name_column'];
                                     for ($i = 0; $i < sizeof($arrListItem); $i++) {
@@ -2787,7 +2787,7 @@ class Efy_Function_RecordFunctions
      * */
     public function eCSFileGetSingle($sRecordID, $sKeyAttach)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec EfyLib_libFileGetSingle  ";
         $sql .= "'" . $sRecordID . "'";
         $sql .= ",'" . $sKeyAttach . "'";
@@ -2815,7 +2815,7 @@ class Efy_Function_RecordFunctions
      * */
     public function eCS_GetUnitName($sUnitID)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec eCS_GetUnitName  ";
         $sql .= "'" . $sUnitID . "'";
         //echo $sql ; exit();
@@ -2840,7 +2840,7 @@ class Efy_Function_RecordFunctions
      */
     public function eCSNetRecordTypeGetAllByStaff($sStaffId, $sOwnerCode, $sClauseString = '')
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec eCS_RecordTypeGetAllByStaff ";
         $sql = $sql . "'" . $sStaffId . "'";
         $sql = $sql . ",'" . $sOwnerCode . "'";
@@ -2959,7 +2959,7 @@ class Efy_Function_RecordFunctions
 
     public function eCSDeleteFileUpload($filename)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec Net_deleteFileUpload  ";
         $sql .= "'" . $filename . "'";
         //echo $sql ; exit();
@@ -2983,7 +2983,7 @@ class Efy_Function_RecordFunctions
      */
     public function eCSPermisstionForRecordType($sStaffId, $sRoll)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec EfyLib_GetStaffPermission ";
         $sql = $sql . "'" . $sStaffId . "'";
         $sql = $sql . ",'" . $sRoll . "'";
@@ -2999,7 +2999,7 @@ class Efy_Function_RecordFunctions
 
     public function eCSHandleWorkGetAll($sRecordPk, $sOwnerCode)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $psSql = "Exec eCS_HandleWorkGetAll ";
         $psSql .= "'" . $sRecordPk . "'";
         $psSql .= ",'" . $sOwnerCode . "'";
@@ -3015,7 +3015,7 @@ class Efy_Function_RecordFunctions
 
     public function fGetRecordTypeList($sWorkType, $sOwnerCode, $sDelimiter1 = ',')
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $psSql = "Select dbo.f_GetRecordTypeList(";
         $psSql .= "'" . $sWorkType . "'";
         $psSql .= ",'" . $sOwnerCode . "'";
@@ -3032,7 +3032,7 @@ class Efy_Function_RecordFunctions
 
     public function eCSHandleWorkUpdate($arrParameter)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $psSql = "Exec eCS_HandleWorkUpdate  ";
         $psSql .= "'" . $arrParameter['PK_RECORD'] . "'";
         $psSql .= ",'" . $arrParameter['PK_RECORD_WORK'] . "'";
@@ -3056,7 +3056,7 @@ class Efy_Function_RecordFunctions
 
     public function eCSHandleWorkGetSingle($sRecordWorkPk)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $psSql = "Exec eCS_HandleWorkGetSingle ";
         $psSql .= "'" . $sRecordWorkPk . "'";
         //echo  "<br>". $sql . "<br>";
@@ -3071,7 +3071,7 @@ class Efy_Function_RecordFunctions
 
     public function eCSHandleWorkDelete($sRecordWorkIdList)
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         // Bien luu trang thai
         $sql = "Exec eCS_HandleWorkDelete '" . $sRecordWorkIdList . "'";
         //echo $sql;exit;
@@ -3087,7 +3087,7 @@ class Efy_Function_RecordFunctions
 
     public function fRecordTypeListByCode($sWorkType, $sRecordTypePk, $sOwnerCode, $sDelimiter1 = ',', $sDelimiter2 = '!&@!')
     {
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $psSql = "Select dbo.f_RecordTypeListByCode(";
         $psSql .= "'" . $sWorkType . "'";
         $psSql .= ",'" . $sRecordTypePk . "'";

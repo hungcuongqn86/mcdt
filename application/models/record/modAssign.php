@@ -1,5 +1,5 @@
 <?php
-class record_modAssign extends Efy_DB_Connection {	
+class record_modAssign extends Extra_Db {
 	
 	/** Nguoi tao: NGHIAT
 		* Ngay tao: 04/11/2010

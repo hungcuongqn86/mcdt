@@ -3,7 +3,7 @@
  * @copyright :efy.com.vn - 11/2010 
  * @see : Nguoi tao: NGHIAT
  * */
-class record_modRss extends Efy_DB_Connection {	
+class record_modRss extends Extra_Db {
 	public function eCSPROMPTTHE($iStaffID,$sOwnerCode){
 		$sql = "eCS_PROMPT_THE ";
 		$sql = $sql . " '" . $iStaffID . "'";

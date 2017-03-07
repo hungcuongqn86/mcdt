@@ -1,5 +1,5 @@
 <?php
-class Listxml_modBackup extends Efy_DB_Connection {	
+class Listxml_modBackup extends Extra_Db {
 		
 	/** Nguoi tao: NGHIAT
 		* Ngay tao: 27/10/2010

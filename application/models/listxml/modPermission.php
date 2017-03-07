@@ -5,7 +5,7 @@
 * Idea: Lay danh sach quyen thuoc nhom
 */
 
-class permission_modUserPermission extends Efy_DB_Connection {
+class permission_modUserPermission extends Extra_Db {
 	
 	/**
 	 * Creater : HUNGVM

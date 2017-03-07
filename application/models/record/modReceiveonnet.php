@@ -9,7 +9,7 @@
  * 
  *
  */
-class record_modReceiveonnet extends Efy_DB_Connection {
+class record_modReceiveonnet extends Extra_Db {
     /**
      * @param $sRecordTypeID
      * @param $sUnit
@@ -20,7 +20,7 @@ class record_modReceiveonnet extends Efy_DB_Connection {
      * @return Mang
      */
 	public function eCSNetReceiveRecordGetAll($sRecordTypeID,$sUnit,$sFullTextSearch,$sRecordStatus,$iPage,$iNumberRecordPerPage){		
-		$objConn = new  Efy_DB_Connection(); 
+		$objConn = new  Extra_Db();
 		$sql = "Exec eCS_NetReceiveRecordGetAll ";
 		$sql = $sql . "'" .  $sRecordTypeID . "'";
 		$sql = $sql . ",'" . $sUnit . "'";
@@ -49,7 +49,7 @@ class record_modReceiveonnet extends Efy_DB_Connection {
      * @return Mang
      */
     public function eCSNetOrderGetAll($sRecordTypeID,$sUnit,$sFullTextSearch,$sRecordStatus,$iPage,$iNumberRecordPerPage){
-        $objConn = new  Efy_DB_Connection();
+        $objConn = new  Extra_Db();
         $sql = "Exec eCS_NetOrderGetAll ";
         $sql = $sql . "'" .  $sRecordTypeID . "'";
         $sql = $sql . ",'" . $sUnit . "'";
@@ -78,7 +78,7 @@ class record_modReceiveonnet extends Efy_DB_Connection {
      * @return Mang
      */
 	public function eCSNetOfficialRecordGetAll($sRecordTypeID,$sUnit,$sFullTextSearch,$sRecordStatus,$iPage,$iNumberRecordPerPage){		
-		$objConn = new  Efy_DB_Connection(); 
+		$objConn = new  Extra_Db();
 		$sql = "Exec eCS_NetOfficialRecordGetAll ";
 		$sql = $sql . "'" .  $sRecordTypeID . "'";
 		$sql = $sql . ",'" . $sUnit . "'";

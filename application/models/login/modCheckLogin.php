@@ -3,7 +3,7 @@
 /**
  * Class login_modCheckLogin
  */
-class login_modCheckLogin extends Efy_DB_Connection {
+class login_modCheckLogin extends Extra_Db {
     /**
      * @param $sUserName
      * @param $sPassWord
