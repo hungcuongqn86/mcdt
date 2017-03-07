@@ -15,7 +15,7 @@
 	Zend_Loader::loadClass('Zend_Config_Ini');
 	Zend_Loader::loadClass('Zend_Config_Xml');
 	Zend_Loader::loadClass('Zend_Registry');
-	Zend_Loader::loadClass('Efy_Function_RecordFunctions');
+	Zend_Loader::loadClass('Extra_Ecs');
 	Zend_Loader::loadClass('Extra_Util');
 	Zend_Loader::loadClass('Extra_Xml');
 	$conn = new Extra_Db();
@@ -55,7 +55,7 @@
 		isset($_REQUEST['hdn_recordTypeCode'])?$sRecordTypeCode = $_REQUEST['hdn_recordTypeCode']:$sRecordTypeCode = '';
 		isset($_REQUEST['hdn_order'])?$shdn_order = $_REQUEST['hdn_order']:$shdn_order = '1';
 		$objconfig = new Extra_Init();
-		$objrecordfun = new Efy_Function_RecordFunctions();
+		$objrecordfun = new Extra_Ecs();
 		$ojbEfyLib = new Extra_Util();
 		$objxml = new Extra_Xml();
 		if ($iPage <= 1)
@@ -120,7 +120,7 @@
 		isset($_REQUEST['hdn_OrderClause'])?$sOrderClause = $_REQUEST['hdn_OrderClause']:$sOrderClause = '';
 		$arrRecordType = $_SESSION['arr_all_record_type'];
 		$objconfig = new Extra_Init();
-		$objrecordfun = new Efy_Function_RecordFunctions();
+		$objrecordfun = new Extra_Ecs();
 		$ojbEfyLib = new Extra_Util();
 		$objxml = new Extra_Xml();
 		if ($iPage <= 1)

@@ -1,12 +1,9 @@
 <?php
 
 /**
- * @author :NGHIAT
- * @since : 22/10/2010
- * @see : Lop chua cac phuong thuc dung chung cho toan bo cac modul
- * @copyright :EFY VIET NAM JSC
+ * Class Extra_Ecs
  */
-class Efy_Function_RecordFunctions
+class Extra_Ecs
 {
     /**
      * @param $arrRecordInfo
@@ -351,7 +348,7 @@ class Efy_Function_RecordFunctions
         }
         //Tao SESSION luu thong tin tat ca cac TTHC cua nguoi dang nhap hien thoi
         if ((!isset($_SESSION['arr_all_record_type']) || is_null($_SESSION['arr_all_record_type'])) && (isset($_SESSION['staff_id']))) {
-            $_SESSION['arr_all_record_type'] = Efy_Function_RecordFunctions::eCSRecordTypeGetAllByStaff($_SESSION['staff_id'], $_SESSION['OWNER_CODE']);
+            $_SESSION['arr_all_record_type'] = Extra_Ecs::eCSRecordTypeGetAllByStaff($_SESSION['staff_id'], $_SESSION['OWNER_CODE']);
         }
         //var_dump($_SESSION['arr_all_record_type']);//exit;
         return $SesCheckLogin;
@@ -878,7 +875,7 @@ class Efy_Function_RecordFunctions
         $v_return_string = "";
         if ($v_option == 'unit') {
             for ($i = 0; $i < sizeof($arr_staff_id); $i++) {
-                $v_return_string = $v_return_string . ',' . Efy_Function_RecordFunctions::_get_item_attr_by_id($_SESSION['arr_all_staff_keep'], $arr_staff_id[$i], 'unit_id');
+                $v_return_string = $v_return_string . ',' . Extra_Ecs::_get_item_attr_by_id($_SESSION['arr_all_staff_keep'], $arr_staff_id[$i], 'unit_id');
             }
             $v_return_string = substr($v_return_string, 1);
         }
@@ -1454,7 +1451,7 @@ class Efy_Function_RecordFunctions
         $objConn = new  Extra_Db();
         //Tao duoi tuong trong lop dung chung
         $objLib = new Extra_Util();
-        $objRecordFunction = new Efy_Function_RecordFunctions();
+        $objRecordFunction = new Extra_Ecs();
         //Lay cac gia tri const
         $ojbEfyInitConfig = new Extra_Init();
         $arrConst = $ojbEfyInitConfig->_setProjectPublicConst();
@@ -1722,7 +1719,7 @@ class Efy_Function_RecordFunctions
         $ojbConfigXml = new Zend_Config_Xml($sPathXmlFile, $sParrentTagName);
         //Tao doi tuong xu ly XML
         $objXml = new Extra_Xml();
-        $objQLDTFun = new Efy_Function_RecordFunctions();
+        $objQLDTFun = new Extra_Ecs();
         $objLib = new Extra_Util();
         $sXmlData = '<?xml version="1.0" encoding="UTF-8"?>' . $sXmlData;
         $sContentFile = '';

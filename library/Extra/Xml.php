@@ -1472,27 +1472,27 @@ class Extra_Xml extends RAX
                 break;
 
             case "date";
-                $sDate = Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch, $objEfyLib->_yyyymmddToDDmmyyyy($this->value));
+                $sDate = Extra_Ecs::searchCharColor($this->sFullTextSearch, $objEfyLib->_yyyymmddToDDmmyyyy($this->value));
                 $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . '&nbsp;' . $sDate . '&nbsp;</td>';
                 break;
 
             case "time";
-                $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . '&nbsp;' . Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch, $objEfyLib->_yyyymmddToHHmm($this->value)) . '&nbsp;</td>';
+                $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . '&nbsp;' . Extra_Ecs::searchCharColor($this->sFullTextSearch, $objEfyLib->_yyyymmddToHHmm($this->value)) . '&nbsp;</td>';
                 break;
 
             case "text";
                 if ($this->xmlTagInDb == 'ho_ten_nk') {
-                    $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . Efy_Function_RecordFunctions::searchStringColor2($this->sFullTextSearch, $this->value) . '&nbsp;</td>';
+                    $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . Extra_Ecs::searchStringColor2($this->sFullTextSearch, $this->value) . '&nbsp;</td>';
                 } else
-                    $psRetHtml = '<td style="padding-left:5px" class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . Efy_Function_RecordFunctions::searchStringColor($this->sFullTextSearch, $this->value) . '&nbsp;</td>';
+                    $psRetHtml = '<td style="padding-left:5px" class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . Extra_Ecs::searchStringColor($this->sFullTextSearch, $this->value) . '&nbsp;</td>';
                 break;
 
             case "json";
-                $psRetHtml = '<td style="padding-left:5px" class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . Efy_Function_RecordFunctions::searchStringColor($this->sFullTextSearch, $this->value) . '&nbsp;</td>';
+                $psRetHtml = '<td style="padding-left:5px" class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . Extra_Ecs::searchStringColor($this->sFullTextSearch, $this->value) . '&nbsp;</td>';
                 break;
 
             case "char";
-                $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . '&nbsp;' . Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch, $this->value) . '&nbsp;</td>';
+                $psRetHtml = '<td class="data" align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . '&nbsp;' . Extra_Ecs::searchCharColor($this->sFullTextSearch, $this->value) . '&nbsp;</td>';
                 break;
 
             case "identity";
@@ -1769,7 +1769,7 @@ class Extra_Xml extends RAX
                 $v_record_id = $_SESSION['RECORDID'];
             }
             //var_dump($arrList);exit;
-            $modSendRecord = new Efy_Function_RecordFunctions();
+            $modSendRecord = new Extra_Ecs();
             while ($i < $count_item) {
                 $v_item_id = $arrList[$i][$IdColumn];
                 $v_item_name = $arrList[$i][$NameColumn];

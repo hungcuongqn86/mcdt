@@ -102,7 +102,7 @@ class record_handleController extends  Zend_Controller_Action {
 	public function indexAction(){
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		$objXml					 = new Extra_Xml();
         $ojbEfyLib				 = new Extra_Util();
 
@@ -189,7 +189,7 @@ class record_handleController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;
@@ -215,7 +215,7 @@ class record_handleController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;
@@ -241,7 +241,7 @@ class record_handleController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;
@@ -261,7 +261,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
     public function processAction(){
         $objHandle	  			 = new record_modHandle();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         // Lay id ho so
         $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
         $this->view->sRecordIdList = $sRecordIdList;
@@ -345,7 +345,7 @@ class record_handleController extends  Zend_Controller_Action {
     public function resultAction(){
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		$objXml					 = new Extra_Xml();
 		$objLibrary 			 = new Extra_Util();
 		//ID NSD dang nhap hien thoi
@@ -461,7 +461,7 @@ class record_handleController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;
@@ -481,7 +481,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
 	public function submitorderAction(){
         $objReceive = new record_modReceive();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         // Lay id ho so
         $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
         $this->view->sRecordIdList = $sRecordIdList;
@@ -533,7 +533,7 @@ class record_handleController extends  Zend_Controller_Action {
 	public function listAction(){	
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		$objXml					 = new Extra_Xml();
         $ojbEfyLib               = new Extra_Util();
 		//Lay mang hang so dung chung
@@ -613,7 +613,7 @@ class record_handleController extends  Zend_Controller_Action {
     public function approvedAction(){
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
-        $objRecordFunction	     = new Efy_Function_RecordFunctions();
+        $objRecordFunction	     = new Extra_Ecs();
         $objXml					 = new Extra_Xml();
         $ojbEfyLib               = new Extra_Util();
         //Lay mang hang so dung chung
@@ -692,7 +692,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
    	public function backongateAction(){
         $objHandle	  			 = new record_modHandle();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         // Lay id ho so
         $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
         $this->view->sRecordIdList = $sRecordIdList;
@@ -757,7 +757,7 @@ class record_handleController extends  Zend_Controller_Action {
     public function transitionAction(){
         $this->view->titleBody = "DANH SÁCH HỒ SƠ LIÊN THÔNG CHỜ NHẬN";
         $objconfig = new Extra_Init();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $objxml = new Extra_Xml();
         $ojbEfyLib = new Extra_Util();
 
@@ -832,7 +832,7 @@ class record_handleController extends  Zend_Controller_Action {
      */
     public function confirmAction(){
         $objReceive = new record_modReceive();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         // Lay id ho so
         $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
         $this->view->sRecordIdList = $sRecordIdList;

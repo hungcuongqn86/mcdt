@@ -92,7 +92,7 @@ class record_approveController extends  Zend_Controller_Action {
 	public function indexAction(){
 		$this->view->titleBody = "DANH S&#193;CH H&#7890; S&#416; CH&#7900; PH&#202; DUY&#7878;T";
 		$objconfig = new Extra_Init();
-		$objrecordfun = new Efy_Function_RecordFunctions();
+		$objrecordfun = new Extra_Ecs();
 		$objxml = new Extra_Xml();
         $objLibrary = new Extra_Util();
 
@@ -165,7 +165,7 @@ class record_approveController extends  Zend_Controller_Action {
     public function approvedAction(){
         $this->view->titleBody = "DANH S&#193;CH H&#7890; S&#416; ĐÃ PH&#202; DUY&#7878;T";
         $objconfig = new Extra_Init();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $objxml = new Extra_Xml();
         $objLibrary = new Extra_Util();
 
@@ -240,7 +240,7 @@ class record_approveController extends  Zend_Controller_Action {
      */
     public function approveAction(){
         $objconfig = new Extra_Init();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $objApprove = new record_modApprove();
 
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
@@ -363,7 +363,7 @@ class record_approveController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;
@@ -390,7 +390,7 @@ class record_approveController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;
@@ -412,7 +412,7 @@ class record_approveController extends  Zend_Controller_Action {
     public function transitionAction(){
         $this->view->titleBody = "DANH SÁCH HỒ SƠ LIÊN THÔNG CHỜ NHẬN";
         $objconfig = new Extra_Init();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $objxml = new Extra_Xml();
         $ojbEfyLib = new Extra_Util();
 
@@ -487,7 +487,7 @@ class record_approveController extends  Zend_Controller_Action {
      */
     public function confirmAction(){
         $objReceive = new record_modReceive();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         // Lay id ho so
         $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
         $this->view->sRecordIdList = $sRecordIdList;

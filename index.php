@@ -11,10 +11,6 @@ $autoloader->registerNamespace('Zend_');
 $autoloader->registerNamespace('Extra_');
 $autoloader->registerNamespace('G_');
 
-//Goi class Controller
-Zend_Loader::loadClass('Extra_Util');
-Zend_Loader::loadClass('Efy_Function_RecordFunctions');
-
 //Khai bao bien toan cuc
 $conDirApp = new Zend_Config_Ini('./config/config.ini', 'dirApp');
 $registry = Zend_Registry::getInstance();
@@ -31,9 +27,9 @@ $registry = Zend_Registry::getInstance();
 $registry->set('connectSQL', $connectSQL);
 $connAdo = Extra_Db::connectADO($connectSQL->db->adapter, $connectSQL->db->config->toArray());
 //Lay url hien hanh
-$df_url = Efy_Function_RecordFunctions::curPageURL();
+$df_url = Extra_Ecs::curPageURL();
 // Goi ham kiem tra user login
-Efy_Function_RecordFunctions::CheckLogin($df_url);
+Extra_Ecs::CheckLogin($df_url);
 
 // setup controller
 $frontController = Zend_Controller_Front::getInstance();

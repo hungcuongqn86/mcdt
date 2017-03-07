@@ -48,7 +48,7 @@ class Record_ReminderController extends  Zend_Controller_Action {
 	public function indexAction(){
 		$objReminder 	= new Record_modReminder();
 		$objInitConfig 	= new Extra_Init();
-		$objFunction 	= new Efy_Function_RecordFunctions();
+		$objFunction 	= new Extra_Ecs();
 		$this->view->bodyTitle = 'C&#193;C C&#212;NG VI&#7878;C C&#7846;N X&#7916; L&#221;';
 		$iFkUnit = $objFunction->doc_get_all_unit_permission_form_staffIdList($_SESSION['staff_id']);
         $sOwnerCode	= $_SESSION['OWNER_CODE'];

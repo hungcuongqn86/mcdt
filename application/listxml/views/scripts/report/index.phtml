@@ -61,7 +61,7 @@
 			for($index = 0;$index < sizeof($arrRecordType) ;$index++){
 				$sPk						= $arrRecordType[$index]['PK_LIST_RECORD'];			
 				$iOrder						= $arrRecordType[$index]['C_ORDER'];						
-				$sName 						= Efy_Function_RecordFunctions::searchStringColor($this->sFullTextSearch,$arrRecordType[$index]['C_NAME']).'&nbsp;';
+				$sName 						= Extra_Ecs::searchStringColor($this->sFullTextSearch,$arrRecordType[$index]['C_NAME']).'&nbsp;';
 				$sStatus		 			= $arrRecordType[$index]['C_STATUS'];
 				If($sStatus == "HOAT_DONG"){
 					$sStatus = "Hoạt động";

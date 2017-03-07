@@ -77,8 +77,8 @@
 			for($index = 0;$index < sizeof($arrRecordType) ;$index++){
 				$sPk						= $arrRecordType[$index]['PK_RECORDTYPE'];			
 				$iOrder						= $arrRecordType[$index]['C_ORDER'];	
-				$sCode						= Efy_Function_RecordFunctions::searchCharColor($this->sFullTextSearch,$arrRecordType[$index]['C_CODE']).'&nbsp;';					
-				$sName 						= Efy_Function_RecordFunctions::searchStringColor($this->sFullTextSearch,$arrRecordType[$index]['C_NAME']).'&nbsp;';
+				$sCode						= Extra_Ecs::searchCharColor($this->sFullTextSearch,$arrRecordType[$index]['C_CODE']).'&nbsp;';
+				$sName 						= Extra_Ecs::searchStringColor($this->sFullTextSearch,$arrRecordType[$index]['C_NAME']).'&nbsp;';
 				$sStatus		 			= $arrRecordType[$index]['C_STATUS'];
 				$sRecordType		 		= $arrRecordType[$index]['C_RECORD_TYPE'];
 				If($sStatus == "HOAT_DONG"){

@@ -76,9 +76,9 @@
 				// Pk cua bang
 				$pkListType = $arr_result[$index]['PK_LISTTYPE'];				
 				// Ma Loai Danh muc
-				$codeListType = '&nbsp;' .Efy_Function_RecordFunctions::searchCharColor($this->listTypeName,$arr_result[$index]['C_CODE']).'&nbsp;';							
+				$codeListType = '&nbsp;' .Extra_Ecs::searchCharColor($this->listTypeName,$arr_result[$index]['C_CODE']).'&nbsp;';
 				// Ten ListType
-				$nameListType = '&nbsp;' .Efy_Function_RecordFunctions::searchStringColor($this->listTypeName,$arr_result[$index]['C_NAME']).'&nbsp;';	
+				$nameListType = '&nbsp;' .Extra_Ecs::searchStringColor($this->listTypeName,$arr_result[$index]['C_NAME']).'&nbsp;';
 				// So thu tu
 				$orderListType = $arr_result[$index]['C_ORDER'].'&nbsp;';					
 				// Tinh trang

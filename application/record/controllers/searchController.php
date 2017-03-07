@@ -73,7 +73,7 @@ class record_searchController extends  Zend_Controller_Action {
 	 *
 	 */
 	public function indexAction(){
-        $objRecordFunction	     = new Efy_Function_RecordFunctions();
+        $objRecordFunction	     = new Extra_Ecs();
         $objInitConfig 			 = new Extra_Init();
         $this->view->arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->bodyTitle = 'TRA C&#7912;U H&#7890; S&#416; ';
@@ -173,7 +173,7 @@ class record_searchController extends  Zend_Controller_Action {
      */
     public function loadcateAction(){
         $arrInput                = $this->_request->getParams();
-        $objRecordFunction	     = new Efy_Function_RecordFunctions();
+        $objRecordFunction	     = new Extra_Ecs();
         $arrCate = $objRecordFunction->getAllObjectbyListCode($arrInput['ownercode'],"DANH_MUC_LINH_VUC");
         echo Zend_Json::encode($arrCate);
         exit;
@@ -195,7 +195,7 @@ class record_searchController extends  Zend_Controller_Action {
      *
      */
 	public function generalAction(){
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();
+		$objRecordFunction	     = new Extra_Ecs();
         $objconfig = new Extra_Init();
 		//Lay Danh muc TTHC
         $sOwnerCode = $_SESSION['OWNER_CODE'];
@@ -283,7 +283,7 @@ class record_searchController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;

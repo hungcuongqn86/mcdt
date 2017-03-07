@@ -18,7 +18,7 @@ class record_receiveonnetController extends Zend_Controller_Action
      */
     public function init()
     {
-        //Efy_Function_RecordFunctions::CheckLogin();
+        //Extra_Ecs::CheckLogin();
         //Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
         $this->_dirApp = $tempDirApp->toArray();
@@ -112,7 +112,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         $this->_response->insert('left', $this->view->renderLayout('left.phtml', './application/views/scripts/'));
         $this->view->titleBody = "DANH SÁCH HỒ SƠ CHỜ TIẾP NHẬN SƠ BỘ";
         $objconfig = new Extra_Init();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $objxml = new Extra_Xml();
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
         $objReceiveonnet = new record_modReceiveonnet();//tao doi tuong cua lop mode va su dung cac function cua mode qua obj do.
@@ -214,7 +214,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         // Class thiet lap cac cau hinh cua he thong
         $objconfig = new Extra_Init();
         //Class xu ly cac phuong thuc dung chung cua he thong
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         //Class xu ly cac phuong thuc lien quan den xml
         $objxml = new Extra_Xml();
         //Lay mang hang so dung chung
@@ -298,7 +298,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         // Class thiet lap cac cau hinh cua he thong
         $objconfig = new Extra_Init();
         //Class xu ly cac phuong thuc dung chung cua he thong
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         //Class xu ly cac phuong thuc lien quan den xml
         $objxml = new Extra_Xml();
         //Lay mang hang so dung chung
@@ -397,7 +397,7 @@ class record_receiveonnetController extends Zend_Controller_Action
      */
     public function deleteAction()
     {
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $objReceiveonnet = new record_modReceiveonnet();
         $objconfig = new Extra_Init();
         $sNetReceiveRecordIDList = $this->_request->getParam('hdn_object_id_list', '');
@@ -432,7 +432,7 @@ class record_receiveonnetController extends Zend_Controller_Action
     {
         $this->view->titleBody = "CHI TIẾT HỒ SƠ";
         $objconfig = new Extra_Init();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $objxml = new Extra_Xml();
         $ojbEfyLib = new Extra_Util();
         $objReceiveonnet = new record_modReceiveonnet();
@@ -560,7 +560,7 @@ class record_receiveonnetController extends Zend_Controller_Action
     {
         $this->view->titleBody = "GỬI EMAIL CHO CÔNG DÂN";
         $objconfig = new Extra_Init();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $objReceiveonnet = new record_modReceiveonnet();
 
         $mailConfig = $objconfig->configMail();

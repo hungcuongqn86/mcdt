@@ -81,7 +81,7 @@ class record_assignController extends  Zend_Controller_Action {
 	public function indexAction(){	
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		$objXml					 = new Extra_Xml();
         $sStatus =  "CHO_PHAN_CONG";
         //Tieu de man hinh danh sach
@@ -152,7 +152,7 @@ class record_assignController extends  Zend_Controller_Action {
 	public function addAction(){
         Zend_Loader::loadClass('record_modHandle');
         $objHandle	  			 = new record_modHandle();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         // Lay id ho so
         $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
         $this->view->sRecordIdList = $sRecordIdList;
@@ -223,7 +223,7 @@ class record_assignController extends  Zend_Controller_Action {
     public function assignedAction(){
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
-        $objRecordFunction	     = new Efy_Function_RecordFunctions();
+        $objRecordFunction	     = new Extra_Ecs();
         $objXml					 = new Extra_Xml();
         $sStatus =  "";
         //Tieu de man hinh danh sach
@@ -300,7 +300,7 @@ class record_assignController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;
@@ -328,7 +328,7 @@ class record_assignController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objHandle	  			 = new record_modHandle();
         $objSearch				 = new record_modReceive();
-        $objrecordfun            = new Efy_Function_RecordFunctions();
+        $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
         $this->view->arrConst = $arrConst;

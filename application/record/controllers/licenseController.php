@@ -92,7 +92,7 @@ class record_licenseController extends  Zend_Controller_Action {
 	public function indexAction(){
 		$this->view->titleBody = "";
 		$objconfig = new Extra_Init();
-		$objrecordfun = new Efy_Function_RecordFunctions();
+		$objrecordfun = new Extra_Ecs();
 		$objxml = new Extra_Xml();
 		$ojbEfyLib = new Extra_Util();
 		$objReceive = new record_modReceive();
@@ -178,7 +178,7 @@ class record_licenseController extends  Zend_Controller_Action {
 		// Tao doi tuong cho lop xu ly du lieu lien quan modul	
 		$objReceive = new record_modReceive();						
 		//Tao doi tuong trong thu hien cac ham ma modul dung chung
-		$objQLDTFun = new Efy_Function_RecordFunctions();		
+		$objQLDTFun = new Extra_Ecs();
 		//Tao doi tuong config
 		$objConfig = new Extra_Init();
 		// Lay toan bo tham so truyen tu form			

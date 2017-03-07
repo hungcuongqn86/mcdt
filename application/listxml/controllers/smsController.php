@@ -9,7 +9,7 @@ class Listxml_smsController extends  Zend_Controller_Action {
 	public $_AssignPermission;
 	
 	public function init(){
-		//Efy_Function_RecordFunctions::CheckLogin();
+		//Extra_Ecs::CheckLogin();
 		//Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
 		$this->_dirApp = $tempDirApp->toArray();

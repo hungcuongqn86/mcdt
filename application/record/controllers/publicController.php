@@ -48,7 +48,7 @@ class record_publicController extends  Zend_Controller_Action {
         $iCurrentStaffId = $_SESSION['staff_id'];
         $arrRecordType = $_SESSION['arr_all_record_type'];
         $objconfig = new Extra_Init();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         $ojbEfyLib = new Extra_Util();
         $objxml = new Extra_Xml();
 
@@ -130,7 +130,7 @@ class record_publicController extends  Zend_Controller_Action {
         isset($_REQUEST['ownercode'])?$sOwnerCode = $_REQUEST['ownercode']:$sOwnerCode = $_SESSION['OWNER_CODE'];
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
-        $objRecordFunction	     = new Efy_Function_RecordFunctions();
+        $objRecordFunction	     = new Extra_Ecs();
         $ojbEfyLib				 = new Extra_Util();
         $conn 					 = new G_Db();
         //Thong tin ho so
@@ -355,7 +355,7 @@ class record_publicController extends  Zend_Controller_Action {
     public function getinformationrecordAction(){
         Zend_Loader::loadClass('record_modReceive');
         $objReceive = new record_modReceive();
-        $objrecordfun = new Efy_Function_RecordFunctions();
+        $objrecordfun = new Extra_Ecs();
         isset($_REQUEST['pkrecord'])?$sRecordPk = $_REQUEST['pkrecord']:$sRecordPk = '';
         $arrRecordInfo = $objReceive->eCSGetInfoRecordFromListId($sRecordPk, $_SESSION['OWNER_CODE']);
         $sRecordTransitionId = $arrRecordInfo[0]['PK_RECORD_TRANSITION'];
@@ -469,7 +469,7 @@ class record_publicController extends  Zend_Controller_Action {
      */
     public function getgendataseachAction(){
         $conn 	             = new G_Db();
-        $objRecordFunction	 = new Efy_Function_RecordFunctions();
+        $objRecordFunction	 = new Extra_Ecs();
         $ojbEfyLib			 = new Extra_Util();
 
         // Neu checkView = on, tim kiem tat ca don vi, off: tim kiem mot don vi
@@ -848,7 +848,7 @@ class record_publicController extends  Zend_Controller_Action {
         }catch (Exception $e){
             return $e->getMessage();
         }
-        $objFunction = new Efy_Function_RecordFunctions();
+        $objFunction = new Extra_Ecs();
         $arrTLKT = array();
         $arrData = array();
         foreach($arrList as $value){
@@ -901,7 +901,7 @@ class record_publicController extends  Zend_Controller_Action {
                 return $e->getMessage();
             }
             //Luu vao cache
-            $objFunction = new Efy_Function_RecordFunctions();
+            $objFunction = new Extra_Ecs();
             $arrObject = $objFunction->GetAllListObjectByDatabaseListCode($list_code, $owner_code);
             $cache = $objFunction->configCacheFile('TLKT_CACHE');
             $cache->save($arrObject,$list_code);
@@ -926,7 +926,7 @@ class record_publicController extends  Zend_Controller_Action {
                 return $e->getMessage();
             }
             //Luu vao cache
-            $objFunction = new Efy_Function_RecordFunctions();
+            $objFunction = new Extra_Ecs();
             $arrObject = $objFunction->GetAllListObjectByDatabaseListCode($list_code, $owner_code);
             $cache = $objFunction->configCacheFile('TLKT_CACHE');
             $cache->save($arrObject,$list_code);

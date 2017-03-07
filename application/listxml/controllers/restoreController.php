@@ -7,7 +7,7 @@
  */
 class Listxml_restoreController extends  Zend_Controller_Action {
 	public function init(){
-		//Efy_Function_RecordFunctions::CheckLogin();
+		//Extra_Ecs::CheckLogin();
 		//Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
 		$this->_dirApp = $tempDirApp->toArray();
@@ -87,7 +87,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
 	public function restoreAction(){
 		// Tieu de cua Form cap  nhat
 		$this->view->bodyTitle = 'PHỤC HỒI DỮ LIỆU';
-		$RecordFunctions 	= new Efy_Function_RecordFunctions();
+		$RecordFunctions 	= new Extra_Ecs();
 		//$objBackup 			= new Listxml_modBackup();
 		$objConfig			= new Extra_Init();
 		$ojbXmlLib 			= new Extra_Xml();
@@ -148,7 +148,7 @@ class Listxml_restoreController extends  Zend_Controller_Action {
  * 	*/
 	
 	private function showDialog(){
-		$RecordFunctions 	= new Efy_Function_RecordFunctions();
+		$RecordFunctions 	= new Extra_Ecs();
 		$ojbXmlLib 			= new Extra_Xml();
 		$arrResult = $RecordFunctions->getAllObjectbyListCode($_SESSION['OWNER_CODE'],'DM_TS_HT');
 		$dir = $ojbXmlLib->_xmlGetXmlTagValue('<?xml version="1.0" encoding="UTF-8"?>'.$arrResult[0]['C_XML_DATA'],'data_list','path_backup');

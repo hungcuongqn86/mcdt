@@ -33,8 +33,8 @@
                 $sCurrentStyleName = "round_row";
                 for($index = 0;$index < sizeof($arrWork) ;$index++){
                     $sPk = $arrWork[$index]['PK_RECORD_WORK'];
-                    $iUnitId = Efy_Function_RecordFunctions::GetUnitIdListFromStaffIdList($arrWork[$index]['FK_STAFF'],$_SESSION['arr_all_staff_keep']);
-                    $sUnitName = Efy_Function_RecordFunctions::getNameUnitByIdUnitList($iUnitId,'arr_all_unit_keep');
+                    $iUnitId = Extra_Ecs::GetUnitIdListFromStaffIdList($arrWork[$index]['FK_STAFF'],$_SESSION['arr_all_staff_keep']);
+                    $sUnitName = Extra_Ecs::getNameUnitByIdUnitList($iUnitId,'arr_all_unit_keep');
                     //lay file dinh kem
                     $strFileName = $arrWork[$index]['C_FILE_NAME'];
                     $sFile = '';

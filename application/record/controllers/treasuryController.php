@@ -7,7 +7,7 @@
 class record_treasuryController extends  Zend_Controller_Action {
 	public $_publicPermission;
 	public function init(){
-		//Efy_Function_RecordFunctions::CheckLogin();
+		//Extra_Ecs::CheckLogin();
 		//Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
 		$this->_dirApp = $tempDirApp->toArray();
@@ -86,7 +86,7 @@ class record_treasuryController extends  Zend_Controller_Action {
 	public function indexAction(){	
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		$objXml					 = new Extra_Xml();
 		$objTax					 = new record_modTax();	
 		//main or support
@@ -184,7 +184,7 @@ class record_treasuryController extends  Zend_Controller_Action {
 			$this->_redirect('record/treasury/index/status/'.$sStatus.'/?recordType='.$sRecordTypeId);			
 		}
 		//Goi doi tuong
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		$objTax	  				 = new record_modTax();
 		$objInitConfig 			 = new Extra_Init();
 		$ojbEfyLib				 = new Extra_Util();
@@ -294,7 +294,7 @@ class record_treasuryController extends  Zend_Controller_Action {
 public function worklistAction(){
 		//Goi cac doi tuong
 		$objInitConfig 			 	= new Extra_Init();
-		$objRecordFunction	     	= new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     	= new Extra_Ecs();
 		$ojbEfyLib				 	= new Extra_Util();
 		//Tieu de 
 		$this->view->bodyTitle = 'DANH S&#193;CH C&#212;NG VI&#7878;C';
@@ -327,7 +327,7 @@ public function worklistAction(){
 	public function viewrecordAction(){
 		$this->view->titleBody = "CHI TI&#7870;T H&#7890; S&#416;�";
 		$objconfig = new Extra_Init();
-		$objrecordfun = new Efy_Function_RecordFunctions();
+		$objrecordfun = new Extra_Ecs();
 		$objxml = new Extra_Xml();
 		$ojbEfyLib = new Extra_Util();
 		//Lay tham so cau hinh
@@ -418,7 +418,7 @@ public function worklistAction(){
 		}		
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		$ojbEfyLib				 = new Extra_Util();
 		$objXml					 = new Extra_Xml();
 		//Lay mang hang so dung chung
@@ -509,7 +509,7 @@ public function worklistAction(){
 		}	
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		$ojbEfyLib				 = new Extra_Util();
 		$objXml					 = new Extra_Xml();
 		//Lay mang hang so dung chung
@@ -586,7 +586,7 @@ public function worklistAction(){
 		}						
 	}
 	public function workdeleteAction(){
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		//Trang thai
 		$sStatus = $this->_request->getParam('status','');
 		$this->view->sStatus = $sStatus;
@@ -599,7 +599,7 @@ public function worklistAction(){
 		$sRecordWorkIdList = $this->_request->getParam('hdn_object_id_list',"");	
 		//echo $sRecordWorkIdList;exit;
 		//Goi phuong thuc xoa doi tuong
-		$arrFile=Efy_Function_RecordFunctions::eCSFileGetSingle($sRecordWorkIdList,'RECORD_WORK');
+		$arrFile=Extra_Ecs::eCSFileGetSingle($sRecordWorkIdList,'RECORD_WORK');
 		$objRecordFunction->eCSHandleWorkDelete($sRecordWorkIdList);
 		//xoa file tren o cung
 		$fileNameList =$arrFile[0]['C_FILE_NAME'];

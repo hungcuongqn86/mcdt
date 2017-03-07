@@ -8,7 +8,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 		
 	//Phuong thuc init()
 	public function init(){
-		//Efy_Function_RecordFunctions::CheckLogin();
+		//Extra_Ecs::CheckLogin();
 		//Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
 		$this->_dirApp = $tempDirApp->toArray();
@@ -85,7 +85,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 		//Goi cac doi tuong
 		$ojbEfyInitConfig = new Extra_Init();
 		$objRecordtype	  = new listxml_modRecordtype();
-		$objFunction	  = new Efy_Function_RecordFunctions();		
+		$objFunction	  = new Extra_Ecs();
 		//Tieu de man hinh danh sach
 		$this->view->bodyTitle = 'DANH S&#193;CH TH&#7910; T&#7908;C H&#192;NH CH&#205;NH';
         //Lay ma don vi NSD
@@ -123,7 +123,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
     public function addAction(){
         //Goi cac doi tuong
         $ojbEfyInitConfig = new Extra_Init();
-        $objFunction	  = new Efy_Function_RecordFunctions();
+        $objFunction	  = new Extra_Ecs();
         $objRecordtype	  = new listxml_modRecordtype();
         //Tieu de man hinh danh sach
         $this->view->bodyTitle = 'C&#7852;P NH&#7852;T TH&#212;NG TIN THỦ TỤC H&#192;NH CH&#205;NH';
@@ -222,7 +222,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 	public function configAction(){
         //Goi cac doi tuong
         $ojbEfyInitConfig = new Extra_Init();
-        $objFunction	  = new Efy_Function_RecordFunctions();
+        $objFunction	  = new Extra_Ecs();
         $objRecordtype	  = new listxml_modRecordtype();
         //Tieu de man hinh danh sach
         $this->view->bodyTitle = 'CẤU HÌNH TH&#7910; T&#7908;C H&#192;NH CH&#205;NH';
@@ -352,7 +352,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
  * Idea: Thuc hien phuong thuc Ajax lay Treeview don vi doi voi loai hs lien thong
  */
 	public function ajaxapproveAction(){
-		$objFunction	  = new Efy_Function_RecordFunctions();	
+		$objFunction	  = new Extra_Ecs();
 		$sApproveLevel = $this->_request->getParam('C_APPROVE_LEVEL',"");
 		$this->view->sApproveLevel = $sApproveLevel;
 		
@@ -411,7 +411,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
 	public function editAction(){
 		//Goi cac doi tuong
 		$ojbEfyInitConfig = new Extra_Init();
-		$objFunction	  = new Efy_Function_RecordFunctions();	
+		$objFunction	  = new Extra_Ecs();
 		$objRecordtype	  = new listxml_modRecordtype();
 		//Tieu de man hinh danh sach
 		$this->view->bodyTitle = 'C&#7852;P NH&#7852;T TH&#7910; T&#7908;C H&#192;NH CH&#205;NH';

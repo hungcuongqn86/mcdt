@@ -5,7 +5,7 @@
  */
 class Record_normalreportController extends  Zend_Controller_Action {
 	public function init(){
-		//Efy_Function_RecordFunctions::CheckLogin();	
+		//Extra_Ecs::CheckLogin();
 		//Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
 		$this->_dirApp = $tempDirApp->toArray();
@@ -81,7 +81,7 @@ class Record_normalreportController extends  Zend_Controller_Action {
 	public function indexAction(){		
 		// Tieu de man hinh danh sach
 		$this->view->bodyTitle = 'BÁO CÁO THEO TỪNG TTHC';
-		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
+		$objRecordFunction	     = new Extra_Ecs();
 		//Lay DM Linh vuc TTHC
 		$arrCate = $objRecordFunction->getAllObjectbyListCode('',"DANH_MUC_LINH_VUC");
 		$this->view->arrCate = $arrCate;
@@ -136,7 +136,7 @@ class Record_normalreportController extends  Zend_Controller_Action {
 		//Tao doi tuong thu vien xu ly du lieu
 		$objXmlLib = new Extra_Xml();
 		$objEfyLib = new Extra_Util();
-		$objFunction = new Efy_Function_RecordFunctions();	
+		$objFunction = new Extra_Ecs();
 		//Lay loai TTHC
 		$sRecordTypeID=$this->_request->getParam('hdn_recordtype_id',"");
 		//Lay danh sach cac THE mo ta tieu tri loc + dung cho nut tim kiem submit tai form

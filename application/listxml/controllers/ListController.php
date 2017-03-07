@@ -9,7 +9,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		
 	//Phuong thuc init()
 	public function init(){
-		//Efy_Function_RecordFunctions::CheckLogin();
+		//Extra_Ecs::CheckLogin();
 		//Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
 		$this->_dirApp = $tempDirApp->toArray();
