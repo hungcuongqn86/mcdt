@@ -34,7 +34,7 @@
 			<label class="small_title" style="width:25%;">Bước 1: Ch&#7885;n lĩnh vực</label>
 			<select  id="C_CATE" name="C_CATE" optional="true" style="width:75%;clear: left;display: block;float: right;" class="normal_selectbox" name="sel_recordtype"  style="width: 50%" onChange="changeCate();">
 				<option id="" value="">---<?php echo '--Ch&#7885;n lĩnh vực--'?>---</option>		
-				<?php echo Efy_Library::_generateSelectOption($arrCate,'C_CODE','C_CODE','C_NAME',$this->sCate);?>
+				<?php echo Extra_Util::_generateSelectOption($arrCate,'C_CODE','C_CODE','C_NAME',$this->sCate);?>
 			</select>
 		</div>	
 		<div style="margin: 0 20px 20px;">

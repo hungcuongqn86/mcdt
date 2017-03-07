@@ -27,7 +27,7 @@ class Record_ReminderController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		/* Dung de load file Js va css		/*/
 		// Goi lop public
-		$objLibrary = new Efy_Library();
+		$objLibrary = new Extra_Util();
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "REMINDER";
 		$this->view->currentModulCodeForLeft = "REMINDER";

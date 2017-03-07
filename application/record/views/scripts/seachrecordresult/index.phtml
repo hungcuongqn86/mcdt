@@ -71,7 +71,7 @@ function setFocus(){
 				<?php			
 				$delimitor = $this->delimitor;//Lay ky tu phan cach giua cac phan tu
 				//Hien thi cac cot cua bang hien thi du lieu
-					$StrHeader = explode("!~~!", Efy_Library::_GenerateHeaderTable("5%" . $delimitor . "20%" . $delimitor . "30%" . $delimitor . "45%"
+					$StrHeader = explode("!~~!", Extra_Util::_GenerateHeaderTable("5%" . $delimitor . "20%" . $delimitor . "30%" . $delimitor . "45%"
 													,'STT' . $delimitor ."Ngày thực hiện"  . $delimitor . "Tên công việc" . $delimitor . "Kết quả giải quyết" 
 													,$delimitor));
 				echo $StrHeader[0];				
@@ -91,13 +91,13 @@ function setFocus(){
 						<?=$index+1?>			
 					</td>
 					<td align="center" style="padding-left:3px;padding-right:3px;"  class="normal_label" >
-						<?=Efy_Library::_yyyymmddToDDmmyyyy($arrWork[$index]['C_WORK_DATE'])?>
+						<?=Extra_Util::_yyyymmddToDDmmyyyy($arrWork[$index]['C_WORK_DATE'])?>
 					</td>	
 					<td align="left" style="padding-left:3px;padding-right:3px;" class="normal_label"  ><?=$arrWork[$index]['C_WORKTYPE_NAME'] ?></td>
 					<td align="left" style="padding-left:3px;padding-right:3px;" class="normal_label" ><?=$arrWork[$index]['C_RESULT']?></td>		
 				</tr><?php }
 				//Tu dien cac dong trang trong truong hop du lieu tra ve < so row _CONST_NUMBER_OF_ROW_PER_LIST	
-				echo Efy_Library::_addEmptyRow(10,15 -sizeof($arrWork),$sCurrentStyleName,4); ?>
+				echo Extra_Util::_addEmptyRow(10,15 -sizeof($arrWork),$sCurrentStyleName,4); ?>
 			</table>	
 		</div>	
 		</td>

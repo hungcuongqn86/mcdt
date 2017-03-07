@@ -29,7 +29,7 @@ class record_wapproveController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		// Load tat ca cac file Js va Css
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
 		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','js-record/wapprove.js',',','js');
 
 		//Lay tra tri trong Cookie
@@ -80,7 +80,7 @@ class record_wapproveController extends  Zend_Controller_Action {
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Extra_Xml();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
 
 		$this->view->arrConst = $objconfig->_setProjectPublicConst();
 		$arrRecordType = $_SESSION['arr_all_record_type'];
@@ -157,7 +157,7 @@ class record_wapproveController extends  Zend_Controller_Action {
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Extra_Xml();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
 
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
         $arrRecordType = $_SESSION['arr_all_record_type'];
@@ -252,7 +252,7 @@ class record_wapproveController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate) {
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $idea = $this->_request->getParam('idea');
             $iUserId = $_SESSION['staff_id'];

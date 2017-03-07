@@ -37,7 +37,7 @@ class record_approveController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('record_modHandle');
         Zend_Loader::loadClass('record_modReceive');
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','/approve/approve.js,js-record/approve.js,xml/general_datatable.js',',','js');
 		//Lay tra tri trong Cookie
@@ -94,7 +94,7 @@ class record_approveController extends  Zend_Controller_Action {
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Extra_Xml();
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
 
 		$this->view->arrConst = $objconfig->_setProjectPublicConst();
 		$arrRecordType = $_SESSION['arr_all_record_type'];
@@ -167,7 +167,7 @@ class record_approveController extends  Zend_Controller_Action {
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Extra_Xml();
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
 
         $this->view->arrConst = $objconfig->_setProjectPublicConst();
         $arrRecordType = $_SESSION['arr_all_record_type'];
@@ -267,7 +267,7 @@ class record_approveController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate) {
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $idea = $this->_request->getParam('idea');
 
@@ -414,7 +414,7 @@ class record_approveController extends  Zend_Controller_Action {
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Extra_Xml();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
 
         $arrRecordType = $_SESSION['arr_all_record_type'];
         $sRecordTypeId = $this->_request->getParam('recordType');

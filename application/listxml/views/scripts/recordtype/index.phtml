@@ -36,10 +36,10 @@
                 <td  style="padding-left:10px;">
                     <select  id="C_CATE" name="C_CATE"   option = "false"  style="width:34%;" class="textbox normal_label"  message="<?php echo "Phải xác định lĩnh vực";?>" onchange="save_select_box(this);" >
                         <option id="" name = "" value=""  >-- Lấy tất cả lĩnh vực --</option>
-                        <?php echo Efy_Library::_generateSelectOption($arrCate,'C_CODE','C_CODE','C_NAME',$arrResult['C_CATE']);?>
+                        <?php echo Extra_Util::_generateSelectOption($arrCate,'C_CODE','C_CODE','C_NAME',$arrResult['C_CATE']);?>
                     </select>
                     <select  id="sStatus" name="sStatus"   option = "false"  style="width:33%;" class="textbox normal_label" >
-                        <?php echo Efy_Library::_generateSelectOption($arrStatus,'code','code','name',$this->sStatus);?>
+                        <?php echo Extra_Util::_generateSelectOption($arrStatus,'code','code','name',$this->sStatus);?>
                     </select>
                     <input type="button" value="Tìm kiếm" class="add_large_button"  onchange="handler(event)" onclick="actionUrl('');">
                 </td>
@@ -66,7 +66,7 @@
 			<?php			
 			$delimitor = $this->delimitor;//Lay ky tu phan cach giua cac phan tu
 			//Hien thi cac cot cua bang hien thi du lieu
-				$StrHeader = explode("!~~!", Efy_Library::_GenerateHeaderTable("3%" . $delimitor . "10%" . $delimitor . "17%" . $delimitor . "50%" . $delimitor . "20%"
+				$StrHeader = explode("!~~!", Extra_Util::_GenerateHeaderTable("3%" . $delimitor . "10%" . $delimitor . "17%" . $delimitor . "50%" . $delimitor . "20%"
 												,'<input type="checkbox" name="chk_all_item_id"  onclick="checkbox_all_item_id(document.forms[0].chk_item_id);">' . $delimitor .$arrConst['_THU_TU']  . $delimitor . $arrConst['_MA_HO_SO'] . $delimitor . $arrConst['_TEN_HO_SO'] . $delimitor . $arrConst['_TINH_TRANG']
 												,$delimitor));
 			echo $StrHeader[0];				
@@ -111,7 +111,7 @@
 				</tr><?php
 			}					
 			//Tu dien cac dong trang trong truong hop du lieu tra ve < so row _CONST_NUMBER_OF_ROW_PER_LIST	
-				echo Efy_Library::_addEmptyRow($this->iCountElement,15 -sizeof($arrRecordType),$sCurrentStyleName,5);
+				echo Extra_Util::_addEmptyRow($this->iCountElement,15 -sizeof($arrRecordType),$sCurrentStyleName,5);
 			?>
 		</table>	
 		<!--Hien thi trang can xem!-->

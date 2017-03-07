@@ -107,7 +107,7 @@ class Extra_Xml extends RAX
         //Neu ton tai xau XML
         if ($spXmlString != "") {
             $objXmlData = new Zend_Config_Xml($spXmlString, $spXmlParentTag);
-            return Efy_Library::_restoreXmlBadChar($objXmlData->$spXmlTag);
+            return Extra_Util::_restoreXmlBadChar($objXmlData->$spXmlTag);
         } else {
             return "";
         }
@@ -140,7 +140,7 @@ class Extra_Xml extends RAX
         $this->efyListWebSitePath = $ojbEfyInitConfig->_getCurrentHttpAndHost();
 
         // Tao doi tuong trong thu vien dung chung
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
         $this->viewMode = $p_view_mode;
         if ($p_input_file_name)
             $this->xmlStringInFile = $ojbEfyLib->_readFile($spXmlFileName);
@@ -257,11 +257,11 @@ class Extra_Xml extends RAX
                     $this->value = $objXmlData->$tag;
                 } else {
                     if ($this->spDataFormat == "isdate") {
-                        $this->value = Efy_Library::_yyyymmddToDDmmyyyy(Efy_Library::_replaceBadChar($p_arr_item_value[$this->columnName]));
+                        $this->value = Extra_Util::_yyyymmddToDDmmyyyy(Extra_Util::_replaceBadChar($p_arr_item_value[$this->columnName]));
                     } else {
-                        $this->value = Efy_Library::_replaceBadChar($p_arr_item_value[$this->columnName]);
+                        $this->value = Extra_Util::_replaceBadChar($p_arr_item_value[$this->columnName]);
                         if (trim($this->value) == "") {
-                            $this->value = Efy_Library::_replaceBadChar($p_arr_item_value[0][$this->columnName]);
+                            $this->value = Extra_Util::_replaceBadChar($p_arr_item_value[0][$this->columnName]);
                         }
                     }
                 }
@@ -362,7 +362,7 @@ class Extra_Xml extends RAX
         }
         $spHtmlStr = '';
         if ($v_js_file_name != '' && !(is_null($v_js_file_name))) {
-            $spHtmlStr .= Efy_Publib_Library::_getAllFileJavaScriptCss('', 'js/js-record', $v_js_file_name, ',', 'js');
+            $spHtmlStr .= Extra_Util::_getAllFileJavaScriptCss('', 'js/js-record', $v_js_file_name, ',', 'js');
         }
         if ($v_js_function != '' && !(is_null($v_js_function))) {
             $spHtmlStr .= '<script>try{' . $v_js_function . '}catch(e){;}</script>';
@@ -559,7 +559,7 @@ class Extra_Xml extends RAX
                         }
                         $spRetHtml = $spRetHtml . Extra_Xml::_getValueFromArray($arrListItem, $this->sessionIdIndex, $this->sessionNameIndex, $this->value);
                     } elseif ($this->inputData == "efylist") {//Lay du lieu tu file XML
-                        $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
+                        $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                         //
                         $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
@@ -593,14 +593,14 @@ class Extra_Xml extends RAX
                         //$spRetHtml = $spRetHtml . "<select id='$this->formFielName' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' ".Extra_Xml::_generatePropertyType("optional",$optOptional).Extra_Xml::_generatePropertyType("readonly",$this->readonlyInEditMode).Extra_Xml::_generatePropertyType("disabled",$this->disabledInEditMode).Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList)." xml_tag_in_db='$this->xmlTagInDb' xml_data='$v_xml_data' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
                         $spRetHtml = $spRetHtml . "<select id='$this->rowId' class='normal_selectbox' name='$this->formFielName' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' >";
                         if ($this->theFirstOfIdValue == "true") {
-                            $spRetHtml = $spRetHtml . Efy_Library::_generateSelectOption($arrListItem, $this->sessionIdIndex, $this->sessionValueIndex, $this->sessionNameIndex, $this->value);
+                            $spRetHtml = $spRetHtml . Extra_Util::_generateSelectOption($arrListItem, $this->sessionIdIndex, $this->sessionValueIndex, $this->sessionNameIndex, $this->value);
                         } else {
-                            $spRetHtml = $spRetHtml . "<option id='' value='' name=''>--- Ch&#7885;n $this->sLabel  ---</option>" . Efy_Library::_generateSelectOption($arrListItem, $this->sessionIdIndex, $this->sessionValueIndex, $this->sessionNameIndex, $this->value);
+                            $spRetHtml = $spRetHtml . "<option id='' value='' name=''>--- Ch&#7885;n $this->sLabel  ---</option>" . Extra_Util::_generateSelectOption($arrListItem, $this->sessionIdIndex, $this->sessionValueIndex, $this->sessionNameIndex, $this->value);
                         }
                         $spRetHtml = $spRetHtml . "</select>";
 
                     } elseif ($this->inputData == "efylist") {
-                        $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
+                        $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                         $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
                             $this->value = $arrListItem[0][$this->selectBoxIdColumn];
@@ -612,7 +612,7 @@ class Extra_Xml extends RAX
                             }
                         }
 
-                        $spRetHtml = $spRetHtml . Efy_Library::_generateSelectOption($arrListItem, $this->selectBoxIdColumn, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
+                        $spRetHtml = $spRetHtml . Extra_Util::_generateSelectOption($arrListItem, $this->selectBoxIdColumn, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
                         $spRetHtml = $spRetHtml . "</select>";
                     } else {
                         //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
@@ -629,7 +629,7 @@ class Extra_Xml extends RAX
                                 $spRetHtml = $spRetHtml . "<option id='' value='' name=''>--- Ch&#7885;n $this->sLabel ---</option>";
                             }
                         }
-                        $spRetHtml = $spRetHtml . Efy_Library::_generateSelectOption($arrListItem, $this->selectBoxIdColumn, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
+                        $spRetHtml = $spRetHtml . Extra_Util::_generateSelectOption($arrListItem, $this->selectBoxIdColumn, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
                         $spRetHtml = $spRetHtml . "</select>";
                     }
                 }
@@ -640,7 +640,7 @@ class Extra_Xml extends RAX
                     $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
                     $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } elseif ($this->inputData == "efylist") {
-                    $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
+                    $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                     $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox(Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } else {
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
@@ -656,7 +656,7 @@ class Extra_Xml extends RAX
                     $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
                     $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } elseif ($this->inputData == "efylist") {
-                    $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
+                    $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                     $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } else {
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
@@ -667,7 +667,7 @@ class Extra_Xml extends RAX
                 break;
             case "multipleradio";
                 if ($this->inputData == "efylist") {
-                    $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
+                    $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                     $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } else {
                     $arrListItem = Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption);
@@ -701,7 +701,7 @@ class Extra_Xml extends RAX
                 break;
             case "multipletextbox";
                 if ($this->inputData == "efylist") {
-                    $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "listxml/output/" . $this->publicListCode . ".xml");
+                    $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "listxml/output/" . $this->publicListCode . ".xml");
                     $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } elseif ($this->inputData == "session") {
                     $j = 0;
@@ -731,9 +731,9 @@ class Extra_Xml extends RAX
             case "textboxorder";
                 $spRetHtml = $spRetHtml . $v_str_label;
                 if (is_null($this->value) || $this->value == "") {
-                    $this->value = Efy_Library::_getNextValue("T_EFYLIB_LIST", "C_ORDER", "FK_LISTTYPE = " . $_SESSION['listtypeId']);
+                    $this->value = Extra_Util::_getNextValue("T_EFYLIB_LIST", "C_ORDER", "FK_LISTTYPE = " . $_SESSION['listtypeId']);
                     if (!is_null($this->tableName) && $this->tableName != "") {
-                        $this->value = Efy_Library::_getNextValue($this->tableName, $this->orderColumn, $this->whereClause);
+                        $this->value = Extra_Util::_getNextValue($this->tableName, $this->orderColumn, $this->whereClause);
                     }
                 }
                 $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' min='$this->min' max='$this->max' maxlength='$this->maxlength' onKeyDown='change_focus(document.forms[0],this,event)'>";
@@ -1259,7 +1259,7 @@ class Extra_Xml extends RAX
         $this->sFullTextSearch = $sFullTextSearch;
         $this->sAction = $sAction;
         //Doc file XML
-        $this->xmlStringInFile = Efy_Publib_Library::_readFile($psXmlFile);
+        $this->xmlStringInFile = Extra_Util::_readFile($psXmlFile);
         //Dem so phan tu cua mang
         $this->count = sizeof($pArrAllItem);
         //Bang chua cac thanh phan cua form
@@ -1378,9 +1378,9 @@ class Extra_Xml extends RAX
             $psHtmlString = $psHtmlString . '</tr>';
         }
         if (!$pOnclick) {
-            $psHtmlString = $psHtmlString . Efy_Library::_addEmptyRow(sizeof($pArrAllItem), 15, $v_current_style_name, sizeof($arrTable_Struct));
+            $psHtmlString = $psHtmlString . Extra_Util::_addEmptyRow(sizeof($pArrAllItem), 15, $v_current_style_name, sizeof($arrTable_Struct));
         } else {
-            $psHtmlString = $psHtmlString . Efy_Library::_addEmptyRow(sizeof($pArrAllItem), 15, $v_current_style_name, sizeof($arrTable_Struct));
+            $psHtmlString = $psHtmlString . Extra_Util::_addEmptyRow(sizeof($pArrAllItem), 15, $v_current_style_name, sizeof($arrTable_Struct));
 
         }
         $psHtmlString = $psHtmlString . '</table>';
@@ -1422,8 +1422,8 @@ class Extra_Xml extends RAX
         global $pClassname, $objectId;
         //Click
         $sAction = "item_onclick('" . $objectId . "','" . $this->sAction . "')";
-        //Tao doi tuong trong class Efy_Library
-        $objEfyLib = new Efy_Library();
+        //Tao doi tuong trong class Extra_Util
+        $objEfyLib = new Extra_Util();
         switch ($pType) {
             case "checkbox";
                 $psRetHtml = '<td align="' . $this->v_align . '"><input type="checkbox" onclick="selectrow(this)" name="chk_item_id" id="chk_item_id" ' . ' value="' . $this->value . '" />';
@@ -1443,7 +1443,7 @@ class Extra_Xml extends RAX
                 break;
             case "selectbox";
                 if ($this->inputData == "efylist") {
-                    $v_xml_data_in_url = Efy_Publib_Library::_readFile($this->efyListWebSitePath . "listxml/output/" . $this->publicListCode . ".xml");
+                    $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "listxml/output/" . $this->publicListCode . ".xml");
                     $arr_list_item = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } else {
                     //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
@@ -1451,7 +1451,7 @@ class Extra_Xml extends RAX
                     $arr_list_item = Extra_Db::adodbQueryDataInNumberMode($this->selectBoxOptionSql, $this->cacheOption);
                 }
                 $psRetHtml = "<td align='.$this->v_align.'><select class='normal_selectbox' name='sel_item' title='$this->tooltip' style='width:100%' " . $this->_generatePropertyType("optional", $v_optional) . $this->_generatePropertyType("readonly", $this->readonlyInEditMode) . $this->_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$v_message' onKeyDown='change_focus(document.forms[0],this,event)'>";
-                $psRetHtml = $psRetHtml . "<option id='' value=''>--- Ch&#7885;n $this->v_label ---</option>" . Efy_Library::_generateSelectOption($arr_list_item, $this->selectBoxIdColumn, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
+                $psRetHtml = $psRetHtml . "<option id='' value=''>--- Ch&#7885;n $this->v_label ---</option>" . Extra_Util::_generateSelectOption($arr_list_item, $this->selectBoxIdColumn, $this->selectBoxIdColumn, $this->selectBoxNameColumn, $this->value);
                 $psRetHtml = $psRetHtml . "</select></td>";
                 break;
 
@@ -1532,7 +1532,7 @@ class Extra_Xml extends RAX
                 $strcode .= '->' . $arrTags[$i];
             eval($strcode . '->toArray();');
         }
-        $p_sql_replace = Efy_Library::_restoreXmlBadChar($p_sql_replace);
+        $p_sql_replace = Extra_Util::_restoreXmlBadChar($p_sql_replace);
         //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
         $p_sql_replace = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $p_sql_replace);
         //
@@ -1547,9 +1547,9 @@ class Extra_Xml extends RAX
                     $this->xmlTagInDb = $arrFilter[$arr_tag[$i]]["xml_tag_in_db"];
                     if ($p_filter_xml_string != "") {
                         $value = $this->_xmlGetXmlTagValue($p_filter_xml_string, 'data_list', $arr_tag[$i]);
-                        $value_input = Efy_Library::_replaceXmlBadChar($value);
+                        $value_input = Extra_Util::_replaceXmlBadChar($value);
                         if ($v_data_format == "isdate") {
-                            $value_input = Efy_Publib_Library::_ddmmyyyyToYYyymmdd($value_input);
+                            $value_input = Extra_Util::_ddmmyyyyToYYyymmdd($value_input);
                         }
                         if ($v_data_format == "isnumeric") {
                             $value_input = intval($value_input);
@@ -1569,9 +1569,9 @@ class Extra_Xml extends RAX
                 $this->xmlTagInDb = $arrFilter[$arr_tag[$i]]["xml_tag_in_db"];
                 if ($p_filter_xml_string != "") {
                     $value = $this->_xmlGetXmlTagValue($p_filter_xml_string, 'data_list', $arr_tag[$i]);
-                    $value_input = Efy_Library::_replaceXmlBadChar($value);
+                    $value_input = Extra_Util::_replaceXmlBadChar($value);
                     if ($v_data_format == "isdate") {
-                        $value_input = Efy_Publib_Library::_ddmmyyyyToYYyymmdd($value_input);
+                        $value_input = Extra_Util::_ddmmyyyyToYYyymmdd($value_input);
                     }
                     if ($v_data_format == "isnumeric") {
                         $value_input = intval($value_input);
@@ -1593,8 +1593,8 @@ class Extra_Xml extends RAX
      */
     public function _xmlGenerateXmlDataString($psXmlTagList, $psValueList)
     {
-        //Tao doi tuong Efy_Library
-        $objLib = new Efy_Library();
+        //Tao doi tuong Extra_Util
+        $objLib = new Extra_Util();
         //Tao doi tuong config
         $objConfig = new Extra_Init();
         $arrConst = $objConfig->_setProjectPublicConst();
@@ -1884,7 +1884,7 @@ class Extra_Xml extends RAX
      */
     function _generateHtmlForTreeUser($p_valuelist)
     {
-        Zend_Loader::loadClass('Efy_Library');
+        Zend_Loader::loadClass('Extra_Util');
         $arr_all_cooperator = explode(",", $p_valuelist);
         $v_cooperator_count = sizeof($arr_all_cooperator);
         if (trim($p_valuelist) != "" && trim($p_valuelist) != "0") {
@@ -1900,10 +1900,10 @@ class Extra_Xml extends RAX
             $v_current_style_name = '';
             for ($j = 0; $j < $v_cooperator_count; $j++) {
                 $v_cooperator_id = $arr_all_cooperator[$j];
-                $v_cooperator_name = Efy_Library::_getItemAttrById($_SESSION['arr_all_staff'], $v_cooperator_id, 'name');
-                $v_cooperator_position_name = Efy_Library::_getItemAttrById($_SESSION['arr_all_staff'], $v_cooperator_id, 'position_name');
-                $v_cooperator_unit_id = Efy_Library::_getItemAttrById($_SESSION['arr_all_staff'], $v_cooperator_id, 'unit_id');
-                $v_cooperator_unit_name = Efy_Library::_getItemAttrById($_SESSION['arr_all_unit'], $v_cooperator_unit_id, 'name');
+                $v_cooperator_name = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $v_cooperator_id, 'name');
+                $v_cooperator_position_name = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $v_cooperator_id, 'position_name');
+                $v_cooperator_unit_id = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $v_cooperator_id, 'unit_id');
+                $v_cooperator_unit_name = Extra_Util::_getItemAttrById($_SESSION['arr_all_unit'], $v_cooperator_unit_id, 'name');
                 $v_cooperator_ward_name = '';
                 if ($v_current_style_name == "odd_row") {
                     $v_current_style_name = "round_row";
@@ -1925,14 +1925,14 @@ class Extra_Xml extends RAX
             //$strHTML = $strHTML .'<DIV STYLE="overflow: auto; height:100pt; padding-left:0px;margin:0px">';
             $strHTML = $strHTML . "<table class='list_table2'  width='100%' cellpadding='0' cellspacing='0'>";
             $strHTML = $strHTML . '<input type="hidden" id = "hdn_item_id" name="hdn_item_id" value="">';
-            $v_item_unit_id = Efy_Library::_getRootUnitId();
-            $arr_unit = Efy_Library::_getArrAllUnit();
-            $arr_staff = Efy_Library::_getArrChildStaff($arr_unit);
-            $arr_list = Efy_Library::_attachTwoArray($arr_unit, $arr_staff, 5);
+            $v_item_unit_id = Extra_Util::_getRootUnitId();
+            $arr_unit = Extra_Util::_getArrAllUnit();
+            $arr_staff = Extra_Util::_getArrChildStaff($arr_unit);
+            $arr_list = Extra_Util::_attachTwoArray($arr_unit, $arr_staff, 5);
             //var_dump($arr_list);
             $v_current_id = 0;
 
-            $xml_str = Efy_Library::_builtXmlTree($arr_list, $v_current_id, 'true', 'home.jpg', 'home.jpg', 'user.jpg', 'false', $p_valuelist, $this->formFielName);
+            $xml_str = Extra_Util::_builtXmlTree($arr_list, $v_current_id, 'true', 'home.jpg', 'home.jpg', 'user.jpg', 'false', $p_valuelist, $this->formFielName);
 
             $xml = new DOMDocument;
             $xml->loadXML($xml_str);

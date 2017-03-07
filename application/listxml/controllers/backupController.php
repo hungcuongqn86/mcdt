@@ -48,8 +48,8 @@ class Listxml_backupController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jsList.js,jquery-1.5.1.js,jquery.simplemodal.js',',','js')
-										.Efy_Publib_Library::_getAllFileJavaScriptCss('','style','simpleModal.css',',','css');;
+		$this->view->LoadAllFileJsCss = Extra_Util::_getAllFileJavaScriptCss('','js','jsList.js,jquery-1.5.1.js,jquery.simplemodal.js',',','js')
+										.Extra_Util::_getAllFileJavaScriptCss('','style','simpleModal.css',',','css');;
 		/* Ket thuc*/
 		
 		//Dinh nghia current modul code
@@ -57,12 +57,12 @@ class Listxml_backupController extends  Zend_Controller_Action {
 		$this->view->currentModulCodeForLeft = "BACKUP";		
 		
 		//Lay tra tri trong Cookie
-		$sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");
+		$sGetValueInCookie = Extra_Util::_getCookie("showHideMenu");
 		
 		//Neu chua ton tai thi khoi tao
 		if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)){
-			Efy_Library::_createCookie("showHideMenu",1);
-			Efy_Library::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
+			Extra_Util::_createCookie("showHideMenu",1);
+			Extra_Util::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
 			//Mac dinh hien thi menu trai
 			$this->view->hideDisplayMeneLeft = 1;// = 1 : hien thi menu
 			//Hien thi anh dong menu trai
@@ -77,7 +77,7 @@ class Listxml_backupController extends  Zend_Controller_Action {
 				$this->view->hideDisplayMeneLeft = "";// = "" : an menu
 			}
 			//Lay dia chi anh trong Cookie
-			$this->view->ShowHideimageUrlPath = Efy_Library::_getCookie("ImageUrlPath");
+			$this->view->ShowHideimageUrlPath = Extra_Util::_getCookie("ImageUrlPath");
 		}
 			
 		//Hien thi file template

@@ -34,10 +34,10 @@ class Listxml_reportController extends  Zend_Controller_Action {
 		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";	
 				
 		// Goi lop public		
-		$objPublicLibrary = new Efy_Library();
+		$objPublicLibrary = new Extra_Util();
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = $objPublicLibrary->_getAllFileJavaScriptCss('public/js/ListType','','','','js') . $objPublicLibrary->_getAllFileJavaScriptCss('public/js/ListType','','','','css').Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.5.1.js',',','js');
+		$this->view->LoadAllFileJsCss = $objPublicLibrary->_getAllFileJavaScriptCss('public/js/ListType','','','','js') . $objPublicLibrary->_getAllFileJavaScriptCss('public/js/ListType','','','','css').Extra_Util::_getAllFileJavaScriptCss('','js','jquery-1.5.1.js',',','js');
 				
 		/* Ket thuc 		*/
 		//Dinh nghia current modul code
@@ -50,12 +50,12 @@ class Listxml_reportController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();			
 
 		//Lay tra tri trong Cookie
-		$sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");
+		$sGetValueInCookie = Extra_Util::_getCookie("showHideMenu");
 		
 		//Neu chua ton tai thi khoi tao
 		if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)){
-			Efy_Library::_createCookie("showHideMenu",1);
-			Efy_Library::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
+			Extra_Util::_createCookie("showHideMenu",1);
+			Extra_Util::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
 			//Mac dinh hien thi menu trai
 			$this->view->hideDisplayMeneLeft = 1;// = 1 : hien thi menu
 			//Hien thi anh dong menu trai
@@ -70,7 +70,7 @@ class Listxml_reportController extends  Zend_Controller_Action {
 				$this->view->hideDisplayMeneLeft = "";// = "" : an menu
 			}
 			//Lay dia chi anh trong Cookie
-			$this->view->ShowHideimageUrlPath = Efy_Library::_getCookie("ImageUrlPath");
+			$this->view->ShowHideimageUrlPath = Extra_Util::_getCookie("ImageUrlPath");
 		}
 		//Hien thi file template
 		$response->insert('header', $this->view->renderLayout('header.phtml','./application/views/scripts/'));    	//Hien thi header 
@@ -126,7 +126,7 @@ class Listxml_reportController extends  Zend_Controller_Action {
 		$arrInput = $this->_request->getParams();
 		// Thuc hien lay du lieu tu form 		
 		if($arrInput["C_NAME"]<>''){	
-			$objEfyLibrary = new Efy_Library();
+			$objEfyLibrary = new Extra_Util();
 			$sReportName = trim($objEfyLibrary->_restoreXmlBadChar($arrInput['C_NAME']));			
 			$iReportOrder = $arrInput['C_ORDER'];			
 			$sReportXml = $arrInput['txt_xml_file_name'];
@@ -159,12 +159,12 @@ class Listxml_reportController extends  Zend_Controller_Action {
 		$this->view->sListReportId = $sListReportId;
 		// Tao doi tuong 
 		$objListReport = new Listxml_modListReport();		
-	   	$objEfyLibrary = new Efy_Library();	
+	   	$objEfyLibrary = new Extra_Util();
 	   	// Lay toan bo tham so truyen tu form			
 		$arrInput = $this->_request->getParams();
 		// Thuc hien lay du lieu tu form 		
 		if($arrInput["C_NAME"]<>''){	
-			$objEfyLibrary = new Efy_Library();
+			$objEfyLibrary = new Extra_Util();
 			$sReportName = trim($objEfyLibrary->_restoreXmlBadChar($arrInput['C_NAME']));			
 			$iReportOrder = $arrInput['C_ORDER'];			
 			$sReportXml = $arrInput['txt_xml_file_name'];
@@ -202,7 +202,7 @@ class Listxml_reportController extends  Zend_Controller_Action {
 		$this->view->sListReportId = $sListReportId;
 		// Tao doi tuong 
 		$objListReport = new Listxml_modListReport();		
-	   	$objEfyLibrary = new Efy_Library();	
+	   	$objEfyLibrary = new Extra_Util();
 	   	// Lay danh sach loai dinh dang
 	   	$arrDataType = $objListReport->getListInfoByCode('DM_XML_DATA_TYPE','','');
 	   	$this->view->arrDataType = $arrDataType;
@@ -224,7 +224,7 @@ class Listxml_reportController extends  Zend_Controller_Action {
 		$sListReportColId = $this->_request->getParam('hdn_report_col_id');
 		$this->view->sListReportColId = $sListReportColId;	   
 		if($arrInput["hdn_update"]=='1'){	
-			$objEfyLibrary = new Efy_Library();
+			$objEfyLibrary = new Extra_Util();
 			//Tieu de
 			$sColTitle = trim($objEfyLibrary->_restoreXmlBadChar($arrInput['C_TITLE']));		
 			//Dinh dang

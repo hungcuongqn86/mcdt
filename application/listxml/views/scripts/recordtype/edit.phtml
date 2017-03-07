@@ -47,7 +47,7 @@
                 <label><?=$arrConst['_LINH_VUC'] ?><span class="requiein">*</span></label>
                 <select  id="C_CATE" name="C_CATE"  option = "false"  style="width:33%;" class="textbox normal_label"  message="<?php echo "Phải xác định lĩnh vực!�?.";?>" >
                     <option id="" name = "" value="">-- Ch&#7885;n l&#297;nh v&#7921;c --</option>
-                    <?php echo Efy_Library::_generateSelectOption($arrCate,'C_CODE','C_CODE','C_NAME',$arrResult['C_CATE']);?>
+                    <?php echo Extra_Util::_generateSelectOption($arrCate,'C_CODE','C_CODE','C_NAME',$arrResult['C_CATE']);?>
                 </select>
             </div>
             <div>
@@ -65,7 +65,7 @@
                     <option id="" name = "" value="">-- Ch&#7885;n <?=$arrConst['_LOAI_TTHC'] ?> --</option>
                 <?php	if($arrResult['C_RECORD_TYPE'] == '') $sDefaultRecordType = 'KHONG_LIEN_THONG';
                         else $sDefaultRecordType = $arrResult['C_RECORD_TYPE'] ;
-                        echo Efy_Library::_generateSelectOption($arrRecordType,'C_CODE','C_CODE','C_NAME',$sDefaultRecordType);?>
+                        echo Extra_Util::_generateSelectOption($arrRecordType,'C_CODE','C_CODE','C_NAME',$sDefaultRecordType);?>
                 </select>
                 <?php if($arrResult['C_IS_CREATE_OR_TRASNITION'] != 0) { ?>
                     <input type="hidden" id ="C_RECORD_TYPE" name="C_RECORD_TYPE" value="<?= $sDefaultRecordType ?>" >
@@ -104,7 +104,7 @@
                 <label><?=$arrConst['_HINH_THUC_VB_TRA_KQ'] ?><span class="requiein">*</span></label>
                 <select  id="C_RESULT_DOC_TYPE" name="C_RESULT_DOC_TYPE"  option = "false"  style="width:33%;" class="textbox normal_label"  message="<?php echo "Phải xác định hình thức văn bản trả kết quả";?>"  >
                     <option id="" name = "" value="">-- Ch&#7885;n <?=$arrConst['_HINH_THUC_VB_TRA_KQ'] ?> --</option>
-                    <?php echo Efy_Library::_generateSelectOption($arrDocResult,'C_CODE','C_CODE','C_NAME',$arrResult['C_RESULT_DOC_TYPE']);?>
+                    <?php echo Extra_Util::_generateSelectOption($arrDocResult,'C_CODE','C_CODE','C_NAME',$arrResult['C_RESULT_DOC_TYPE']);?>
                 </select>
             </div>
             <div class="line"></div>

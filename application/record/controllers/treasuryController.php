@@ -40,12 +40,12 @@ class record_treasuryController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
-		$sStyle = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','handle/handle.js,jquery-1.5.1.js',',','js');
-										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','js/Autocomplete','actb_search.js,common_search.js',',','js')
-										//.Efy_Publib_Library::_getAllFileJavaScriptCss('','js','js_calendar.js',',','js');
-		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.5.1.js',',','js');
-		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','js','ui/jquery.ui.core.js,ui/jquery.ui.widget.js,ui/jquery.ui.datepicker.js,ui/i18n/jquery.ui.datepicker-vi.js',',','js');
-		$sStyle.= Efy_Publib_Library::_getAllFileJavaScriptCss('','style','simpleModal.css,themes/humanity/jquery-ui-1.8.13.custom.css,themes/base/calendar.css',',','css');
+		$sStyle = Extra_Util::_getAllFileJavaScriptCss('','js','handle/handle.js,jquery-1.5.1.js',',','js');
+										//.Extra_Util::_getAllFileJavaScriptCss('','js/Autocomplete','actb_search.js,common_search.js',',','js')
+										//.Extra_Util::_getAllFileJavaScriptCss('','js','js_calendar.js',',','js');
+		$sStyle.= Extra_Util::_getAllFileJavaScriptCss('','js','jquery-1.5.1.js',',','js');
+		$sStyle.= Extra_Util::_getAllFileJavaScriptCss('','js','ui/jquery.ui.core.js,ui/jquery.ui.widget.js,ui/jquery.ui.datepicker.js,ui/i18n/jquery.ui.datepicker-vi.js',',','js');
+		$sStyle.= Extra_Util::_getAllFileJavaScriptCss('','style','simpleModal.css,themes/humanity/jquery-ui-1.8.13.custom.css,themes/base/calendar.css',',','css');
 		$this->view->LoadAllFileJsCss = $sStyle;
 		/* Ket thuc*/
 		
@@ -53,12 +53,12 @@ class record_treasuryController extends  Zend_Controller_Action {
 		$this->view->currentModulCode = "TREASURY";
 		$this->view->currentModulCodeForLeft = $this->_request->getParam('status','');				
 		//Lay tra tri trong Cookie
-		$sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");
+		$sGetValueInCookie = Extra_Util::_getCookie("showHideMenu");
 		
 		//Neu chua ton tai thi khoi tao
 		if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)){
-			Efy_Library::_createCookie("showHideMenu",1);
-			Efy_Library::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
+			Extra_Util::_createCookie("showHideMenu",1);
+			Extra_Util::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
 			//Mac dinh hien thi menu trai
 			$this->view->hideDisplayMeneLeft = 1;// = 1 : hien thi menu
 			//Hien thi anh dong menu trai
@@ -73,7 +73,7 @@ class record_treasuryController extends  Zend_Controller_Action {
 				$this->view->hideDisplayMeneLeft = "";// = "" : an menu
 			}
 			//Lay dia chi anh trong Cookie
-			$this->view->ShowHideimageUrlPath = Efy_Library::_getCookie("ImageUrlPath");
+			$this->view->ShowHideimageUrlPath = Extra_Util::_getCookie("ImageUrlPath");
 		}			
 		//Hien thi file template
 		$response->insert('header', $this->view->renderLayout('header.phtml','./application/views/scripts/'));    	//Hien thi header 
@@ -159,13 +159,13 @@ class record_treasuryController extends  Zend_Controller_Action {
 		$this->view->genlist = $objXml->_xmlGenerateList($sXmlFileName,'col',$arrResult, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",false);
 		$iTotalRecord = $arrResult[0]['C_TOTAL_RECORD'];	
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-		$this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
+		$this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
 		if (count($arrResult) > 0){
 			$this->view->sdocpertotal = "Danh sách có: ".sizeof($arrResult).'/'.$iTotalRecord." hồ sơ";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
 			//Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
 		}else{
 			$this->view->sdocpertotal = "Danh sach nay khong co ho so nao";
 		}
@@ -187,7 +187,7 @@ class record_treasuryController extends  Zend_Controller_Action {
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objTax	  				 = new record_modTax();
 		$objInitConfig 			 = new Extra_Init();
-		$ojbEfyLib				 = new Efy_Library();
+		$ojbEfyLib				 = new Extra_Util();
 		//Lay Lich JS
 		$efyLibUrlPath = $objInitConfig->_setLibUrlPath();
 		$url_path_calendar = $efyLibUrlPath . 'efy-calendar/';
@@ -295,7 +295,7 @@ public function worklistAction(){
 		//Goi cac doi tuong
 		$objInitConfig 			 	= new Extra_Init();
 		$objRecordFunction	     	= new Efy_Function_RecordFunctions();	
-		$ojbEfyLib				 	= new Efy_Library();
+		$ojbEfyLib				 	= new Extra_Util();
 		//Tieu de 
 		$this->view->bodyTitle = 'DANH S&#193;CH C&#212;NG VI&#7878;C';
 		//Trang thai
@@ -329,7 +329,7 @@ public function worklistAction(){
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		//Lay tham so cau hinh
 		$efyLibUrlPath = $objconfig->_setLibUrlPath();
 		$url_path_calendar = $efyLibUrlPath . 'efy-calendar/';
@@ -337,8 +337,8 @@ public function worklistAction(){
 		$sRecordWorkPk = $this->_request->getParam('hdn_list_id','');
 		$this->view->sRecordWorkPk = $sRecordWorkPk;
 		//Lay thong tin nguoi dang nhap hien thoi
-		$sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
-		$sStaffPosition = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');
+		$sStaffName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
+		$sStaffPosition = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');
 		$this->view->arrConst = $objconfig->_setProjectPublicConst();			
 		//Lay thong tin cua loai ho so TTHC
 		$arrRecordType = $objrecordfun->eCSRecordTypeGetAllByStaff($_SESSION['staff_id'], $_SESSION['OWNER_CODE']);
@@ -419,7 +419,7 @@ public function worklistAction(){
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$ojbEfyLib				 = new Efy_Library();
+		$ojbEfyLib				 = new Extra_Util();
 		$objXml					 = new Extra_Xml();
 		//Lay mang hang so dung chung
 		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();
@@ -510,7 +510,7 @@ public function worklistAction(){
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$ojbEfyLib				 = new Efy_Library();
+		$ojbEfyLib				 = new Extra_Util();
 		$objXml					 = new Extra_Xml();
 		//Lay mang hang so dung chung
 		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();

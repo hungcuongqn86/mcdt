@@ -15,7 +15,7 @@ $sCate = $this->arrCate;
                         <label style="padding-left: 15%;padding-right: 10px;">Lĩnh vực</label>
                         <select id="CateId" name="CateId"   style="width:20%;height: 25px;" class="normal_selectbox" optional="true">
                             <option value = '' >----- Chọn tất cả -----</option>
-                            <?php echo Efy_Library::_generateSelectOption($sCate,'C_CODE','C_CODE','C_NAME',$this->sCate);?>
+                            <?php echo Extra_Util::_generateSelectOption($sCate,'C_CODE','C_CODE','C_NAME',$this->sCate);?>
                         </select>
                     </div>
                     <input style="margin-left:20px;" type="button" value="Tìm kiếm" class="add_large_button seachbutton" >

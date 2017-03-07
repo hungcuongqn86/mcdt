@@ -15,8 +15,8 @@ class Record_modReport extends Extra_Db {
 	 * 			Mang chua thong tin 
 	 * 	*/
 	public function getAllReportProject($psFilterXmlString,$psXmlFileName){
-		//Tao doi tuong Efy_Library
-		$objEfyLib = new Efy_Library();		
+		//Tao doi tuong Extra_Util
+		$objEfyLib = new Extra_Util();
 		//Tao doi tuong Extra_Xml
 		Zend_Loader::loadClass('Extra_Xml');
 		$objEfyLibXml = new Extra_Xml();

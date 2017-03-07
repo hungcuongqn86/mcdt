@@ -54,7 +54,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 				<select id="tinh_chat" name="tinh_chat"  option = "true" style="width:150px;" class="textbox normal_label"  xml_tag_in_db="tinh_chat" xml_data="true" column_name="" message="<?php echo "Phai xac dinh TINH CHAT van ban!";?>">
 					<option value="">-- Chọn tính chất--</option><?php
 						$arrSel = $this->arrSel;
-						echo Efy_Library::_generateSelectOption($arrSel,'C_CODE','C_CODE','C_NAME','');?>
+						echo Extra_Util::_generateSelectOption($arrSel,'C_CODE','C_CODE','C_NAME','');?>
 				</select>
 			</div>
 		</div>
@@ -77,7 +77,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 								<select id="C_SEND_LEVEL" name="C_SEND_LEVEL" onchange="getNhomChinh(document.getElementById('ten_co_quan'),this,'cap_noi_gui_van_ban');" optional = "true"  class="textbox normal_label" xml_tag_in_db="" xml_data="false" column_name="C_SEND_LEVEL" message="<?php echo "Phai xac dinh thong tin NHOM CO QUAN!";?>">
 									<option id="" name = "" value="">-- Chọn nhóm cơ quan --</option><?php
 									$arrSentLevel = $this->arrSentLevel;
-									echo Efy_Library::_generateSelectOption($arrSentLevel,'C_CODE','C_CODE','C_NAME','');?>
+									echo Extra_Util::_generateSelectOption($arrSentLevel,'C_CODE','C_CODE','C_NAME','');?>
 								</select>
 							</div>
 						</div>
@@ -87,7 +87,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 								<select id="cap_noi_gui_van_ban" name="cap_noi_gui_van_ban" option = "true"  class="textbox normal_label" xml_tag_in_db="" xml_data="false" column_name="C_SENDING_PLACE" message="<?php echo "Phai xac dinh thong tin TEN CO QUAN!";?>">
 									<option id="" name = "" value="">-- Chọn tên cơ quan --</option><?php
 									$arrSentPlace = $this->arrSentPlace;
-									echo Efy_Library::_generateSelectOption($arrSentPlace,'C_CODE','C_CODE','C_NAME','');?>
+									echo Extra_Util::_generateSelectOption($arrSentPlace,'C_CODE','C_CODE','C_NAME','');?>
 								</select>
 							</div>
 						</div>
@@ -100,7 +100,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 								<select id="C_DOC_CATE" name="C_DOC_CATE" onchange="getNhomChinh(document.getElementById('DivDetail'),this,'nhom_loai_vb');" optional = "true" class="textbox normal_label" xml_tag_in_db="" xml_data="false" column_name="C_DOC_CATE" message="<?php echo "Phai xac dinh NHOM CHINH van ban!";?>">
 									<option id="" name = "" value="">-- Chọn nhóm chính --</option><?php
 									$arrNhomVB = $this->arrNhomVB;
-									echo Efy_Library::_generateSelectOption($arrNhomVB,'C_CODE','C_CODE','C_NAME','');?>
+									echo Extra_Util::_generateSelectOption($arrNhomVB,'C_CODE','C_CODE','C_NAME','');?>
 								</select>
 							</div>
 						</div>
@@ -110,7 +110,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 								<select id="nhom_loai_vb" name="nhom_loai_vb" onchange="_getInvitation(this, document.getElementById('divMoiHop'))" option = "true"  class="textbox normal_label" message="Phai xac dinh CHI TIET van ban!">
 									<option id="" name = "" value="">-- Chọn --</option><?php
 									$arrLoaiVB = $this->arrLoaiVB;
-									echo Efy_Library::_generateSelectOption($arrLoaiVB,'C_CODE','C_CODE','C_NAME','');?>
+									echo Extra_Util::_generateSelectOption($arrLoaiVB,'C_CODE','C_CODE','C_NAME','');?>
 								</select>
 							</div>
 						</div>
@@ -126,7 +126,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 						<select id="C_DOCUMENT_BOOKS" name="C_DOCUMENT_BOOKS" onchange="getDocNumber(document.getElementById('docNumber'),this,'<?= $this->Owner ?>');" option = "true" class="textbox normal_label"  xml_tag_in_db="" xml_data="false" column_name="C_DOCUMENT_BOOKS" message="<?php echo "Phai xac dinh thong tin SO VAN BAN DEN!";?>">
 							<option id="" name = "" value="">-- Chọn sổ văn bản --</option><?php
 							$arrInputBooks = $this->arrInputBooks;
-							echo Efy_Library::_generateSelectOption($arrInputBooks,'C_CODE','C_CODE','C_NAME','');?>
+							echo Extra_Util::_generateSelectOption($arrInputBooks,'C_CODE','C_CODE','C_NAME','');?>
 						</select>
 					</div>
 					<div>
@@ -140,7 +140,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 						<select id="do_khan" name="do_khan" optional = "true" class="textbox normal_label"  xml_tag_in_db="do_khan" xml_data="true" column_name="" message="<?php echo "Phai xac dinh DO KHAN van ban!";?>">
 							<option id="" name = "" value="">-- Chọn độ khẩn --</option><?php
 							$arrUrgent = $this->arrUrgent;
-							echo Efy_Library::_generateSelectOption($arrUrgent,'C_CODE','C_CODE','C_NAME','');?>
+							echo Extra_Util::_generateSelectOption($arrUrgent,'C_CODE','C_CODE','C_NAME','');?>
 						</select>
 					</div>
 					<div>
@@ -167,7 +167,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 						<select id="C_PROCESSING_TYPE" name="C_PROCESSING_TYPE" optional = "true" class="textbox normal_label" xml_tag_in_db="" xml_data="false" column_name="C_PROCESSING_TYPE" message="<?php echo "HINH THUC XU LY khong duoc de trong!";?>">
 							<option id="" name = "" value="">-- Chọn hình thức xử lý --</option><?php
 							$arrProcessType = $this->arrProcessType;
-							echo Efy_Library::_generateSelectOption($arrProcessType,'C_CODE','C_CODE','C_NAME','');?>
+							echo Extra_Util::_generateSelectOption($arrProcessType,'C_CODE','C_CODE','C_NAME','');?>
 						</select>
 					</div>
 					
@@ -258,7 +258,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 										if($iUnitId ==""|| $iUnitId == Null){
 											$iUnitId = "-- Chọn đơn vị chủ trì --";
 										}
-									echo Efy_Library::_generateSelectOption($arrUnitList,'id','id','name',$iUnitId);?>
+									echo Extra_Util::_generateSelectOption($arrUnitList,'id','id','name',$iUnitId);?>
 								</select>	
 								</td>
 							</tr>		
@@ -291,7 +291,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 								if($iProcessId ==""|| $iProcessId == Null){
 									$iProcessId = "-- Chọn cán bộ xử lý chính--";
 								}
-							echo Efy_Library::_generateSelectOption($arrStaffDepartment,'id','id','name',$iProcessId);?>
+							echo Extra_Util::_generateSelectOption($arrStaffDepartment,'id','id','name',$iProcessId);?>
 						</select>	
 						</td>
 					</tr>		

@@ -16,7 +16,7 @@
 	Zend_Loader::loadClass('Zend_Config_Xml');
 	Zend_Loader::loadClass('Zend_Registry');
 	Zend_Loader::loadClass('Efy_Function_RecordFunctions');
-	Zend_Loader::loadClass('Efy_Library');
+	Zend_Loader::loadClass('Extra_Util');
 	Zend_Loader::loadClass('Extra_Xml');
 	$conn = new Extra_Db();
 	$sConfig = new Extra_Init();
@@ -56,7 +56,7 @@
 		isset($_REQUEST['hdn_order'])?$shdn_order = $_REQUEST['hdn_order']:$shdn_order = '1';
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objxml = new Extra_Xml();
 		if ($iPage <= 1)
 			$iPage = 1;
@@ -121,7 +121,7 @@
 		$arrRecordType = $_SESSION['arr_all_record_type'];
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objxml = new Extra_Xml();
 		if ($iPage <= 1)
 			$iPage = 1;
@@ -241,7 +241,7 @@
 		isset($_REQUEST['hdn_xml_tag_list'])?$hdn_xml_tag_list = $_REQUEST['hdn_xml_tag_list']:$hdn_xml_tag_list = '';
 
 		$objconfig = new Extra_Init();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objxml = new Extra_Xml();
 		if ($iPage <= 1)
 			$iPage = 1;

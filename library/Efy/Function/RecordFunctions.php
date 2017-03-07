@@ -48,7 +48,7 @@ class Efy_Function_RecordFunctions
     public function generalhtmlinfo($arrConst, $arrRecord)
     {
         $objXml = new Extra_Xml();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
         $objConfig = new Extra_Init();
         $spkrecord = $arrRecord['PK_RECORD'];
         $arrFile = $arrRecord['file'];
@@ -443,7 +443,7 @@ class Efy_Function_RecordFunctions
             $pPositionGroupCode = "LANH_DAO_UB";
         }
         foreach ($_SESSION[$sSessionName] as $staff) {
-            if (Efy_Library::_listHaveElement($pGroupUser, $staff['position_group_code'], ",")) {
+            if (Extra_Util::_listHaveElement($pGroupUser, $staff['position_group_code'], ",")) {
                 $arrUnitLeader[$i] = $staff;
                 $i++;
             }
@@ -464,7 +464,7 @@ class Efy_Function_RecordFunctions
     {
         $i = 0;
         foreach ($_SESSION[$sSessionName] as $staff) {
-            if (Efy_Library::_listHaveElement($pGroupUser, $staff['position_code'], ",")) {
+            if (Extra_Util::_listHaveElement($pGroupUser, $staff['position_code'], ",")) {
                 $arrUnitLeader[$i] = $staff;
                 $i++;
             }
@@ -612,7 +612,7 @@ class Efy_Function_RecordFunctions
         $currentWeek = date("W"); // thu tu tuan hien tai cua nam
         $currentYear = date("Y"); // nam hien tai
         $orderDate = 0; // xac dinh ngay dau tuan (thu 2)
-        $firstDayOfWeek = Efy_Library::_getAnyDateOnWeekOfYear($currentYear, $currentWeek, $orderDate);
+        $firstDayOfWeek = Extra_Util::_getAnyDateOnWeekOfYear($currentYear, $currentWeek, $orderDate);
         return $firstDayOfWeek;
     }
 
@@ -638,7 +638,7 @@ class Efy_Function_RecordFunctions
                 } else {
                     $str = $nameStrColor;
                 }
-                if (Efy_Library::Lower2Upper(trim($arrSubject[$j])) == Efy_Library::Lower2Upper(trim($str))) {
+                if (Extra_Util::Lower2Upper(trim($arrSubject[$j])) == Extra_Util::Lower2Upper(trim($str))) {
                     $strText = "<label style = 'background-color:#99FF99'>" . $arrSubject[$j] . "</label>";
                     $arrSubject[$j] = $strText;
                 }
@@ -663,8 +663,8 @@ class Efy_Function_RecordFunctions
             //mang chua in hoa
             $arrSubject = explode($nameStrColor, $nameStrInput);
             //chuyen ve chu hoa de tim kiem
-            $sSeach = Efy_Library::Lower2Upper($nameStrColor);
-            $sStr = Efy_Library::Lower2Upper($nameStrInput);
+            $sSeach = Extra_Util::Lower2Upper($nameStrColor);
+            $sStr = Extra_Util::Lower2Upper($nameStrInput);
             $arrSearch = explode($sSeach, $sStr);
             for ($i = 0; $i < sizeof($arrSearch); $i++) {
                 //neu chuoi tim kiem co trong mang can tim kiem
@@ -699,7 +699,7 @@ class Efy_Function_RecordFunctions
     public function searchCharColor($nameStrColor, $nameStrInput)
     {
         $strText = "<label style = 'background-color:#99FF99'>" . $nameStrColor . "</label>";
-        $nameStrOutput = str_replace(Efy_Library::Lower2Upper(trim($nameStrColor)), Efy_Library::Lower2Upper(trim($strText)), trim($nameStrInput));
+        $nameStrOutput = str_replace(Extra_Util::Lower2Upper(trim($nameStrColor)), Extra_Util::Lower2Upper(trim($strText)), trim($nameStrInput));
         return $nameStrOutput;
     }
 
@@ -713,8 +713,8 @@ class Efy_Function_RecordFunctions
         $arrStaffId = explode(',', $sStaffIdList);
         $sNamePositionStaffList = "";
         for ($i = 0; $i < sizeof($arrStaffId); $i++) {
-            $sName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $arrStaffId[$i], 'name');
-            $sPosition = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $arrStaffId[$i], 'position_code');
+            $sName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $arrStaffId[$i], 'name');
+            $sPosition = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $arrStaffId[$i], 'position_code');
             $sNamePositionStaffList = $sNamePositionStaffList . $delimitor . $sPosition . ' - ' . $sName;
         }
         $sNamePositionStaffList = substr($sNamePositionStaffList, strlen($delimitor));
@@ -731,7 +731,7 @@ class Efy_Function_RecordFunctions
         $arrUnitId = explode(',', $sUnitIdList);
         $sNameUnitList = "";
         for ($i = 0; $i < sizeof($arrUnitId); $i++) {
-            $sNameUnit = Efy_Publib_Library::_getItemAttrById($_SESSION[$sSession], $arrUnitId[$i], 'name');
+            $sNameUnit = Extra_Util::_getItemAttrById($_SESSION[$sSession], $arrUnitId[$i], 'name');
             $sNameUnitList = $sNameUnitList . '!#~$|*' . $sNameUnit;
         }
         $sNameUnitList = substr($sNameUnitList, 6);
@@ -970,8 +970,8 @@ class Efy_Function_RecordFunctions
     {
         $iFkStaff = self::convertStaffNameToStaffId($sPositionName);
         $sTelMobile = self::convertIdListToTelMobileList($iFkStaff);
-        $iUnitId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $iFkStaff, 'unit_id');
-        $sUnitName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_unit'], $iUnitId, 'name');
+        $iUnitId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $iFkStaff, 'unit_id');
+        $sUnitName = Extra_Util::_getItemAttrById($_SESSION['arr_all_unit'], $iUnitId, 'name');
         $psSql = "Exec Doc_DocSmsSendUpdate ";
         $psSql .= "'" . $sTelMobile . "'";
         $psSql .= ",'" . $sMsg . "'";
@@ -1453,7 +1453,7 @@ class Efy_Function_RecordFunctions
         // Tao doi tuong xu ly du lieu
         $objConn = new  Extra_Db();
         //Tao duoi tuong trong lop dung chung
-        $objLib = new Efy_Library();
+        $objLib = new Extra_Util();
         $objRecordFunction = new Efy_Function_RecordFunctions();
         //Lay cac gia tri const
         $ojbEfyInitConfig = new Extra_Init();
@@ -1493,11 +1493,11 @@ class Efy_Function_RecordFunctions
             $ResHtmlString = $ResHtmlString . "</tr>";
             $ResHtmlString = $ResHtmlString . "<tr class='normal_label'>";
             $ResHtmlString = $ResHtmlString . "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_NGAY_TIEP_NHAN'] . "</td>";
-            $ResHtmlString = $ResHtmlString . "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . Efy_Library::_yyyymmddToDDmmyyyyhhmm($arrTemp['C_RECEIVED_DATE']) . "</td>";
+            $ResHtmlString = $ResHtmlString . "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . Extra_Util::_yyyymmddToDDmmyyyyhhmm($arrTemp['C_RECEIVED_DATE']) . "</td>";
             $ResHtmlString = $ResHtmlString . "</tr>";
             $ResHtmlString = $ResHtmlString . "<tr class='normal_label'>";
             $ResHtmlString = $ResHtmlString . "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_NGAY_HEN'] . "</td>";
-            $ResHtmlString = $ResHtmlString . "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . Efy_Library::_yyyymmddToDDmmyyyyhhmm($arrTemp['C_APPOINTED_DATE']) . "</td>";
+            $ResHtmlString = $ResHtmlString . "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . Extra_Util::_yyyymmddToDDmmyyyyhhmm($arrTemp['C_APPOINTED_DATE']) . "</td>";
             $ResHtmlString = $ResHtmlString . "</tr>";
             $ResHtmlString = $ResHtmlString . "<tr class='normal_label'>";
             $ResHtmlString = $ResHtmlString . "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_NOI_THU_LY'] . "</td>";
@@ -1723,7 +1723,7 @@ class Efy_Function_RecordFunctions
         //Tao doi tuong xu ly XML
         $objXml = new Extra_Xml();
         $objQLDTFun = new Efy_Function_RecordFunctions();
-        $objLib = new Efy_Library();
+        $objLib = new Extra_Util();
         $sXmlData = '<?xml version="1.0" encoding="UTF-8"?>' . $sXmlData;
         $sContentFile = '';
         $userIdentity = G_Account::getInstance()->getIdentity();
@@ -1824,7 +1824,7 @@ class Efy_Function_RecordFunctions
     {
         $sHTML_string = '';
         $objXmlLib = new Extra_Xml();
-        $objEfyLib = new Efy_Library();
+        $objEfyLib = new Extra_Util();
         $objConfig = new Extra_Init();
         //Duyet mang du lieu và xuat ma html
         $v_count_row = sizeof($arrResult);
@@ -2622,7 +2622,7 @@ class Efy_Function_RecordFunctions
      */
     public function _generatValue($pValue, $pType = '', $sFunction = '')
     {
-        $objEfyLib = new Efy_Library();
+        $objEfyLib = new Extra_Util();
         $value_return = '';
         switch ($pType) {
             case "date";

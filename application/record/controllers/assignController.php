@@ -34,7 +34,7 @@ class record_assignController extends  Zend_Controller_Action {
 		
 		//Tao doi tuong XML
 		Zend_Loader::loadClass('Extra_Xml');
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','recordtype/recordtype.js,js-record/approve.js,xml/general_datatable.js',',','js');
 		//Dinh nghia current modul code
@@ -135,13 +135,13 @@ class record_assignController extends  Zend_Controller_Action {
 		$this->view->genlist = $objXml->_xmlGenerateList($sXmlFileName,'col',$arrResult, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../assign/viewindex');
 		$iTotalRecord = $arrResult[0]['C_TOTAL_RECORD'];	
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-		$this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
+		$this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
 		if (count($arrResult) > 0){
 			$this->view->sdocpertotal = "Danh sách có: ".sizeof($arrResult).'/'.$iTotalRecord." hồ sơ";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
 			//Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
 		}else{
 			$this->view->sdocpertotal = "Danh sách này không có hồ sơ nào";
 		}
@@ -170,7 +170,7 @@ class record_assignController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate) {
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $idea = $this->_request->getParam('idea');
             $iUserId = $_SESSION['staff_id'];
@@ -276,13 +276,13 @@ class record_assignController extends  Zend_Controller_Action {
         $this->view->genlist = $objXml->_xmlGenerateList($sXmlFileName,'col',$arrResult, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../assign/viewassigned');
         $iTotalRecord = $arrResult[0]['C_TOTAL_RECORD'];
         //Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-        $this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
+        $this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
         if (count($arrResult) > 0){
             $this->view->sdocpertotal = "Danh sách có: ".sizeof($arrResult).'/'.$iTotalRecord." hồ sơ";
             //Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-            $this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
+            $this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
             //Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-            $this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+            $this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
         }else{
             $this->view->sdocpertotal = "Danh sách này không có hồ sơ nào";
         }

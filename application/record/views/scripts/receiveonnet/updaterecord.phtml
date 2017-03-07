@@ -84,7 +84,7 @@
 						</div>
 						<div id="C_ORIGINAL_APPLICATION_DATE_ID">
 							<label><?=$arrConst['_NGAY_HEN_MANG_HO_SO_GOC']?></label>
-							<input class="textbox" style="width:15%;"  id ="C_ORIGINAL_APPLICATION_DATE" name="C_ORIGINAL_APPLICATION_DATE" type="text" isdate="true" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_ORIGINAL_APPLICATION_DATE" message="<?php echo "NGAY HEN MANG HO SO GOC DEN GIAI QUYET khong duoc truoc ngay gui tiep nhan ho so";?>" value="<?=Efy_Library::_yyyymmddToDDmmyyyy($arrSingleRecord[0]['C_ORIGINAL_APPLICATION_DATE'])?>"  onKeyUp="DateOnkeyup(this,event)" />
+							<input class="textbox" style="width:15%;"  id ="C_ORIGINAL_APPLICATION_DATE" name="C_ORIGINAL_APPLICATION_DATE" type="text" isdate="true" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_ORIGINAL_APPLICATION_DATE" message="<?php echo "NGAY HEN MANG HO SO GOC DEN GIAI QUYET khong duoc truoc ngay gui tiep nhan ho so";?>" value="<?=Extra_Util::_yyyymmddToDDmmyyyy($arrSingleRecord[0]['C_ORIGINAL_APPLICATION_DATE'])?>"  onKeyUp="DateOnkeyup(this,event)" />
 							<img src="<?= $this->baseUrl?>images/calendar.gif" border="0" onclick="DoCal('<?= $urlCalendar;?>',document.getElementById('C_ORIGINAL_APPLICATION_DATE'));" style="cursor:pointer">							
 						</div> 
 						<div>

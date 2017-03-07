@@ -40,7 +40,7 @@ class Record_normalreportController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 
         //Lay tra tri trong Cookie
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
         $sGetValueInCookie = $objLibrary->_getCookie("showHideMenu");
         //Neu chua ton tai thi khoi tao
         if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)){
@@ -97,7 +97,7 @@ class Record_normalreportController extends  Zend_Controller_Action {
 	 	foreach ($arrRecordType as $value){
 	 	    echo 'arrValue=new Array();arrValue[0]="'.$value['C_CODE'].'";'; 
 			echo 'arrValue=new Array();arrValue[0]="'.$value['C_CODE'].'";';
-			echo 'arrValue[1]="'.Efy_Publib_Library::_replaceBadChar($value['C_NAME']).'";';
+			echo 'arrValue[1]="'.Extra_Util::_replaceBadChar($value['C_NAME']).'";';
 			echo 'arrValue[2]="'.$value['C_CATE'].'";';
             echo 'arrValue[3]="'.$value['C_STATUS'].'";';
 			echo 'arrRecordType['.$i.']=arrValue;';
@@ -135,7 +135,7 @@ class Record_normalreportController extends  Zend_Controller_Action {
 		$objReport = new Listxml_modListReport() ;
 		//Tao doi tuong thu vien xu ly du lieu
 		$objXmlLib = new Extra_Xml();
-		$objEfyLib = new Efy_Library();	
+		$objEfyLib = new Extra_Util();
 		$objFunction = new Efy_Function_RecordFunctions();	
 		//Lay loai TTHC
 		$sRecordTypeID=$this->_request->getParam('hdn_recordtype_id',"");

@@ -76,8 +76,8 @@ class listxml_modList extends Extra_Db {
 				$psXmlFileName = $objConfig->_setXmlFileUrlPath(1) . "list/quan_tri_doi_tuong_danh_muc.xml";
 			}
 				
-			//Tao doi tuong Efy_Library
-			$objEfyLib = new Efy_Library();
+			//Tao doi tuong Extra_Util
+			$objEfyLib = new Extra_Util();
 			
 			//Tao doi tuong Extra_Xml
 			Zend_Loader::loadClass('Extra_Xml');
@@ -154,8 +154,8 @@ class listxml_modList extends Extra_Db {
 				$psXmlFileName = trim($arrParameter['GET_XML_FILE_NAME']);
 			}
 					
-			//Tao doi tuong Efy_Library
-			$objEfyLib = new Efy_Library();
+			//Tao doi tuong Extra_Util
+			$objEfyLib = new Extra_Util();
 			
 			//Tao doi tuong Extra_Xml
 			Zend_Loader::loadClass('Extra_Xml');

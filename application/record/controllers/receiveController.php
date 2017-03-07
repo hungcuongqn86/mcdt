@@ -30,7 +30,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('record_modReceive');
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 		// Load tat ca cac file Js va Css
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
 		$sStyle= $objLibrary->_getAllFileJavaScriptCss('','js','js-record/receive.js,xml/general_datatable.js,xml/general_formfiel.js',',','js');
         $sStyle.= $objLibrary->_getAllFileJavaScriptCss('','style','printmenu/printmenu.css',',','css');
 		$this->view->LoadAllFileJsCss = $sStyle;
@@ -140,7 +140,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Extra_Xml();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
 
 		$arrRecordType = $_SESSION['arr_all_record_type'];
 		//var_dump($arrRecordType);
@@ -219,7 +219,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objReceive = new record_modReceive();
 		//Lay thong tin cua loai ho so TTHC
 		$arrRecordType = $objrecordfun->eCSRecordTypeGetAllByStaff($_SESSION['staff_id'], $_SESSION['OWNER_CODE']);
@@ -343,7 +343,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objReceive = new record_modReceive();
 				
 		//Lay thong tin cua loai ho so TTHC
@@ -533,7 +533,7 @@ class record_receiveController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate) {
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $idea = $this->_request->getParam('idea');
             $iUserId = $_SESSION['staff_id'];
@@ -610,7 +610,7 @@ class record_receiveController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate) {
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $idea = $this->_request->getParam('idea');
             $iUserId = $_SESSION['staff_id'];
@@ -676,7 +676,7 @@ class record_receiveController extends  Zend_Controller_Action {
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Extra_Xml();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
 
         $arrRecordType = $_SESSION['arr_all_record_type'];
         $sRecordTypeId = $this->_request->getParam('recordType');
@@ -772,7 +772,7 @@ class record_receiveController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate) {
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $idea = $this->_request->getParam('idea');
             $iUserId = $_SESSION['staff_id'];
@@ -980,13 +980,13 @@ class record_receiveController extends  Zend_Controller_Action {
 		$this->view->genlist = $objXml->_xmlGenerateList($sXmlFileName,'col',$arrResult, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../receive/viewresult');
 		$iTotalRecord = $arrResult[0]['C_TOTAL_RECORD'];	
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-		$this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
+		$this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
 		if (count($arrResult) > 0){
 			$this->view->sdocpertotal = "Danh s&#225;ch c&#243;: ".sizeof($arrResult).'/'.$iTotalRecord." h&#7891; s&#417;";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
 			//Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
 		}else{
 			$this->view->sdocpertotal = "Danh s&#225;ch n&#224;y kh&#244;ng c&#243; h&#7891; s&#417; n&#224;o";
 		}
@@ -1001,7 +1001,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$ojbEfyLib				 = new Efy_Library();
+		$ojbEfyLib				 = new Extra_Util();
 		$objxml 				 = new Extra_Xml();
 		$objResult	  			 = new record_modResult();
 		//Lay mang hang so dung chung
@@ -1106,7 +1106,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
-		$ojbEfyLib				 = new Efy_Library();
+		$ojbEfyLib				 = new Extra_Util();
 		$objxml 				 = new Extra_Xml();
 		$objResult	  			 = new record_modResult();
 		$objHandle	  			 = new record_modHandle();
@@ -1190,7 +1190,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objHandle	  			 = new record_modHandle();
 		$objInitConfig 			 = new Extra_Init();
-		$ojbEfyLib				 = new Efy_Library();
+		$ojbEfyLib				 = new Extra_Util();
 		//Lay Lich JS
 		$efyLibUrlPath = $objInitConfig->_setLibUrlPath();
 		$url_path_calendar = $efyLibUrlPath . 'efy-calendar/';
@@ -1462,13 +1462,13 @@ class record_receiveController extends  Zend_Controller_Action {
 		$this->view->genlist = $objXml->_xmlGenerateList($sXmlFileName,'col',$arrResult, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../receive/viewadditional');
 		$iTotalRecord = $arrResult[0]['C_TOTAL_RECORD'];
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-		$this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
+		$this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
 		if (count($arrResult) > 0){
 			$this->view->sdocpertotal = "Danh sách có: ".sizeof($arrResult).'/'.$iTotalRecord." hồ sơ";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
 			//Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
 		}else{
 			$this->view->sdocpertotal = "Danh sách này không có hồ sơ nào";
 		}
@@ -1481,7 +1481,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objReceive = new record_modReceive();
 				
 		//Lay thong tin cua loai ho so TTHC
@@ -1652,13 +1652,13 @@ class record_receiveController extends  Zend_Controller_Action {
 		$this->view->genlist = $objXml->_xmlGenerateList($sXmlFileName,'col',$arrResult, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../receive/viewprocessing');
 		$iTotalRecord = $arrResult[0]['C_TOTAL_RECORD'];	
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-		$this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
+		$this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
 		if (count($arrResult) > 0){
 			$this->view->sdocpertotal = "Danh sách có: ".sizeof($arrResult).'/'.$iTotalRecord." hồ sơ";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iTotalRecord, $iCurrentPage, $iNumberRecordPerPage,$pUrl) ;
 			//Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage,$this->view->getStatusLeftMenu);
 		}else{
 			$this->view->sdocpertotal = "Danh sách này không có hồ sơ nào";
 		}
@@ -1668,7 +1668,7 @@ class record_receiveController extends  Zend_Controller_Action {
      *
      */
     public function printreceiptAction(){
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
         $sOwnerCode = $_SESSION['OWNER_CODE'];
         $objReceive = new record_modReceive();
         $objQLDTFun = new Efy_Function_RecordFunctions();
@@ -1731,7 +1731,7 @@ class record_receiveController extends  Zend_Controller_Action {
         $ojbConfigXml = new Zend_Config_Xml($sPathXmlFile,$sParrentTagName);
         $objXml = new Extra_Xml();
         $objQLDTFun = new Efy_Function_RecordFunctions();
-        $objLib = new Efy_Library();
+        $objLib = new Extra_Util();
         $dirTemplate = $sPathTemplateFile.$sTemplateFile;
         $phpdocx = new Extra_Word($dirTemplate);
         $phpdocx->assignToHeader("#HEADER1#","Header 1"); // basic field mapping to header

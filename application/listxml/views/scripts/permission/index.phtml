@@ -94,7 +94,7 @@ if($arrPermission['CAP_NHAT_LOAI_DM'] || $arrPermission['CAP_NHAT_DM_DOI_TUONG']
 			for($index = 0;$index < sizeof($arrResul);$index++){
 				//Lay file dinh kem
 				$strFileName 				= $arrResul[$index]['C_FILE_NAME'];
-				$sFile 	= Efy_Library::_getAllFileAttach($strFileName,"@!~!@","!~!",$this->baseUrl . "attach-file/");
+				$sFile 	= Extra_Util::_getAllFileAttach($strFileName,"@!~!@","!~!",$this->baseUrl . "attach-file/");
 				//ID VB
 				$documentId 				= $arrResul[$index]['PK_RECEIVED_DOC'];				
 				// Ngay den

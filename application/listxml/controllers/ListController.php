@@ -48,7 +48,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Extra_Xml');
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','list/jsList.js,jquery-1.5.1.js',',','js');
+		$this->view->LoadAllFileJsCss = Extra_Util::_getAllFileJavaScriptCss('','js','list/jsList.js,jquery-1.5.1.js',',','js');
 		/* Ket thuc*/	
 		
 		//Dinh nghia current modul code
@@ -56,12 +56,12 @@ class listxml_ListController extends  Zend_Controller_Action {
 		$this->view->currentModulCodeForLeft = "LIST";		
 		
 		//Lay tra tri trong Cookie
-		$sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");
+		$sGetValueInCookie = Extra_Util::_getCookie("showHideMenu");
 		
 		//Neu chua ton tai thi khoi tao
 		if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)){
-			Efy_Library::_createCookie("showHideMenu",1);
-			Efy_Library::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
+			Extra_Util::_createCookie("showHideMenu",1);
+			Extra_Util::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
 			//Mac dinh hien thi menu trai
 			$this->view->hideDisplayMeneLeft = 1;// = 1 : hien thi menu
 			//Hien thi anh dong menu trai
@@ -76,7 +76,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 				$this->view->hideDisplayMeneLeft = "";// = "" : an menu
 			}
 			//Lay dia chi anh trong Cookie
-			$this->view->ShowHideimageUrlPath = Efy_Library::_getCookie("ImageUrlPath");
+			$this->view->ShowHideimageUrlPath = Extra_Util::_getCookie("ImageUrlPath");
 		}
 			
 		//Hien thi file template
@@ -115,7 +115,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		//Lay thong tin loai danh muc de hien thi selectbox "Loai danh muc"
 		$arrListType = $objList->getAllListType($iStatus, $sListTypeName, $sOwnerCode);			
 		//Tao mang mot chieu hien thi selecbox "Loai danh muc"		
-		$this->view->arrAllListType = Efy_Library::_createOneDimensionArray($arrListType,'PK_LISTTYPE', 'C_NAME');
+		$this->view->arrAllListType = Extra_Util::_createOneDimensionArray($arrListType,'PK_LISTTYPE', 'C_NAME');
 		
 		//Dat gia tri ban dau cua dang hien thoi
 		$piCurrentPage = -1;
@@ -185,12 +185,12 @@ class listxml_ListController extends  Zend_Controller_Action {
 		$arrAllList = $arrResult['arrList'];
 		$psNumberRecord = $arrAllList[0]['TOTAL_RECORD'];				
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-		$this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll(sizeof($arrAllList), $psNumberRecord);
+		$this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll(sizeof($arrAllList), $psNumberRecord);
 		//var_dump($arrAllList);exit;	
 		//Neu co du lieu tra ve thi moi hien thi SelectBox trang
 		if (count($arrAllList) > 0){			
 			//Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page			
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateNumberPageIntoSelectbox($psNumberRecord, $piCurrentPage, $piNumRowOnPage, 'index') . "&nbsp;" . Efy_Publib_Library::_generateChangeRecordNumberPage($piNumRowOnPage,"index");
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateNumberPageIntoSelectbox($psNumberRecord, $piCurrentPage, $piNumRowOnPage, 'index') . "&nbsp;" . Extra_Util::_generateChangeRecordNumberPage($piNumRowOnPage,"index");
 		}
 		//echo $psXmlFileName; //exit();
 		//Tao chuoi HTML hien thi danh sach
@@ -214,7 +214,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		//Tao doi tuong XML
 		$ojbXmlLib = new Extra_Xml();
 		//Tao doi tuong Efy_lib
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		// Tao doi tuong cho lop tren		
 		$objList = new listxml_modList();
 		
@@ -353,7 +353,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 		$ojbXmlLib = new Extra_Xml();
 		
 		//Tao doi tuong Efy_lib
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 				
 		// Tao doi tuong cho lop tren		
 		$objList = new Listxml_modList();
@@ -617,7 +617,7 @@ class listxml_ListController extends  Zend_Controller_Action {
 	private function createXML($pFilePath,$parrList){			
 		for ($index = 0 ; $index < sizeof($parrList); $index++){
 			echo $pFilePath.$parrList[$index]['C_CODE'].'.xml' . '<br>';
-			Efy_Library::_writeFile($pFilePath.$parrList[$index]['C_CODE'].'.xml',$parrList[$index]['XML_DATA']);								
+			Extra_Util::_writeFile($pFilePath.$parrList[$index]['C_CODE'].'.xml',$parrList[$index]['XML_DATA']);
 		}						
 	}
 }

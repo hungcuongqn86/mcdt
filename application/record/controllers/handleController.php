@@ -32,7 +32,7 @@ class record_handleController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		//Tao doi tuong XML
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
 		// Load tat ca cac file Js va Css
 		$sStyle = $objLibrary->_getAllFileJavaScriptCss('','js','handle/handle.js,js-record/handle.js,xml/general_datatable.js',',','js');
 		$this->view->LoadAllFileJsCss = $sStyle;
@@ -104,7 +104,7 @@ class record_handleController extends  Zend_Controller_Action {
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objXml					 = new Extra_Xml();
-        $ojbEfyLib				 = new Efy_Library();
+        $ojbEfyLib				 = new Extra_Util();
 
 		$sStatus = $this->_request->getParam('status','');
 		$this->view->sStatus = $sStatus;
@@ -278,7 +278,7 @@ class record_handleController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate) {
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $idea = $this->_request->getParam('idea');
             $iUserId = $_SESSION['staff_id'];
@@ -347,7 +347,7 @@ class record_handleController extends  Zend_Controller_Action {
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objXml					 = new Extra_Xml();
-		$objLibrary 			 = new Efy_Library();
+		$objLibrary 			 = new Extra_Util();
 		//ID NSD dang nhap hien thoi
 		$iCurrentStaffId = $_SESSION['staff_id'];
 		$arrRecordType = $_SESSION['arr_all_record_type'];
@@ -498,7 +498,7 @@ class record_handleController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate){
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $leaderid = $this->_request->getParam('chk_leader');
             $sleadername = $objrecordfun->getNamePositionStaffByIdList($leaderid);
@@ -535,7 +535,7 @@ class record_handleController extends  Zend_Controller_Action {
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Efy_Function_RecordFunctions();	
 		$objXml					 = new Extra_Xml();
-        $ojbEfyLib               = new Efy_Library();
+        $ojbEfyLib               = new Extra_Util();
 		//Lay mang hang so dung chung
 		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();		
 		//Lay mang cac TTHC
@@ -615,7 +615,7 @@ class record_handleController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
         $objXml					 = new Extra_Xml();
-        $ojbEfyLib               = new Efy_Library();
+        $ojbEfyLib               = new Extra_Util();
         //Lay mang hang so dung chung
         $this->view->arrConst = $objInitConfig->_setProjectPublicConst();
         //Lay mang cac TTHC
@@ -709,7 +709,7 @@ class record_handleController extends  Zend_Controller_Action {
 
         $supdate = trim($this->_request->getParam('hdn_update',""));
         if($supdate) {
-            $ojbEfyLib = new Efy_Library();
+            $ojbEfyLib = new Extra_Util();
             $sRecordIdList = $this->_request->getParam('hdn_record_id_list');
             $idea = $this->_request->getParam('idea');
             $iUserId = $_SESSION['staff_id'];
@@ -759,7 +759,7 @@ class record_handleController extends  Zend_Controller_Action {
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Extra_Xml();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
 
         $arrRecordType = $_SESSION['arr_all_record_type'];
         $sRecordTypeId = $this->_request->getParam('recordType');

@@ -53,17 +53,17 @@ class record_receiveonnetController extends Zend_Controller_Action
         $this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 
         // Load tat ca cac file Js va Css
-        $this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('', 'js', 'record.js', ',', 'js');
+        $this->view->LoadAllFileJsCss = Extra_Util::_getAllFileJavaScriptCss('', 'js', 'record.js', ',', 'js');
 
-        //. Efy_Publib_Library::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');
+        //. Extra_Util::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');
 
         //Lay tra tri trong Cookie
-        $sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");
+        $sGetValueInCookie = Extra_Util::_getCookie("showHideMenu");
 
         //Neu chua ton tai thi khoi tao
         if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)) {
-            Efy_Library::_createCookie("showHideMenu", 1);
-            Efy_Library::_createCookie("ImageUrlPath", $this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
+            Extra_Util::_createCookie("showHideMenu", 1);
+            Extra_Util::_createCookie("ImageUrlPath", $this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
             //Mac dinh hien thi menu trai
             $this->view->hideDisplayMeneLeft = 1;// = 1 : hien thi menu
             //Hien thi anh dong menu trai
@@ -78,12 +78,12 @@ class record_receiveonnetController extends Zend_Controller_Action
                 $this->view->hideDisplayMeneLeft = "";// = "" : an menu
             }
             //Lay dia chi anh trong Cookie
-            $this->view->ShowHideimageUrlPath = Efy_Library::_getCookie("ImageUrlPath");
+            $this->view->ShowHideimageUrlPath = Extra_Util::_getCookie("ImageUrlPath");
         }
 
 
         // Ham lay thong tin nguoi dang nhap hien thi tai Lefmenu
-        $this->view->InforStaff = Efy_Publib_Library::_InforStaff();
+        $this->view->InforStaff = Extra_Util::_InforStaff();
 
         //Dinh nghia current modul code
         $this->view->currentModulCode = "RECEIVE-ON-NET";
@@ -184,13 +184,13 @@ class record_receiveonnetController extends Zend_Controller_Action
         $this->view->iNumberRecord = $iNumberRecord;
         $sdocpertotal = "Danh sách này không có hồ sơ nào";
         //Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-        $this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll(sizeof($arrRecord), $iNumberRecord);
+        $this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll(sizeof($arrRecord), $iNumberRecord);
         if (count($arrRecord) > 0) {
             $this->view->sdocpertotal = "Danh sách có: " . sizeof($arrRecord) . '' . $iNumberRecord . " hồ sơ";
             //Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-            $this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage, $pUrl);
+            $this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage, $pUrl);
             //Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-            $this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage, $this->view->getStatusLeftMenu);
+            $this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage, $this->view->getStatusLeftMenu);
 
         }
     }
@@ -275,8 +275,8 @@ class record_receiveonnetController extends Zend_Controller_Action
         $this->view->iNumberRecord = $iNumberRecord;
         if (count($arrRecord) > 0) {
             $this->view->sdocpertotal = "Danh sách có: " . sizeof($arrRecord) . '' . $iNumberRecord . " hồ sơ";
-            $this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage, $pUrl);
-            $this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage, $this->view->getStatusLeftMenu);
+            $this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage, $pUrl);
+            $this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage, $this->view->getStatusLeftMenu);
         }
     }
 
@@ -378,13 +378,13 @@ class record_receiveonnetController extends Zend_Controller_Action
         $this->view->iNumberRecord = $iNumberRecord;
         $sdocpertotal = "Danh sách này không có hồ sơ nào";
         //Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-        $this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll(sizeof($arrRecord), $iNumberRecord);
+        $this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll(sizeof($arrRecord), $iNumberRecord);
         if (count($arrRecord) > 0) {
             $this->view->sdocpertotal = "Danh sách có: " . sizeof($arrRecord) . '' . $iNumberRecord . " hồ sơ";
             //Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-            $this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage, $pUrl);
+            $this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iNumberRecord, $iPage, $iNumberRecordPerPage, $pUrl);
             //Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-            $this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumberRecordPerPage, $this->view->getStatusLeftMenu);
+            $this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumberRecordPerPage, $this->view->getStatusLeftMenu);
 
         }
     }
@@ -434,7 +434,7 @@ class record_receiveonnetController extends Zend_Controller_Action
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
         $objxml = new Extra_Xml();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
         $objReceiveonnet = new record_modReceiveonnet();
 
         //Lay tham so cau hinh
@@ -502,8 +502,8 @@ class record_receiveonnetController extends Zend_Controller_Action
         $dDate = $this->_request->getParam('C_ORIGINAL_APPLICATION_DATE');
         $sMesage = $this->_request->getParam('NOIDUNG');
         if ($this->getRequest()->isPost() && $option) {
-            $sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'name');
-            $sStaffPosition = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'position_code');
+            $sStaffName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'name');
+            $sStaffPosition = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'position_code');
             $sStatus = '';
             if ($option == '1') {
                 $sStatus = 'TIEP_NHAN_SO_BO';

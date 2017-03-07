@@ -46,7 +46,7 @@
 			<?php			
 			$delimitor = $this->delimitor;//Lay ky tu phan cach giua cac phan tu
 			//Hien thi cac cot cua bang hien thi du lieu
-				$StrHeader = explode("!~~!", Efy_Library::_GenerateHeaderTable("3%" . $delimitor . "7%" . $delimitor . "30%". $delimitor . "14%" . $delimitor . "14%" . $delimitor . "14%" . $delimitor . "14%"
+				$StrHeader = explode("!~~!", Extra_Util::_GenerateHeaderTable("3%" . $delimitor . "7%" . $delimitor . "30%". $delimitor . "14%" . $delimitor . "14%" . $delimitor . "14%" . $delimitor . "14%"
 												,'<input type="checkbox" name="chk_all_item_id"  onclick="checkbox_all_item_id(document.forms[0].chk_item_id);">' . $delimitor .$arrConst['_THU_TU'] . $delimitor . "Tiêu đề" . $delimitor . "Dịnh dạng". $delimitor . "Độ rộng" . $delimitor . "Căn chỉnh" . $delimitor . $arrConst['_TINH_TRANG']
 												,$delimitor));
 			echo $StrHeader[0];				
@@ -93,7 +93,7 @@
 				</tr><?php
 			}					
 			//Tu dien cac dong trang trong truong hop du lieu tra ve < so row _CONST_NUMBER_OF_ROW_PER_LIST	
-				echo Efy_Library::_addEmptyRow($this->iCountElement,5 -sizeof($arrListCol),$sCurrentStyleName,7);
+				echo Extra_Util::_addEmptyRow($this->iCountElement,5 -sizeof($arrListCol),$sCurrentStyleName,7);
 			?>
 		</table>	
 		<!--Hien thi trang can xem!-->
@@ -122,7 +122,7 @@
 			<select style="width:24%;" id="C_DATA_TYPE" name="C_DATA_TYPE" option = "false" class="normal_textbox" message="<?php echo "Phải xác định kiểu dữ liệu!";?>">
 				<option id="" name = "" value="">-- Chọn kiểu dữ liệu --</option><?php
 				$arrDataType = $this->arrDataType;
-				echo Efy_Library::_generateSelectOption($arrDataType,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_FORMAT']);?>
+				echo Extra_Util::_generateSelectOption($arrDataType,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_FORMAT']);?>
 			</select>		
 			<span>Độ rộng trường</span><span class="requiein">*</span>
 			<input class = "normal_textbox" style="width:10%"  type="text"  id ="C_WIDTH" name="C_WIDTH" option = "false" isnumber value="<?=$arrReportColInfo[0]['C_WIDTH']?>" isnumeric="true" message="<?php echo "Phải xác định độ rộng trường!";?>">
@@ -130,7 +130,7 @@
 			<select style="width:15%;" id="C_ALIGN_TYPE" name="C_ALIGN_TYPE" option = "false" class="normal_textbox" message="<?php echo "Phải xác định kiểu căn chỉnh!";?>">
 				<option id="" name = "" value="">-- Chọn kiểu căn chỉnh --</option><?php
 				$arrAlign = $this->arrAlign;
-				echo Efy_Library::_generateSelectOption($arrAlign,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_ALIGN']);?>
+				echo Extra_Util::_generateSelectOption($arrAlign,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_ALIGN']);?>
 			</select>
 		</div>
 		<div>
@@ -138,7 +138,7 @@
 			<select style="width:24%;" id="C_DATA_SOU" name="C_DATA_SOU" option = "false" class="normal_textbox" message="<?php echo "Phải xác định nguồn dữ liệu!";?>">
 				<option id="" name = "" value="">-- Chọn nguồn dữ liệu --</option><?php
 				$arrDataSou = $this->arrDataSou;
-				echo Efy_Library::_generateSelectOption($arrDataSou,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_DATA_SOURCE']);?>
+				echo Extra_Util::_generateSelectOption($arrDataSou,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_DATA_SOURCE']);?>
 			</select>		
 			<span>Tên trường, thẻ</span><span class="requiein">*</span>
 			<input class = "normal_textbox" style="width:10%"  type="text"  id ="C_DATA_SOU_NAME" name="C_DATA_SOU_NAME" option = "false"  value="<?=$arrReportColInfo[0]['C_COL_TAB_NAME']?>" message="<?php echo "Phải xác định tên thẻ hoặc tên trường chứa dữ liệu!";?>">
@@ -146,7 +146,7 @@
 			<select style="width:15%;" id="C_FUN_NAME" name="C_FUN_NAME" optional = "true" class="normal_textbox" >
 				<option id="" name = "" value="">-- Chọn hàm --</option><?php
 				$arrDataFun = $this->arrDataFun;
-				echo Efy_Library::_generateSelectOption($arrDataFun,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_FUN_NAME']);?>
+				echo Extra_Util::_generateSelectOption($arrDataFun,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_FUN_NAME']);?>
 			</select>
 		</div>
 		<div>
@@ -154,7 +154,7 @@
 			<select style="width:15%;" id="C_CALCULATE" name="C_CALCULATE" optional = "true" class="normal_textbox" >
 				<option id="" name = "" value="">-- Chọn kiểu thống kê --</option><?php
 				$arrCalculate = $this->arrCalculate;
-				echo Efy_Library::_generateSelectOption($arrCalculate,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_CALCULATE']);?>
+				echo Extra_Util::_generateSelectOption($arrCalculate,'C_CODE','C_CODE','C_NAME',$arrReportColInfo[0]['C_CALCULATE']);?>
 			</select>		
 			<input class = "normal_textbox" style="width:49%"  type="text"  id ="C_CONDITION" name="C_CONDITION" optional = "true"  value="<?=$arrReportColInfo[0]['C_CONDITION']?>" message="<?php echo "Phải xác định tên báo cáo!";?>">	
 		</div>	

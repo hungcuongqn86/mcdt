@@ -15,7 +15,7 @@ class Login_IndexController extends  Zend_Controller_Action {
 			    'layout' => 'login'
 			    ));	
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','position.js,jquery-1.5.1.js,ajax.js',',','js');
+		$this->view->LoadAllFileJsCss = Extra_Util::_getAllFileJavaScriptCss('','js','position.js,jquery-1.5.1.js,ajax.js',',','js');
 		$this->view->showModelDialog = 1;//An menu
 		//Lay duong dan thu muc goc (path directory root)
 		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";
@@ -40,10 +40,10 @@ class Login_IndexController extends  Zend_Controller_Action {
 		$this->view->hdn_option= $hdhOption;
 		
 
-		$sCheckReme = Efy_Library::_getCookie("sCheckReme");
+		$sCheckReme = Extra_Util::_getCookie("sCheckReme");
 		if($sCheckReme){
-			$sUserName = Efy_Library::_getCookie("sUserName");
-			$sPassWord = Efy_Library::_getCookie("sPassWord");
+			$sUserName = Extra_Util::_getCookie("sUserName");
+			$sPassWord = Extra_Util::_getCookie("sPassWord");
 		}else{
 			$sCheckReme = 0;
 		}
@@ -70,7 +70,7 @@ class Login_IndexController extends  Zend_Controller_Action {
 			if (sizeof($arrStaff)>0){
 			//luu thong tin nguoi dang nhap vao session
 				@session_start();
-				$_SESSION['INFORMATION_STAFF_LOGIN'] = efy_library::_getInformationStaffLogin($arrStaff[0]['C_NAME'],$arrStaff[0]['C_POSITION_CODE'],$arrStaff[0]['C_UNIT_NAME']);
+				$_SESSION['INFORMATION_STAFF_LOGIN'] = Extra_Util::_getInformationStaffLogin($arrStaff[0]['C_NAME'],$arrStaff[0]['C_POSITION_CODE'],$arrStaff[0]['C_UNIT_NAME']);
 				//$_SESSION['staff_id'] = //$arrStaff[0]['PK_STAFF'];//str_replace('{','',str_replace('}', '',$arrStaff[0]['PK_STAFF'])); //Luu ID can bo dang nhap vao Session
 				$_SESSION['staff_id'] = str_replace('{','',str_replace('}', '',$arrStaff[0]['PK_STAFF']));
 				$_SESSION['OWNER_CODE'] = $arrStaff[0]['C_UNIT_OWNER_CODE'];//luu don vi trien khai		

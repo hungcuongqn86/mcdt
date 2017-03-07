@@ -1,21 +1,14 @@
 <?php
 
 /**
- * Nguoi tao: HUNGVM
- * Ngay tao: 18/11/2008
- * Noi dung: Tao lop Efy_Publib_Library luu cac ham dung chung
+ * Class Extra_Util
  */
-abstract class Efy_Publib_Library
+class Extra_Util
 {
 
-
     /**
-     * Creater : HUNGVM
-     * Date : 16/06/2010
-     * Idea : Tao phuong thuc khoi tao gia tri luu trong Cookie
-     *
-     * @param $sName : Ten Cookie
-     * @param $sValue : Gia tri luu trong Cookie
+     * @param $sName
+     * @param string $sValue
      */
     public function _createCookie($sName, $sValue = "")
     {
@@ -26,12 +19,8 @@ abstract class Efy_Publib_Library
     }
 
     /**
-     * Creater : HUNGVM
-     * Date : 16/06/2010
-     * Idea : Tao phuong thuc lay gia tri luu trong Cookie voi $sNname tuong ung
-     *
-     * @param $sNname : Ten Cookie
-     * @return Gia tri luu trong Cookie, neu chua ton tai return false
+     * @param $sNname
+     * @return string
      */
     public function _getCookie($sNname)
     {
@@ -42,20 +31,11 @@ abstract class Efy_Publib_Library
         }
 
     }
+
     /**
-     *
+     * @param $xmlData
+     * @return mixed
      */
-    //********************************************************************************
-    //Ten ham		:_xmlStringToArray
-    //Chuc nang	: Chuyen doi mot xau XML thanh mot array
-    //Tham so: $p_xmlstring - la xau XML can chuyen doi. Xau XML nay chi co 2 cap, vi du
-    //Cach su dung:
-    //- Truoc khi goi ham nay, phai khai bao cac bien sau:
-    //+ $p_arr_items: la array ket qua
-    //+ $p_level1_tag_name: ten tag dau tien cua xau XML (trong vi du tren thi $p_level1_tag_name=staff_list)
-    //+ $p_level2_tag_name_list: danh sach tag can chuyen gia tri vao array: (trong vi du tren thi $p_level1_tag_name="id,code")
-    //+ $p_delimitor: ki tu phan cach cac phan tu cua $p_level2_tag_name_list
-    //********************************************************************************
     public function _xmlStringToArray($xmlData)
     {
         global $p_arr_items, $p_level1_tag_name, $p_level2_tag_name_list, $p_delimitor;
@@ -594,13 +574,13 @@ abstract class Efy_Publib_Library
         //Zend_Loader::loadClass('Extra_Xml');
         $psHtmlString = "";
         //Doc file XML mota thong tin
-        $psXmlDataInUrl = Efy_Library::_readFile("./xml/list/output/so_hs_tren_trang.xml");
+        $psXmlDataInUrl = Extra_Util::_readFile("./xml/list/output/so_hs_tren_trang.xml");
         //Chuyen doi thong tin trong xau XML -> Mang
         $arrListItem = Extra_Xml::_convertXmlStringToArray($psXmlDataInUrl, "item");
         //Tao chuoi HTML
         $psHtmlString = $psHtmlString . "Hiển thị ";
         $psHtmlString = $psHtmlString . "<select class='normal_selectbox' id = 'cbo_nuber_record_page' name='cbo_nuber_record_page' optional='true' style='width:60' onChange='page_record_number_onchange(this,\"" . $pAction . "\")'" . "onKeyDown='change_focus(document.forms[0],this)'>";
-        $psHtmlString = $psHtmlString . Efy_Library::_generateSelectOption($arrListItem, 'c_code', 'c_code', 'c_name', $piValue);
+        $psHtmlString = $psHtmlString . Extra_Util::_generateSelectOption($arrListItem, 'c_code', 'c_code', 'c_name', $piValue);
         $psHtmlString = $psHtmlString . "</select>";
         $psHtmlString = $psHtmlString . " hồ sơ/1 trang";
         return $psHtmlString;
@@ -803,7 +783,7 @@ abstract class Efy_Publib_Library
      * @return :
      *            $sFileNameList:    Mang danh sach ten file da duoc upload len o cung
      *
-     * @package : Efy_Publib_Library
+     * @package : Extra_Util
      *
      **/
     public function _uploadFileList($iFileMaxNum = 10, $sDir, $sVarName = "FileName", $sDelimitor = "@!~!@")
@@ -884,7 +864,7 @@ abstract class Efy_Publib_Library
      * @return :
      *            $arrResult:    Mang danh sach ten file da duoc upload len o cung
      *
-     * @package : Efy_Publib_Library
+     * @package : Extra_Util
      *
      **/
     public function _getAllFileList($psID, $pDocumentType)
@@ -1209,9 +1189,9 @@ abstract class Efy_Publib_Library
      */
     public function _InforStaff()
     {
-        $StaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'name');
-        $piUnitId = Efy_Publib_Library:: _getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'unit_id');
-        $piUnitName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_unit'], $piUnitId, 'name');
+        $StaffName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'name');
+        $piUnitId = Extra_Util:: _getItemAttrById($_SESSION['arr_all_staff'], $_SESSION['staff_id'], 'unit_id');
+        $piUnitName = Extra_Util::_getItemAttrById($_SESSION['arr_all_unit'], $piUnitId, 'name');
         return $StaffName . "<br>" . $piUnitName;
     }
 

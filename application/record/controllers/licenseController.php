@@ -36,12 +36,12 @@ class record_licenseController extends  Zend_Controller_Action {
 		// Load tat ca cac file Js va Css
 		$this->view->LoadAllFileJsCss = '';
 		//Lay tra tri trong Cookie
-		$sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");
+		$sGetValueInCookie = Extra_Util::_getCookie("showHideMenu");
 		
 		//Neu chua ton tai thi khoi tao
 		if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)){
-			Efy_Library::_createCookie("showHideMenu",1);
-			Efy_Library::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
+			Extra_Util::_createCookie("showHideMenu",1);
+			Extra_Util::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
 			//Mac dinh hien thi menu trai
 			$this->view->hideDisplayMeneLeft = 1;// = 1 : hien thi menu
 			//Hien thi anh dong menu trai
@@ -56,11 +56,11 @@ class record_licenseController extends  Zend_Controller_Action {
 				$this->view->hideDisplayMeneLeft = "";// = "" : an menu
 			}
 			//Lay dia chi anh trong Cookie
-			$this->view->ShowHideimageUrlPath = Efy_Library::_getCookie("ImageUrlPath");
+			$this->view->ShowHideimageUrlPath = Extra_Util::_getCookie("ImageUrlPath");
 		}
 		
 		// Ham lay thong tin nguoi dang nhap hien thi tai Lefmenu
-		$this->view->InforStaff = Efy_Publib_Library::_InforStaff();
+		$this->view->InforStaff = Extra_Util::_InforStaff();
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "HANDLE";
 		$this->view->currentModulCodeForLeft = 'main';
@@ -94,7 +94,7 @@ class record_licenseController extends  Zend_Controller_Action {
 		$objconfig = new Extra_Init();
 		$objrecordfun = new Efy_Function_RecordFunctions();
 		$objxml = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objReceive = new record_modReceive();
 
 		//Lay thong tin cua loai ho so TTHC
@@ -173,7 +173,7 @@ class record_licenseController extends  Zend_Controller_Action {
 	 */
 	public function printreceiptAction(){		
 		//Tao doi tuong Efy_lib
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$sOwnerCode = $_SESSION['OWNER_CODE'];
 		// Tao doi tuong cho lop xu ly du lieu lien quan modul	
 		$objReceive = new record_modReceive();						

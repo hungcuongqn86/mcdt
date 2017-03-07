@@ -25,7 +25,7 @@ class record_searchController extends  Zend_Controller_Action {
         $objConfig = new Extra_Init();
         $this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
 
-        $objLibrary = new Efy_Library();
+        $objLibrary = new Extra_Util();
         $sStyle = $objLibrary->_getAllFileJavaScriptCss('', 'js', 'js-record/search.js', ',', 'js');
         $this->view->LoadAllFileJsCss = $sStyle;
 
@@ -121,7 +121,7 @@ class record_searchController extends  Zend_Controller_Action {
     public function loadlistrecordAction(){
         $arrInput                = $this->_request->getParams();
         $objInitConfig 			 = new Extra_Init();
-        $ojbEfyLib				 = new Efy_Library();
+        $ojbEfyLib				 = new Extra_Util();
         Zend_Loader::loadClass('listxml_modRecordtype');
         $objRecordtype	        = new listxml_modRecordtype();
         $sRecordTypeId = $arrInput['recordType'];
@@ -221,7 +221,7 @@ class record_searchController extends  Zend_Controller_Action {
      */
     public function loaddataAction(){
         $arrInput                = $this->_request->getParams();
-        $ojbEfyLib				 = new Efy_Library();
+        $ojbEfyLib				 = new Extra_Util();
         $objSearch				 = new Record_modSearch();
         $mode = $arrInput['mode'];
         $arrResult = array();
@@ -251,7 +251,7 @@ class record_searchController extends  Zend_Controller_Action {
      */
     public function loadrecordAction(){
         $arrInput                = $this->_request->getParams();
-        $ojbEfyLib				 = new Efy_Library();
+        $ojbEfyLib				 = new Extra_Util();
         $objSearch				 = new Record_modSearch();
         $iCurrentPage		     = $arrInput['hdn_current_page'];
         if ($iCurrentPage <= 1) $iCurrentPage = 1;

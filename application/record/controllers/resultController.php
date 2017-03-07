@@ -43,18 +43,18 @@ class record_archivesController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','Record.js',',','js')
-										. Efy_Publib_Library::_getAllFileJavaScriptCss('','js','ajax.js',',','js')
-										. Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.4.2.min.js',',','js');
-										//. Efy_Publib_Library::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');,jQuery.equalHeights.js
+		$this->view->LoadAllFileJsCss = Extra_Util::_getAllFileJavaScriptCss('','js','Record.js',',','js')
+										. Extra_Util::_getAllFileJavaScriptCss('','js','ajax.js',',','js')
+										. Extra_Util::_getAllFileJavaScriptCss('','js','jquery-1.4.2.min.js',',','js');
+										//. Extra_Util::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');,jQuery.equalHeights.js
 
 		//Lay tra tri trong Cookie
-		$sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");
+		$sGetValueInCookie = Extra_Util::_getCookie("showHideMenu");
 		
 		//Neu chua ton tai thi khoi tao
 		if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)){
-			Efy_Library::_createCookie("showHideMenu",1);
-			Efy_Library::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
+			Extra_Util::_createCookie("showHideMenu",1);
+			Extra_Util::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
 			//Mac dinh hien thi menu trai
 			$this->view->hideDisplayMeneLeft = 1;// = 1 : hien thi menu
 			//Hien thi anh dong menu trai
@@ -69,12 +69,12 @@ class record_archivesController extends  Zend_Controller_Action {
 				$this->view->hideDisplayMeneLeft = "";// = "" : an menu
 			}
 			//Lay dia chi anh trong Cookie
-			$this->view->ShowHideimageUrlPath = Efy_Library::_getCookie("ImageUrlPath");
+			$this->view->ShowHideimageUrlPath = Extra_Util::_getCookie("ImageUrlPath");
 		}
 
 		
 		// Ham lay thong tin nguoi dang nhap hien thi tai Lefmenu
-		$this->view->InforStaff = Efy_Publib_Library::_InforStaff();
+		$this->view->InforStaff = Extra_Util::_InforStaff();
 		
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "RECORD";
@@ -97,9 +97,9 @@ class record_archivesController extends  Zend_Controller_Action {
 	 */
 	public function indexAction(){
 		//Lay ID cua NSD dang nhap hien thoi
-		$iCurrentStaffId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
+		$iCurrentStaffId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
 		//Lay ID phong ban cua NSD dang nhap hien thoi
-		$iCurrentUnitId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');
+		$iCurrentUnitId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');
 		$pUrl = $_SERVER['REQUEST_URI'];
 		// Tieu de tim kiem
 		$this->view->bodyTitleSearch = "DANH S�?CH HỒ SƠ LƯU TRỮ";				
@@ -140,24 +140,24 @@ class record_archivesController extends  Zend_Controller_Action {
 		$this->view->arrConst = $arrConst;
 		// Tao doi tuong Zend_Filter
 		$objFilter = new Zend_Filter();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		// Lay toan bo tham so truyen tu form			
 		$arrInput = $this->_request->getParams();
 		$objRecordArchive = new record_modRecord();
 		//Lay MA DON VI NSD dang nhap hien thoi
 		$sOwnerCode = $_SESSION['OWNER_CODE'];
-		$arrResul = $objRecordArchive->DocRecordArchivesGetAll($iCurrentStaffId ,$_SESSION['OWNER_ID'], $iCurrentUnitId, $sfullTextSearch, $iCurrentPage, $iNumRowOnPage, Efy_Library::_ddmmyyyyToYYyymmdd($sfromDate), Efy_Library::_ddmmyyyyToYYyymmdd($stoDate));			
+		$arrResul = $objRecordArchive->DocRecordArchivesGetAll($iCurrentStaffId ,$_SESSION['OWNER_ID'], $iCurrentUnitId, $sfullTextSearch, $iCurrentPage, $iNumRowOnPage, Extra_Util::_ddmmyyyyToYYyymmdd($sfromDate), Extra_Util::_ddmmyyyyToYYyymmdd($stoDate));
 		//var_dump($arrResul);
 		$iNumberRecord = $arrResul[0]['C_TOTAL_RECORD'];	
 		$sdocpertotal ="Danh sách này không có văn bản nào";
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-		$this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll(sizeof($arrResul), $iNumberRecord);
+		$this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll(sizeof($arrResul), $iNumberRecord);
 		if (count($arrResul) > 0){
 			$this->view->sdocpertotal = "Danh sách có: ".sizeof($arrResul).'/'.$iNumberRecord." hồ sơ";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iNumberRecord, $iCurrentPage, $iNumRowOnPage,$pUrl) ;
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iNumberRecord, $iCurrentPage, $iNumRowOnPage,$pUrl) ;
 			//Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumRowOnPage,"index");
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumRowOnPage,"index");
 		}
 		$this->view->arrResul = $arrResul;
 		$this->view->iCountElement = count($this->view->arrAllRecord);
@@ -172,7 +172,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
 		$ojbXmlLib = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
@@ -184,17 +184,17 @@ class record_archivesController extends  Zend_Controller_Action {
 		$url_path_calendar = $efyLibUrlPath . 'efy-calendar/';
 		$this->view->urlCalendar = $url_path_calendar;
 		//Lay ID cua NSD dang nhap hien thoi
-		$StaffId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
+		$StaffId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
 		//Lay ID phong ban cua NSD dang nhap hien thoi
-		$iUnitId = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');	
+		$iUnitId = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');
 		//Lay ten phong ban nguoi dang nhap hien thoi
-		$sUnitName = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');	
+		$sUnitName = Extra_Util ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');
 		$this->view->sUnitName = $sUnitName;
 		//Lay TEN cua NSD dang nhap hien thoi
-		$sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
+		$sStaffName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
 		$this->view->sStaffName = $sStaffName;
 		//Lay CHUC VU phong ban cua NSD dang nhap hien thoi
-		$sStaffPosition = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');	
+		$sStaffPosition = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');
 		$this->view->sStaffPosition = $sStaffPosition;		
 		//Tuy chon ung voi cac truong hop update du lieu	
 		$sOption = $this->_request->getParam('hdh_option','');
@@ -232,7 +232,7 @@ class record_archivesController extends  Zend_Controller_Action {
 								'C_STAFF_POSITION_NAME'		=>$sStaffPosition . ' - ' . $sStaffName,
 								'FK_UNIT'					=>$iUnitId,
 								'C_UNIT_NAME'				=>$sUnitName,
-								'C_CREATE_DATE'				=>Efy_Library::_ddmmyyyyToYYyymmdd($this->_request->getParam('C_CREATE_DATE','')),
+								'C_CREATE_DATE'				=>Extra_Util::_ddmmyyyyToYYyymmdd($this->_request->getParam('C_CREATE_DATE','')),
 								'C_RECORD_NAME'				=>$this->_request->getParam('C_RECORD_NAME',''),
 								'C_RECORD_ID'				=>$this->_request->getParam('C_RECORD_ID',''),
 								'C_NOTES'					=>$this->_request->getParam('C_NOTES',''),																	
@@ -273,7 +273,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
 		$ojbXmlLib = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
@@ -284,17 +284,17 @@ class record_archivesController extends  Zend_Controller_Action {
 		$url_path_calendar = $efyLibUrlPath . 'efy-calendar/';
 		$this->view->urlCalendar = $url_path_calendar;
 		//Lay ID cua NSD dang nhap hien thoi
-		$StaffId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
+		$StaffId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
 		//Lay ID phong ban cua NSD dang nhap hien thoi
-		$iUnitId = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');	
+		$iUnitId = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');
 		//Lay ten phong ban nguoi dang nhap hien thoi
-		$sUnitName = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');	
+		$sUnitName = Extra_Util ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');
 		$this->view->sUnitName = $sUnitName;
 		//Lay TEN cua NSD dang nhap hien thoi
-		$sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
+		$sStaffName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
 		$this->view->sStaffName = $sStaffName;
 		//Lay CHUC VU phong ban cua NSD dang nhap hien thoi
-		$sStaffPosition = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');	
+		$sStaffPosition = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');
 		$this->view->sStaffPosition = $sStaffPosition;		
 		//Tuy chon ung voi cac truong hop update du lieu	
 		$sOption = $this->_request->getParam('hdh_option','');
@@ -347,7 +347,7 @@ class record_archivesController extends  Zend_Controller_Action {
 										'C_STAFF_POSITION_NAME'		=>$sStaffPosition . ' - ' . $sStaffName,
 										'FK_UNIT'					=>$iUnitId,
 										'C_UNIT_NAME'				=>$sUnitName,
-										'C_CREATE_DATE'				=>Efy_Library::_ddmmyyyyToYYyymmdd($this->_request->getParam('C_CREATE_DATE','')),
+										'C_CREATE_DATE'				=>Extra_Util::_ddmmyyyyToYYyymmdd($this->_request->getParam('C_CREATE_DATE','')),
 										'C_RECORD_NAME'				=>$this->_request->getParam('C_RECORD_NAME',''),
 										'C_RECORD_ID'				=>$this->_request->getParam('C_RECORD_ID',''),
 										'C_NOTES'					=>$this->_request->getParam('C_NOTES',''),																	
@@ -435,7 +435,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
 		$ojbXmlLib = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
@@ -446,18 +446,18 @@ class record_archivesController extends  Zend_Controller_Action {
 		$url_path_calendar = $efyLibUrlPath . 'efy-calendar/';
 		$this->view->urlCalendar = $url_path_calendar;
 		//Lay ID cua NSD dang nhap hien thoi
-		$StaffId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
+		$StaffId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
 		$this->view->StaffId = $StaffId;
 		//Lay ID phong ban cua NSD dang nhap hien thoi
-		$iUnitId = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');	
+		$iUnitId = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');
 		//Lay ten phong ban nguoi dang nhap hien thoi
-		$sUnitName = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');	
+		$sUnitName = Extra_Util ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');
 		$this->view->sUnitName = $sUnitName;
 		//Lay TEN cua NSD dang nhap hien thoi
-		$sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
+		$sStaffName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
 		$this->view->sStaffName = $sStaffName;
 		//Lay CHUC VU phong ban cua NSD dang nhap hien thoi
-		$sStaffPosition = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');	
+		$sStaffPosition = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');
 		$this->view->sStaffPosition = $sStaffPosition;	
 		//Lay id ho so tu view
 		$sRecordArchivedId = $this->_request->getParam('hdn_object_id','');
@@ -498,7 +498,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$this->view->arrConst = $arrConst;
 		// Tao doi tuong Zend_Filter
 		$objFilter = new Zend_Filter();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objDocFun = new Efy_Function_DocFunctions();
 		// Lay toan bo tham so truyen tu form			
 		$arrInput = $this->_request->getParams();		
@@ -536,7 +536,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$this->view->arrConst = $arrConst;
 		// Tao doi tuong Zend_Filter
 		$objFilter = new Zend_Filter();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objDocFun = new Efy_Function_DocFunctions();
 		// Lay toan bo tham so truyen tu form			
 		$arrInput = $this->_request->getParams();		
@@ -608,7 +608,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
 		$ojbXmlLib = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
@@ -620,12 +620,12 @@ class record_archivesController extends  Zend_Controller_Action {
 		$url_path_calendar = $efyLibUrlPath . 'efy-calendar/';
 		$this->view->urlCalendar = $url_path_calendar;
 		//Lay ID cua NSD dang nhap hien thoi
-		$StaffId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
+		$StaffId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
 		//Lay TEN cua NSD dang nhap hien thoi
-		$sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
+		$sStaffName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
 		$this->view->sStaffName = $sStaffName;
 		//Lay CHUC VU phong ban cua NSD dang nhap hien thoi
-		$sStaffPosition = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');	
+		$sStaffPosition = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');
 		$this->view->sStaffPosition = $sStaffPosition;		
 		//Lay thong tin tu danh muc
 		$arrDocCate = $objRecordArchive->getPropertiesDocument('DM_LINH_VUC_VAN_BAN');
@@ -659,7 +659,7 @@ class record_archivesController extends  Zend_Controller_Action {
 								'FK_RECORD'					=>$sRecordArchivedId,	
 								'FK_CREATER'				=>$StaffId,			
 								'C_CREATER_POSITION_NAME'	=>$sStaffPosition . ' - ' . $sStaffName,
-								'C_CREATE_DATE'				=>Efy_Library::_ddmmyyyyToYYyymmdd($this->_request->getParam('C_CREATE_DATE','')),
+								'C_CREATE_DATE'				=>Extra_Util::_ddmmyyyyToYYyymmdd($this->_request->getParam('C_CREATE_DATE','')),
 								'C_DOC_TYPE'				=>$this->_request->getParam('C_DOC_TYPE',''),
 								'C_SYMBOL'					=>$this->_request->getParam('C_SYMBOL',''),
 								'C_DOC_CATE'				=>$this->_request->getParam('C_DOC_CATE',''),
@@ -704,7 +704,7 @@ class record_archivesController extends  Zend_Controller_Action {
 		$objDocFun = new Efy_Function_DocFunctions();
 		$objRecordArchive = new record_modRecord();
 		$ojbXmlLib = new Extra_Xml();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		$objFilter = new Zend_Filter();
 		$ojbEfyInitConfig = new Extra_Init();
 		//Lay cac hang so dung chung
@@ -716,12 +716,12 @@ class record_archivesController extends  Zend_Controller_Action {
 		$url_path_calendar = $efyLibUrlPath . 'efy-calendar/';
 		$this->view->urlCalendar = $url_path_calendar;
 		//Lay ID cua NSD dang nhap hien thoi
-		$StaffId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
+		$StaffId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
 		//Lay TEN cua NSD dang nhap hien thoi
-		$sStaffName = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
+		$sStaffName = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'name');
 		$this->view->sStaffName = $sStaffName;
 		//Lay CHUC VU phong ban cua NSD dang nhap hien thoi
-		$sStaffPosition = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');	
+		$sStaffPosition = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'position_code');
 		$this->view->sStaffPosition = $sStaffPosition;		
 		//Lay thong tin tu danh muc
 		$arrDocCate = $objRecordArchive->getPropertiesDocument('DM_LINH_VUC_VAN_BAN');
@@ -770,7 +770,7 @@ class record_archivesController extends  Zend_Controller_Action {
 									'FK_RECORD'					=>$sRecordArchivedId,	
 									'FK_CREATER'				=>$StaffId,			
 									'C_CREATER_POSITION_NAME'	=>$sStaffPosition . ' - ' . $sStaffName,
-									'C_CREATE_DATE'				=>Efy_Library::_ddmmyyyyToYYyymmdd($this->_request->getParam('C_CREATE_DATE','')),
+									'C_CREATE_DATE'				=>Extra_Util::_ddmmyyyyToYYyymmdd($this->_request->getParam('C_CREATE_DATE','')),
 									'C_DOC_TYPE'				=>$this->_request->getParam('C_DOC_TYPE',''),
 									'C_SYMBOL'					=>$this->_request->getParam('C_SYMBOL',''),
 									'C_DOC_CATE'				=>$this->_request->getParam('C_DOC_CATE',''),
@@ -815,9 +815,9 @@ class record_archivesController extends  Zend_Controller_Action {
 	}
 	public function findrecordAction(){
 		//Lay ID cua NSD dang nhap hien thoi
-		$iCurrentStaffId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
+		$iCurrentStaffId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'id');
 		//Lay ID phong ban cua NSD dang nhap hien thoi
-		$iCurrentUnitId = Efy_Publib_Library::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');
+		$iCurrentUnitId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'],$_SESSION['staff_id'],'unit_id');
 		$pUrl = $_SERVER['REQUEST_URI'];
 		// Tieu de tim kiem
 		$this->view->bodyTitleSearch = "DANH S�?CH HỒ SƠ LƯU TRỮ";				
@@ -858,23 +858,23 @@ class record_archivesController extends  Zend_Controller_Action {
 		$this->view->arrConst = $arrConst;
 		// Tao doi tuong Zend_Filter
 		$objFilter = new Zend_Filter();
-		$ojbEfyLib = new Efy_Library();
+		$ojbEfyLib = new Extra_Util();
 		// Lay toan bo tham so truyen tu form			
 		$arrInput = $this->_request->getParams();
 		$objRecordArchive = new record_modRecord();
 		//Lay MA DON VI NSD dang nhap hien thoi
 		$sOwnerCode = $_SESSION['OWNER_CODE'];
-		$arrResul = $objRecordArchive->DocRecordArchivesStaffGetAll($iCurrentStaffId ,$_SESSION['OWNER_ID'], $iCurrentUnitId, $sfullTextSearch, $iCurrentPage, $iNumRowOnPage, Efy_Library::_ddmmyyyyToYYyymmdd($sfromDate), Efy_Library::_ddmmyyyyToYYyymmdd($stoDate));			
+		$arrResul = $objRecordArchive->DocRecordArchivesStaffGetAll($iCurrentStaffId ,$_SESSION['OWNER_ID'], $iCurrentUnitId, $sfullTextSearch, $iCurrentPage, $iNumRowOnPage, Extra_Util::_ddmmyyyyToYYyymmdd($sfromDate), Extra_Util::_ddmmyyyyToYYyymmdd($stoDate));
 		$iNumberRecord = $arrResul[0]['C_TOTAL_RECORD'];	
 		$sdocpertotal ="Danh sách này không có văn bản nào";
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
-		$this->view->SelectDeselectAll = Efy_Publib_Library::_selectDeselectAll(sizeof($arrResul), $iNumberRecord);
+		$this->view->SelectDeselectAll = Extra_Util::_selectDeselectAll(sizeof($arrResul), $iNumberRecord);
 		if (count($arrResul) > 0){
 			$this->view->sdocpertotal = "Danh sách có: ".sizeof($arrResul).'/'.$iNumberRecord." hồ sơ";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($iNumberRecord, $iCurrentPage, $iNumRowOnPage,$pUrl) ;
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($iNumberRecord, $iCurrentPage, $iNumRowOnPage,$pUrl) ;
 			//Sinh chuoi HTML mo ta tong so trang (Trang 1; Trang 2;...) va quy dinh so record/page
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($iNumRowOnPage,"index");
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($iNumRowOnPage,"index");
 		}
 		$this->view->arrResul = $arrResul;
 		$this->view->NumberRowOnPage 	= $this->_ConstPublic['NumberRowOnPage'];	

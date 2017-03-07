@@ -35,7 +35,7 @@ class Listxml_ListTypeController extends  Zend_Controller_Action {
 		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";	
 				
 		// Goi lop public		
-		$objPublicLibrary = new Efy_Library();
+		$objPublicLibrary = new Extra_Util();
 
         // Load tat ca cac file Js va Css
         $this->view->LoadAllFileJsCss = $objPublicLibrary->_getAllFileJavaScriptCss('','js','ListType/ListType.js,ListType/dhtmlwindow.js',',','js')
@@ -51,12 +51,12 @@ class Listxml_ListTypeController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();			
 
 		//Lay tra tri trong Cookie
-		$sGetValueInCookie = Efy_Library::_getCookie("showHideMenu");
+		$sGetValueInCookie = Extra_Util::_getCookie("showHideMenu");
 		
 		//Neu chua ton tai thi khoi tao
 		if ($sGetValueInCookie == "" || is_null($sGetValueInCookie) || !isset($sGetValueInCookie)){
-			Efy_Library::_createCookie("showHideMenu",1);
-			Efy_Library::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
+			Extra_Util::_createCookie("showHideMenu",1);
+			Extra_Util::_createCookie("ImageUrlPath",$this->_request->getBaseUrl() . "/public/images/close_left_menu.gif");
 			//Mac dinh hien thi menu trai
 			$this->view->hideDisplayMeneLeft = 1;// = 1 : hien thi menu
 			//Hien thi anh dong menu trai
@@ -71,7 +71,7 @@ class Listxml_ListTypeController extends  Zend_Controller_Action {
 				$this->view->hideDisplayMeneLeft = "";// = "" : an menu
 			}
 			//Lay dia chi anh trong Cookie
-			$this->view->ShowHideimageUrlPath = Efy_Library::_getCookie("ImageUrlPath");
+			$this->view->ShowHideimageUrlPath = Extra_Util::_getCookie("ImageUrlPath");
 		}
 			
 		//Hien thi file template
@@ -135,7 +135,7 @@ class Listxml_ListTypeController extends  Zend_Controller_Action {
 
 			if($isUpdate == 'OK' & $isFlag=true ){
 				// Tao doi tuong trong thu vien EFY
-				$objEfyLibrary = new Efy_Library();
+				$objEfyLibrary = new Extra_Util();
 				
 				// lay cac tham so cua form				
 				$iListTypeId =(int)$filter->filter($arrInput['hdn_listtype_id']);					
@@ -227,7 +227,7 @@ class Listxml_ListTypeController extends  Zend_Controller_Action {
 		$objListType = new  Listxml_modListType();
 		
 		// Tao doi tuong Efy	
-	   	$objEfyLibrary = new Efy_Library();
+	   	$objEfyLibrary = new Extra_Util();
 	   		
 		// Lay thong tin trong csdl
 		$arrResult = $objListType->getSingleListType($iListTypeId);

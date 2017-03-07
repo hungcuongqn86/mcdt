@@ -157,7 +157,7 @@
                 <label><b><?=$arrConst['_SO_CAP_DUYET'] ?></b><span class="requiein">*</span></label>
                 <select  id="C_APPROVE_LEVEL" name="C_APPROVE_LEVEL"  option = "false"  style="width:33%;" class="textbox normal_label"  message="<?php echo "Phải xác định số cấp duyệt!�?.";?>"  >
                     <option id="" name = "" value="">-- Ch&#7885;n <?=$arrConst['_SO_CAP_DUYET'] ?>--</option>
-                    <?php echo Efy_Library::_generateSelectOption($arrApproveLevel,'C_CODE','C_CODE','C_NAME',$arrResult['C_APPROVE_LEVEL']);?>
+                    <?php echo Extra_Util::_generateSelectOption($arrApproveLevel,'C_CODE','C_CODE','C_NAME',$arrResult['C_APPROVE_LEVEL']);?>
                 </select>
             </div>
             <div id="ajax_approve_level">

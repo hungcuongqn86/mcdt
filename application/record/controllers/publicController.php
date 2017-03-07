@@ -49,7 +49,7 @@ class record_publicController extends  Zend_Controller_Action {
         $arrRecordType = $_SESSION['arr_all_record_type'];
         $objconfig = new Extra_Init();
         $objrecordfun = new Efy_Function_RecordFunctions();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
         $objxml = new Extra_Xml();
 
         $objConn = new  G_Db();
@@ -131,7 +131,7 @@ class record_publicController extends  Zend_Controller_Action {
         //Goi cac doi tuong
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Efy_Function_RecordFunctions();
-        $ojbEfyLib				 = new Efy_Library();
+        $ojbEfyLib				 = new Extra_Util();
         $conn 					 = new G_Db();
         //Thong tin ho so
         $psSql = "eCS_SearchGetSingle";
@@ -385,7 +385,7 @@ class record_publicController extends  Zend_Controller_Action {
         isset($_REQUEST['hdn_xml_value_list'])?$hdn_xml_value_list = $_REQUEST['hdn_xml_value_list']:$hdn_xml_value_list = '';
         isset($_REQUEST['hdn_xml_tag_list'])?$hdn_xml_tag_list = $_REQUEST['hdn_xml_tag_list']:$hdn_xml_tag_list = '';
         $objconfig = new Extra_Init();
-        $ojbEfyLib = new Efy_Library();
+        $ojbEfyLib = new Extra_Util();
         $objxml = new Extra_Xml();
         if ($iPage <= 1)
             $iPage = 1;
@@ -470,7 +470,7 @@ class record_publicController extends  Zend_Controller_Action {
     public function getgendataseachAction(){
         $conn 	             = new G_Db();
         $objRecordFunction	 = new Efy_Function_RecordFunctions();
-        $ojbEfyLib			 = new Efy_Library();
+        $ojbEfyLib			 = new Extra_Util();
 
         // Neu checkView = on, tim kiem tat ca don vi, off: tim kiem mot don vi
         isset($_REQUEST['sChecAllUnit'])?$sCheckAllUnit = $_REQUEST['sChecAllUnit']:$sCheckAllUnit = 'on';
@@ -767,7 +767,7 @@ class record_publicController extends  Zend_Controller_Action {
     function getreportfillterAction(){
         $objconfig = new Extra_Init();
         $objxml = new Extra_Xml();
-        $objlibrary = new Efy_Library();
+        $objlibrary = new Extra_Util();
         $sGenlist = '';
         isset($_REQUEST['recordtype'])?$recordtype = $_REQUEST['recordtype']:$recordtype = '';
         isset($_REQUEST['reporttype'])?$sReportID = $_REQUEST['reporttype']:$sReportID = '';

@@ -51,7 +51,7 @@
 			<?php			
 			$delimitor = $this->delimitor;//Lay ky tu phan cach giua cac phan tu
 			//Hien thi cac cot cua bang hien thi du lieu
-				$StrHeader = explode("!~~!", Efy_Library::_GenerateHeaderTable("3%" . $delimitor . "10%" . $delimitor . "67%" . $delimitor . "20%"
+				$StrHeader = explode("!~~!", Extra_Util::_GenerateHeaderTable("3%" . $delimitor . "10%" . $delimitor . "67%" . $delimitor . "20%"
 												,'<input type="checkbox" name="chk_all_item_id"  onclick="checkbox_all_item_id(document.forms[0].chk_item_id);">' . $delimitor .$arrConst['_THU_TU'] . $delimitor . "Tên báo cáo" . $delimitor . $arrConst['_TINH_TRANG']
 												,$delimitor));
 			echo $StrHeader[0];				
@@ -86,7 +86,7 @@
 				</tr><?php
 			}					
 			//Tu dien cac dong trang trong truong hop du lieu tra ve < so row _CONST_NUMBER_OF_ROW_PER_LIST	
-				echo Efy_Library::_addEmptyRow($this->iCountElement,15 -sizeof($arrRecordType),$sCurrentStyleName,4);
+				echo Extra_Util::_addEmptyRow($this->iCountElement,15 -sizeof($arrRecordType),$sCurrentStyleName,4);
 			?>
 		</table>	
 		<!--Hien thi trang can xem!-->

@@ -40,9 +40,9 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
 		/* Dung de load file Js va css		/*/
 		// Goi lop public		
-		$objPublicLibrary = new Efy_Library();			
+		$objPublicLibrary = new Extra_Util();
 			// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = Efy_Publib_Library::_getAllFileJavaScriptCss('','js','sent.js',',','js') .Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jsUser.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','js','ajax.js',',','js') . Efy_Publib_Library::_getAllFileJavaScriptCss('','js','jquery-1.4.2.min.js,jQuery.equalHeights.js',',','js'). Efy_Publib_Library::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');
+		$this->view->LoadAllFileJsCss = Extra_Util::_getAllFileJavaScriptCss('','js','sent.js',',','js') .Extra_Util::_getAllFileJavaScriptCss('','js','jsUser.js',',','js') . Extra_Util::_getAllFileJavaScriptCss('','js','ajax.js',',','js') . Extra_Util::_getAllFileJavaScriptCss('','js','jquery-1.4.2.min.js,jQuery.equalHeights.js',',','js'). Extra_Util::_getAllFileJavaScriptCss('','js/LibSearch','actb_search.js,common_search.js',',','js');
 		
 		//-------------Lay ma giai doan thuc hien-------------------------	
 		$sPeriodCode = $this->_request->getParam('period',"");
@@ -101,9 +101,9 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		if (count($arrSms) > 0){
 			$this->view->sdocpertotal = "Danh sách có ".sizeof($arrSms).'/'.$psCurrentPage." cán bộ";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($psCurrentPage, $piCurrentPage, $piNumRowOnPage,$pUrl) ;		
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($psCurrentPage, $piCurrentPage, $piNumRowOnPage,$pUrl) ;
 			//quy dinh so record/page	
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($piNumRowOnPage,"../index/?htn_leftModule=WAIT" );
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($piNumRowOnPage,"../index/?htn_leftModule=WAIT" );
 		}
 	}
 	public function addAction(){
@@ -131,8 +131,8 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		if($this->_request->getParam('C_POSITON_NAME','') != ""){	
 			$sPositionName = $this->_request->getParam('C_POSITON_NAME','');
 			$iFkStaff = $objFunction->convertStaffNameToStaffId($sPositionName);
-			$iUnitId  = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$iFkStaff,'unit_id');
-			$sUnitName= Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');
+			$iUnitId  = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$iFkStaff,'unit_id');
+			$sUnitName= Extra_Util ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');
 			$iAutoSms = $this->_request->getParam('C_AUTO_SMS','');
 			$sTelMobile = $objFunction->convertIdListToTelMobileList($iFkStaff);
 			$arrParameter = array(	
@@ -152,9 +152,9 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		if (count($arrSmsSend) > 0){
 			$this->view->sdocpertotal = "Danh sách có ".sizeof($arrSmsSend).'/'.$psCurrentPage." tin nhắn";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($psCurrentPage, $piCurrentPage, $piNumRowOnPage,$pUrl) ;		
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($psCurrentPage, $piCurrentPage, $piNumRowOnPage,$pUrl) ;
 			//quy dinh so record/page	
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($piNumRowOnPage,"../send/?htn_leftModule=SENT" );
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($piNumRowOnPage,"../send/?htn_leftModule=SENT" );
 		}
 		$this->view->bodyTitle = 'CẬP NHẬT C�?N BỘ GỬI TIN SMS';
 		$psOption = $this->_request->getParam('hdh_option','');
@@ -199,8 +199,8 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		if($this->_request->getParam('hdn_sms_user','') == 1){	
 			//$sPositionName = $this->_request->getParam('C_POSITON_NAME','');
 			//$iFkStaff = $objFunction->convertStaffNameToStaffId($sPositionName);
-			//$iUnitId  = Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_staff'],$iFkStaff,'unit_id');
-			//$sUnitName= Efy_Publib_Library ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');
+			//$iUnitId  = Extra_Util ::_getItemAttrById($_SESSION['arr_all_staff'],$iFkStaff,'unit_id');
+			//$sUnitName= Extra_Util ::_getItemAttrById($_SESSION['arr_all_unit'],$iUnitId,'name');
 			$iOrder = $this->_request->getParam('C_ORDER','');
 			$iAutoSms = $this->_request->getParam('C_AUTO_SMS','');
 			$sTelMobile = $this->_request->getParam('C_TEL_MOBILE','');
@@ -221,9 +221,9 @@ class Listxml_smsController extends  Zend_Controller_Action {
 		if (count($arrSmsSend) > 0){
 			$this->view->sdocpertotal = "Danh sách có ".sizeof($arrSmsSend).'/'.$psCurrentPage." tin nhắn";
 			//Sinh xau HTML mo ta so trang (Trang 1; Trang 2;...)
-			$this->view->generateStringNumberPage = Efy_Publib_Library::_generateStringNumberPage($psCurrentPage, $piCurrentPage, $piNumRowOnPage,$pUrl) ;		
+			$this->view->generateStringNumberPage = Extra_Util::_generateStringNumberPage($psCurrentPage, $piCurrentPage, $piNumRowOnPage,$pUrl) ;
 			//quy dinh so record/page	
-			$this->view->generateHtmlSelectBoxPage = Efy_Publib_Library::_generateChangeRecordNumberPage($piNumRowOnPage,"../send/?htn_leftModule=SENT" );
+			$this->view->generateHtmlSelectBoxPage = Extra_Util::_generateChangeRecordNumberPage($piNumRowOnPage,"../send/?htn_leftModule=SENT" );
 		}
 		$this->view->bodyTitle = 'CẬP NHẬT C�?N BỘ GỬI TIN SMS';
 		$psOption = $this->_request->getParam('hdh_option','');

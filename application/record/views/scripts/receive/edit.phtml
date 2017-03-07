@@ -58,11 +58,11 @@
 			</div>
 			<div>
 				<label><?=$arrConst['_NGAY_TIEP_NHAN']?><span class="requiein">*</span></label>
-				<input class="textbox" style="width:17%;"  id ="C_RECEIVED_DATE" name="C_RECEIVED_DATE" type="text" isdate="true" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_RECEIVED_DATE" message="<?php echo "NGÀY TIẾP NHẬN không đúng định dạng ngày/tháng/năm!";?>" value = "<?=Efy_Publib_Library::_yyyymmddToDDmmyyyy($arrSingleRecord[0]['C_RECEIVED_DATE_EDIT'])?>" onKeyUp="DateOnkeyup(this,event)" />				
+				<input class="textbox" style="width:17%;"  id ="C_RECEIVED_DATE" name="C_RECEIVED_DATE" type="text" isdate="true" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_RECEIVED_DATE" message="<?php echo "NGÀY TIẾP NHẬN không đúng định dạng ngày/tháng/năm!";?>" value = "<?=Extra_Util::_yyyymmddToDDmmyyyy($arrSingleRecord[0]['C_RECEIVED_DATE_EDIT'])?>" onKeyUp="DateOnkeyup(this,event)" />
 				<label style="width:7%;float:none;"><?php echo $arrConst['_SO_NGAY'];?></label> 
 				<input style="width:6%;" type="text" id="limit_date" name="limit_date" align="right" optional = "true" value = "<?=$this->iNumberProcessDate?>"  column_name="" message="SO NGAY phai la so nguyen duong (1, 2, ...)!" onblur="appointed_date(document.getElementById('C_RECEIVED_DATE').value,document.getElementById('limit_date'),document.getElementById('C_APPOINTED_DATE'));">														
 				<label style="width:8%;float:none;"><?php echo $arrConst['_NGAY_HEN'];?></label>
-				<input value = "<?= Efy_Publib_Library::_yyyymmddToDDmmyyyy($arrSingleRecord[0]['C_APPOINTED_DATE'])?>" class="textbox" style="width:15%;"  id ="C_APPOINTED_DATE" name="C_APPOINTED_DATE" type="text" isdate="true" option = "true"  xml_tag_in_db="" xml_data="false" column_name="C_APPOINTED_DATE" message="<?php echo "NGÀY HẸN không đúng định dạng ngày/tháng/năm!";?>" onKeyDown="change_focus(document.forms[0],this)" onKeyUp="DateOnkeyup(this,event)"/>				
+				<input value = "<?= Extra_Util::_yyyymmddToDDmmyyyy($arrSingleRecord[0]['C_APPOINTED_DATE'])?>" class="textbox" style="width:15%;"  id ="C_APPOINTED_DATE" name="C_APPOINTED_DATE" type="text" isdate="true" option = "true"  xml_tag_in_db="" xml_data="false" column_name="C_APPOINTED_DATE" message="<?php echo "NGÀY HẸN không đúng định dạng ngày/tháng/năm!";?>" onKeyDown="change_focus(document.forms[0],this)" onKeyUp="DateOnkeyup(this,event)"/>
 			</div> 
 		</div>
 		<?php echo $this->generateFormHtml;?>

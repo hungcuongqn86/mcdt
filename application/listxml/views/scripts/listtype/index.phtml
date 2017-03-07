@@ -60,7 +60,7 @@
 		<?php			
 			$delimitor = $this->delimitor;//Lay ky tu phan cach giua cac phan tu
 			//Hien thi cac cot cua bang hien thi du lieu
-			$StrHeader = explode("!~~!",Efy_Library::_GenerateHeaderTable("5%" . $delimitor . "30%" . $delimitor . "40%" . $delimitor . "10%" . $delimitor . "15%"
+			$StrHeader = explode("!~~!",Extra_Util::_GenerateHeaderTable("5%" . $delimitor . "30%" . $delimitor . "40%" . $delimitor . "10%" . $delimitor . "15%"
 											,"#" . $delimitor . "Mã loại danh mục" . $delimitor . "Tên loại danh mục" . $delimitor . "Thứ tự" . $delimitor . "Tình trạng"
 											,$delimitor));
 			echo $StrHeader[0];?>
@@ -109,7 +109,7 @@
 				<?php
 			}							
 			//Tu dien cac dong trang trong truong hop du lieu tra ve < so row _CONST_NUMBER_OF_ROW_PER_LIST			
-			echo Efy_Library::_addEmptyRow($this->iCountElement,$this->NumberRowOnPage,$v_current_style_name,5);			
+			echo Extra_Util::_addEmptyRow($this->iCountElement,$this->NumberRowOnPage,$v_current_style_name,5);
 		?>	
 	</table>
 	<table width="98%" align="center" cellpadding="0" cellspacing="0" border="0">				
