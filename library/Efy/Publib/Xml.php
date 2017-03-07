@@ -1,42 +1,12 @@
-<?php 
+<?php
 require_once 'Efy/prax.php';
+
 /**
- * Nguoi tao: HUNGVM 
- * Ngay tao: 09/01/2009
- * Noi dung: Tao lop Efy_Publib_Xml xu ly XML
+ * Class Efy_Publib_Xml
  */
-class Efy_Publib_Xml extends RAX {		
-	/**
-	 * @Idea: Ham _xmlGetXmlTagValue tra lai mot array chua ten cac the XML va gia tri tuong ung TRONG MOT NHANH cua file XML
-	 * @param : 
-	 * 		+ $spXmlString: Chuoi XML trong CSDL
-	 * 		+ $spXmlParentTag: ten the XML CHA  - xac dinh nhanh can lay thong tin(phai la the cap 1 sau the root- mac dinh = 'data_list')
-	 * 		+ $spXmlTag: ten the XML can lay gia tri
-	 * Vi du:
-	 * $ret = _xmlGetXmlTagValue ("...","data_list","label");
-	 * echo $ret;
-	 */
-	public function _xmlGetXmlTagValue($spXmlString, $spXmlParentTag, $spXmlTag){		
-		//Neu ton tai xau XML
-		if ($spXmlString != ""){
-			$objXmlData = new Zend_Config_Xml($spXmlString,$spXmlParentTag);
-			return Efy_Library::_restoreXmlBadChar($objXmlData->$spXmlTag);
-		}else{
-			return "";
-		}
-	}	
-	/**
-	 *$spXmlFileName: duong dan toi file XML mo ta cac form field
-	 $psXmlTag: ten THE XML xac dinh NHANH mo ta cac form field. Phai lay ten THE mo ta cau truc bang
-	 $p_xml_string_in_db: xau XML lay tu CSDL
-	 $p_arr_item_value: array chua gia tri cua cac column
-	 $p_input_file_name: De xac dinh truyen vao xau xml hay ten file xml
-	 Vi du: echo _XML_generate_formfield("../xml/quan_tri_doi_tuong_danh_muc.xml", "update_row", $v_xml_str, $arr_single_list);
-	*/
-	 /*------------------------khai bao bien dung chung--------------------------*/
+class Efy_Publib_Xml extends RAX {
 	 public $sLabel;							public $efyImageUrlPath;
-	 public $efyLibUrlPath;						public $efyWebSitePath;
-	 public $efyListWebSitePath;				public $isaMaxFileSizeUpload;
+	 public $efyWebSitePath;                    public $efyListWebSitePath;
 	 public $spType;							public $spDataFormat;
 	 public $spMessage;							public $optOptional;
 	 public $xmlData;							public $columnName;
@@ -60,24 +30,17 @@ class Efy_Publib_Xml extends RAX {
 	 public $directory;							public $fileType;
 	 public $jsFunctionList;					public $jsActionList;
 	 public $value;								public $xmlStringInFile;
-	 public $jsFunctionAfterSelect;				public $pathRootToModul;
 	 public $inputData;							public $sessionName;
 	 public $sessionIdIndex;					public $sessionNameIndex;
-	 public $sessionValueIndex;					public $channelSql;
+	 public $sessionValueIndex;
 	 public $url;								public $path;
 	 public $otherAttribute;					public $radioValue;
 	 public $phpFunction;						public $content;
-	 public $mediaFileOnclickUrl;				public $mediaFileName;
-	 public $mediaFileNameColumn;				public $mediaFileUrlColumn;
 	 public $title;								public $className;
 	 public $haveTitleValue;					public $defaultValue;
-	 public $hrf;								public $spLabel_list;
-	 public $colWidthList;						public $tblSqlString;
-	 public $colNameInDbList;					public $colInputTypeList;
+	 public $hrf;
 	 public $viewMode;							public $publicListCode;
-	 public $storeInChildTable;					public $textboxSql;
-	 public	$textboxIdColumn; 					public $textboxNameColumn;
-	 public $textboxFuseaction;					public $display;
+	 public $storeInChildTable;                 public $display;
 	 public $dspDiv;							public $cacheOption;
 	 public $sDataFormatStr;					public $optOptionalLabel;
 	 public $formFielName;						public $counterFileAttack;
@@ -90,6 +53,21 @@ class Efy_Publib_Xml extends RAX {
      protected  $spTableDataXmlFileName;
 
     /**
+     * @param $spXmlString
+     * @param $spXmlParentTag
+     * @param $spXmlTag
+     * @return string|Xau
+     */
+    public function _xmlGetXmlTagValue($spXmlString, $spXmlParentTag, $spXmlTag){
+        //Neu ton tai xau XML
+        if ($spXmlString != ""){
+            $objXmlData = new Zend_Config_Xml($spXmlString,$spXmlParentTag);
+            return Efy_Library::_restoreXmlBadChar($objXmlData->$spXmlTag);
+        }else{
+            return "";
+        }
+    }
+    /**
      * @param $spXmlFileName
      * @param $pathXmlTagStruct
      * @param $pathXmlTag
@@ -98,7 +76,6 @@ class Efy_Publib_Xml extends RAX {
      * @param bool $p_input_file_name
      * @param bool $p_view_mode
      * @return string
-     * @throws Zend_Exception
      */
 	public function _xmlGenerateFormfield($spXmlFileName, $pathXmlTagStruct,$pathXmlTag, $p_xml_string_in_db, $p_arr_item_value,$p_input_file_name=true,$p_view_mode=false){		
 		global $i;
@@ -112,7 +89,6 @@ class Efy_Publib_Xml extends RAX {
 		}
 		//Lay tham so cau hinh
 		$this->efyImageUrlPath = $ojbEfyInitConfig->_setImageUrlPath();
-		$this->efyLibUrlPath = $ojbEfyInitConfig->_setLibUrlPath();
 		$this->efyWebSitePath = $ojbEfyInitConfig->_setWebSitePath();
 		$this->efyListWebSitePath = $ojbEfyInitConfig->_getCurrentHttpAndHost();
 
@@ -210,8 +186,6 @@ class Efy_Publib_Xml extends RAX {
 				$this->jsActionList = $arrTable_rows[$arr_tag[$i]]["js_action_list"];
 				$this->relateRecordType = $arrTable_rows[$arr_tag[$i]]["relate_recordtype"];	
 				$this->defaultValue = $arrTable_rows[$arr_tag[$i]]["default_value"];
-				$this->pathRootToModul = $arrTable_rows[$arr_tag[$i]]["pathRootToModule"];
-				$this->jsFunctionAfterSelect = $arrTable_rows[$arr_tag[$i]]["js_function_after_select"];
 				$this->readonlyInEditMode = $arrTable_rows[$arr_tag[$i]]["readonly_in_edit_mode"];
 				$this->disabledInEditMode = $arrTable_rows[$arr_tag[$i]]["disabled_in_edit_mode"];
 				$this->sessionName = $arrTable_rows[$arr_tag[$i]]["session_name"];
@@ -219,9 +193,6 @@ class Efy_Publib_Xml extends RAX {
 				$this->sessionIdIndex = $arrTable_rows[$arr_tag[$i]]["session_id_index"];
 				$this->sessionNameIndex = $arrTable_rows[$arr_tag[$i]]["session_name_index"];
 				$this->sessionValueIndex = $arrTable_rows[$arr_tag[$i]]["session_value_index"];
-				$this->channelSql = $arrTable_rows[$arr_tag[$i]]["channel_sql"];
-				$this->mediaFileNameColumn = $arrTable_rows[$arr_tag[$i]]["media_name"];
-				$this->mediaFileUrlColumn = $arrTable_rows[$arr_tag[$i]]["media_url"];	
 				$this->path = $arrTable_rows[$arr_tag[$i]]["path"];
 				$this->title = $arrTable_rows[$arr_tag[$i]]["title"];
 				$this->className = $arrTable_rows[$arr_tag[$i]]["class_name"];
@@ -231,24 +202,13 @@ class Efy_Publib_Xml extends RAX {
 				$this->v_align = $arrTable_rows[$arr_tag[$i]]["align"];
 				$v_valign = $arrTable_rows[$arr_tag[$i]]["valign"];	
 				$this->hrf = $arrTable_rows[$arr_tag[$i]]["hrf"];
-				$this->spLabel_list = $arrTable_rows[$arr_tag[$i]]["label_list"];
-				$this->colWidthList = $arrTable_rows[$arr_tag[$i]]["col_width_list"];
-				$this->tblSqlString = $arrTable_rows[$arr_tag[$i]]["tbl_sql_string"];
-				$this->colNameInDbList = $arrTable_rows[$arr_tag[$i]]["col_name_in_db_list"];
-				$this->colInputTypeList = $arrTable_rows[$arr_tag[$i]]["col_input_type_list"];
 				$this->publicListCode = $arrTable_rows[$arr_tag[$i]]["public_list_code"];
 				$this->cacheOption = $arrTable_rows[$arr_tag[$i]]["cache_option"];
                 isset($arrTable_rows[$arr_tag[$i]]["file_name_xml"]) ? $this->spTableDataXmlFileName = $arrTable_rows[$arr_tag[$i]]["file_name_xml"] : $this->spTableDataXmlFileName = '';
 
 				//echo 'cachr:' . $this->cacheOption . "<br>";	
 				//Hien thi DIV
-				$this->display = $arrTable_rows[$arr_tag[$i]]["display"];					
-				
-				//Cac thuoc tinh cua textbox lay du lieu tu dialog
-				$this->textboxSql = $arrTable_rows[$arr_tag[$i]]["textbox_sql"];
-				$this->textboxIdColumn = $arrTable_rows[$arr_tag[$i]]["textbox_id_column"];
-				$this->textboxNameColumn = $arrTable_rows[$arr_tag[$i]]["textbox_name_column"];
-				$this->textboxFuseaction = $arrTable_rows[$arr_tag[$i]]["textbox_fuseaction"];			
+				$this->display = $arrTable_rows[$arr_tag[$i]]["display"];
 				if (($p_xml_string_in_db != '' || $p_xml_string != "") && $this->xmlData == "true"){
 					$tag = $this->xmlTagInDb;
 					$this->value = $objXmlData->$tag;
@@ -261,8 +221,6 @@ class Efy_Publib_Xml extends RAX {
 							$this->value = Efy_Library::_replaceBadChar($p_arr_item_value[0][$this->columnName]);
 						}	
 					}
-					$this->mediaFileName = $p_arr_item_value[$this->mediaFileNameColumn];
-					$this->mediaFileOnclickUrl = $p_arr_item_value[$this->mediaFileUrlColumn];
 				}
 				//Dat gia gi mac dinh cho doi tuong
 				if (trim($this->defaultValue)!= "" && (is_null($p_arr_item_value) || sizeof($p_arr_item_value)==0 || $p_arr_item_value["chk_save_and_add_new"]=="true")){
@@ -289,10 +247,7 @@ class Efy_Publib_Xml extends RAX {
 					$this->selectBoxNameColumn = $arrTable_rows[$arr_tag[$i]]["selectbox_option_name_column"];
 					$this->theFirstOfIdValue = $arrTable_rows[$arr_tag[$i]]["the_first_of_id_value"];
 				}
-				
-				if ($this->spType=="channel"){
-					$this->channelSql = $arrTable_rows[$arr_tag[$i]]["channel_sql"];
-				}			
+
 				if ($this->spType=="button"){
 					$this->onclickFunction = $arrTable_rows[$arr_tag[$i]]["onclick_function"];
 				}			
@@ -416,7 +371,6 @@ class Efy_Publib_Xml extends RAX {
 		$_SESSION['RECORDID']=$p_arr_item_value[0]['PK_RECORD'];
 		//Lay tham so cau hinh
 		$this->efyImageUrlPath = $ojbEfyInitConfig->_setImageUrlPath();
-		$this->efyLibUrlPath = $ojbEfyInitConfig->_setLibUrlPath();
 		$this->efyWebSitePath = $ojbEfyInitConfig->_setWebSitePath();		
 		// Lay toan bo URL cua web
 		$this->efyListWebSitePath = $ojbEfyInitConfig->_getCurrentHttpAndHost();		
@@ -491,8 +445,7 @@ class Efy_Publib_Xml extends RAX {
 	private function _generateHtmlInput(){
 		global $i;
 		//Sinh ra cac thuoc tinh dung cho viec kiem hop du lieu tren form
-		$this->sDataFormatStr = Efy_Publib_Xml::_generateVerifyProperty($this->spDataFormat);		
-		$url_path_calendar = '"'.$this->efyLibUrlPath.'efy-calendar/"';
+		$this->sDataFormatStr = Efy_Publib_Xml::_generateVerifyProperty($this->spDataFormat);
 		$this->optOptionalLabel = "";
         $spRetHtml = '';
 		if($this->havelinebefore=="true"){
@@ -540,12 +493,6 @@ class Efy_Publib_Xml extends RAX {
 			case 'small_title':
 				$spRetHtml .= $v_str_label . '<label class="small_title" valign="bottom">' . $this->value . '</label>';
 				break;
-			case "media_file";
-				$spRetHtml .= '<object id="MediaPlayer" classid="CLSID:22D6f312-B0F6-11D0-94AB-0080C74C7E95" standby="Loading Windows Media Player components..." type="application/x-oleobject" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,7,1112">';
-				$spRetHtml .= '<param id="MediaPlayer_FileName" name="filename" value="'.$this->mediaFileOnclickUrl.'">';
-				$spRetHtml .= '<param name="Showcontrols" value="True"><param name="autoStart" value="False">';
-				$spRetHtml .= '</object>';
-				break;	
 			case "relaterecord";
 				$spRetHtml = $v_str_label;
 				$spRetHtml = $spRetHtml . "<input type='textbox' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' ".Efy_Publib_Xml::_generatePropertyType("optional",$this->optOptional).Efy_Publib_Xml::_generatePropertyType("readonly",$this->readonlyInEditMode).Efy_Publib_Xml::_generatePropertyType("disabled",$this->disabledInEditMode).Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList).' '.$this->sDataFormatStr.' store_in_child_table="'.$this->storeInChildTable.'" xml_tag_in_db="'.$this->xmlTagInDb.'" xml_data="'.$this->xmlData.'" column_name="'.$this->columnName.'" message="'.$this->spMessage.'" onKeyDown="change_focus(document.forms[0],this,event)">';
@@ -610,8 +557,7 @@ class Efy_Publib_Xml extends RAX {
 						//$objBrower = new Efy_Publib_Browser();
 						//$brwName = $objBrower->Name;			
 						$spRetHtml = $spRetHtml . '<input type="text" id="'.$this->formFielName.'"  name="'.$this->formFielName.'" class="normal_textbox" value="'.$this->value.'" title="'.$this->tooltip.'" style="width:'.$this->width.'" '.Efy_Publib_Xml::_generatePropertyType("optional",$this->optOptional).Efy_Publib_Xml::_generatePropertyType("readonly",$this->readonlyInEditMode).Efy_Publib_Xml::_generatePropertyType("disabled",$this->disabledInEditMode).Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList).' '.$this->sDataFormatStr.' store_in_child_table="'.$this->storeInChildTable.'" xml_tag_in_db="'.$this->xmlTagInDb.'" xml_data="'.$this->xmlData.'" column_name="'.$this->columnName.'" message="'.$this->spMessage.'" >';
-						//$spRetHtml = $spRetHtml . "<img src='". $this->efyImageUrlPath. "calendar.gif' border='0' title='$this->tooltip' onclick='DoCal($url_path_calendar,document.getElementById(\"$this->formFielName\"),\"$brwName\");' style='cursor:pointer'>";
-					}else{					
+					}else{
 						$spRetHtml = $spRetHtml . '<input type="text" id="'. $this->formFielName.'" name="'.$this->formFielName.'" class="normal_textbox" value="'.$this->value.'" title="'.$this->tooltip.'" store_in_child_table="'.$this->storeInChildTable.'" style="width:'.$this->width.'" '.Efy_Publib_Xml::_generatePropertyType("optional",$this->optOptional).Efy_Publib_Xml::_generatePropertyType("readonly",$this->readonlyInEditMode).Efy_Publib_Xml::_generatePropertyType("disabled",$this->disabledInEditMode).Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList).' '.$this->sDataFormatStr.' store_in_child_table="'.$this->storeInChildTable.'" xml_tag_in_db="'.$this->xmlTagInDb.'" xml_data="'.$this->xmlData.'" column_name="'.$this->columnName.'" message="'.$this->spMessage.'" maxlength="'.$this->maxlength.'" ';
 						if (rtrim($this->max) != '' && !is_null($this->max)){
 							 $spRetHtml = $spRetHtml .' max="'.$this->max.'"';
@@ -1385,7 +1331,6 @@ class Efy_Publib_Xml extends RAX {
 		//var_dump($arrXml);
 		//Lay tham so cau hinh
 		$this->efyImageUrlPath = $ojbEfyInitConfig->_setImageUrlPath();
-		$this->efyLibUrlPath = $ojbEfyInitConfig->_setLibUrlPath();
 		$this->efyWebSitePath = $ojbEfyInitConfig->_setWebSitePath();	
 		$this->sFullTextSearch = $sFullTextSearch;
 		$this->sAction = $sAction;
