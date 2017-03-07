@@ -8,6 +8,7 @@ set_include_path('./library/'
 require_once './library/Zend/Loader/Autoloader.php';
 $autoloader = Zend_Loader_Autoloader::getInstance();
 $autoloader->registerNamespace('Zend_');
+$autoloader->registerNamespace('Extra_');
 $autoloader->registerNamespace('G_');
 
 //Goi class Controller
