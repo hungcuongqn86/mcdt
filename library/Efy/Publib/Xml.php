@@ -162,12 +162,14 @@ class Efy_Publib_Xml extends RAX
         }
         //Tao mang luu cau truc cua form
         $arrTagsStruct = explode("/", $pathXmlTagStruct);
+        $arrTable_truct_rows = array();
         $strcode = '$arrTable_truct_rows = $objConfigXml->' . $arrTagsStruct[0];
         for ($i = 1; $i < sizeof($arrTagsStruct); $i++)
             $strcode .= '->' . $arrTagsStruct[$i];
         eval($strcode . '->toArray();');
         //Tao mang luu thong tin cua cac phan tu tren form
         $arrTags = explode("/", $pathXmlTag);
+        $arrTable_rows = array();
         $strcode = '$arrTable_rows = $objConfigXml->' . $arrTags[0];
         for ($i = 1; $i < sizeof($arrTags); $i++)
             $strcode .= '->' . $arrTags[$i];
@@ -189,12 +191,8 @@ class Efy_Publib_Xml extends RAX
             $this->rowId = $row["row_id"];
             $this->viewPosition = $row["view_position"];
             $this->storeInChildTable = $row["store_in_child_table"];
-            $v_sql_select_child_table = $row["sql_select_child_table"];
-            $v_xml_data_column = $row["xml_data_column"];
-            $v_hide_button = $row["hide_button"];
             $arr_tag = explode(",", $v_tag_list);
             $this->count = 0;
-            $spHtmlString_temp = '';
             $this->xmlTagInDb_list = '';
             $strdiv = '<div>';
             if ($this->rowId != '')
@@ -206,8 +204,6 @@ class Efy_Publib_Xml extends RAX
             else
                 $sContentXmlBottom .= $strdiv;
 
-            $psHtmlTable = "";
-            $psHtmlTag = "";
             for ($i = 0; $i < sizeof($arr_tag); $i++) {
                 $this->sLabel = $arrTable_rows[$arr_tag[$i]]["label"];
                 $this->widthLabel = $arrTable_rows[$arr_tag[$i]]["width_label"];
@@ -246,7 +242,6 @@ class Efy_Publib_Xml extends RAX
                 $this->otherAttribute = ($arrTable_rows[$arr_tag[$i]]["other_attribute"] != '') ? $arrTable_rows[$arr_tag[$i]]["other_attribute"] : '';
                 $this->radioValue = $arrTable_rows[$arr_tag[$i]]["value"];
                 $this->v_align = $arrTable_rows[$arr_tag[$i]]["align"];
-                $v_valign = $arrTable_rows[$arr_tag[$i]]["valign"];
                 $this->hrf = $arrTable_rows[$arr_tag[$i]]["hrf"];
                 $this->publicListCode = $arrTable_rows[$arr_tag[$i]]["public_list_code"];
                 $this->cacheOption = $arrTable_rows[$arr_tag[$i]]["cache_option"];
@@ -334,22 +329,11 @@ class Efy_Publib_Xml extends RAX
                     $this->orderColumn = $arrTable_rows[$arr_tag[$i]]["order_column"];
                     $this->whereClause = $arrTable_rows[$arr_tag[$i]]["where_clause"];
                 }
-                if ($this->spType == "fileserver") {
-                    $this->directory = $arrTable_rows[$arr_tag[$i]]["directory"];
-                    $this->fileType = $arrTable_rows[$arr_tag[$i]]["file_type"];
-                }
                 if ($this->spType == "media" || $this->spType == "iframe") {
                     $this->height = $arrTable_rows[$arr_tag[$i]]["height"];
                 }
                 if ($this->spType == "labelcontent") {
                     $this->content = $arrTable_rows[$arr_tag[$i]]["content"];
-                }
-                if (is_null($v_valign) or trim($v_valign) == '') {
-                    if ($this->spType == "textarea") {
-                        $v_valign = "top";
-                    } else {
-                        $v_valign = "middle";
-                    }
                 }
                 //Kiem tra neu ma form them moi thi cho phep nhap du lieu
                 if ((is_null($this->value) || $this->value == '') && $this->spType != "channel") {
@@ -376,9 +360,9 @@ class Efy_Publib_Xml extends RAX
                 $this->v_align = '';
             }
         }
+        $spHtmlStr = '';
         if ($v_js_file_name != '' && !(is_null($v_js_file_name))) {
             $spHtmlStr .= Efy_Publib_Library::_getAllFileJavaScriptCss('', 'efy-js/js-record', $v_js_file_name, ',', 'js');
-            //$spHtmlStr .= "<script src = '$v_js_file_name'></script>";
         }
         if ($v_js_function != '' && !(is_null($v_js_function))) {
             $spHtmlStr .= '<script>try{' . $v_js_function . '}catch(e){;}</script>';
@@ -492,13 +476,6 @@ class Efy_Publib_Xml extends RAX
                 $spRetHtml = $spRetHtml . "";
                 $spRetHtml = $spRetHtml . $this->note;
                 $this->counterFileAttack = $this->counterFileAttack + 1;
-                break;
-
-            case "fileserver";
-                $spRetHtml = $v_str_label;
-                $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' class='normal_textbox' value='$this->value' directory='$this->directory' title='$this->tooltip' style='width:$this->width' xml_data='$this->xmlData' " . Efy_Publib_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . Efy_Publib_Xml::_generatePropertyType("optional", $this->optOptional) . Efy_Publib_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Efy_Publib_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . " $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)' readonly>&nbsp;&nbsp;";
-                $spRetHtml = $spRetHtml . "<input type='button' name='btn_choose' class='select_button' value='Ch&#7885;n' OnClick=\"_btn_show_all_file(document.forms[0].$this->formFielName.directory,'$this->fileType',document.forms[0].$this->formFielName);\" onKeyDown='change_focus(document.forms[0],this,event)'>";
-                $spRetHtml = $spRetHtml . $this->note;
                 break;
 
             case "file_attach";
