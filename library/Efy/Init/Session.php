@@ -1,26 +1,15 @@
-<?php 
-
-/**
- * @see 
- * 
- */
-//Goi xu ly webservice
-//require_once 'Efy/nusoap/nusoap.php';
-
+<?php
 //Goi xu ly kieu session
 require_once 'Zend/Session/Namespace.php';
 
 /**
- * Nguoi tao: HUNGVM 
- * Ngay tao: 17/11/2008
- * Noi dung: Tao lop Efy_Init_Session khoi tao cac bien session
+ * Class Efy_Init_Session
  */
-class Efy_Init_Session extends Zend_Session_Namespace {	
+class Efy_Init_Session extends Zend_Session_Namespace {
 
-	//********************************************************************************
-	//Ten phuong thuc		:getPersonalInfoOfAllStaff()
-	//Chuc nang	: Lay thong tin ca nhan cua tat ca can bo (staff)
-	//********************************************************************************/
+    /**
+     * @return array
+     */
 	public function SesGetPersonalInfoOfAllStaff(){
 		//global $p_arr_items, $p_level1_tag_name, $p_level2_tag_name_list, $p_delimitor;
 		$p_arr_items = array();	
@@ -52,12 +41,11 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 			}
 		}
 		return $p_arr_items;
-	}	
-	
-	//********************************************************************************
-	//Ten ham		:SesGetDetailInfoOfAllUnit()
-	//Chuc nang	: Lay thong tin chi tiet cua tat ca phong ban (unit)	
-	//********************************************************************************/
+	}
+
+    /**
+     * @return array
+     */
 	public function SesGetDetailInfoOfAllUnit(){
 		$p_arr_items = array();
 		$arrResul = array();
@@ -83,16 +71,13 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 			}
 		}
 		return $p_arr_items;
-	}	
-	
-	/**
-	 * Creater :HUNGVM
-	 * Date : 24/09/2009
-	 * Idea : Tao phuong thuc lay tat ca quyen cua NSD hien thoi
-	 * @param $sStaffIdList : Id can bo hien thoi
-	 * @param $sDelimitor : Ky tu phan tach
-	 * @return Mang danh sach quyen
-	 */
+	}
+
+    /**
+     * @param $sStaffIdList
+     * @param string $sDelimitor
+     * @return array
+     */
 	public function SesGetAllPermissionForSession($sStaffIdList, $sDelimitor = "!~~!"){
 		//
 		$ojbConnect = new  Efy_DB_Connection();
@@ -118,14 +103,11 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 		//var_dump($arrPermission);exit;
 		return $arrPermission;
 	}
-	
-	
-	/**
-	 * Creater : HUNGVM
-	 * Date : 25/09/2009
-	 * Idea : Tao phuong thuc lay quyen cua NSD hien thoi
-	 *
-	 */
+
+    /**
+     * @param $iLoginStaffId
+     * @return array|string
+     */
 	public function StaffPermisionGetAll($iLoginStaffId ){
 		$arrPermission = self::SesGetAllPermissionForSession($iLoginStaffId);
 		if (is_array($arrPermission) || $arrPermission == ""){
@@ -133,15 +115,11 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 		}
 		return '';
 	}
-	
-	/**
-	 * Creater : HUNGVM
-	 * Date : 25/09/2009
-	 * hieu chinh: phuongtt - 18/08/2010
-	 * Idea : Tao phuong thuc lay thong tin don vi su dung
-	 *
-	 * @param unknown_type $UnitId 
-	 */
+
+    /**
+     * @param string $option
+     * @return array
+     */
 	public function SesGetAllOwner($option=''){
 		$arrOwner = array();
 		$arrResult = array();
@@ -160,12 +138,11 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 		}
 		return $arrOwner;
 	}
-	/**
-	 * Creter : HUNGVM
-	 * Date : 30/06/2011
-	 * Idea : Tra lai danh sach phong ban cua NSD hien thoi
-	 * @param $sOwnerCode : ID don vi NSD hien thoi
-	 */
+
+    /**
+     * @param string $sOwnerCode
+     * @return array
+     */
 	public function _getAllUnitsByCurrentStaff($sOwnerCode = ''){
 		$arrChildUnitRoot = array();
 		if($sOwnerCode != ""){
@@ -200,12 +177,11 @@ class Efy_Init_Session extends Zend_Session_Namespace {
 		}	
 		return $arrChildUnitRoot;
 	}
-	/**
-	 * Creater : HUNGVM
-	 * Date : 24/06/2010
-	 * Idea : Lay toan bo NSD cua mot don vi
-	 * @param $sOwnerCode : Ma don vi trien khai
-	 */
+
+    /**
+     * @param string $sOwnerCode
+     * @return mixed
+     */
 	public function _getAllUsersByCurrentOrg($sOwnerCode = ''){
 		$i = 0;
 		foreach($_SESSION['arr_all_staff_keep'] as $objStaff){
