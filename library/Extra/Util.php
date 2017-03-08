@@ -596,6 +596,7 @@ class Extra_Util
         $sResHtml = null;
         $objInitConfif = new Extra_Init();
         $filetype = strtolower($psExtension);
+        $file = '';
         // thuc hien lay tren tung module cu the
         if ($psModuleName != "") {
             //
