@@ -11,7 +11,7 @@ class Extra_Db extends Zend_Db {
      * @return the
      */
 	public static function connectADO($adapter, $config = array()){		
-		global $adoConn, $ADODB_CACHE_DIR, $ADODB_CACHE_TIMEOUT;
+		global $adoConn;
 		if($adapter == "MSSQL"){//Ket noi MS SQL server
 			//Tao doi tuong ADODB
 			$adoConn = NewADOConnection("ado_mssql");  // create a connection
@@ -19,8 +19,6 @@ class Extra_Db extends Zend_Db {
 			//call connect adodb
 			$adoConn->Connect($connStr) or die("Hien tai he thong khong the ket noi vao CSDL duoc!");
 		}
-		$ADODB_CACHE_DIR  		= $config['pathAdoCache'];
-		$ADODB_CACHE_TIMEOUT 	= $config['cachetimeout'];
 		return $adoConn;
 	}
 	

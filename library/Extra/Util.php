@@ -560,13 +560,9 @@ class Extra_Util
     }
 
     /**
-     * Creater: HUNGVM
-     * Date: 03/02/2009
-     * Idea: Tao SelectBox quy dinh so Record / page
-     *
-     * @param $piValue : Gia tri lua chon trong SelectBox
-     * @param $pAction : Action can thuc hien
-     * @return Xau HTML
+     * @param $piValue
+     * @param $pAction
+     * @return string
      */
     public function _generateChangeRecordNumberPage($piValue, $pAction)
     {
@@ -586,33 +582,20 @@ class Extra_Util
         return $psHtmlString;
     }
 
-
     /**
-     * Creater: Thainv
-     * Date: 04/02/2009
-     * Idea: Load tat ca cac file js hoac css
-     *
-     * @param : $psModuleName : Ten module can load het
-     * @param : $psModuleNameOrther :Lay them cac file o module khac
-     * @param : $parrFileName: Cac file can lay o module khac
-     * @param : $psDelimitor: ky tu ngan cach giua cac file can lay o module khac
-     * @param : $psExtension: Duoi mo rong cua file can lay
-     * @return: Xau HTML
+     * @param $psModuleName
+     * @param string $psModuleNameOrther
+     * @param string $parrFileName
+     * @param string $psDelimitor
+     * @param $psExtension
+     * @return null|string
      */
     public function _getAllFileJavaScriptCss($psModuleName, $psModuleNameOrther = "", $parrFileName = "", $psDelimitor = ",", $psExtension)
     {
-        // Duong dan thu muc doc file
         $sDir = null;
-        // chuoi ket qua tra ve
         $sResHtml = null;
-
-        Zend_Loader::loadClass(Extra_Init);
-
         $objInitConfif = new Extra_Init();
-
-        //
         $filetype = strtolower($psExtension);
-
         // thuc hien lay tren tung module cu the
         if ($psModuleName != "") {
             //

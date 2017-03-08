@@ -351,150 +351,133 @@ $sOwnerCodeRoot = $objconfig->_getOwnerCode();
         }
     }
 
-    try {<?php
-        // Hien thi menu trai tuong ung voi menu ngang
-        $sCurrentModulCode = $this->currentModulCode;
-        $getModulLeft = $this->getStatusLeftMenu;
-        $scurrentModulCodeForLeft = $this->currentModulCodeForLeft;
-        //BAO CAO
-        try {
-        if ($sCurrentModulCode == "REPORTS"){?>
-        document.getElementById('left_report').style.display = 'block';
-        <?if($scurrentModulCodeForLeft == "NORMAL_REPORTS"){?>
-        document.getElementById('left_report_recordtype').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "REPORTS"){ ?>
-        document.getElementById('left_report_general').className = "level1_visited";
-        <?}
+    var sCurrentModulCode = '<?php echo $this->currentModulCode; ?>';
+    var scurrentModulCodeForLeft = '<?php echo $this->currentModulCodeForLeft; ?>';
+    if(sCurrentModulCode=='REPORTS'){
+        $('#left_report').show();
+        if(scurrentModulCodeForLeft=='NORMAL_REPORTS'){
+            $('#left_report_recordtype').addClass('level1_visited');
         }
-        }catch (Exception $ex) {
-        ;
-    };
-        //DANH MUC
-        try {
-        if ($sCurrentModulCode == "LIST"){?>
-        document.getElementById('left_list').style.display = 'block';
-        <?if($scurrentModulCodeForLeft == "RECORDTYPE"){?>
-        document.getElementById('left_list_recordtype').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "LISTTYPE"){ ?>
-        document.getElementById('left_list_listtype').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "LIST"){ ?>
-        document.getElementById('left_list_list').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "PERMISSION"){ ?>
-        document.getElementById('left_list_permission').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "BACKUP"){ ?>
-        document.getElementById('left_list_backup').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "RESTORE"){ ?>
-        document.getElementById('left_list_restore').className = "level1_visited";
-        <?}
+        if(scurrentModulCodeForLeft=='REPORTS'){
+            $('#left_report_general').addClass('level1_visited');
         }
-        }catch (Exception $ex) {
-        ;
-    };
-        //TN HS QUA MANGs
-        try {
-        if ($sCurrentModulCode == "RECEIVE-ON-NET"){?>
-        document.getElementById('left_receiveonnet').style.display = '';
-        <?if($scurrentModulCodeForLeft == "PRELIMINARY"){//HS cho tiep nhan so bo?>
-        document.getElementById('left_receiveonnet_preliminary').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "SUPPLEMENT"){//HS cho bo sung?>
-        document.getElementById('left_receiveonnet_supplementrecordlist').className = "level1_visited";<?php
-        }if($scurrentModulCodeForLeft == "OFFICIAL"){//HS Tiep nhan chinh thuc?>
-        document.getElementById('left_receiveonnet_officialrecordlist').className = "level1_visited";<?php
+    }
+
+    if(sCurrentModulCode=='LIST'){
+        $('#left_list').show();
+        if(scurrentModulCodeForLeft=='RECORDTYPE'){
+            $('#left_list_recordtype').addClass('level1_visited');
         }
+        if(scurrentModulCodeForLeft=='LISTTYPE'){
+            $('#left_list_listtype').addClass('level1_visited');
         }
-        }catch (Exception $ex) {
-            ;
-        };
-        //TN HS QUA MANGs
-        try {
-        if ($sCurrentModulCode == "ORDER-ON-NET"){?>
-        document.getElementById('left_order').style.display = '';
-        <?if($scurrentModulCodeForLeft == "CHUADUYET"){//HS cho tiep nhan so bo?>
-        document.getElementById('left_order_chuaduyet').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "DADUYET"){//HS Tiep nhan chinh thuc?>
-        document.getElementById('left_order_daduyet').className = "level1_visited";<?php
+        if(scurrentModulCodeForLeft=='LIST'){
+            $('#left_list_list').addClass('level1_visited');
         }
+        if(scurrentModulCodeForLeft=='PERMISSION'){
+            $('#left_list_permission').addClass('level1_visited');
         }
-        }catch (Exception $ex) {
-            ;
-        };
-        //TN&TKQ
-        try {
-        if ($sCurrentModulCode == "RECORD"){?>
-        document.getElementById('left_receive').style.display = '';
-        <?if($scurrentModulCodeForLeft == "RECEIVED-RECORD"){?>
-        document.getElementById('left_receive_receive').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "RECEIVED-TRANSITION"){?>
-        document.getElementById('left_receive_transition').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "RECEIVED-RESULT"){?>
-        document.getElementById('left_receive_result').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "RECEIVED-ADDITIONAL"){?>
-        document.getElementById('left_receive_additional').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "RECEIVED-PROCESSING"){?>
-        document.getElementById('left_receive_processing').className = "level1_visited";
-        <?}
+        if(scurrentModulCodeForLeft=='BACKUP'){
+            $('#left_list_backup').addClass('level1_visited');
         }
-        }catch (Exception $ex) {
-        ;
-    };
-        //Thu ly
-        try {
-        if ($sCurrentModulCode == "HANDLE"){?>
-        document.getElementById('left_handle').style.display = '';
-        <?if($scurrentModulCodeForLeft == "HANDLE-RECORD"){?>
-        document.getElementById('left_handle_main').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "HANDLE-RESULT"){?>
-        document.getElementById('left_handle_result').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "HANDLE-ADDITIONAL"){?>
-        document.getElementById('left_handle_additional').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "HANDLE-APPROVED"){?>
-        document.getElementById('left_handle_approved').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "HANDLE-TRANSITION"){?>
-        document.getElementById('left_handle_transition').className = "level1_visited";
-        <?}
+        if(scurrentModulCodeForLeft=='RESTORE'){
+            $('#left_list_restore').addClass('level1_visited');
         }
-        }catch (Exception $ex) {
-        ;
-    };
-        //PHE DUYET
-        try {
-        if ($sCurrentModulCode == "ASSIGN"){?>
-        document.getElementById('left_approve').style.display = 'block';
-        <?if($scurrentModulCodeForLeft == "ASSIGN-RECORD"){?>
-        document.getElementById('left_approve_assignWait').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "ASSIGNED-RECORD"){?>
-        document.getElementById('left_approve_assign').className = "level1_visited";
-        <?}
-        if($scurrentModulCodeForLeft == "APPROVE"){?>
-        document.getElementById('left_approve_approveWait').className = "level1_visited";
-        <?}
-        if($scurrentModulCodeForLeft == "APPROVED"){?>
-        document.getElementById('left_approve_approved').className = "level1_visited";
-        <?}
-        if($scurrentModulCodeForLeft == "APPROVE-TRANSITION"){?>
-        document.getElementById('left_approve_transition').className = "level1_visited";
-        <?}
+    }
+
+    if(sCurrentModulCode=='RECEIVE-ON-NET'){
+        $('#left_receiveonnet').show();
+        if(scurrentModulCodeForLeft=='PRELIMINARY'){
+            $('#left_receiveonnet_preliminary').addClass('level1_visited');
         }
-        }catch (Exception $ex) {
-        ;
-    };
-        //Tra cuu
-        try {
-        if ($sCurrentModulCode == "SEARCH"){?>
-        document.getElementById('left_search').style.display = 'block';
-        <?if($scurrentModulCodeForLeft == "index" ){?>
-        document.getElementById('left_search_record').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "link" ){?>
-        document.getElementById('left_search_link').className = "level1_visited";
-        <?}if($scurrentModulCodeForLeft == "general" || $scurrentModulCodeForLeft == "status"){?>
-        document.getElementById('left_search_general').className = "level1_visited";
-        <?}
+        if(scurrentModulCodeForLeft=='SUPPLEMENT'){
+            $('#left_receiveonnet_supplementrecordlist').addClass('level1_visited');
         }
-        }catch (Exception $ex) {
-        ;
-    };
-        ?>
-    } catch (e) {
-        ;
+        if(scurrentModulCodeForLeft=='OFFICIAL'){
+            $('#left_receiveonnet_officialrecordlist').addClass('level1_visited');
+        }
+    }
+
+    if(sCurrentModulCode=='ORDER-ON-NET'){
+        $('#left_order').show();
+        if(scurrentModulCodeForLeft=='CHUADUYET'){
+            $('#left_order_chuaduyet').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='DADUYET'){
+            $('#left_order_daduyet').addClass('level1_visited');
+        }
+    }
+
+    if(sCurrentModulCode=='RECORD'){
+        $('#left_receive').show();
+        if(scurrentModulCodeForLeft=='RECEIVED-RECORD'){
+            $('#left_receive_receive').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='RECEIVED-TRANSITION'){
+            $('#left_receive_transition').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='RECEIVED-RESULT'){
+            $('#left_receive_result').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='RECEIVED-ADDITIONAL'){
+            $('#left_receive_additional').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='RECEIVED-PROCESSING'){
+            $('#left_receive_processing').addClass('level1_visited');
+        }
+    }
+
+    if(sCurrentModulCode=='HANDLE'){
+        $('#left_handle').show();
+        if(scurrentModulCodeForLeft=='HANDLE-RECORD'){
+            $('#left_handle_main').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='HANDLE-RESULT'){
+            $('#left_handle_result').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='HANDLE-ADDITIONAL'){
+            $('#left_handle_additional').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='HANDLE-APPROVED'){
+            $('#left_handle_approved').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='HANDLE-TRANSITION'){
+            $('#left_handle_transition').addClass('level1_visited');
+        }
+    }
+
+    if(sCurrentModulCode=='ASSIGN'){
+        $('#left_approve').show();
+        if(scurrentModulCodeForLeft=='ASSIGN-RECORD'){
+            $('#left_approve_assignWait').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='ASSIGNED-RECORD'){
+            $('#left_approve_assign').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='APPROVE'){
+            $('#left_approve_approveWait').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='APPROVED'){
+            $('#left_approve_approved').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='APPROVE-TRANSITION'){
+            $('#left_approve_transition').addClass('level1_visited');
+        }
+    }
+
+    if(sCurrentModulCode=='SEARCH'){
+        $('#left_search').show();
+        if(scurrentModulCodeForLeft=='index'){
+            $('#left_search_record').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='link'){
+            $('#left_search_link').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='general'){
+            $('#left_search_general').addClass('level1_visited');
+        }
+        if(scurrentModulCodeForLeft=='status'){
+            $('#left_search_general').addClass('level1_visited');
+        }
     }
 </script>
