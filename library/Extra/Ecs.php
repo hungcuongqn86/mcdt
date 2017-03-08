@@ -1315,36 +1315,8 @@ class Extra_Ecs
     }
 
     /**
-     * Creater: KHOINV
-     * Date: 13/05/2011
-     * Des: Tao selectbox
-     * @param unknown_type $arrRecordType mang danh sach loai ho so
-     * @param unknown_type $stitle xau hien thi thong bao cho nguoi dung
-     * @param $sValue : gia chi duoc chon
-     */
-    public function genSelectBoxUnit($arrRecordType, $stitle, $sValue)
-    {
-
-        $sselect = '<select id = "Unit" name = "Unit" style="width:60%;" message="Nhap don vi nhan">';
-        $sselect = $sselect . " <option value=''>" . $stitle . "</option>";
-        if (sizeof($arrRecordType) > 0) {
-            for ($i = 0; $i < sizeof($arrRecordType); $i++) {
-                if ($arrRecordType[$i]['C_CODE'] == $sValue) {
-                    $sCheck = "selected='selected'";
-                } else $sCheck = "";
-                $sselect .= '<option value = "' . $arrRecordType[$i]['C_CODE'] . '" ' . $sCheck . '  >' . $arrRecordType[$i]['C_NAME'] . '</option>';
-            }
-        }
-        $sselect .= '</select>';
-        $shtml = $sselect;
-        return $shtml;
-    }
-
-    /**
-     * Creater: Phuongtt
-     * Date: 1/11/2010
-     * Des: Ham sinh ma cua mot ho so
-     * @param $srecordtype Ma Loai TTHC
+     * @param $srecordtype
+     * @return string
      */
     function generateRecordCode($srecordtype)
     {
@@ -1373,45 +1345,9 @@ class Extra_Ecs
     }
 
     /**
-     * Creater: KHOINV
-     * Date: 17/05/2011
-     * Des: Ham sinh ma cua mot ho so qua mang
-     * @param $srecordtype Ma Loai TTHC
-     */
-    function generateRecordCodeNET($srecordtype)
-    {
-        $ow = new Extra_Init();
-        $ownercode = $ow->_getOwnerCode();
-        $objConn = new  Extra_Db();
-        $v_inc_code_length = 5;//Do dai cua ma theo tung loai, tung nam cua ho so
-        $v_fix_code = $ownercode . "." . $srecordtype . ".NET." . date("y");
-        $v_str_count = strlen($v_fix_code);
-        $v_str_sql = " Select Max(SUBSTRING(C_CODE, $v_str_count+2, $v_inc_code_length)) MAX_CODE ";
-        $v_str_sql = $v_str_sql . " From T_eCS_NET_RECORD";
-        $v_str_sql = $v_str_sql . " Where SUBSTRING(C_CODE,1,$v_str_count) = '$v_fix_code' And LEN(C_CODE)=($v_inc_code_length+$v_str_count+1)";
-        try {
-            $arr_all_data = $objConn->adodbExecSqlString($v_str_sql);
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        };
-        $v_next_code = $arr_all_data['MAX_CODE'];
-        if (is_null($v_next_code) || $v_next_code == "") {
-            $v_next_code = 1;
-            $v_next_code = str_repeat("0", $v_inc_code_length - strlen($v_next_code)) . $v_next_code;
-        } else {
-            $v_next_code = intval($v_next_code) + 1;
-            $v_next_code = str_repeat("0", $v_inc_code_length - strlen($v_next_code)) . $v_next_code;
-        }
-        $v_str_ret = $v_fix_code . "." . $v_next_code;
-        return $v_str_ret;
-    }
-
-    /**
-     * Creater: Phuongtt
-     * Date: 2/11/2010
-     * Des: Ham lay thong tin co ban cua mot loai thu tuc hanh chinh
-     * @param $RecordTypeId Ma Loai TTHC
-     * @param unknown_type $arrRecordType Mang nay la ket qua cua ham eCSRecordTypeGetAllByStaff
+     * @param $RecordTypeId
+     * @param $arrRecordType
+     * @return array
      */
     function getinforRecordType($RecordTypeId, $arrRecordType)
     {
@@ -1428,15 +1364,11 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : nghiat
-     * Date : 04/11/2010
-     * Idea : Hien thi thong tin co ban cua mot HS( hien thi thong tin hs cho can bo trong phong ban giai quyet hs do)
-     *
-     * @param $sRecordPk : Id cua HS bang goc
-     * @param $sRecordTransitionPk : Id cua HS lien thong
-     * @param $iFkUnit : Id cua Phong ban
-     * @param $sOwnerCode : Ma don vi
-     * @return Thong tin co ban cua hs
+     * @param $sRecordPk
+     * @param $iFkUnit
+     * @param $sOwnerCode
+     * @param string $sRecordTransitionPk
+     * @return string
      */
     public function eCSRecordBasicGetSingle($sRecordPk, $iFkUnit, $sOwnerCode, $sRecordTransitionPk = '')
     {
@@ -1506,11 +1438,9 @@ class Extra_Ecs
     }
 
     /**
-     * Creater: Phuongtt
-     * Date: 8/11/2010
-     * Des: Ham lay danh sach id phong ban tu danh sach id can bo
-     * @param $sStaffIdList danh sach id can bo
-     * @param $arrAllStaff Mang luu thong tin can bo
+     * @param $sStaffIdList
+     * @param $arrAllStaff
+     * @return string
      */
     function GetUnitIdListFromStaffIdList($sStaffIdList, $arrAllStaff)
     {
@@ -1528,90 +1458,11 @@ class Extra_Ecs
     }
 
     /**
-     * Creater: Phuongtt
-     * Date: 8/11/2010
-     * Des: Ham tra ve quyen thu ly cua NSD tren mot loai TTHC: 'THULY_CAP_MOT,..'
-     * @param $RecordTypeId Ma Loai TTHC
-     * @param unknown_type $arrRecordType Mang nay la ket qua cua ham eCSRecordTypeGetAllByStaff
-     * $sRecordTypeId id cua TTHC
+     * @param $sStaffId
+     * @param $arrRecordType
+     * @param $sRecordTypeId
+     * @return string
      */
-    function eCSPermisstionHandlerTypeForRecordType($sStaffId, $arrRecordType, $sRecordTypeId)
-    {
-        //Lay id phong ban cua $sStaffId
-        $iUnitId = '';
-        $sHandleType = '';
-        foreach ($_SESSION['arr_all_staff'] As $staff)
-            if ($sStaffId == $staff['id']) {
-                $iUnitId = $staff['unit_id'];
-                break;
-            }
-        //var_dump($arrRecordType);echo '<br><br>';
-        //Lay danh sach id phong ban tu danh sach can bo phe duyet
-        foreach ($arrRecordType as $sRecordType) {
-            if ($sRecordTypeId == $sRecordType['PK_RECORDTYPE']) {
-                $sUnitIdList = self::GetUnitIdListFromStaffIdList($sRecordType['C_APPROVE_LEADER_ID_LIST'], $_SESSION['arr_all_staff']);
-                $arrUnitIdList = explode(',', $sUnitIdList);
-                $arrrolecode = explode(',', $sRecordType['C_ROLES_CODE_LIST']);
-                for ($i = 0; $i < sizeof($arrUnitIdList); $i++) {
-                    if ($iUnitId == $arrUnitIdList[$i]) {
-                        $sHandleType = $arrrolecode[$i];
-                        break;
-                    }
-                }
-            }
-            //break;
-        }
-        $sHandleType = str_replace('DUYET', 'THULY', $sHandleType);
-        //echo '$sHandleType:'.$sHandleType;exit;
-        return $sHandleType;
-    }
-
-    /*
-	 	* Creater: Nghiat
-		* Date: 10/11/2010
-		*Content : Lay File dinh kem cua mot ho hoac cong viec
-	*/
-    public function eCSGetAllDocumentFileAttach($sRecordId, $pFileTyle, $pTableObject)
-    {
-        // Tao doi tuong xu ly du lieu
-        $objConn = new  Extra_Db();
-        $sql = "Exec Doc_GetAllDocumentFileAttach '" . $sRecordId . "'";
-        $sql .= ",'" . $pFileTyle . "'";
-        $sql .= ",'" . $pTableObject . "'";
-        //echo $sql . '<br>';exit;
-        try {
-            $arrResult = $objConn->adodbQueryDataInNameMode($sql);
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        };
-        return $arrResult;
-    }
-
-    /**
-     * Creater: Phuongtt
-     * Date: 17/11/2010
-     * Des: Ham tra ve quyen phe duyet cua NSD tren mot loai TTHC: 'DUYET_CAP_MOT,..'
-     * @param $RecordTypeId Ma Loai TTHC
-     * @param unknown_type $arrRecordType Mang nay la ket qua cua ham eCSRecordTypeGetAllByStaff
-     * $sRecordTypeId id cua TTHC
-     */
-    function eCSGetPermisstionApproveForRecordType($sStaffId, $arrRecordType, $sRecordTypeId)
-    {
-        foreach ($arrRecordType as $sRecordType) {
-            if (stripos($sRecordTypeId, $sRecordType['PK_RECORDTYPE']) >= 0) {
-                $arrApproveLeaderIdList = explode(',', $sRecordType['C_APPROVE_LEADER_ID_LIST']);
-                $arrrolecode = explode(',', $sRecordType['C_ROLES_CODE_LIST']);
-                for ($i = 0; $i < sizeof($arrApproveLeaderIdList); $i++) {
-                    if ($sStaffId == $arrApproveLeaderIdList[$i]) {
-                        return $arrrolecode[$i];
-                    }
-                }
-            }
-        }
-        return '';
-    }
-
-    //-------- lay cap duyet hs
     function eCSGetPermisstionApproveForRecordType2($sStaffId, $arrRecordType, $sRecordTypeId)
     {
         //$sRecordTypeId = '{'.$sRecordTypeId.'}';
@@ -1635,11 +1486,9 @@ class Extra_Ecs
         return '';
     }
 
-    /** Nguoi tao: PHUONGTT
-     * DS: Lay thong tin cua danh sach ho so
-     * @param $sRecordIdList Dang sach Id ho so
-     * $sOwnerCode Ma don vi su dung
-     * ket qua: rowset(C_CODE, PK_RECORD_TRANSITION)
+    /**
+     * @param $sRecordIdList
+     * @return mixed|null
      */
     public function eCSGetInfoRecordFromListId($sRecordIdList)
     {
@@ -1657,11 +1506,11 @@ class Extra_Ecs
     }
 
     /**
-     * Ham lay gia tri trong mot mang
-     * @param unknown_type $arrValue : mang gia tri
-     * @param unknown_type $sColId : Ten cot Id can so sanh
-     * @param unknown_type $sColName : Ten cot can lay gia tri
-     * @param unknown_type $svalue : Gia tri can so sanh
+     * @param $arrValue
+     * @param $sColId
+     * @param $sColName
+     * @param $svalue
+     * @return mixed
      */
     public function getValueInArray($arrValue, $sColId, $sColName, $svalue)
     {
@@ -1671,12 +1520,11 @@ class Extra_Ecs
         }
     }
 
-    /** Nguoi tao: NGHIAT
-     * DS: Kiem tra su ton tai cua 1 phan tu trong mang mot chieu hoac da chieu
-     * @param $sName Ten phan tu can kiem tra
-     * @param $sCode Ma cot trong mang co the chua ptu can ktra($sCode = '' neu mang la 1 chieu)
-     * @param $arrList Mang da chieu can kiem tra xem co chua ptu can ktra hay ko
-     * ket qua: true/false
+    /**
+     * @param $sName
+     * @param $sCode
+     * @param $arrList
+     * @return bool
      */
     public function testElementInArray($sName, $sCode, $arrList)
     {
@@ -1801,14 +1649,13 @@ class Extra_Ecs
     }
 
     /**
-     * cuongnh
-     * Enter description here ...
-     * @param unknown_type $psXmlStringInFile
-     * @param unknown_type $arrReportCol
-     * @param unknown_type $arrResult
-     * @param unknown_type $v_colume_name_of_xml_string
-     * @param unknown_type $sFilterXmlString
-     * @param unknown_type $v_exporttype
+     * @param $psXmlStringInFile
+     * @param $arrReportCol
+     * @param $arrResult
+     * @param $v_colume_name_of_xml_string
+     * @param $sFilterXmlString
+     * @param $v_exporttype
+     * @return string
      */
     public function _exportreport($psXmlStringInFile, $arrReportCol, $arrResult, $v_colume_name_of_xml_string, $sFilterXmlString, $v_exporttype)
     {
