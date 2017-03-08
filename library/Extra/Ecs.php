@@ -1246,7 +1246,7 @@ class Extra_Ecs
             foreach ($arrRecordType as $recordType) {
                 $strtemp = ',' . $recordType['C_RECEIVER_ID_LIST'] . ',';
 
-                if (stripos($strtemp, $staffIdTemp) !== false && isset($arrRecordTypeTemp[$recordType['PK_RECORDTYPE']]) && $arrRecordTypeTemp[$recordType['PK_RECORDTYPE']] != 1) {
+                if (stripos($strtemp, $staffIdTemp) && (!isset($arrRecordTypeTemp[$recordType['PK_RECORDTYPE']])||!$arrRecordTypeTemp[$recordType['PK_RECORDTYPE']])) {
                     $arrRecordTypeTemp[$recordType['PK_RECORDTYPE']] = 1;
                     if (stripos('@{' . $recordType['PK_RECORDTYPE'] . '}', $arrInput['RecordTypeId'])) $sCheck = "selected='selected'";
                     else $sCheck = "";
