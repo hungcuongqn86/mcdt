@@ -1245,9 +1245,8 @@ class Extra_Ecs
         if ($roles == 'TIEP_NHAN') {
             foreach ($arrRecordType as $recordType) {
                 $strtemp = ',' . $recordType['C_RECEIVER_ID_LIST'] . ',';
-                if (stripos($strtemp, $staffIdTemp) !== false && $arrRecordTypeTemp[$recordType['PK_RECORDTYPE']] != 1) {
-                    //
-                    //var_dump($recordType['PK_RECORDTYPE'].':'.$arrRecordTypeTemp[$recordType['PK_RECORDTYPE']]);
+
+                if (stripos($strtemp, $staffIdTemp) !== false && isset($arrRecordTypeTemp[$recordType['PK_RECORDTYPE']]) && $arrRecordTypeTemp[$recordType['PK_RECORDTYPE']] != 1) {
                     $arrRecordTypeTemp[$recordType['PK_RECORDTYPE']] = 1;
                     if (stripos('@{' . $recordType['PK_RECORDTYPE'] . '}', $arrInput['RecordTypeId'])) $sCheck = "selected='selected'";
                     else $sCheck = "";

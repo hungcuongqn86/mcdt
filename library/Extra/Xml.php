@@ -1292,16 +1292,16 @@ class Extra_Xml extends RAX
                 $v_type = $col["type"];
                 $this->v_align = $col["align"];
                 $this->xmlData = $col["xml_data"];
-                $this->inputData = $col["input_data"];
+                isset($col["input_data"]) ? $this->inputData = $col["input_data"] : $this->inputData = '';
                 $this->columnName = $col["column_name"];
                 //echo= $this->columnName;
                 $this->xmlTagInDb = $col["xml_tag_in_db"];
-                $this->phpFunction = $col["php_function"];
-                $v_id_column = $col["id_column"];
-                $this->selectBoxOptionSql = $col["selectbox_option_sql"];
-                $this->readonlyInEditMode = $col["readonly_in_edit_mode"];
-                $this->disabledInEditMode = $col["disabled_in_edit_mode"];
-                $this->publicListCode = $col["public_list_code"];
+                isset($col["php_function"]) ? $this->phpFunction = $col["php_function"] : $this->phpFunction = '';
+                isset($col["id_column"]) ? $v_id_column = $col["id_column"] : $v_id_column = '';
+                isset($col["selectbox_option_sql"]) ? $this->selectBoxOptionSql = $col["selectbox_option_sql"] : $this->selectBoxOptionSql = '';
+                isset($col["readonly_in_edit_mode"]) ? $this->readonlyInEditMode = $col["readonly_in_edit_mode"] : $this->readonlyInEditMode = '';
+                isset($col["disabled_in_edit_mode"]) ? $this->disabledInEditMode = $col["disabled_in_edit_mode"] : $this->disabledInEditMode = '';
+                isset($col["public_list_code"]) ? $this->publicListCode = $col["public_list_code"] : $this->publicListCode = '';
                 if ($this->xmlData == 'false') {
                     $this->value = $pArrAllItem[$iRow][$this->columnName];
                     if ($v_type == 'json') {
