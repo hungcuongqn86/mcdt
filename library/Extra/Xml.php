@@ -127,12 +127,14 @@ class Extra_Xml extends RAX
     {
         global $i;
         $ojbEfyInitConfig = new Extra_Init();
+        $p_xml_string = '';
         if (sizeof($p_arr_item_value) > 0) {
             $_SESSION['NET_RECORDID'] = $p_arr_item_value[0]['PK_NET_RECORD'];
             $_SESSION['RECORDID'] = $p_arr_item_value[0]['PK_RECORD'];
             if ($_SESSION['RECORDID'] == '') {
                 $_SESSION['RECORDID'] = $p_arr_item_value[0]['FK_RECORD'];
             }
+            $p_xml_string = $p_arr_item_value[0][$p_xml_string_in_db];
         }
         //Lay tham so cau hinh
         $this->efyImageUrlPath = $ojbEfyInitConfig->_setImageUrlPath();
@@ -154,7 +156,7 @@ class Extra_Xml extends RAX
         $v_js_file_name = $objConfigXml->common_para_list->common_para->js_file_name;
         $v_js_function = $objConfigXml->common_para_list->common_para->js_function;
         //var_dump($p_arr_item_value);exit;
-        $p_xml_string = $p_arr_item_value[0][$p_xml_string_in_db];
+
         //echo $p_xml_string;exit;
         if ($p_xml_string <> '') {
             $p_xml_string = '<?xml version="1.0" encoding="UTF-8"?>' . $p_xml_string;
@@ -1293,9 +1295,8 @@ class Extra_Xml extends RAX
                 $this->v_align = $col["align"];
                 $this->xmlData = $col["xml_data"];
                 isset($col["input_data"]) ? $this->inputData = $col["input_data"] : $this->inputData = '';
-                $this->columnName = $col["column_name"];
-                //echo= $this->columnName;
-                $this->xmlTagInDb = $col["xml_tag_in_db"];
+                isset($col["column_name"]) ? $this->columnName = $col["column_name"] : $this->columnName = '';
+                isset($col["xml_tag_in_db"]) ? $this->xmlTagInDb = $col["xml_tag_in_db"] : $this->xmlTagInDb = '';
                 isset($col["php_function"]) ? $this->phpFunction = $col["php_function"] : $this->phpFunction = '';
                 isset($col["id_column"]) ? $v_id_column = $col["id_column"] : $v_id_column = '';
                 isset($col["selectbox_option_sql"]) ? $this->selectBoxOptionSql = $col["selectbox_option_sql"] : $this->selectBoxOptionSql = '';
@@ -1351,19 +1352,23 @@ class Extra_Xml extends RAX
                             $sAttr = $col["attr"];
                             isset($col["ItemIndex"]) ? $sIndex = $col["ItemIndex"] : $sIndex = '';
                             if ($sIndex != '') {
-                                foreach ($arrList as $key => $item) {
-                                    if ($sIndex == $key) {
-                                        $sAttrItem = $sAttr . '_' . $key;
-                                        $sValue .= $item[$sAttrItem];
+                                if($arrList){
+                                    foreach ($arrList as $key => $item) {
+                                        if ($sIndex == $key) {
+                                            $sAttrItem = $sAttr . '_' . $key;
+                                            $sValue .= $item[$sAttrItem];
+                                        }
                                     }
                                 }
                             } else {
-                                foreach ($arrList as $key => $item) {
-                                    $sAttrItem = $sAttr . '_' . $key;
-                                    if (!$key) {
-                                        $sValue .= $item[$sAttrItem];
-                                    } else {
-                                        $sValue .= '<br>' . $item[$sAttrItem];
+                                if($arrList){
+                                    foreach ($arrList as $key => $item) {
+                                        $sAttrItem = $sAttr . '_' . $key;
+                                        if (!$key) {
+                                            $sValue .= $item[$sAttrItem];
+                                        } else {
+                                            $sValue .= '<br>' . $item[$sAttrItem];
+                                        }
                                     }
                                 }
                             }

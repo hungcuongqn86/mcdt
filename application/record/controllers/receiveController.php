@@ -244,8 +244,6 @@ class record_receiveController extends  Zend_Controller_Action {
 		$this->view->iNumberProcessDate = $arrinfoRecordType['C_PROCESS_NUMBER_DATE'];
 		//echo '$sxmlFileName:'.$sxmlFileName;
 		$this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>', array(),true,true);
-		//Lay thong tin file dinh kem
-		$arrFileNameUpload = $ojbEfyLib->_uploadFileList(10,$this->_request->getBaseUrl() . "/public/attach-file/",'FileName','!#~$|*');
 		$arFileAttach = array();	
 		$this->view->AttachFile = $objrecordfun->DocSentAttachFile($arFileAttach,sizeof($arFileAttach),10,true,50);	
 		$sOption = $this->_request->getParam('hdh_option','');
@@ -275,7 +273,8 @@ class record_receiveController extends  Zend_Controller_Action {
 			for ($i = 0; $i < sizeof($arrXmlTags); $i++)
 				$strXml .= '<' . $arrXmlTags[$i] . '>' . $ojbEfyLib->_replaceBadChar($arrXmlValues[$i]) . '</' . $arrXmlTags[$i] . '>';
 			$strXml = $strXml . "</data_list></root>";
-			
+            //Lay thong tin file dinh kem
+            $arrFileNameUpload = $ojbEfyLib->_uploadFileList(10,$this->_request->getBaseUrl() . "/public/attach-file/",'FileName','!#~$|*');
 			$arrParameter = array(	
 				'PK_RECORD'	=> '',
 				'C_CODE' => $this->_request->getParam('C_CODE',''),

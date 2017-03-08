@@ -1642,8 +1642,6 @@ class record_wreceiveController extends  Zend_Controller_Action {
         $this->view->arrMailRecordList = $arrMailRecordList;
         // Xu ly Cap nhat du lieu tu form
         if($psOption == "GHI"){
-            Zend_Loader::loadClass('Efy_Mail_Phpmailer');
-            Zend_Loader::loadClass('Efy_Mail_Smtp');
             //Lay dia chỉ mail
             $arrMailInfo = $objInitConfig->configMail();
             $from = $arrMailInfo['mail_name'];

@@ -744,9 +744,7 @@ class Extra_Util
     }
 
     /**
-     * Creater: Hoang Van Toan
-     *
-     * @return Ham lay mo so ngau nhien
+     * @return int
      */
     function _get_randon_number()
     {
@@ -755,21 +753,12 @@ class Extra_Util
     }
 
     /**
-     * @author :thainv
-     * @editer: Hoang Van Toan
-     * @param: '@!~!@': phan tach cac file dinh kem khac nhau
-     * @since  : 17/02/2009
-     * @see : Upload Mot mang file attach len o cung
-     * @param :
-     * @param:    $iFileMaxNum: So file toi da de upload
-     * @param :    $sDir:          Duong dan chua file can upload
-     * @param :    $sVarName:    Ten cua bien trong <input type="upload" name='$sVarName'>
-     * @return :
-     *            $sFileNameList:    Mang danh sach ten file da duoc upload len o cung
-     *
-     * @package : Extra_Util
-     *
-     **/
+     * @param int $iFileMaxNum
+     * @param $sDir
+     * @param string $sVarName
+     * @param string $sDelimitor
+     * @return mixed
+     */
     public function _uploadFileList($iFileMaxNum = 10, $sDir, $sVarName = "FileName", $sDelimitor = "@!~!@")
     {
         $path = self::_createFolder($sDir, date('Y'), date('m'), date('d'));

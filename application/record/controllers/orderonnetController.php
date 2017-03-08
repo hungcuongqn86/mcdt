@@ -31,8 +31,6 @@ class record_orderonnetController extends Zend_Controller_Action
         //Load ca thanh phan cau vao trang layout (index.phtml)
         $response = $this->getResponse();
         //Lay cac hang so su dung trong JS public
-        Zend_Loader::loadClass('Extra_Init');
-        Zend_Loader::loadClass('Efy_Mail_Phpmailer');
         $objConfig = new Extra_Init();
         $this->view->UrlAjax = $objConfig->_setUrlAjax();
         //Load cau hinh thu muc trong file config.ini de lay ca hang so dung chung
