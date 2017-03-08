@@ -1150,13 +1150,11 @@ class record_receiveController extends  Zend_Controller_Action {
 		}				
 		$this->view->arrMailRecordList = $arrMailRecordList;
 		// Xu ly Cap nhat du lieu tu form
-		if($psOption == "GHI"){ 
-			Zend_Loader::loadClass('Efy_Mail_Phpmailer');
-			Zend_Loader::loadClass('Efy_Mail_Smtp');
-			//Lay dia chỉ mail
-			$arrMailInfo = $objInitConfig->configMail();
-			$from = $arrMailInfo['mail_name'];
-			$pass = $arrMailInfo['mail_password'];
+		if($psOption == "GHI"){
+            //Lay dia chỉ mail
+            $arrMailInfo = $objInitConfig->configMail();
+            $from = $arrMailInfo['mail_name'];
+            $pass = $arrMailInfo['mail_password'];
 			$to_name= 'Ông/Bà';
 			$from_name = $_SESSION['OWNER_NAME'];
 			$subject =$_SESSION['OWNER_NAME'].': Thông báo kết quả giải quyết TTHC';
@@ -1166,7 +1164,7 @@ class record_receiveController extends  Zend_Controller_Action {
 				$sNote = $sNote.'<br>'.'M&#7901;i &#212;ng(b&#224;) mang gi&#7845;y h&#7865;n &#273;&#7871;n B&#7897; ph&#7853;n M&#7897;t c&#7917;a c&#7911;a '.$from_name.' &#273;&#7875; nh&#7853;n k&#7871;t qu&#7843;!'.'<br>'.'Tr&#226;n tr&#7885;ng th&#244;ng b&#225;o!';
 				$sResult = $ojbEfyLib->smtpmailer($sMail,$to_name,$from,$pass,$from_name,$subject,$sNote);
 				if(!$sResult) echo 'Lỗi địa chỉ mail '. $sMail;
-			}	
+			}
 			$this->_redirect('record/receive/result');
 		}
 	}

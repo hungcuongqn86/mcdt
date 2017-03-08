@@ -1557,25 +1557,32 @@ class Extra_Util
      */
     public function smtpmailer($to, $to_name, $from, $pass, $from_name, $subject, $body)
     {
-        $mail = new Efy_Mail_Phpmailer();
-        $mail->IsSMTP(); // set mailer to use SMTP
-        $mail->Host = "smtp.gmail.com"; // specify main and backup server
-        $mail->Port = 465; // set the port to use
-        $mail->SMTPAuth = true; // turn on SMTP authentication
+        $mail = new PHPMailer;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $from;
+        $mail->Password = $pass;
         $mail->SMTPSecure = 'ssl';
-        $mail->Username = $from; // your SMTP username or your gmail username
-        $mail->Password = $pass; // your SMTP password or your gmail password
-        $mail->From = $from;
-        $mail->FromName = $from_name; // Name to indicate where the email came from when the recepient received
-        $mail->AddAddress($to, $to_name);
-        $mail->AddReplyTo($from, $from_name);
+        $mail->Port = 465;
+
+        $mail->setFrom($from, $from_name);
+        $mail->addAddress($to, $to_name);
+        $mail->addReplyTo($from, $from_name);
+        //$mail->addCC('cc@example.com');
+        //$mail->addBCC('bcc@example.com');
+
+        //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
         $mail->CharSet = 'UTF-8';
         $mail->WordWrap = 50; // set word wrap
-        $mail->IsHTML(true); // send as HTML
+        $mail->isHTML(true);                                  // Set email format to HTML
+
         $mail->Subject = $subject;
-        $mail->Body = $body; //HTML Body
-        $mail->AltBody = $body; //Text Body
-        if (!$mail->Send()) {
+        $mail->Body    = $body;
+        $mail->AltBody = $body;
+
+        if(!$mail->send()) {
             return false;
         } else {
             return true;

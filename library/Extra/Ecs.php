@@ -2741,35 +2741,6 @@ class Extra_Ecs
         return $strHTML;
     }
 
-    function smtpmailer($to, $to_name, $from, $pass, $from_name, $subject, $body)
-    {
-
-        $mail = new Efy_Mail_Phpmailer();
-        $mail->IsSMTP(); // set mailer to use SMTP
-        $mail->Host = "smtp.gmail.com"; // specify main and backup server
-        $mail->Port = 465; // set the port to use
-        $mail->SMTPAuth = true; // turn on SMTP authentication
-        $mail->SMTPSecure = 'ssl';
-        $mail->Username = $from; // your SMTP username or your gmail username
-        $mail->Password = $pass; // your SMTP password or your gmail password
-        $name = $to_name; // Recipient's name
-        $mail->From = $from;
-        $mail->FromName = $from_name; // Name to indicate where the email came from when the recepient received
-        $mail->AddAddress($to, $name);
-        $mail->AddReplyTo($from, $from_name);
-        $mail->CharSet = 'UTF-8';
-        $mail->WordWrap = 50; // set word wrap
-        $mail->IsHTML(true); // send as HTML
-        $mail->Subject = $subject;
-        $mail->Body = $body; //HTML Body
-        $mail->AltBody = $body; //Text Body
-        if (!$mail->Send()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     function _isbreakcontent($v_value)
     {
         $v_len = strlen($v_value);
