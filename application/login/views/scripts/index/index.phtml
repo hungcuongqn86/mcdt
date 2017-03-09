@@ -70,16 +70,16 @@
                                 </tr>
                                 <!--Username-->
                                 <tr>
-                                    <td  class="normal_label" style="padding-left:11px; font-weight:bold;" ><?=$arrConst['_TEN_DANG_NHAP'];?> </td>
+                                    <td  class="normal_label" style="padding-left:11px; font-weight:bold;" ><?php echo $arrConst['_TEN_DANG_NHAP'];?> </td>
                                 </tr>
                                 <tr>
-                                    <td align="center"><input type="text" align= "center" style="width:90%;" id="txt_usename" name="txt_usename" size="50" value="<? echo $sUserNameTemp; ?>"  option = "false" class="textbox normal_label" message="Phải nhập tên đăng nhập!" onKeyDown="change_focus_in_login(document.forms['frmLogin'],this,event)"></td>
+                                    <td align="center"><input type="text" align= "center" style="width:90%;" id="txt_usename" name="txt_usename" size="50" value="<?php echo $sUserNameTemp; ?>"  option = "false" class="textbox normal_label" message="Phải nhập tên đăng nhập!" onKeyDown="change_focus_in_login(document.forms['frmLogin'],this,event)"></td>
                                 </tr>
                                 <tr>
-                                    <td class="normal_label" style="padding-left:11px; font-weight:bold;"><?=$arrConst['_MAT_KHAU'];?> </td>
+                                    <td class="normal_label" style="padding-left:11px; font-weight:bold;"><?php echo $arrConst['_MAT_KHAU'];?> </td>
                                 </tr>
                                 <tr>
-                                    <td align="center"><input type="password" align= "center" style="width:90%" id="txt_password" name="txt_password" size="50" value="<?=$this->txt_password;?>"  option = "false" class="textbox normal_label" message="Phải nhập mật khẩu!" onKeyDown="change_focus_in_login(document.forms['frmLogin'],this,event)"></td>
+                                    <td align="center"><input type="password" align= "center" style="width:90%" id="txt_password" name="txt_password" size="50" value="<?php echo $this->txt_password;?>"  option = "false" class="textbox normal_label" message="Phải nhập mật khẩu!" onKeyDown="change_focus_in_login(document.forms['frmLogin'],this,event)"></td>
                                 </tr>
                                 <tr>
                                     <td class="ghi_nho_mk" style="padding-left:10px;" valign="top"><input type="checkbox" optional = "true" name="ghinhomatkhau"  id="ghinhomatkhau" onKeyDown="change_focus_on_firefox(document.forms['frmLogin'],this,event)" /><label for="ghinhomatkhau" style="cursor:pointer;">Ghi nh&#7899; &#273;&#259;ng nh&#7853;p </label></td>

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Class Xu ly thong thong tin loai danh muc
+ * Class Login_IndexController
  */
 class Login_IndexController extends  Zend_Controller_Action {
 	public function init(){
@@ -19,16 +20,12 @@ class Login_IndexController extends  Zend_Controller_Action {
 		$this->view->showModelDialog = 1;//An menu
 		//Lay duong dan thu muc goc (path directory root)
 		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";
-	}	
-	/**
-	 * Creater : HUNGVM
-	 * Date : 27/09/2009
-	 * Idea : Tao phuong thuc hien xu ly logout khoi he thong
-	 */
+	}
+
+    /**
+     *
+     */
 	public function indexAction(){
-		//Zend_Loader::loadClass('Zend_Session');
-		//Zend_Session::destroy();
-		$sReURL = Extra_Init::_setUserLoginUrl();
 		$objInitConfig 		= new Extra_Init();
 		$objmodLogin		= new login_modCheckLogin();
 		//
@@ -38,8 +35,9 @@ class Login_IndexController extends  Zend_Controller_Action {
 		$this->view->arrConst= $arrConst;//C-> V(arrConst)
 		$hdhOption = $this->_request->getParam('hdn_option');
 		$this->view->hdn_option= $hdhOption;
-		
 
+        $sUserName = '';
+        $sPassWord = '';
 		$sCheckReme = Extra_Util::_getCookie("sCheckReme");
 		if($sCheckReme){
 			$sUserName = Extra_Util::_getCookie("sUserName");
@@ -56,15 +54,10 @@ class Login_IndexController extends  Zend_Controller_Action {
 		$this->view->txt_usename= $sUserName;
 		$this->view->sCheckReme= $sCheckReme;
 
-
-
-		
 		$sUserName =$this->_request->getParam('txt_usename');//Lay tham so tu V truyen den C
 		$this->view->txt_usename= $sUserName;
 		$sPassWord =$this->_request->getParam('txt_password');
 		$this->view->txt_password= $sPassWord;
-		$sUrlre= $this->_request->getParam('urlre');
-		$this->view->urlRe =$this->baseUrl . "/login/";
 		if($hdhOption =="1"){
 			$arrStaff =$objmodLogin->UserCheckLogin($sUserName,md5($sPassWord));//kt username va pass NSD neu dung tra ra mot ban ghi chua tt NSD
 			if (sizeof($arrStaff)>0){
