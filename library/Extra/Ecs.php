@@ -1578,23 +1578,18 @@ class Extra_Ecs
 
                 //Duyet cac phan tu cua
                 foreach ($TagElements as $elements => $arrElement) {
-                    //Bien xac dinh co phai lay du lieu tu xau XML luu trong DB khong?
                     $sFromXmlData = $arrElement["from_xml_data"];
-                    //Dinh dang kieu du lieu
                     $sDataFormat = $arrElement["data_format"];
-                    //Tim xau can thay the
                     $sFindString = $arrElement["find_string"];
-                    //Ten cot luu thong tin lay du lieu thay the
                     $sFieldName = $arrElement["field_name"];
-                    //Ten the luu du lieu trong xau XML thay the file temp
-                    $sXmlTagInDb = $arrElement["xml_tag_in_db"];
+                    isset($arrElement["xml_tag_in_db"]) ? $sXmlTagInDb = $arrElement["xml_tag_in_db"] : $sXmlTagInDb = '';
                     $sValue = '';
                     if ($sFromXmlData == 'true') {
                         if ($sXmlData != '') {
                             $sValue = trim($objXml->_xmlGetXmlTagValue($sXmlData, "data_list", $sXmlTagInDb));
                         }
                     } else {//Lay du lieu tu cot
-                        $sValue = trim($arrRecord[$sFieldName]);
+                        isset($arrRecord[$sFieldName]) ? $sValue = $arrRecord[$sFieldName] : $sValue = '';
                     }
                     //
                     if ($sDataFormat == "breakline") {
