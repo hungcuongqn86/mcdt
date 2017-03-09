@@ -145,10 +145,16 @@ class record_receiveController extends  Zend_Controller_Action {
 		$arrRecordType = $_SESSION['arr_all_record_type'];
 		//var_dump($arrRecordType);
 		$sRecordTypeId = $this->_request->getParam('recordType');
-		if($sRecordTypeId == "")
-			$sRecordTypeId=$_SESSION['RECORD_TYPE'];
-		if($sRecordTypeId == "")
-			$sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];
+		if($sRecordTypeId == ""){
+		    if(isset($_SESSION['RECORD_TYPE'])){
+                $sRecordTypeId=$_SESSION['RECORD_TYPE'];
+            }
+        }
+		if($sRecordTypeId == ""){
+		    if(isset($arrRecordType[0]['PK_RECORDTYPE'])){
+                $sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];
+            }
+        }
 		$_SESSION['RECORD_TYPE']=$sRecordTypeId;
 		$iCurrentStaffId = $_SESSION['staff_id'];
 		$sReceiveDate = '';

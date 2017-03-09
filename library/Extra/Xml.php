@@ -20,7 +20,6 @@ class Extra_Xml extends RAX
     public $readonlyInEditMode;
     public $disabledInEditMode;
     public $note;
-    public $relateRecordType;
     public $width;
     public $height;
     public $row;
@@ -62,20 +61,15 @@ class Extra_Xml extends RAX
     public $sessionNameIndex;
     public $sessionValueIndex;
     public $url;
-    public $path;
-    public $otherAttribute;
     public $radioValue;
     public $phpFunction;
     public $content;
-    public $title;
     public $className;
     public $haveTitleValue;
     public $defaultValue;
     public $hrf;
     public $viewMode;
     public $publicListCode;
-    public $storeInChildTable;
-    public $display;
     public $dspDiv;
     public $cacheOption;
     public $sDataFormatStr;
@@ -93,7 +87,6 @@ class Extra_Xml extends RAX
     public $onclickFunction;
     public $widthLabel;
     public $sFullTextSearch;
-    public $compareOperator;
     protected $spTableDataXmlFileName;
 
     /**
@@ -193,8 +186,7 @@ class Extra_Xml extends RAX
             $this->havelinebefore = $v_have_line_before;
             $v_tag_list = $row["tag_list"];
             $this->rowId = $row["row_id"];
-            $this->viewPosition = $row["view_position"];
-            $this->storeInChildTable = $row["store_in_child_table"];
+            isset($row["view_position"]) ? $this->viewPosition = $row["view_position"] : $this->viewPosition = '';
             $arr_tag = explode(",", $v_tag_list);
             $this->count = 0;
             $this->xmlTagInDb_list = '';
@@ -209,51 +201,45 @@ class Extra_Xml extends RAX
                 $sContentXmlBottom .= $strdiv;
 
             for ($i = 0; $i < sizeof($arr_tag); $i++) {
-                $this->sLabel = $arrTable_rows[$arr_tag[$i]]["label"];
-                $this->widthLabel = $arrTable_rows[$arr_tag[$i]]["width_label"];
                 $this->spType = $arrTable_rows[$arr_tag[$i]]["type"];
-                $this->spDataFormat = $arrTable_rows[$arr_tag[$i]]["data_format"];
-                $this->inputData = $arrTable_rows[$arr_tag[$i]]["input_data"];
-                $this->url = $arrTable_rows[$arr_tag[$i]]["url"];
-                $this->width = $arrTable_rows[$arr_tag[$i]]["width"];
-                $this->phpFunction = $arrTable_rows[$arr_tag[$i]]["php_function"];
-                $this->row = $arrTable_rows[$arr_tag[$i]]["row"];
-                $this->max = $arrTable_rows[$arr_tag[$i]]["max"];
-                $this->min = $arrTable_rows[$arr_tag[$i]]["min"];
-                $this->note = $arrTable_rows[$arr_tag[$i]]["note"];
-                $this->compareOperator = $arrTable_rows[$arr_tag[$i]]["compare_operator"];
-                $this->spMessage = $arrTable_rows[$arr_tag[$i]]["message"];
-                $this->optOptional = $arrTable_rows[$arr_tag[$i]]["optional"];
-                $this->maxlength = $arrTable_rows[$arr_tag[$i]]["max_length"];
-                $this->xmlData = $arrTable_rows[$arr_tag[$i]]["xml_data"];
-                $this->columnName = $arrTable_rows[$arr_tag[$i]]["column_name"];
-                $this->xmlTagInDb = $arrTable_rows[$arr_tag[$i]]["xml_tag_in_db"];
-                $this->jsFunctionList = $arrTable_rows[$arr_tag[$i]]["js_function_list"];
-                $this->jsActionList = $arrTable_rows[$arr_tag[$i]]["js_action_list"];
-                $this->relateRecordType = $arrTable_rows[$arr_tag[$i]]["relate_recordtype"];
-                $this->defaultValue = $arrTable_rows[$arr_tag[$i]]["default_value"];
-                $this->readonlyInEditMode = $arrTable_rows[$arr_tag[$i]]["readonly_in_edit_mode"];
-                $this->disabledInEditMode = $arrTable_rows[$arr_tag[$i]]["disabled_in_edit_mode"];
-                $this->sessionName = $arrTable_rows[$arr_tag[$i]]["session_name"];
+                isset($arrTable_rows[$arr_tag[$i]]["label"]) ? $this->sLabel = $arrTable_rows[$arr_tag[$i]]["label"] : $this->sLabel = '';
+
+                isset($arrTable_rows[$arr_tag[$i]]["width_label"]) ? $this->widthLabel = $arrTable_rows[$arr_tag[$i]]["width_label"] : $this->widthLabel = '';
+                isset($arrTable_rows[$arr_tag[$i]]["data_format"]) ? $this->spDataFormat = $arrTable_rows[$arr_tag[$i]]["data_format"] : $this->spDataFormat = '';
+                isset($arrTable_rows[$arr_tag[$i]]["input_data"]) ? $this->inputData = $arrTable_rows[$arr_tag[$i]]["input_data"] : $this->inputData = '';
+                isset($arrTable_rows[$arr_tag[$i]]["url"]) ? $this->url = $arrTable_rows[$arr_tag[$i]]["url"] : $this->url = '';
+                isset($arrTable_rows[$arr_tag[$i]]["width"]) ? $this->width = $arrTable_rows[$arr_tag[$i]]["width"] : $this->width = '';
+                isset($arrTable_rows[$arr_tag[$i]]["php_function"]) ? $this->phpFunction = $arrTable_rows[$arr_tag[$i]]["php_function"] : $this->phpFunction = '';
+                isset($arrTable_rows[$arr_tag[$i]]["row"]) ? $this->row = $arrTable_rows[$arr_tag[$i]]["row"] : $this->row = '';
+                isset($arrTable_rows[$arr_tag[$i]]["max"]) ? $this->max = $arrTable_rows[$arr_tag[$i]]["max"] : $this->max = '';
+                isset($arrTable_rows[$arr_tag[$i]]["min"]) ? $this->min = $arrTable_rows[$arr_tag[$i]]["min"] : $this->min = '';
+                isset($arrTable_rows[$arr_tag[$i]]["note"]) ? $this->note = $arrTable_rows[$arr_tag[$i]]["note"] : $this->note = '';
+                isset($arrTable_rows[$arr_tag[$i]]["message"]) ? $this->spMessage = $arrTable_rows[$arr_tag[$i]]["message"] : $this->spMessage = '';
+                isset($arrTable_rows[$arr_tag[$i]]["optional"]) ? $this->optOptional = $arrTable_rows[$arr_tag[$i]]["optional"] : $this->optOptional = '';
+                isset($arrTable_rows[$arr_tag[$i]]["max_length"]) ? $this->maxlength = $arrTable_rows[$arr_tag[$i]]["max_length"] : $this->maxlength = '';
+                isset($arrTable_rows[$arr_tag[$i]]["xml_data"]) ? $this->xmlData = $arrTable_rows[$arr_tag[$i]]["xml_data"] : $this->xmlData = '';
+                isset($arrTable_rows[$arr_tag[$i]]["column_name"]) ? $this->columnName = $arrTable_rows[$arr_tag[$i]]["column_name"] : $this->columnName = '';
+                isset($arrTable_rows[$arr_tag[$i]]["xml_tag_in_db"]) ? $this->xmlTagInDb = $arrTable_rows[$arr_tag[$i]]["xml_tag_in_db"] : $this->xmlTagInDb = '';
+                isset($arrTable_rows[$arr_tag[$i]]["js_function_list"]) ? $this->jsFunctionList = $arrTable_rows[$arr_tag[$i]]["js_function_list"] : $this->jsFunctionList = '';
+                isset($arrTable_rows[$arr_tag[$i]]["js_action_list"]) ? $this->jsActionList = $arrTable_rows[$arr_tag[$i]]["js_action_list"] : $this->jsActionList = '';
+                isset($arrTable_rows[$arr_tag[$i]]["defaultValue"]) ? $this->defaultValue = $arrTable_rows[$arr_tag[$i]]["defaultValue"] : $this->defaultValue = '';
+                isset($arrTable_rows[$arr_tag[$i]]["readonly_in_edit_mode"]) ? $this->readonlyInEditMode = $arrTable_rows[$arr_tag[$i]]["readonly_in_edit_mode"] : $this->readonlyInEditMode = '';
+                isset($arrTable_rows[$arr_tag[$i]]["disabled_in_edit_mode"]) ? $this->disabledInEditMode = $arrTable_rows[$arr_tag[$i]]["disabled_in_edit_mode"] : $this->disabledInEditMode = '';
+                isset($arrTable_rows[$arr_tag[$i]]["sessionName"]) ? $this->sessionName = $arrTable_rows[$arr_tag[$i]]["sessionName"] : $this->sessionName = '';
                 //lay du lieu tu session
-                $this->sessionIdIndex = $arrTable_rows[$arr_tag[$i]]["session_id_index"];
-                $this->sessionNameIndex = $arrTable_rows[$arr_tag[$i]]["session_name_index"];
-                $this->sessionValueIndex = $arrTable_rows[$arr_tag[$i]]["session_value_index"];
-                $this->path = $arrTable_rows[$arr_tag[$i]]["path"];
-                $this->title = $arrTable_rows[$arr_tag[$i]]["title"];
-                $this->className = $arrTable_rows[$arr_tag[$i]]["class_name"];
-                $this->haveTitleValue = $arrTable_rows[$arr_tag[$i]]["have_title_value"];
-                $this->otherAttribute = ($arrTable_rows[$arr_tag[$i]]["other_attribute"] != '') ? $arrTable_rows[$arr_tag[$i]]["other_attribute"] : '';
-                $this->radioValue = $arrTable_rows[$arr_tag[$i]]["value"];
-                $this->v_align = $arrTable_rows[$arr_tag[$i]]["align"];
-                $this->hrf = $arrTable_rows[$arr_tag[$i]]["hrf"];
-                $this->publicListCode = $arrTable_rows[$arr_tag[$i]]["public_list_code"];
-                $this->cacheOption = $arrTable_rows[$arr_tag[$i]]["cache_option"];
+                isset($arrTable_rows[$arr_tag[$i]]["session_id_index"]) ? $this->sessionIdIndex = $arrTable_rows[$arr_tag[$i]]["session_id_index"] : $this->sessionIdIndex = '';
+                isset($arrTable_rows[$arr_tag[$i]]["session_name_index"]) ? $this->sessionNameIndex = $arrTable_rows[$arr_tag[$i]]["session_name_index"] : $this->sessionNameIndex = '';
+                isset($arrTable_rows[$arr_tag[$i]]["session_value_index"]) ? $this->sessionValueIndex = $arrTable_rows[$arr_tag[$i]]["session_value_index"] : $this->sessionValueIndex = '';
+                isset($arrTable_rows[$arr_tag[$i]]["class_name"]) ? $this->className = $arrTable_rows[$arr_tag[$i]]["class_name"] : $this->className = '';
+                isset($arrTable_rows[$arr_tag[$i]]["have_title_value"]) ? $this->haveTitleValue = $arrTable_rows[$arr_tag[$i]]["have_title_value"] : $this->haveTitleValue = '';
+                isset($arrTable_rows[$arr_tag[$i]]["value"]) ? $this->radioValue = $arrTable_rows[$arr_tag[$i]]["value"] : $this->radioValue = '';
+                isset($arrTable_rows[$arr_tag[$i]]["align"]) ? $this->v_align = $arrTable_rows[$arr_tag[$i]]["align"] : $this->v_align = '';
+                isset($arrTable_rows[$arr_tag[$i]]["hrf"]) ? $this->hrf = $arrTable_rows[$arr_tag[$i]]["hrf"] : $this->hrf = '';
+                isset($arrTable_rows[$arr_tag[$i]]["public_list_code"]) ? $this->publicListCode = $arrTable_rows[$arr_tag[$i]]["public_list_code"] : $this->publicListCode = '';
+                isset($arrTable_rows[$arr_tag[$i]]["cache_option"]) ? $this->cacheOption = $arrTable_rows[$arr_tag[$i]]["cache_option"] : $this->cacheOption = '';
                 isset($arrTable_rows[$arr_tag[$i]]["file_name_xml"]) ? $this->spTableDataXmlFileName = $arrTable_rows[$arr_tag[$i]]["file_name_xml"] : $this->spTableDataXmlFileName = '';
 
-                //echo 'cachr:' . $this->cacheOption . "<br>";
                 //Hien thi DIV
-                $this->display = $arrTable_rows[$arr_tag[$i]]["display"];
                 if (($p_xml_string_in_db != '' || $p_xml_string != "") && $this->xmlData == "true") {
                     $tag = $this->xmlTagInDb;
                     $this->value = $objXmlData->$tag;
@@ -261,9 +247,13 @@ class Extra_Xml extends RAX
                     if ($this->spDataFormat == "isdate") {
                         $this->value = Extra_Util::_yyyymmddToDDmmyyyy(Extra_Util::_replaceBadChar($p_arr_item_value[$this->columnName]));
                     } else {
-                        $this->value = Extra_Util::_replaceBadChar($p_arr_item_value[$this->columnName]);
+                        if(isset($p_arr_item_value[$this->columnName])){
+                            $this->value = Extra_Util::_replaceBadChar($p_arr_item_value[$this->columnName]);
+                        }
                         if (trim($this->value) == "") {
-                            $this->value = Extra_Util::_replaceBadChar($p_arr_item_value[0][$this->columnName]);
+                            if(isset($p_arr_item_value[0][$this->columnName])){
+                                $this->value = Extra_Util::_replaceBadChar($p_arr_item_value[0][$this->columnName]);
+                            }
                         }
                     }
                 }
@@ -289,7 +279,7 @@ class Extra_Xml extends RAX
                     $this->selectBoxOptionSql = $arrTable_rows[$arr_tag[$i]]["selectbox_option_sql"];
                     $this->selectBoxIdColumn = $arrTable_rows[$arr_tag[$i]]["selectbox_option_id_column"];
                     $this->selectBoxNameColumn = $arrTable_rows[$arr_tag[$i]]["selectbox_option_name_column"];
-                    $this->theFirstOfIdValue = $arrTable_rows[$arr_tag[$i]]["the_first_of_id_value"];
+                    isset($arrTable_rows[$arr_tag[$i]]["the_first_of_id_value"]) ? $this->theFirstOfIdValue = $arrTable_rows[$arr_tag[$i]]["the_first_of_id_value"] : $this->theFirstOfIdValue = '';
                 }
 
                 if ($this->spType == "button") {
@@ -316,9 +306,9 @@ class Extra_Xml extends RAX
                     $this->checkBoxMultipleSql = $arrTable_rows[$arr_tag[$i]]["checkbox_multiple_sql"];
                     $this->checkBoxMultipleIdColumn = $arrTable_rows[$arr_tag[$i]]["checkbox_multiple_id_column"];
                     $this->checkBoxMultipleNameColumn = $arrTable_rows[$arr_tag[$i]]["checkbox_multiple_name_column"];
-                    $this->direct = $arrTable_rows[$arr_tag[$i]]["direct"];
-                    $this->firstWidth = $arrTable_rows[$arr_tag[$i]]["first_width"];
-                    $this->dspDiv = $arrTable_rows[$arr_tag[$i]]["dsp_div"];
+                    isset($arrTable_rows[$arr_tag[$i]]["direct"]) ? $this->direct = $arrTable_rows[$arr_tag[$i]]["direct"] : $this->direct = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["first_width"]) ? $this->firstWidth = $arrTable_rows[$arr_tag[$i]]["first_width"] : $this->firstWidth = '';
+                    isset($arrTable_rows[$arr_tag[$i]]["dsp_div"]) ? $this->dspDiv = $arrTable_rows[$arr_tag[$i]]["dsp_div"] : $this->dspDiv = '';
                 }
                 //Kieu multil textbox
                 if ($this->spType == "multipletextbox") {
@@ -326,7 +316,6 @@ class Extra_Xml extends RAX
                     $this->textBoxMultipleSql = $arrTable_rows[$arr_tag[$i]]["textbox_multiple_sql"];
                     $this->textBoxMultipleIdColumn = $arrTable_rows[$arr_tag[$i]]["textbox_multiple_id_column"];
                     $this->textBoxMultipleNameColumn = $arrTable_rows[$arr_tag[$i]]["textbox_multiple_name_column"];
-
                 }
                 if ($this->spType == "textboxorder") {
                     $this->tableName = $arrTable_rows[$arr_tag[$i]]["table_name"];
@@ -440,7 +429,7 @@ class Extra_Xml extends RAX
                 break;
             case "relaterecord";
                 $spRetHtml = $v_str_label;
-                $spRetHtml = $spRetHtml . "<input type='textbox' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" onKeyDown="change_focus(document.forms[0],this,event)">';
+                $spRetHtml = $spRetHtml . "<input type='textbox' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" onKeyDown="change_focus(document.forms[0],this,event)">';
                 $spRetHtml = $spRetHtml . "<input type='hidden' name='hdn_relate_record_code' value=''>";
                 if ($this->value == "") {
                     $spRetHtml = $spRetHtml . "<input type='button' name='btn_submit' style='width:auto' title='$this->tooltip' value='L&#7845;y th&#244;ng tin t&#7915; h&#7891; s&#417; li&#234;n quan' class='small_button' onClick=''>";
@@ -481,9 +470,9 @@ class Extra_Xml extends RAX
                     $spRetHtml = $spRetHtml . $this->value;
                 } else {
                     if ($this->spDataFormat == "isdate") {
-                        $spRetHtml = $spRetHtml . '<input type="text" id="' . $this->formFielName . '"  name="' . $this->formFielName . '" class="normal_textbox" value="' . $this->value . '" title="' . $this->tooltip . '" style="width:' . $this->width . '" ' . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" >';
+                        $spRetHtml = $spRetHtml . '<input type="text" id="' . $this->formFielName . '"  name="' . $this->formFielName . '" class="normal_textbox" value="' . $this->value . '" title="' . $this->tooltip . '" style="width:' . $this->width . '" ' . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" >';
                     } else {
-                        $spRetHtml = $spRetHtml . '<input type="text" id="' . $this->formFielName . '" name="' . $this->formFielName . '" class="normal_textbox" value="' . $this->value . '" title="' . $this->tooltip . '" store_in_child_table="' . $this->storeInChildTable . '" style="width:' . $this->width . '" ' . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . ' store_in_child_table="' . $this->storeInChildTable . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" maxlength="' . $this->maxlength . '" ';
+                        $spRetHtml = $spRetHtml . '<input type="text" id="' . $this->formFielName . '" name="' . $this->formFielName . '" class="normal_textbox" value="' . $this->value . '" title="' . $this->tooltip . '" style="width:' . $this->width . '" ' . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' ' . $this->sDataFormatStr . '" xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '" maxlength="' . $this->maxlength . '" ';
                         if (rtrim($this->max) != '' && !is_null($this->max)) {
                             $spRetHtml = $spRetHtml . ' max="' . $this->max . '"';
                         }
@@ -756,7 +745,7 @@ class Extra_Xml extends RAX
                 $spRetHtml = $spRetHtml . $this->note;
                 break;
             case "hidden";
-                $spRetHtml = $spRetHtml . "<input type='text' style='width:0;visibility:hidden' name='$this->formFielName' value='$this->value' hide='true' xml_data='$this->xmlData' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " store_in_child_table='" . $this->storeInChildTable . "' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
+                $spRetHtml = $spRetHtml . "<input type='text' style='width:0;visibility:hidden' name='$this->formFielName' value='$this->value' hide='true' xml_data='$this->xmlData' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                 break;
             case "labelcontent";
                 $spRetHtml = $v_str_label;
@@ -1769,9 +1758,9 @@ class Extra_Xml extends RAX
             // duong dan den noi chua file attach
             $urlFileAttach = new Extra_Init();
             //ma ho so
-            $v_record_id = $_SESSION['NET_RECORDID'];
+            isset($_SESSION['NET_RECORDID']) ? $v_record_id = $_SESSION['NET_RECORDID'] : $v_record_id = '';
             if (is_null($v_record_id) || $v_record_id == '') {
-                $v_record_id = $_SESSION['RECORDID'];
+                isset($_SESSION['RECORDID']) ? $v_record_id = $_SESSION['RECORDID'] : $v_record_id = '';
             }
             //var_dump($arrList);exit;
             $modSendRecord = new Extra_Ecs();
