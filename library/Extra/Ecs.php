@@ -1246,7 +1246,7 @@ class Extra_Ecs
             foreach ($arrRecordType as $recordType) {
                 $strtemp = ',' . $recordType['C_RECEIVER_ID_LIST'] . ',';
 
-                if (stripos($strtemp, $staffIdTemp) && (!isset($arrRecordTypeTemp[$recordType['PK_RECORDTYPE']])||!$arrRecordTypeTemp[$recordType['PK_RECORDTYPE']])) {
+                if (stripos($strtemp, $staffIdTemp) && (!isset($arrRecordTypeTemp[$recordType['PK_RECORDTYPE']]) || !$arrRecordTypeTemp[$recordType['PK_RECORDTYPE']])) {
                     $arrRecordTypeTemp[$recordType['PK_RECORDTYPE']] = 1;
                     if (stripos('@{' . $recordType['PK_RECORDTYPE'] . '}', $arrInput['RecordTypeId'])) $sCheck = "selected='selected'";
                     else $sCheck = "";
@@ -2510,14 +2510,14 @@ class Extra_Ecs
     {
         $root = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
         $sPath = $root . str_replace("/", "\\", $pathLink);
-		// $sPath;exit;
+        // $sPath;exit;
         if (!file_exists($sPath . $folderYear)) {
             mkdir($sPath . $folderYear, 0777);
             $sPath = $sPath . $folderYear;
             if (!file_exists($sPath . chr(92) . $folderMonth)) {
                 mkdir($sPath . chr(92) . $folderMonth, 0777);
             }
-        }else{
+        } else {
             $sPath = $sPath . $folderYear;
         }
         //Tao ngay trong nam->thang
@@ -2526,7 +2526,7 @@ class Extra_Ecs
             mkdir($sPath . chr(92) . $folderMonth . chr(92) . $sCurrentDay, 0777);
         }
         $strReturn = str_replace("\\", "/", $root) . $pathLink . $folderYear . '/' . $folderMonth . '/' . $sCurrentDay . '/';
-		//echo $strReturn;exit;
+        //echo $strReturn;exit;
         return $strReturn;
     }
 
