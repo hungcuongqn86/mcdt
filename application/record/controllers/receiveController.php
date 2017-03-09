@@ -372,12 +372,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		//Lay thong tin cua mot ho so
 		$srecordId = $this->_request->getParam('hdn_object_id','');
 		$this->view->srecordId = $srecordId;
-		$arrRecordInfo = $objReceive->eCSGetInfoRecordFromListId($srecordId, $_SESSION['OWNER_CODE']);
-		$sRecordTransitionId = $arrRecordInfo[0]['PK_RECORD_TRANSITION'];
-		//Khong duoc phep chinh sua ho so lien thong
-		if ($sRecordTransitionId != '')
-			$this->view->sRecordTransitionId = $sRecordTransitionId;
-		$arrSingleRecord = $objrecordfun->eCSRecordGetSingle($srecordId, $_SESSION['OWNER_CODE'],$sRecordTransitionId);
+		$arrSingleRecord = $objrecordfun->eCSRecordGetSingle($srecordId, $_SESSION['OWNER_CODE']);
 		$this->view->arrSingleRecord = $arrSingleRecord;
 		$this->view->RecodeCode = $arrSingleRecord[0]['C_CODE'];
 		if($this->_request->getParam('rc') != '')

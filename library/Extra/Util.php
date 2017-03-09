@@ -762,21 +762,22 @@ class Extra_Util
     public function _uploadFileList($iFileMaxNum = 10, $sDir, $sVarName = "FileName", $sDelimitor = "@!~!@")
     {
         $path = self::_createFolder($sDir, date('Y'), date('m'), date('d'));
-
         $sFileNameList = "";
-        for ($index = 0; $index < $iFileMaxNum; $index++) {
-            $random = self::_get_randon_number();
-            $sAttachFileName = $sVarName . $index;
-            $sFullFileName = date("Y") . '_' . date("m") . '_' . date("d") . "_" . date("H") . date("i") . date("u") . $random . "!~!" . self::_replaceBadChar($_FILES[$sAttachFileName]['name']);
-            // Neu la file
-            if (is_file($_FILES[$sAttachFileName]['name']) || $_FILES[$sAttachFileName]['name'] != "") {
-                move_uploaded_file($_FILES[$sAttachFileName]['tmp_name'], $path . self::_convertVNtoEN($sFullFileName));
-                //Neu la file
-                $sFileNameList .= $sFullFileName . $sDelimitor;
+        if($_FILES){
+            for ($index = 0; $index < $iFileMaxNum; $index++) {
+                $random = self::_get_randon_number();
+                $sAttachFileName = $sVarName . $index;
+                $sFullFileName = date("Y") . '_' . date("m") . '_' . date("d") . "_" . date("H") . date("i") . date("u") . $random . "!~!" . self::_replaceBadChar($_FILES[$sAttachFileName]['name']);
+                // Neu la file
+                if (is_file($_FILES[$sAttachFileName]['name']) || $_FILES[$sAttachFileName]['name'] != "") {
+                    move_uploaded_file($_FILES[$sAttachFileName]['tmp_name'], $path . self::_convertVNtoEN($sFullFileName));
+                    //Neu la file
+                    $sFileNameList .= $sFullFileName . $sDelimitor;
+                }
             }
+            // xu ly chuoi
+            $sFileNameList = substr($sFileNameList, 0, strlen($sFileNameList) - strlen($sDelimitor));
         }
-        // xu ly chuoi
-        $sFileNameList = substr($sFileNameList, 0, strlen($sFileNameList) - strlen($sDelimitor));
         // tra lai gia tri
         return self::_convertVNtoEN($sFileNameList);
     }

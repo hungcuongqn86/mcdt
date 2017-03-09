@@ -122,7 +122,9 @@ class Extra_Xml extends RAX
         $ojbEfyInitConfig = new Extra_Init();
         $p_xml_string = '';
         if (sizeof($p_arr_item_value) > 0) {
-            $_SESSION['NET_RECORDID'] = $p_arr_item_value[0]['PK_NET_RECORD'];
+            if(isset($p_arr_item_value[0]['PK_NET_RECORD'])){
+                $_SESSION['NET_RECORDID'] = $p_arr_item_value[0]['PK_NET_RECORD'];
+            }
             $_SESSION['RECORDID'] = $p_arr_item_value[0]['PK_RECORD'];
             if ($_SESSION['RECORDID'] == '') {
                 $_SESSION['RECORDID'] = $p_arr_item_value[0]['FK_RECORD'];
@@ -1769,7 +1771,10 @@ class Extra_Xml extends RAX
                 $v_item_name = $arrList[$i][$NameColumn];
                 //lay file dinh kem da co
                 $arr_single_data = $modSendRecord->eCSFileGetSingle($v_record_id, $v_item_id);//var_dump($arr_single_data);exit;
-                $v_file = trim($arr_single_data[0]['C_FILE_NAME']);//echo $v_file;exit;
+                $v_file = '';
+                if($arr_single_data){
+                    $v_file = trim($arr_single_data[0]['C_FILE_NAME']);//echo $v_file;exit;
+                }
                 if ($v_file != '') {
                     $arrFilename = explode('!~!', $v_file);
                     $file_name = $arrFilename[1];
