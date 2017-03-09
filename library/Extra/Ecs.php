@@ -1564,7 +1564,7 @@ class Extra_Ecs
         $objLib = new Extra_Util();
         $sXmlData = '<?xml version="1.0" encoding="UTF-8"?>' . $sXmlData;
         $sContentFile = '';
-        $userIdentity = G_Account::getInstance()->getIdentity();
+        $userIdentity = Extra_Account::getInstance()->getIdentity();
         $ownerName = $userIdentity->OWNER_NAME;
         if (isset($ojbConfigXml->$TagName)) {
             $TagElements = $ojbConfigXml->$TagName->toArray();                                //Chuyen doi cac phan tu trong .xml cua the $TagName ra mang
@@ -1838,7 +1838,7 @@ class Extra_Ecs
             //if($month == 1){
             //$pre_month = 12;
             //}
-            $userIdentity = G_Account::getInstance()->getIdentity();
+            $userIdentity = Extra_Account::getInstance()->getIdentity();
             $ownerName = str_replace('UBND', '', $userIdentity->OWNER_NAME);
 
             $sHTML_string = str_replace('#UNIT_FULL_NAME#', $ownerName, $sHTML_string);
@@ -2138,7 +2138,7 @@ class Extra_Ecs
             //	$pre_month = 12;
             //}
             //Replace một số hằng số
-            $userIdentity = G_Account::getInstance()->getIdentity();
+            $userIdentity = Extra_Account::getInstance()->getIdentity();
             $ownerName = str_replace('UBND', '', $userIdentity->OWNER_NAME);
             $v_report_date = $ownerName . " ngày " . date("d") . " tháng " . date("m") . " năm " . date("Y");
             for ($i = 0; $i < $highestColumnIndex; $i++) {

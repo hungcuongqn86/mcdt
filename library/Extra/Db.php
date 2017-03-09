@@ -159,4 +159,30 @@ class Extra_Db extends Zend_Db {
         }
         return $arrResul;
     }
+
+    public function pdoExecSP($spName,$arrParameter,$sSingle=false,$sSql=false){
+        $sql = '';
+        if(is_array($arrParameter)){
+            foreach ($arrParameter as $key => $value) {
+                if($sql !=''){
+                    $sql .= ",'" . $value . "'";
+                }else{
+                    $sql .= " '" . $value . "'";
+                }
+            }
+        }
+        $sql = 'Exec [dbo].'.$spName.$sql;
+        //echo htmlspecialchars($sql); echo "</br>";
+        //exit;
+        if($sSql){
+            return $sql;
+        }else{
+            if($sSingle){
+                $rows = $this->adodbExecSqlString($sql);
+            }else{
+                $rows = $this->adodbQueryDataInNameMode($sql);
+            }
+        }
+        return $rows;
+    }
 }

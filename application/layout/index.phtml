@@ -24,7 +24,7 @@
     <!--Load javascript va Css cho Tung module-->
     <?php
     echo $this->LoadAllFileJsCss;
-    $userIdentity = G_Account::getInstance()->getIdentity();
+    $userIdentity = Extra_Account::getInstance()->getIdentity();
     $ownerName = str_replace('UBND', '', $userIdentity->OWNER_NAME);
     //var_dump($userIdentity);
     ?>

@@ -12,7 +12,7 @@ class record_publicController extends  Zend_Controller_Action {
      */
     public function checkpermisiontransitionAction(){
         $str_return = '';
-        $conn = new G_Db();
+        $conn = new Extra_Db();
         isset($_REQUEST['listrecord'])?$sListRecord = $_REQUEST['listrecord']:$sListRecord = '';
         isset($_REQUEST['work_type'])?$swork_type   = $_REQUEST['work_type']:$swork_type = '';
         if($sListRecord !== ''){
@@ -52,7 +52,7 @@ class record_publicController extends  Zend_Controller_Action {
         $ojbEfyLib = new Extra_Util();
         $objxml = new Extra_Xml();
 
-        $objConn = new  G_Db();
+        $objConn = new  Extra_Db();
         $iFkUnit = $objrecordfun->getValueInArray($_SESSION['arr_all_staff'],'id','unit_id',$iCurrentStaffId);
         if($sRecordTypeId == ""){
             if($_SESSION['RECORD_TYPE'] !== ""){
@@ -132,7 +132,7 @@ class record_publicController extends  Zend_Controller_Action {
         $objInitConfig 			 = new Extra_Init();
         $objRecordFunction	     = new Extra_Ecs();
         $ojbEfyLib				 = new Extra_Util();
-        $conn 					 = new G_Db();
+        $conn 					 = new Extra_Db();
         //Thong tin ho so
         $psSql = "eCS_SearchGetSingle";
         $arrParameter = array($sRecordPk,$sOwnerCode);
@@ -181,7 +181,7 @@ class record_publicController extends  Zend_Controller_Action {
             $ResHtmlString .= "	            <td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" .$appoint_date."</td>";
             $ResHtmlString .= "        </tr>";
         }
-        if($arrRecord[0]['C_ASSIGNED_UNIT_IDEA'] !== NULL and $arrRecord[0]['C_ASSIGNED_UNIT_IDEA'] !==''){
+        if(isset($arrRecord[0]['C_ASSIGNED_UNIT_IDEA']) && $arrRecord[0]['C_ASSIGNED_UNIT_IDEA'] !== NULL and $arrRecord[0]['C_ASSIGNED_UNIT_IDEA'] !==''){
             $sConten = $arrRecord[0]['C_ASSIGNED_UNIT_IDEA'];
             if($arrRecord[0]['C_UNIT_APPOINTED_DATE'] !== NULL and $arrRecord[0]['C_UNIT_APPOINTED_DATE'] !==''){
                 $sConten .= ', hạn xử lý: '.$arrRecord[0]['C_UNIT_APPOINTED_DATE'];
@@ -299,7 +299,7 @@ class record_publicController extends  Zend_Controller_Action {
      *
      */
     public function getidenticalAction(){
-        $conn = new G_Db();
+        $conn = new Extra_Db();
         $sGenlist = '';
         isset($_REQUEST['recordtype'])?$recordtype = $_REQUEST['recordtype']:$recordtype = '';
         isset($_REQUEST['tablist'])?$tablist = $_REQUEST['tablist']:$tablist = '';
@@ -468,7 +468,7 @@ class record_publicController extends  Zend_Controller_Action {
      *
      */
     public function getgendataseachAction(){
-        $conn 	             = new G_Db();
+        $conn 	             = new Extra_Db();
         $objRecordFunction	 = new Extra_Ecs();
         $ojbEfyLib			 = new Extra_Util();
 
@@ -839,7 +839,7 @@ class record_publicController extends  Zend_Controller_Action {
      *
      */
     public function exportcacheAction(){
-        $conn = new G_Db();
+        $conn = new Extra_Db();
         $sOwner_code = $_SESSION['OWNER_CODE'];
         //Lay mang thong tin doi tuong danh muc
         $sql = "Exec EfyLib_ListGetAll '1','10000','where 1=1 ','" . $sOwner_code . "'";
@@ -892,7 +892,7 @@ class record_publicController extends  Zend_Controller_Action {
         isset($_REQUEST['ordercode'])?$ordercode = $_REQUEST['ordercode']:$ordercode = '';
         isset($_REQUEST['owner_code'])?$owner_code = $_REQUEST['owner_code']:$owner_code = '';
         if(($list_code!='')&&($listObjCode!='')&&($listObjName!='')&&($ordercode!='')&&($owner_code!='')){
-            $conn = new G_Db();
+            $conn = new Extra_Db();
             // Update vao database
             $sql = "Exec EfyLib_ListAutoUpdate '".$list_code."','".$listObjCode."','".$listObjName."','".$ordercode."','".$owner_code."'";
             try {
@@ -917,7 +917,7 @@ class record_publicController extends  Zend_Controller_Action {
         isset($_REQUEST['listObjCode'])?$listObjCode = $_REQUEST['listObjCode']:$listObjCode = '';
         isset($_REQUEST['owner_code'])?$owner_code = $_REQUEST['owner_code']:$owner_code = '';
         if($listObjCode!=''){
-            $conn = new G_Db();
+            $conn = new Extra_Db();
             $sql = "Exec EfyLib_ListAutoDelete '".$listObjCode."'";
             //echo $sql;exit;
             try {
