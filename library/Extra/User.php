@@ -1,5 +1,5 @@
 <?php
-class G_User extends  Zend_Auth
+class Extra_User extends  Zend_Auth
 {
     public function __construct()
     {

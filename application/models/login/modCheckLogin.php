@@ -21,7 +21,7 @@ class login_modCheckLogin extends Extra_Db {
 		}
 
 		if ($arrResult) {
-			$auth = G_User::getInstance();
+			$auth = Extra_User::getInstance();
 			$storage = $auth->getStorage();
 			$storage->write(json_decode(json_encode($arrResult[0]), FALSE));
 		}

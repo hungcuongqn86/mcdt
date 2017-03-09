@@ -76,11 +76,11 @@
 						</div>
 						<div style = "clear:both;">
 								<label>Tiêu đề mail</label>
-								<input id='emailtitle' name='mailtitle' class="textbox" style="width:74%;height:10%;" value="<?=G_User::getInstance()->getIdentity()->C_UNIT_NAME;?> THÔNG BÁO ĐĂNG KÝ GIAO DỊCH TTHC"/>
+								<input id='emailtitle' name='mailtitle' class="textbox" style="width:74%;height:10%;" value="<?=Extra_User::getInstance()->getIdentity()->C_UNIT_NAME;?> THÔNG BÁO ĐĂNG KÝ GIAO DỊCH TTHC"/>
 						</div>
 						<div style = "clear:both;">
 								<label>Nội dung thông báo</label>
-								<textarea id='emailcontent' name='emailcontent' class="normal_textarea"  >Đăng ký giao dịch của ông/bà <?php echo $this->fullname?> đã được duyệt. Đề nghị ông/bà đem hồ sơ gốc đến giao dịch tại Một cửa <?=G_User::getInstance()->getIdentity()->C_UNIT_NAME;?> theo đúng thời gian hẹn đăng ký.</textarea>
+								<textarea id='emailcontent' name='emailcontent' class="normal_textarea"  >Đăng ký giao dịch của ông/bà <?php echo $this->fullname?> đã được duyệt. Đề nghị ông/bà đem hồ sơ gốc đến giao dịch tại Một cửa <?php echo Extra_User::getInstance()->getIdentity()->C_UNIT_NAME;?> theo đúng thời gian hẹn đăng ký.</textarea>
 						</div>
 					</div>
 				</div>

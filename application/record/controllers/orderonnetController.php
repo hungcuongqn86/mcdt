@@ -430,7 +430,7 @@ class record_orderonnetController extends Zend_Controller_Action
             $v_message_text = $this->_request->getParam('emailcontent');
             $v_message_text = $objrecordfun->_isbreakcontent($v_message_text);
 
-            if ($ojbEfyLib->smtpmailer($user_mail, $full_name, $mailConfig['mail_name'], $mailConfig['mail_password'], G_User::getInstance()->getIdentity()->C_UNIT_NAME, $v_tit, $v_message_text)) {
+            if ($ojbEfyLib->smtpmailer($user_mail, $full_name, $mailConfig['mail_name'], $mailConfig['mail_password'], Extra_User::getInstance()->getIdentity()->C_UNIT_NAME, $v_tit, $v_message_text)) {
                 $arrParameter = array(
                     'PK_NET_RECORD' => '',
                     'C_PRELIMINARY_DATE' => '',

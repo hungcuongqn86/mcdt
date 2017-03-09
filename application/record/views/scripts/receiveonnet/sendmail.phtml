@@ -76,7 +76,7 @@
 						</div>
 						<div style = "clear:both;">
 								<label>Tiêu đề mail</label>
-								<input id='emailtitle' name='mailtitle' class="textbox" style="width:74%;height:10%;" value="<?=G_User::getInstance()->getIdentity()->C_UNIT_NAME;?>"/>
+								<input id='emailtitle' name='mailtitle' class="textbox" style="width:74%;height:10%;" value="<?php echo Extra_User::getInstance()->getIdentity()->C_UNIT_NAME;?>"/>
 						</div>
 						<div style = "clear:both;">
 								<label>Nội dung thông báo</label>

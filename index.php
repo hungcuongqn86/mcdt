@@ -11,7 +11,6 @@ require_once './library/Zend/Loader/Autoloader.php';
 $autoloader = Zend_Loader_Autoloader::getInstance();
 $autoloader->registerNamespace('Zend_');
 $autoloader->registerNamespace('Extra_');
-$autoloader->registerNamespace('G_');
 
 //Khai bao bien toan cuc
 $conDirApp = new Zend_Config_Ini('./config/config.ini', 'dirApp');

@@ -29,7 +29,7 @@
 					<label>
 							<a   class="small_link"  onclick="btn_update_onclick(document.getElementsByName('chk_item_id'),'../orderonnet/viewrecord')">  <?=$arrConst['_DUYET']?> | </a>
                         <?php
-                        if(in_array(G_User::getInstance()->getIdentity()->C_ROLE, array('ADMIN', 'ADMIN_SYSTEM'))){?>
+                        if(in_array(Extra_User::getInstance()->getIdentity()->C_ROLE, array('ADMIN', 'ADMIN_SYSTEM'))){?>
                             <a   class="small_link"  onclick="btn_delete_onclick(document.getElementsByName('chk_item_id'),document.getElementById('hdn_object_id_list'),'../delete/','<?=$this->UrlAjax?>','HO_SO','T_eCS_NET_RECORD');">  <?=$arrConst['_XOA']?> | </a>
                         <?php
                         }?>
