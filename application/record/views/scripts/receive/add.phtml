@@ -80,11 +80,9 @@
 </form>
 <div id = "ajax" style = "display:none;"></div>
 <script type = "text/javascript">
-	function enableBack(e) {
-   		 document.getElementById(e).disabled=false; 
-	}
-	appointed_date(document.getElementById('C_RECEIVED_DATE').value,document.getElementById('limit_date'),document.getElementById('C_APPOINTED_DATE'));
     $(function () {
+        appointed_date(document.getElementById('C_RECEIVED_DATE').value,document.getElementById('limit_date'),document.getElementById('C_APPOINTED_DATE'));
+
         $(".datepicker2c").datepicker({
             changeMonth: true,
             gotoCurrent: true,
