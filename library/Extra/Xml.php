@@ -256,7 +256,7 @@ class Extra_Xml extends RAX
                         $this->value = $this->defaultValue;
                     }
                 }
-                if ($this->spType == "selectbox" || $this->spType == "textselectbox") {
+                if ($this->spType == "selectbox") {
                     $this->selectBoxOptionSql = $arrTable_rows[$arr_tag[$i]]["selectbox_option_sql"];
                     $this->selectBoxIdColumn = $arrTable_rows[$arr_tag[$i]]["selectbox_option_id_column"];
                     $this->selectBoxNameColumn = $arrTable_rows[$arr_tag[$i]]["selectbox_option_name_column"];
@@ -266,13 +266,7 @@ class Extra_Xml extends RAX
                 if ($this->spType == "button") {
                     $this->onclickFunction = $arrTable_rows[$arr_tag[$i]]["onclick_function"];
                 }
-                //Kieu file attach-file
-                if ($this->spType == "file_attach") {
-                    $this->fileAttachSql = $arrTable_rows[$arr_tag[$i]]["file_attach_sql"];
-                    $this->fileAttachMax = $arrTable_rows[$arr_tag[$i]]["file_attach_max"];
-                    $this->descriptionName = $arrTable_rows[$arr_tag[$i]]["description_name"];
-                    $this->hideUpdateFile = $arrTable_rows[$arr_tag[$i]]["hide_update_file"];
-                }
+
                 //Kieu hien thi multil checkbox hoac radio
                 if ($this->spType == "multiplecheckbox" || $this->spType == "multipleradio") {
                     $this->checkBoxMultipleSql = $arrTable_rows[$arr_tag[$i]]["checkbox_multiple_sql"];
@@ -291,23 +285,13 @@ class Extra_Xml extends RAX
                     isset($arrTable_rows[$arr_tag[$i]]["first_width"]) ? $this->firstWidth = $arrTable_rows[$arr_tag[$i]]["first_width"] : $this->firstWidth = '';
                     isset($arrTable_rows[$arr_tag[$i]]["dsp_div"]) ? $this->dspDiv = $arrTable_rows[$arr_tag[$i]]["dsp_div"] : $this->dspDiv = '';
                 }
-                //Kieu multil textbox
-                if ($this->spType == "multipletextbox") {
-                    $this->firstWidth = $arrTable_rows[$arr_tag[$i]]["first_width"];
-                    $this->textBoxMultipleSql = $arrTable_rows[$arr_tag[$i]]["textbox_multiple_sql"];
-                    $this->textBoxMultipleIdColumn = $arrTable_rows[$arr_tag[$i]]["textbox_multiple_id_column"];
-                    $this->textBoxMultipleNameColumn = $arrTable_rows[$arr_tag[$i]]["textbox_multiple_name_column"];
-                }
+
                 if ($this->spType == "textboxorder") {
                     $this->tableName = $arrTable_rows[$arr_tag[$i]]["table_name"];
                     $this->orderColumn = $arrTable_rows[$arr_tag[$i]]["order_column"];
                     $this->whereClause = $arrTable_rows[$arr_tag[$i]]["where_clause"];
                 }
 
-                if ($this->spType == "labelcontent") {
-                    $this->content = $arrTable_rows[$arr_tag[$i]]["content"];
-                }
-                //Kiem tra neu ma form them moi thi cho phep nhap du lieu
                 if ((is_null($this->value) || $this->value == '') && $this->spType != "channel") {
                     $this->readonlyInEditMode = "false";
                     $this->disabledInEditMode = "false";
@@ -424,12 +408,6 @@ class Extra_Xml extends RAX
                 $this->counterFileAttack = $this->counterFileAttack + 1;
                 break;
 
-            case "file_attach";
-                $arr_attach = _adodb_query_data_in_name_mode($this->fileAttachSql);
-                $spRetHtml = '<dt>' . $v_str_label . '</dt>';
-                $spRetHtml = $spRetHtml . process_attach($arr_attach, $this->fileAttachMax, $this->descriptionName);
-                break;
-
             case "textbox";
                 $spRetHtml = $spRetHtml . $v_str_label;
                 if ($this->viewMode && $this->readonlyInEditMode == "true") {
@@ -499,6 +477,7 @@ class Extra_Xml extends RAX
                     $spRetHtml = $spRetHtml . '<textarea class="normal_textarea" id = "' . $this->formFielName . '" name="' . $this->formFielName . '" rows="' . $this->row . '" title="' . $this->tooltip . '" style="width:' . $this->width . '" ' . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . ' xml_tag_in_db="' . $this->xmlTagInDb . '" xml_data="' . $this->xmlData . '" column_name="' . $this->columnName . '" message="' . $this->spMessage . '">' . $this->value . '</textarea>';
                 }
                 break;
+
             case "selectbox";
                 $spRetHtml = $spRetHtml . $v_str_label;
                 if ($this->viewMode && $this->readonlyInEditMode == "true") {
@@ -656,30 +635,7 @@ class Extra_Xml extends RAX
                     }
                 }
                 break;
-            case "multipletextbox";
-                if ($this->inputData == "efylist") {
-                    $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "listxml/output/" . $this->publicListCode . ".xml");
-                    $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
-                } elseif ($this->inputData == "session") {
-                    $j = 0;
-                    $arrListItem = array();
-                    if (isset($_SESSION[$this->sessionName])) {
-                        foreach ($_SESSION[$this->sessionName] as $arr_item) {
-                            $arrListItem[$j] = $arr_item;
-                            $j++;
-                        }
-                    }
-                    $this->textBoxMultipleIdColumn = $this->sessionIdIndex;
-                    $this->textBoxMultipleNameColumn = $this->sessionNameIndex;
-                } else {
-                    //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
-                    $this->textBoxMultipleSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->textBoxMultipleSql);
-                    $arrListItem = Extra_Db::adodbQueryDataInNumberMode($this->textBoxMultipleSql, $this->cacheOption);
-                }
-                $spRetHtml = $this->sLabel;
-                $spRetHtml = $spRetHtml . "<input type='text' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
-                $spRetHtml = $spRetHtml . _generate_html_for_multiple_textbox($arrListItem, $this->textBoxMultipleIdColumn, $this->textBoxMultipleNameColumn, $this->value);
-                break;
+
             case "textboxorder";
                 $spRetHtml = $spRetHtml . $v_str_label;
                 if (is_null($this->value) || $this->value == "") {
@@ -690,6 +646,7 @@ class Extra_Xml extends RAX
                 }
                 $spRetHtml = $spRetHtml . "<input type='text' name='$this->formFielName' class='normal_textbox' value='$this->value' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' min='$this->min' max='$this->max' maxlength='$this->maxlength' onKeyDown='change_focus(document.forms[0],this,event)'>";
                 break;
+
             case "checkboxstatus";
                 if ($this->value == "true" || $this->value == 1 || $this->value == "HOAT_DONG" || $this->value == "") {
                     $v_checked = " checked ";
@@ -698,6 +655,7 @@ class Extra_Xml extends RAX
                 $spRetHtml = $spRetHtml . "<input type='checkbox' id='$this->formFielName' name='$this->formFielName' class='normal_checkbox' title='$this->tooltip' $v_checked value='1' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName'  message='$this->spMessage' onKeyDown='change_focus(document.forms[0],this,event)'>";
                 $spRetHtml = $spRetHtml . "<font style='font-family:arial;font-size:13px;font-weight:normal;line-height:13px;'>" . $this->sLabel . $this->optOptionalLabel . "</font>";
                 break;
+
             case "button";
                 if (is_null($this->className) || ($this->className == "")) {
                     $this->className = "small_button";
@@ -705,21 +663,11 @@ class Extra_Xml extends RAX
                 $spRetHtml = $spRetHtml . "&nbsp;&nbsp;<input type='button' name='$this->formFielName' class='$this->className' value='$this->sLabel' title='$this->tooltip' style='width:$this->width' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . Extra_Xml::_generatePropertyType("readonly", $this->readonlyInEditMode) . Extra_Xml::_generatePropertyType("disabled", $this->disabledInEditMode) . Extra_Xml::_generateEventAndFunction($this->jsFunctionList, $this->jsActionList) . " $this->sDataFormatStr xml_tag_in_db='$this->xmlTagInDb' xml_data='$this->xmlData' column_name='$this->columnName' message='$this->spMessage' onClick='$this->onclickFunction'>";
                 $spRetHtml = $spRetHtml . $this->note;
                 break;
+
             case "hidden";
                 $spRetHtml = $spRetHtml . "<input type='text' style='width:0;visibility:hidden' name='$this->formFielName' value='$this->value' hide='true' xml_data='$this->xmlData' " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                 break;
-            case "labelcontent";
-                $spRetHtml = $v_str_label;
-                if ($this->phpFunction != "") {
-                    $spRetHtml = $spRetHtml . call_user_func($this->phpFunction, $this->value);//$this->value.$this->phpFunction;
-                } else {
-                    if ($this->content != "" && !is_null($this->content)) {
-                        $spRetHtml = $spRetHtml . $this->content;
-                    } else {
-                        $spRetHtml = $spRetHtml . $this->value;
-                    }
-                }
-                break;
+
             case "tabledata";
                 $arrList = json_decode($this->value, true);
                 $row = count($arrList);
