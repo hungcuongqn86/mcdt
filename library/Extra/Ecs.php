@@ -2072,30 +2072,6 @@ class Extra_Ecs
     }
 
     /**
-     * @author :KHOINV
-     * @since :14/05/2011
-     * @see : Hien thi LeftMenu cho thu tuc dang ky ho do qua mang
-     * @param :$arrRecordtype: mang loai ho so cho dang ky qua mang
-     * @return unknown
-     */
-
-    public function showLeftMenu($arrRecordtype)
-    {
-        //
-        Zend_Loader::loadClass('Extra_Init');
-        //
-        $objConfig = new Extra_Init();
-        //
-        $sHtmlString = '<table width="100%" height="100%" cellpadding="0" border="0" cellspacing="0" align="center"  class="left_menu_table">';
-        $sHtmlString .= '<tr><td id="td_seach" class="level1" ><a href="/g4t-mcdt-lethuy/record/sendrecord/index">TRA C&#7912;U TR&#7840;NG TH&#193;I H&#7890; S&#416;</a></td></tr>';
-        if (sizeof($arrRecordtype) > 0) {
-            $sHtmlString .= '<tr><td id="td_titel" class="level1" ><a href="/g4t-mcdt-lethuy/record/sendrecord/workinfo">G&#7916;I H&#7890; S&#416; QUA M&#7840;NG</a></td></tr>';
-        }
-        $sHtmlString = $sHtmlString . '</table>';
-        return $sHtmlString;
-    }
-
-    /**
      * @param $pathLink
      * @param $folderYear
      * @param $folderMonth
@@ -2203,16 +2179,10 @@ class Extra_Ecs
     }
 
     /**
-     * @author : KHOINV
-     * @since : 19/05/2011
-     * @see : Lay thong tin file dinh kem
-     * @param :
-     *            $sRecordID: ma ho so
-     *            $sKeyAttach:ma tai lieu kem theo
-     * @return :
-     *            $arrResult: mang 2 chieu chua thong tin file dinh kem
-     *
-     * */
+     * @param $sRecordID
+     * @param $sKeyAttach
+     * @return mixed
+     */
     public function eCSFileGetSingle($sRecordID, $sKeyAttach)
     {
         $objConn = new  Extra_Db();
@@ -2232,15 +2202,9 @@ class Extra_Ecs
     }
 
     /**
-     * @author : KHOINV
-     * @since : 19/05/2011
-     * @see : Lay ten phong ban tu ma nguoi su dung
-     * @param :
-     *            $sUnitID: ma nguoi dung
-     * @return :
-     *            $arrResult: ten phong ban
-     *
-     * */
+     * @param $sUnitID
+     * @return mixed
+     */
     public function eCS_GetUnitName($sUnitID)
     {
         $objConn = new  Extra_Db();
@@ -2259,12 +2223,10 @@ class Extra_Ecs
     }
 
     /**
-     * Creater: Tientk
-     * Date:    25/5/2011
-     * Des: Lay thong tin ho so
-     * @param unknown_type $sStaffId Id nguoi dang nhap hien thoi
-     * @param unknown_type $sOwnerCode Ma don vi su dung
-     * @param unknown_type $sClauseString Menh de dieu kien SQL
+     * @param $sStaffId
+     * @param $sOwnerCode
+     * @param string $sClauseString
+     * @return mixed
      */
     public function eCSNetRecordTypeGetAllByStaff($sStaffId, $sOwnerCode, $sClauseString = '')
     {
