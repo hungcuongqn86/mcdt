@@ -361,29 +361,9 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : nghiat
-     * Date : 07/06/2010
-     * Idea : Lay ngay dau tien trong tuan
-     *
-     * @return Ngay dau tuan
-     */
-
-    function getFirstDayOfWeek($format = "")
-    {
-        $firstDayOfWeek = "";
-        $currentWeek = date("W"); // thu tu tuan hien tai cua nam
-        $currentYear = date("Y"); // nam hien tai
-        $orderDate = 0; // xac dinh ngay dau tuan (thu 2)
-        $firstDayOfWeek = Extra_Util::_getAnyDateOnWeekOfYear($currentYear, $currentWeek, $orderDate);
-        return $firstDayOfWeek;
-    }
-
-    /**
-     * Enter to mau tu khoa tim kiem..
-     *
-     * @param $nameStrColor :  Tu cantim kiem(trich yeu, do mat, noi nhan, noi gui)
-     * @param $nameStrInput : Chuoi tu tim thay tu Tu can tim kiem
-     * @return Xau ki tu duoc to mau o Tu can tim kiem
+     * @param $nameStrColor
+     * @param $nameStrInput
+     * @return string
      */
     public function searchStringColor($nameStrColor, $nameStrInput)
     {
@@ -452,11 +432,9 @@ class Extra_Ecs
     }
 
     /**
-     * Enter to mau tu khoa tim kiem..
-     *
-     * @param $nameStrColor :  Tu cantim kiem(so, ki tu,ngay thang nam)
-     * @param $nameStrInput : Chuoi tu tim thay tu Tu can tim kiem
-     * @return Xau ki tu duoc to mau o Tu can tim kiem
+     * @param $nameStrColor
+     * @param $nameStrInput
+     * @return mixed
      */
     public function searchCharColor($nameStrColor, $nameStrInput)
     {
@@ -466,9 +444,9 @@ class Extra_Ecs
     }
 
     /**
-     * Nguoi tạo: Phongtd
-     * Ngay tao: 22/06/2010
-     * Lay ra danh sach Ten + Chuc vu tu danh sach Id staff
+     * @param $sStaffIdList
+     * @param string $delimitor
+     * @return string
      */
     public function getNamePositionStaffByIdList($sStaffIdList, $delimitor = '!#~$|*')
     {
@@ -484,9 +462,9 @@ class Extra_Ecs
     }
 
     /**
-     * Nguoi tạo: Phongtd
-     * Ngay tao: 22/06/2010
-     * Lay ra danh sach Ten phong ban tu danh sach Id phong ban
+     * @param $sUnitIdList
+     * @param string $sSession
+     * @return string
      */
     public function getNameUnitByIdUnitList($sUnitIdList, $sSession = 'arr_all_unit')
     {
@@ -501,12 +479,9 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : HUNGVM
-     * Date : 25/06/2010
-     * Idea : Tao phuong thuc chuyen doi danh sach ten can bo thanh ID tuong ung
-     *
-     * @param $sStaffNameList : Chuoi luu danh sach ten can bo (phan tach boi dau ';')
-     * @return Danh sach ID can bo tuong ung voi list name
+     * @param string $sStaffNameList
+     * @param string $delimitor
+     * @return string
      */
     public function convertStaffNameToStaffId($sStaffNameList = "", $delimitor = ",")
     {
@@ -528,12 +503,8 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : Phongtd
-     * Date : 30/06/2010
-     * Idea : Tao phuong thuc chuyen doi danh sach ten phong ban thanh ID tuong ung
-     *
-     * @param $sUnitNameList : Chuoi luu danh sach ten phong ban (phan tach boi dau ';')
-     * @return Danh sach ID phong ban tuong ung voi list name
+     * @param string $sUnitNameList
+     * @return string
      */
     public function convertUnitNameListToUnitIdList($sUnitNameList = "")
     {
@@ -554,69 +525,6 @@ class Extra_Ecs
         return $sUnitIdList;
     }
 
-    /**
-     * Creater : Phongtd
-     * Date : 20/07/2010
-     * Idea : Lay danh sach can bo cua phong ban
-     * @param $iDepartmentId : ID cua phong can lay
-     * @return Mang chu danh sach can bo cua 1 phong ban
-     */
-    function docGetAllDepartmentStaffId($iDepartmentId)
-    {
-        $i = 0;
-        foreach ($_SESSION['arr_all_staff_keep'] as $staffId) {
-            if ($staffId['unit_id'] == $iDepartmentId) {
-                $arrDepartmentStaffId[$i] = $staffId;
-                $i++;
-            }
-        }
-        return $arrDepartmentStaffId;
-    }
-
-    /**
-     * Creater : nghiat
-     * Date : 03/08/2010
-     * Idea : Lay danh sach can bo cua phong ban
-     * @param $positionGroupCode : Nhom lanh dao, $unitID ID phong ban hoac VP, UB
-     * @return Mang chu danh sach lanh dao cua mot phong, ban
-     */
-    function docGetAllLeaderDepartment($positionGroupCode, $iDepartmentId)
-    {
-        $k = 0;
-        foreach ($_SESSION['arr_all_staff_keep'] as $staffId) {
-            if ($staffId['unit_id'] == $iDepartmentId and $staffId['position_group_code'] == $positionGroupCode) {
-                $arrDepartmentStaffId[$k] = $staffId;
-                $k++;
-            }
-        }
-        return $arrDepartmentStaffId;
-    }
-
-    /**
-     * Creater : nghiat
-     * Date : 04/08/2010
-     * Idea : Lay nguoi ky cua don vi dang nhap hien thoi
-     * @param $arrSigner : mang nguoi ky cua DANH_MUC_NGUOI_KY
-     * @return $arrResult
-     */
-    function docGetSignByUnit($arrSigner)
-    {
-        $j = 0;
-        $m = 0;
-        $arr_all_staff = $_SESSION['arr_all_staff'];
-        for ($i = 0; $i < sizeof($arrSigner); $i++) {
-            for ($m = 0; $m < sizeof($arr_all_staff); $m++) {
-                if ($arrSigner[$i]['C_CODE'] == $arr_all_staff[$m]['id']) {
-                    $arrResult[$j]['C_CODE'] = $arrSigner[$i]['C_CODE'];
-                    $arrResult[$j]['C_NAME'] = $arrSigner[$i]['C_NAME'];
-                    $j++;
-                    $m = sizeof($arr_all_staff);
-                }
-            }
-        }
-        return $arrResult;
-    }
-
     function _get_item_attr_by_id($p_array, $p_id, $p_attr_name)
     {
         foreach ($p_array as $staff) {
@@ -628,11 +536,9 @@ class Extra_Ecs
     }
 
     /**
-     * Phongtd
-     * Ham lay danh sach id phong ban tu danh sach id can bo
-     * @param unknown_type $v_staff_id_list
-     * @param unknown_type $v_option
-     * @return unknown
+     * @param $v_staff_id_list
+     * @param string $v_option
+     * @return string
      */
     function doc_get_all_unit_permission_form_staffIdList($v_staff_id_list, $v_option = 'unit')
     {
@@ -648,52 +554,10 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : Nghiat
-     * Date : 13/09/2010
-     * Idea : Tao phuong thuc Lay danh sach dien thoai tu danh sach ID NSD
-     *
-     * @param $sUnitNameList : Chuoi luu danh sach ten phong ban (phan tach boi dau ';')
-     * @return
-     */
-    public function convertIdListToTelMobileList($sIdList = "")
-    {
-        $sTelMobileList = "";
-        if (trim($sIdList) != "") {
-            //chuyen doi mang danh sach ten can bo ra mang mot chieu
-            $arrId = explode(",", $sIdList);
-            for ($index = 0; $index < sizeof($arrId); $index++) {
-                foreach ($_SESSION['arr_all_staff_keep'] as $id) {
-                    if (trim($id['id']) == trim($arrId[$index])) {
-                        $sTelMobileList .= $id['tel_mobile'] . ",";
-                    }
-                }
-            }
-            $sTelMobileList = substr($sTelMobileList, 0, -1);
-        }
-        return $sTelMobileList;
-    }
-
-    /**
-     * Creater : Nghiat
-     * Date : 13/09/2010
-     * Idea : Tao phuong thuc Lay Ten/chu vu/i tu So dien thoai NSD
-     */
-    public function convertTelMobileToName($sTelMobile = "")
-    {
-        foreach ($_SESSION['arr_all_staff_keep'] as $name) {
-            if (trim($name['tel_mobile']) == trim($sTelMobile)) {
-                $sPositionName = $name['position_code'] . " - " . $name['name'];
-                break;
-            }
-        }
-        return $sPositionName;
-
-    }
-
-    /**
-     * Nguoi tao HAIDV
-     * Ngay tao 19-09-2011
-     * Y Nghia lay danh sach tai lieu kem theo
+     * @param $sOwnerCode
+     * @param $sCode
+     * @param string $optCache
+     * @return array|mixed
      */
     public function getAllListObjectCode($sOwnerCode, $sCode, $optCache = "")
     {
@@ -713,49 +577,10 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : Nghiat
-     * Date : 16/09/2010
-     * Idea : Chuoi HTML checkbox gui tin nhac thong bao nhac viec tuc thoi cho LD
-     */
-    public function htmlCheckboxSms()
-    {
-        $sHtml = "<input type='checkbox' name='SmsReminder'> Gửi thông báo nhắc việc>";
-        return $sHtml;
-    }
-
-    /**
-     * Creater : Nghiat
-     * Date : 16/09/2010
-     * Idea : Gui thong bao nhac viec moi qua SMS cho can bo duoc nhac
-     */
-    public function sendSmsNewReminder($sPositionName, $sMsg)
-    {
-        $iFkStaff = self::convertStaffNameToStaffId($sPositionName);
-        $sTelMobile = self::convertIdListToTelMobileList($iFkStaff);
-        $iUnitId = Extra_Util::_getItemAttrById($_SESSION['arr_all_staff'], $iFkStaff, 'unit_id');
-        $sUnitName = Extra_Util::_getItemAttrById($_SESSION['arr_all_unit'], $iUnitId, 'name');
-        $psSql = "Exec Doc_DocSmsSendUpdate ";
-        $psSql .= "'" . $sTelMobile . "'";
-        $psSql .= ",'" . $sMsg . "'";
-        $psSql .= ",'Send'";
-        $psSql .= ",'" . $sPositionName . "'";
-        $psSql .= ",'" . $sUnitName . "'";
-        //echo $psSql; exit;
-        try {
-            $arrTempResult = $this->adodbExecSqlString($psSql);
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        };
-        return $arrTempResult;
-    }
-
-    /**
-     * Nguoi tao: NGHIAT
-     * Ngay tao: 25/10/2010
-     * Y nghia:Lay Mang danh muc doi tuong cua mot danh muc
-     * Input: Ma danh muc
-     * Output: Mang cac doi tuong cua loai danh muc ung voi ma truyen vao
-     * $optCache = 1: Luu cache
+     * @param $sOwnerCode
+     * @param $sCode
+     * @param string $optCache
+     * @return mixed
      */
     public function getAllObjectbyListCode($sOwnerCode, $sCode, $optCache = "")
     {
