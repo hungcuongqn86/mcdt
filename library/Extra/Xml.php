@@ -930,7 +930,6 @@ class Extra_Xml extends RAX
         $paArrListItem = array();
         $i = 0;
         $objStructRax = new RAX();
-        $objStructRec = new RAX();
         $objStructRax->open($psXmlStringInFile);
         $objStructRax->record_delim = $psItemTag;
         $objStructRax->parse();
@@ -1137,26 +1136,19 @@ class Extra_Xml extends RAX
     public function _xmlGenerateList($psXmlFile, $psXmlTag, $pArrAllItem, $psColumeNameOfXmlString, $NamOfColId, $sFullTextSearch, $pHaveMove = false, $pOnclick = false, $sAction = '')
     {
         global $v_current_style_name, $v_id_column;
-        global $v_onclick_up, $v_onclick_down, $v_have_move;
         global $p_arr_item;
         global $objectId;
         $v_current_style_name = "round_row";
-        $v_have_move = $pHaveMove;
-        //Goi class lay tham so cau hinh he thong
-        //Zend_Loader::loadClass('Extra_Init');
-        $ojbEfyInitConfig = new Extra_Init();
+
         $objConfiXml = new Zend_Config_Xml($psXmlFile);
         $arrXml = $objConfiXml->toArray();
         //var_dump($arrXml);
         $this->sFullTextSearch = $sFullTextSearch;
         $this->sAction = $sAction;
-        //Doc file XML
-        $this->xmlStringInFile = Extra_Util::_readFile($psXmlFile);
         //Dem so phan tu cua mang
         $this->count = sizeof($pArrAllItem);
         //Bang chua cac thanh phan cua form
-        $psHtmlString = '';
-        $psHtmlString = $psHtmlString . '<table class="list_table2" width="99%" cellpadding="0" cellspacing="0" border="0" align="center" id="table1">';
+        $psHtmlString = '<table class="list_table2" width="99%" cellpadding="0" cellspacing="0" border="0" align="center" id="table1">';
         $arrTable_Struct = $arrXml['list_of_object']['list_body']['col'];
         //Tao header cho bang
         $psHtmlTempWidth = '';
@@ -1164,13 +1156,10 @@ class Extra_Xml extends RAX
         foreach ($arrTable_Struct as $col) {
             $this->v_label = $col["label"];
             $this->width = $col["width"];
-            $psHtmlTempWidth = $psHtmlTempWidth . '<col width="' . $this->width . '">';
-            $psHtmlTempLabel = $psHtmlTempLabel . "<td class='title' align='center'  >" . $this->v_label . '</td>';
+            $psHtmlTempWidth .= '<col width="' . $this->width . '">';
+            $psHtmlTempLabel .= "<td class='title' align='center'  >" . $this->v_label . '</td>';
         }
-        $psHtmlString = $psHtmlString . $psHtmlTempWidth;
-        $psHtmlString = $psHtmlString . '<tr class="header">';
-        $psHtmlString = $psHtmlString . $psHtmlTempLabel;
-        $psHtmlString = $psHtmlString . '<tr>';
+        $psHtmlString .= $psHtmlTempWidth.'<tr class="header">'.$psHtmlTempLabel.'<tr>';
         //Day du lieu vao bang
         for ($iRow = 0; $iRow < sizeof($pArrAllItem); $iRow++) {
             $objectId = $pArrAllItem[$iRow][$NamOfColId];
@@ -1227,8 +1216,6 @@ class Extra_Xml extends RAX
                         } else {
                             $this->url = "";
                         }
-                        $v_onclick_up = "btn_move_updown('" . $this->value_id . "','UP')";
-                        $v_onclick_down = "btn_move_updown('" . $this->value_id . "','DOWN')";
                     }
                     $psHtmlString = $psHtmlString . $this->_generateHtmlForColumn($v_type);
                 } else {
@@ -1267,18 +1254,13 @@ class Extra_Xml extends RAX
                     } else {
                         $this->value = '';
                     }
-                    $psHtmlString = $psHtmlString . $this->_generateHtmlForColumn($v_type);
+                    $psHtmlString .= $this->_generateHtmlForColumn($v_type);
                 }
             }
-            $psHtmlString = $psHtmlString . '</tr>';
+            $psHtmlString .= '</tr>';
         }
-        if (!$pOnclick) {
-            $psHtmlString = $psHtmlString . Extra_Util::_addEmptyRow(sizeof($pArrAllItem), 15, $v_current_style_name, sizeof($arrTable_Struct));
-        } else {
-            $psHtmlString = $psHtmlString . Extra_Util::_addEmptyRow(sizeof($pArrAllItem), 15, $v_current_style_name, sizeof($arrTable_Struct));
-
-        }
-        $psHtmlString = $psHtmlString . '</table>';
+        $psHtmlString .= Extra_Util::_addEmptyRow(sizeof($pArrAllItem), 15, $v_current_style_name, sizeof($arrTable_Struct));
+        $psHtmlString .= '</table>';
         return $psHtmlString;
     }
 
