@@ -243,51 +243,6 @@ class Extra_Ecs
         return $strHTML;
     }
 
-
-    public function DocSentAttachFile_View($arrFileList, $piCountFile, $piMaxNumberAttachFile = 10, $psHaveUpLoadFields = true, $size)
-    {
-
-        $psGotoUrlForDeleteFile = "javascript:delete_row(document.getElementsByName(\"tr_line_new\"),document.getElementsByName(\"chk_file_attach_new_id\"),document.getElementById(\"hdn_deleted_new_file_id_list\"));";
-        $psGotoUrlForAddFile = "javascript:add_row(document.getElementsByName(\"tr_line_new\")," . $piMaxNumberAttachFile . ");";
-
-        $strHTML = "<table width='75%' cellpadding='0' cellspacing='0'><col width = '6%'><col width = '94%'>";
-
-        //Tao doi tuong thong tin config
-        $objConfig = new Extra_Init();
-
-        //ID File dinh kem
-        if (($piCountFile > 0) && ($arrFileList != '')) {
-            // Goi thu tuc xu ly khi xoa cac file da co
-            $psGotoUrlForDeleteFile = $psGotoUrlForDeleteFile . "delete_row_exist(document.getElementsByName(\"tr_line_exist\"),document.getElementsByName(\"chk_file_attach_exist_id\"),\"" . $_SERVER['REQUEST_URI'] . "\");";
-            for ($index = 0; $index < $piCountFile; $index++) {
-                $sFileId = $arrFileList[$index]['PK_FILE'];
-                $sFileName = $arrFileList[$index]['C_FILE_NAME'];
-                // Tach ten file ra
-                if (strpos($sFileName, "!~!") == 0) {
-                    $file_name = $sFileName;
-                } else {
-                    $arrFilename = explode('!~!', $sFileName);
-                    $file_name = $arrFilename[1];
-                    $file_id = explode("_", $arrFilename[0]);
-                }
-                //Get URL
-                $sActionUrl = $objConfig->_setAttachFileUrlPath() . $file_id[0] . "/" . $file_id[1] . "/" . $file_id[2] . "/" . $sFileName;
-
-                //
-                $strHTML = $strHTML . "<tr id='tr_line_exist' name = 'tr_line_exist'><td colspan='2' class='normal_link'>";
-                //if ($psHaveUpLoadFields){
-                //	$strHTML = $strHTML . "<input type='checkbox' name='chk_file_attach_exist_id' id = '' value='$sFileName'>";
-                //}
-                $strHTML = $strHTML . "<a href='$sActionUrl' > $file_name  </a></td></tr>";
-            }
-        }
-        //Them moi
-
-        $strHTML = $strHTML . "</table>";
-        //echo htmlspecialchars($strHTML);//exit;
-        return $strHTML;
-    }
-
     /**
      * @return string
      */
@@ -303,10 +258,8 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : HUNGVM
-     * Date : 13/06/2009
-     * Idea : Tao phuong thuc kiem tra NSD hien thoi co ton tai trong he quan tri NSD khong?
-     *
+     * @param $df_url
+     * @return string|Zend_Session_Namespace
      */
     public function CheckLogin($df_url)
     {
@@ -349,90 +302,13 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : phongtd
-     * Date : 16/09/2009
-     * Idea : Ham tao chuoi HTML lay ra danh sach cac checkbox LANH DAO va danh sach Y KIEN CHI DAO tuong ung
-     *
-     * @param unknown_type $arrLeader
-     * @param unknown_type $leaderIdList
-     * @param unknown_type $leaderIdeaList
-     * @return Danh sach cac checkbox LANH DAO va danh sach Y KIEN CHI DAO tuong ung
-     */
-    public function generateUnitLeaderList($arrLeader, $leaderIdList = "", $leaderIdeaList = "")
-    {
-        $strHTML = "";
-        $strHTML .= $this->formHidden("ds_lanh_dao", "", array("xml_data" => "true", "optional" => "true", "xml_tag_in_db" => "ds_lanh_dao"));
-        $strHTML .= $this->formHidden("ds_y_kien", "", array("xml_data" => "true", "optional" => "true", "xml_tag_in_db" => "ds_y_kien"));
-        ?>
-        <table cellpadding="0" cellspacing="0" border="0" width="98%" align="center" class="list_table2" id="table1">
-        <?php
-        $arrConst = $this->arrConst;
-        $delimitor = $this->delimitor;//Lay ky tu phan cach giua cac phan tu
-        //Hien thi cac cot cua bang hien thi du lieu
-        $StrHeader = explode("!~~!", $this->GenerateHeaderTable("30%" . $delimitor . "70%"
-            , $arrConst['_LANH_DAO_PHAN_CONG'] . $delimitor . $arrConst['_Y_KIEN_CHI_DAO']
-            , $delimitor));
-        echo $StrHeader[0];
-
-        echo $StrHeader[1]; //Hien thi <col width = 'xx'><..
-        $v_current_style_name = "round_row";
-        //Duyet cac phan tu mang danh sach LANH DAO DON VI
-        for ($i = 0; $i < sizeof($arrLeader); $i++) {
-            //Checked gia tri
-            $sChecked = "";
-            $sIdea = "";
-            //Kiem tra xem Hieu chinh hay la them moi
-            if (trim($leaderIdList) != "") {
-                //Danh sach Id Lanh dao luu trong CSDL
-                $arrLeaderInDb = explode(",", $leaderIdList);
-                //Danh sach Y kien Lanh dao luu trong CSDL
-                $arrIdeaInDb = explode("!#~$|*", $leaderIdeaList);
-                for ($index = 0; $index < sizeof($arrLeaderInDb); $index++) {
-                    if ($arrLeaderInDb[$index] == $arrLeader[$i]['id']) {
-                        $sChecked = "checked";
-                        $sIdea = $arrIdeaInDb[$index];
-                    }
-                }
-            }
-            $leaderId = $arrLeader[$i]['id'];
-
-            if ($v_current_style_name == "odd_row") {
-                $v_current_style_name = "round_row";
-            } else {
-                $v_current_style_name = "odd_row";
-            }
-
-            $strHTML = $strHTML . "<tr class='<?=$v_current_style_name?>'>";
-
-
-            $strHTML = $strHTML . "<td style='margin-top:5px;'><input $sChecked type='checkbox' id='chk_multiple' name='chk_multiple'  xml_data='false' optional = 'true' value='$leaderId'  xml_tag_in_db_name =''>&nbsp;&nbsp;" . $arrLeader[$i]['position_code'] . ' - ' . $arrLeader[$i]['name'] . "</td>";
-            //Y kien
-            $strHTML = $strHTML . "<td><input style='width:99.4%;margin-top:5px;'type='textbox' id='txt_multiple' name='txt_multiple' xml_data='false'  xml_tag_in_db_name ='' value='$sIdea' optional = 'true' ></td>";
-
-            $strHTML = $strHTML . "</tr>";
-
-        }
-        $strHTML = $strHTML . "<tr><td height='5'></td></tr>";
-        $strHTML = $strHTML . "</table>";
-        return $strHTML;
-    }
-
-    /**
-     * Creater : phongtd
-     * Date : 17/09/2009
-     * Idea : Ham lay ra mang danh sach LANH DAO
-     *
-     * @param  $pGroupUser
-     * @param  $psPositionLeader
-     * @return Danh sach LANH DAO
+     * @param string $pGroupUser
+     * @param string $sSessionName
+     * @return mixed
      */
     public function docGetAllUnitLeader($pGroupUser = "", $sSessionName = "arr_all_staff")
     {
         $i = 0;
-        $pPositionGroupCode = $pGroupUser;
-        if ($pPositionGroupCode == "") {
-            $pPositionGroupCode = "LANH_DAO_UB";
-        }
         foreach ($_SESSION[$sSessionName] as $staff) {
             if (Extra_Util::_listHaveElement($pGroupUser, $staff['position_group_code'], ",")) {
                 $arrUnitLeader[$i] = $staff;
@@ -443,120 +319,15 @@ class Extra_Ecs
     }
 
     /**
-     * Creater : KHOINV
-     * Date : 14/07/2011
-     * Idea : Ham lay ra mang danh sach LANH DAO
-     *
-     * @param  $pGroupUser
-     * @param  $psPositionLeader
-     * @return Danh sach LANH DAO
-     */
-    public function docGetAllPositionCode($pGroupUser = "", $sSessionName = "arr_all_staff")
-    {
-        $i = 0;
-        foreach ($_SESSION[$sSessionName] as $staff) {
-            if (Extra_Util::_listHaveElement($pGroupUser, $staff['position_code'], ",")) {
-                $arrUnitLeader[$i] = $staff;
-                $i++;
-            }
-        }
-        return $arrUnitLeader;
-    }
-
-    /**
-     * Creater : phongtd
-     * Date : 18/09/2009
-     * Idea : Ham tao chuoi HTML sinh ra danh sach cac multiple_checkbox cua cac DON VI
-     *
-     * @param unknown_type $arrUnit
-     * @param unknown_type $unitIdList
-     * @return Danh sach cac multiple_checkbox cua cac DON VI
-     */
-    public function DocGenerateMultipleCheckbox($arrUnit, $unitIdList = "", $TagName = "ds_don_vi")
-    {
-        $strHTML = "";
-        $strHTML = $strHTML . "<tr><td colspan='10' style='display:none;'><input type='text' id = '$TagName' name='$TagName' value='' hide='true'  xml_data='true' xml_tag_in_db='$TagName' optional='true' message=''></td></tr>";
-        //Dat style cho cac row
-        $v_current_style_name = "round_row";
-
-        //Duyet cac phan tu mang danh sach DON VI
-        for ($i = 0; $i < sizeof($arrUnit); $i++) {
-            //Checked gia tri
-            $sChecked = "";
-            //Kiem tra xem Hieu chinh hay la them moi
-            if (trim($unitIdList) != "") {
-                //Danh sach Id DON VI luu trong CSDL
-                $arrUnitInDb = explode(",", $unitIdList);
-                for ($index = 0; $index < sizeof($arrUnitInDb); $index++) {
-                    if ($arrUnitInDb[$index] == $arrUnit[$i]['id']) {
-                        $sChecked = "checked";
-                    }
-                }
-            }
-            $unitId = $arrUnit[$i]['id'];
-            if ($i % 2 == 0) {
-                if ($v_current_style_name == "round_row") {
-                    $v_current_style_name = "odd_row";
-                } else {
-                    $v_current_style_name = "round_row";
-                }
-                $strHTML = $strHTML . "<tr class='" . $v_current_style_name . "'>";
-            }
-            $strHTML = $strHTML . "<td><input $sChecked  type='checkbox' id='chk_multiple_checkbox' name='chk_multiple_checkbox'  xml_data='true' optional = 'true' value='$unitId'  xml_tag_in_db_name ='$TagName'  nameUnit = '" . $arrUnit[$i]['name'] . "'>" . $arrUnit[$i]['name'] . "</td>";
-            if ($i % 2 <> 0) {
-                $strHTML = $strHTML . "</tr>";
-            }
-        }
-        return $strHTML;
-    }
-
-    /**
-     * Creater : phongtd
-     * Date : 02/10/2009
-     * Idea : Ham tao chuoi HTML lay ra danh sach cac checkbox LANH DAO
-     * @param  $arrLeader
-     * @param  $leaderIdList
-     * @return Danh sach cac checkbox LANH DAO
-     */
-    public function docGenerateLeaderList($arrLeader, $leaderIdList = "")
-    {
-        $strHTML = "";
-        $strHTML .= $this->formHidden("ds_lanh_dao", "", array("xml_data" => "true", "optional" => "true", "xml_tag_in_db" => "ds_lanh_dao"));
-        //Duyet cac phan tu mang danh sach LANH DAO DON VI
-        for ($i = 0; $i < sizeof($arrLeader); $i++) {
-            //Checked gia tri
-            $sChecked = "";
-            //Kiem tra xem Hieu chinh hay la them moi
-            if (trim($leaderIdList) != "") {
-                //Danh sach Id Lanh dao luu trong CSDL
-                $arrLeaderInDb = explode(",", $leaderIdList);
-                for ($index = 0; $index < sizeof($arrLeaderInDb); $index++) {
-                    if ($arrLeaderInDb[$index] == $arrLeader[$i]['id']) {
-                        $sChecked = "checked";
-                    }
-                }
-            }
-            $leaderId = $arrLeader[$i]['id'];
-            $strHTML = $strHTML . "<tr>";
-            $strHTML = $strHTML . "<td><input $sChecked type='checkbox' id='chk_multiple' name='chk_multiple'  xml_data='false' optional = 'true' value='$leaderId'  xml_tag_in_db_name ='' >" . $arrLeader[$i]['position_name'] . ' - ' . $arrLeader[$i]['name'] . "</td></tr>";
-        }
-        return $strHTML;
-    }
-
-    /**
-     * Creater : phongtd
-     * Date : 20/05/2010
-     * Idea : Tim kiem gia tri trong mot mang
-     *
-     * @param $arrRes : Mang gia tri
-     * @param $ColumnIdRes : Ma gia tri
-     * @param $ColumnTexRes : Ten gia tri
-     * @param $TextRes : Gia tri tim kiem
-     * @param $hndRes : Hidden luu gia tri
-     * @param $editable : 1 : duoc phep them moi doi tuong, 0: khong duoc phep them moi doi tuong
-     * @param $option : (Neu $option = 1 chi chon mot doi tuong ; $option = 0 thi duoc chon nhieu)
-     * @param $sColumName : Cot du lieu can bo sung them vao text hien thi tren doi tuong Auto Complete Text (vi du: truyen vao gia tri position_code hien thi Ma chuc vu - Ten can b. CT - Nguyen Van A)
-     * @return Xau html
+     * @param $arrRes
+     * @param $ColumnIdRes
+     * @param $ColumnTexRes
+     * @param $TextRes
+     * @param $hndRes
+     * @param int $single
+     * @param string $sColumName
+     * @param int $editable
+     * @return string
      */
     function doc_search_ajax($arrRes, $ColumnIdRes, $ColumnTexRes, $TextRes, $hndRes, $single = 1, $sColumName = "", $editable = 0)
     {
