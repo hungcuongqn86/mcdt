@@ -7,8 +7,6 @@ require_once 'Plugin/prax.php';
 class Extra_Xml extends RAX
 {
     public $sLabel;
-    public $efyImageUrlPath;
-    public $efyWebSitePath;
     public $efyListWebSitePath;
     public $spType;
     public $spDataFormat;
@@ -83,7 +81,6 @@ class Extra_Xml extends RAX
     public $groupBy;
     public $xmlDataCompare;
     public $xmlTagInDb_list;
-    public $viewPosition;
     public $onclickFunction;
     public $widthLabel;
     public $sFullTextSearch;
@@ -131,19 +128,9 @@ class Extra_Xml extends RAX
             }
             $p_xml_string = $p_arr_item_value[0][$p_xml_string_in_db];
         }
-        //Lay tham so cau hinh
-        $this->efyImageUrlPath = $ojbEfyInitConfig->_setImageUrlPath();
-        $this->efyWebSitePath = $ojbEfyInitConfig->_setWebSitePath();
+
         $this->efyListWebSitePath = $ojbEfyInitConfig->_getCurrentHttpAndHost();
-
-        // Tao doi tuong trong thu vien dung chung
-        $ojbEfyLib = new Extra_Util();
         $this->viewMode = $p_view_mode;
-        if ($p_input_file_name)
-            $this->xmlStringInFile = $ojbEfyLib->_readFile($spXmlFileName);
-
-
-        Zend_Loader::loadClass('Zend_Config_Xml');
         $objConfigXml = new Zend_Config_Xml($spXmlFileName);
 
 
@@ -173,9 +160,7 @@ class Extra_Xml extends RAX
         for ($i = 1; $i < sizeof($arrTags); $i++)
             $strcode .= '->' . $arrTags[$i];
         eval($strcode . '->toArray();');
-        $sContentXmlTop = '<div id = "Top_contentXml">';
-        $sContentXmlTopLeft = '<div id = "Topleft_contentXml">';
-        $sContentXmlTopRight = '<div id = "Topright_contentXml">';
+
         $sContentXmlBottom = '<div id="Bottom_contentXml">';
         //Kiem tra $arrTable_truct_rows co phai la mang 1 chieu hay ko
         if (!is_array($arrTable_truct_rows[0])) {
@@ -188,19 +173,13 @@ class Extra_Xml extends RAX
             $this->havelinebefore = $v_have_line_before;
             $v_tag_list = $row["tag_list"];
             $this->rowId = $row["row_id"];
-            isset($row["view_position"]) ? $this->viewPosition = $row["view_position"] : $this->viewPosition = '';
             $arr_tag = explode(",", $v_tag_list);
             $this->count = 0;
             $this->xmlTagInDb_list = '';
             $strdiv = '<div>';
             if ($this->rowId != '')
                 $strdiv = '<div id = "id_' . $this->rowId . '" class="normal_label">';
-            if ($this->viewPosition == 'left')
-                $sContentXmlTopLeft .= $strdiv;
-            else if ($this->viewPosition == 'right')
-                $sContentXmlTopRight .= $strdiv;
-            else
-                $sContentXmlBottom .= $strdiv;
+            $sContentXmlBottom .= $strdiv;
 
             for ($i = 0; $i < sizeof($arr_tag); $i++) {
                 $this->spType = $arrTable_rows[$arr_tag[$i]]["type"];
@@ -333,20 +312,11 @@ class Extra_Xml extends RAX
                     $this->readonlyInEditMode = "false";
                     $this->disabledInEditMode = "false";
                 }
-                if ($this->viewPosition == 'left') {
-                    $sContentXmlTopLeft .= Extra_Xml::_generateHtmlInput();
-                } else if ($this->viewPosition == 'right') {
-                    $sContentXmlTopRight .= Extra_Xml::_generateHtmlInput();
-                } else {
-                    $sContentXmlBottom .= Extra_Xml::_generateHtmlInput();
-                }
+                $sContentXmlBottom .= Extra_Xml::_generateHtmlInput();
             }
-            if ($this->viewPosition == 'left')
-                $sContentXmlTopLeft .= '</div>';
-            else if ($this->viewPosition == 'right')
-                $sContentXmlTopRight .= '</div>';
-            else
-                $sContentXmlBottom .= '</div>';
+
+            $sContentXmlBottom .= '</div>';
+
             if ($this->v_align != '' && !(is_null($this->v_align))) {
                 $this->v_align = "align='" . $this->v_align . "'";
             } else {
@@ -360,14 +330,8 @@ class Extra_Xml extends RAX
         if ($v_js_function != '' && !(is_null($v_js_function))) {
             $spHtmlStr .= '<script>try{' . $v_js_function . '}catch(e){;}</script>';
         }
-        $sContentXmlTopLeft .= '</div>';
-        $sContentXmlTopRight .= '</div>';
-        $sContentXmlTop .= $sContentXmlTopLeft . $sContentXmlTopRight . '</div>';
+
         $sContentXmlBottom .= '</div>';
-        if ($sContentXmlTop != '<div id = "Top_contentXml"><div id = "Topleft_contentXml"></div><div id = "Topright_contentXml"></div></div>') {
-            $spHtmlStr .= $sContentXmlTop;
-            $spHtmlStr .= '<script type="text/javascript">$(function(){$(\'#Top_contentXml\').equalHeights();});</script>';
-        }
         if ($sContentXmlBottom != '<div id="Bottom_contentXml"></div>')
             $spHtmlStr .= $sContentXmlBottom;
         $spHtmlStr .= '<style> #Bottom_contentXml div label{width:' . $v_first_col_width . ';} #Top_contentXml div label{width:' . ($v_first_col_width * 2) . '%;}</style>';
@@ -715,11 +679,6 @@ class Extra_Xml extends RAX
                 $spRetHtml = $this->sLabel;
                 $spRetHtml = $spRetHtml . "<input type='text' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
                 $spRetHtml = $spRetHtml . _generate_html_for_multiple_textbox($arrListItem, $this->textBoxMultipleIdColumn, $this->textBoxMultipleNameColumn, $this->value);
-                break;
-            case "treeuser";
-                $spRetHtml = $this->sLabel;
-                $spRetHtml = $spRetHtml . "<input type='text' style='display:none' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . " xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'>";
-                $spRetHtml = $spRetHtml . self::_generateHtmlForTreeUser($this->value);
                 break;
             case "textboxorder";
                 $spRetHtml = $spRetHtml . $v_str_label;
@@ -1246,9 +1205,6 @@ class Extra_Xml extends RAX
         $objConfiXml = new Zend_Config_Xml($psXmlFile);
         $arrXml = $objConfiXml->toArray();
         //var_dump($arrXml);
-        //Lay tham so cau hinh
-        $this->efyImageUrlPath = $ojbEfyInitConfig->_setImageUrlPath();
-        $this->efyWebSitePath = $ojbEfyInitConfig->_setWebSitePath();
         $this->sFullTextSearch = $sFullTextSearch;
         $this->sAction = $sAction;
         //Doc file XML
@@ -1413,29 +1369,13 @@ class Extra_Xml extends RAX
      */
     private function _generateHtmlForColumn($pType)
     {
-        global $row_index, $v_id_column, $v_onclick_up, $v_onclick_down;
-        global $v_have_move;
         global $pClassname, $objectId;
-        //Click
         $sAction = "item_onclick('" . $objectId . "','" . $this->sAction . "')";
         //Tao doi tuong trong class Extra_Util
         $objEfyLib = new Extra_Util();
         switch ($pType) {
             case "checkbox";
-                $psRetHtml = '<td align="' . $this->v_align . '"><input type="checkbox" onclick="selectrow(this)" name="chk_item_id" id="chk_item_id" ' . ' value="' . $this->value . '" />';
-                if ($v_id_column == "true" && $v_have_move) {
-                    if ($row_index != 0) {
-                        $psRetHtml = $psRetHtml . '<img src="' . $this->efyImageUrlPath . '/up.gif" border="0" style="cursor:pointer;" ondbClick="' . $v_onclick_up . '">';
-                    } else {
-                        $psRetHtml = $psRetHtml . '&nbsp;&nbsp;&nbsp;';
-                    }
-                    if ($row_index != $this->count - 1) {
-                        $psRetHtml = $psRetHtml . '<img src="' . $this->efyImageUrlPath . '/down.gif" border="0" style="cursor:pointer;" ondbClick="' . $v_onclick_down . '">';
-                    } else {
-                        $psRetHtml = $psRetHtml . '&nbsp;&nbsp;&nbsp;&nbsp;';
-                    }
-                }
-                $psRetHtml = $psRetHtml . '</td>';
+                $psRetHtml = '<td align="' . $this->v_align . '"><input type="checkbox" onclick="selectrow(this)" name="chk_item_id" id="chk_item_id" ' . ' value="' . $this->value . '" /></td>';
                 break;
             case "selectbox";
                 if ($this->inputData == "efylist") {
@@ -1460,9 +1400,6 @@ class Extra_Xml extends RAX
                 break;
 
             case "function";
-                //Load class $pClassname
-                Zend_Loader::loadClass($pClassname);
-                //Tao doi tuong $objClass
                 $objClass = new $pClassname;
                 $psRetHtml = '<td class="data"   align="' . $this->v_align . '" onclick="set_hidden(this,document.getElementsByName(\'chk_item_id\'),document.getElementById(\'hdn_list_id\'),\'' . $objectId . '\')" ondblclick="' . $sAction . '">' . $objClass->$this->phpFunction($this->value) . '&nbsp;</td>';
                 break;
