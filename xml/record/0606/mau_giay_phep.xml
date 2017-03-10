@@ -166,7 +166,7 @@
 				<data_format></data_format>
 				<width>65%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh HINH THUC HO SO</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -217,7 +217,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -251,7 +251,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -270,7 +270,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -289,7 +289,7 @@
 				<optional>false</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -343,7 +343,7 @@
 				<data_format></data_format>
 				<width>15%</width>
 				<optional>true</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh GIOI TINH</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -363,7 +363,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -437,7 +437,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -507,7 +507,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -541,7 +541,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>65%</width>
-				<max_length></max_length>
+
 				<message>Phai xach dinh NOI DANG KY HO KHAU THUONG TRU !</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -559,7 +559,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>65%</width>
-				<max_length></max_length>
+
 				<message>CHO O HIEN TAI khong duoc de trang!</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -596,7 +596,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>24.3%</width>
-				<max_length></max_length>
+
 				<message>SO FAX khong dung dinh dang!</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -633,7 +633,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>24.3%</width>
-				<max_length></max_length>
+
 				<message>WEBSITE khong hop le!</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -695,7 +695,7 @@
 				<data_format></data_format>
 				<width>30%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh thong tin PHUONG!</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -732,7 +732,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>24.3%</width>
-				<max_length></max_length>
+
 				<message>SO FAX khong dung dinh dang!</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -769,7 +769,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>24.3%</width>
-				<max_length></max_length>
+
 				<message>WEBSITE khong hop le!</message>
 				<note></note>
 				<xml_data>true</xml_data>

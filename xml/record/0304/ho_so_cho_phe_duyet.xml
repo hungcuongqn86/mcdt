@@ -261,7 +261,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>Phai xac dinh ngay cap giay dang ky kinh doanh</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -281,7 +281,7 @@
 				<data_format></data_format>
 				<width>60%</width>
 				<optional>true</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh HINH THUC HO SO</message>
 				<note></note>
 				<js_function_list>show_hide_row()</js_function_list>
@@ -300,7 +300,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>Phai xac dinh ngay dang ky kinh doanh lan dau</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -318,7 +318,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>Phai xac dinh ngay dang ky kinh doanh lan dau</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -336,7 +336,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>Phai xac dinh ngay dang ky kinh doanh lan dau</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -354,7 +354,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>Phai xac dinh ngay dang ky kinh doanh lan dau</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -426,7 +426,7 @@
 				<data_format></data_format>
 				<width>15%</width>
 				<optional>true</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh GIOI TINH</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -445,7 +445,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>NGAY SINH khong dung dinh dang ngay/thang/nam!</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -519,7 +519,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>NGAY CAP khong dung dinh dang ngay/thang/nam!</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -590,7 +590,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>NGAY CAP khong dung dinh dang ngay/thang/nam!</message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -624,7 +624,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>70%</width>
-				<max_length></max_length>
+
 				<message>Phai xach dinh NOI DANG KY HO KHAU THUONG TRU !</message>
 				<note></note>
 				<default_value></default_value>
@@ -642,7 +642,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>70%</width>
-				<max_length></max_length>
+
 				<message>CHO O HIEN TAI khong duoc de trang!</message>
 				<note></note>
 				<default_value></default_value>
@@ -679,7 +679,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>20%</width>
-				<max_length></max_length>
+
 				<message>SO FAX khong dung dinh dang!</message>
 				<note></note>
 				<default_value></default_value>
@@ -716,7 +716,7 @@
 				<width_label>10%</width_label>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
+
 				<message>WEBSITE khong hop le!</message>
 				<note></note>
 				<default_value></default_value>
@@ -792,7 +792,7 @@
 				<data_format></data_format>
 				<width>56%</width>
 				<optional>true</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh thong tin PHUONG!</message>
 				<note></note>
 				<tooltip>Dia chi PHUONG</tooltip>
@@ -829,7 +829,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>20%</width>
-				<max_length></max_length>
+
 				<message>SO FAX khong dung dinh dang!</message>
 				<note></note>
 				<default_value></default_value>
@@ -866,7 +866,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>20%</width>
-				<max_length></max_length>
+
 				<message>WEBSITE khong hop le!</message>
 				<note></note>
 				<default_value></default_value>

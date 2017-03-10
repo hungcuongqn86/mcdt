@@ -190,7 +190,7 @@
 				<data_format></data_format>
 				<width>35%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh HINH THUC NOP HO SO</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -210,7 +210,7 @@
 				<data_format></data_format>
 				<width>35%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh LOAI HO SO</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -250,7 +250,7 @@
 				<data_format></data_format>
 				<width>18%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh GIOI TINH</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -269,7 +269,7 @@
 				<optional>false</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>PHAI XAC DINH TUOI NGUOI NOP HS</message>
 				<note>(Nhập tuổi 15 -> 100)</note>
 				<xml_data>true</xml_data>
@@ -321,7 +321,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message>PHAI XAC DINH DIA CHI NGUOI NOP HS</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -364,7 +364,7 @@
 				<data_format></data_format>
 				<width>25%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phải xác định Hình thức hồ sơ</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -395,7 +395,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>25%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -411,7 +411,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message>NƠI THƯỜNG TRÚ TẠM TRÚ không được để trống!</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -445,7 +445,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -466,7 +466,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -483,7 +483,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -500,7 +500,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>50%</width>
-				<max_length></max_length>
+
 				<message>Tên tổ chức/ cá nhân không được để trống!</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -522,7 +522,7 @@
 				<data_format></data_format>
 				<width>12%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phải xác định GIỚI TÍNH</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -541,7 +541,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -593,7 +593,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -610,7 +610,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>NƠI THƯỜNG TRÚ TẠM TRÚ không được bỏ trống!</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -627,7 +627,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -646,7 +646,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -732,7 +732,7 @@
 				<data_format></data_format>
 				<width>25%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phải xác định Xã/ thị trấn</message>
 				<note></note>
 				<xml_data>true</xml_data>

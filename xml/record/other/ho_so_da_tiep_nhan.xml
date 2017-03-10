@@ -200,7 +200,7 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -222,7 +222,7 @@
 				<data_format></data_format>
 				<width>31.6%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -238,7 +238,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message>QUE QUAN khong duoc de trong</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -255,7 +255,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -272,7 +272,7 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -289,7 +289,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -306,7 +306,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -323,7 +323,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -340,7 +340,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -357,7 +357,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<row>2</row>
@@ -379,7 +379,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -396,7 +396,7 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>31.2%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -413,7 +413,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -430,7 +430,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -447,7 +447,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -464,7 +464,7 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -482,7 +482,7 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>31.2%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -499,7 +499,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -520,7 +520,7 @@
 				<data_format></data_format>
 				<width>98%</width>
 				<optional>true</optional>			
-				<max_length></max_length>
+
 				<dsp_status>1</dsp_status>
 				<message>Phai xac dinh it nhat mot TAI LIEU KEM THEO DON</message>
 				<note></note>

@@ -111,7 +111,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>25%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -128,7 +128,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>14.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -148,7 +148,7 @@
 				<data_format></data_format>
 				<width>25%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phải xác định Hình thức hồ sơ</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -180,7 +180,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message>Nơi thường trú, tạm trú không được để trống</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -197,7 +197,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>25%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -214,7 +214,7 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>14.3%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -231,7 +231,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>12%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -248,7 +248,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>12%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -268,7 +268,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>50%</width>
-				<max_length></max_length>
+
 				<message>Họ tên người mất không được bỏ trống</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -288,7 +288,7 @@
 				<data_format>isdate</data_format>
 				<optional>false</optional>
 				<width>12%</width>
-				<max_length></max_length>
+
 				<message>Gioi tinh khong duoc de trong</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -305,7 +305,7 @@
 				<data_format>isdate</data_format>
 				<optional>false</optional>
 				<width>12%</width>
-				<max_length></max_length>
+
 				<message>Phai xac dinh tuoi nguoi mat</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -322,7 +322,7 @@
 				<optional>false</optional>
 				<width>25%</width>
 				<default_value>Kinh</default_value>
-				<max_length></max_length>
+
 				<message>Xác định dân tộc người mất</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -340,7 +340,7 @@
 				<optional>false</optional>
 				<width>14.3%</width>
 				<default_value>Việt Nam</default_value>
-				<max_length></max_length>
+
 				<message>Xác định quốc tịch người mất</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -356,7 +356,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -372,7 +372,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -406,7 +406,7 @@
 				<optional>false</optional>
 				<width>4%</width>
 				<default_value></default_value>
-				<max_length></max_length>
+
 				<message>Xác định dân tộc người mất</message>
 				<note>phút</note>
 				<xml_data>true</xml_data>
@@ -424,7 +424,7 @@
 				<optional>false</optional>
 				<width>4%</width>
 				<default_value></default_value>
-				<max_length></max_length>
+
 				<message>Xác định dân tộc người mất</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -442,7 +442,7 @@
 				<optional>false</optional>
 				<width>4%</width>
 				<default_value></default_value>
-				<max_length></max_length>
+
 				<message>Xác định dân tộc người mất</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -460,7 +460,7 @@
 				<optional>false</optional>
 				<width>10%</width>
 				<default_value></default_value>
-				<max_length></max_length>
+
 				<message>Xác định dân tộc người mất</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -476,7 +476,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -492,7 +492,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -525,7 +525,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>36.5%</width>
-				<max_length></max_length>
+
 				<message>Gioi tinh khong duoc de trong</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -558,7 +558,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>5%</width>
-				<max_length></max_length>
+
 				<message>Gioi tinh khong duoc de trong</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -575,7 +575,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>19%</width>
-				<max_length></max_length>
+
 				<message>Gioi tinh khong duoc de trong</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -591,7 +591,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>Nơi đăng ký không được bỏ trống</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -607,7 +607,7 @@
 				<data_format>isdate</data_format>
 				<optional>false</optional>
 				<width>25%</width>
-				<max_length></max_length>
+
 				<message>Xác định ngày đăng ký</message>
 				<note></note>
 				<xml_data>true</xml_data>

@@ -17,7 +17,7 @@
 			<optional>false</optional>
 			<max></max>
 			<min></min>
-			<max_length></max_length>
+
 			<message>TU NGAY khong duoc de trong</message>
 			<note></note>
 			<js_function_list></js_function_list>
@@ -38,7 +38,7 @@
 			<optional>false</optional>
 			<max></max>
 			<min></min>
-			<max_length></max_length>
+
 			<message>DEN NGAY khong duoc de trong</message>
 			<note></note>
 			<js_function_list></js_function_list>

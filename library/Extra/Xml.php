@@ -359,10 +359,6 @@ class Extra_Xml extends RAX
             $this->formFielName = $this->columnName;
         }
         switch ($this->spType) {
-            case "table";
-                $spRetHtml = $spRetHtml . $this->sLabel . $this->optOptionalLabel;
-                $spRetHtml = $spRetHtml . _generate_html_for_table();
-                break;
             case "label";
                 if ($this->className != "") {
                     $spRetHtml = $spRetHtml . "<span class='" . $this->className . "'>" . $this->sLabel . $this->optOptionalLabel . "</span>";
@@ -801,9 +797,7 @@ class Extra_Xml extends RAX
         }
 
         if (file_exists($sxmlFileName)) {
-            Zend_Loader::loadClass('Zend_Config_Xml');
             $objConfigXml = new Zend_Config_Xml($sxmlFileName);
-            //$psHtmlString = '<div id="Bottom_contentXml">';
             $arrTable_truct_rows = $objConfigXml->update_object->table_struct_of_update_form->update_row_list->update_row->toArray();
             $arrTable_rows = $objConfigXml->update_object->update_formfield_list->toArray();
             foreach ($arrTable_truct_rows as $row) {
@@ -817,7 +811,6 @@ class Extra_Xml extends RAX
                 }
                 $psHtmlString .= '</div>';
             }
-            //$psHtmlString .= '</div>';
         }
         return $psHtmlString;
     }
@@ -830,9 +823,6 @@ class Extra_Xml extends RAX
      */
     private function _generateHtmlInputForFormFiel($arrProp, $sformFielName)
     {
-        /*echo '<pre>';
-        var_dump($arrProp);*/
-
         isset($arrProp["label"]) ? $label = $arrProp["label"] : $label = '';
         isset($arrProp["width_label"]) ? $width_label = $arrProp["width_label"] : $width_label = '';
         isset($arrProp["type"]) ? $type = $arrProp["type"] : $type = '';
@@ -864,7 +854,12 @@ class Extra_Xml extends RAX
         switch ($type) {
             case "textbox";
                 $spRetHtml .= $v_str_label;
-                $spRetHtml .= '<input type="text" id="' . $inputid . '"  name="' . $inputid . '" class="normal_textbox formfielgen ' . $sformFielName . '_formfielgen_#row" value="' . $value . '" style="width:' . $width . '" ' . self::_generateEventAndFunction($js_function_list, $js_action_list) . '" >';
+                if ($data_format == "isdate") {
+                    $spRetHtml .= '<input type="text" id="' . $inputid . '"  name="' . $inputid . '" class="normal_textbox formfielgen datepicker2c ' . $sformFielName . '_formfielgen_#row" value="' . $value . '" style="width:' . $width . '" ' . self::_generateEventAndFunction($js_function_list, $js_action_list) . '" >';
+                } else {
+                    $spRetHtml .= '<input type="text" id="' . $inputid . '"  name="' . $inputid . '" class="normal_textbox formfielgen ' . $sformFielName . '_formfielgen_#row" value="' . $value . '" style="width:' . $width . '" ' . self::_generateEventAndFunction($js_function_list, $js_action_list) . '" >';
+                }
+                $spRetHtml = $spRetHtml . $this->note;
                 $spRetHtml .= $note;
                 break;
             default:

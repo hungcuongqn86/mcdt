@@ -233,7 +233,7 @@
 				<data_format></data_format>
 				<width>35%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh HINH THUC NOP HO SO</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -253,7 +253,7 @@
 				<data_format></data_format>
 				<width>35%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh LOAI HO SO</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -296,7 +296,7 @@
 				<data_format></data_format>
 				<width>18%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh GIOI TINH</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -315,7 +315,7 @@
 				<optional>false</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message>PHAI XAC DINH TUOI NGUOI NOP HS</message>
 				<note>(Nhập tuổi 15 -> 100)</note>
 				<xml_data>true</xml_data>
@@ -367,7 +367,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message>PHAI XAC DINH DIA CHI NGUOI NOP HS</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -405,7 +405,7 @@
 				<data_format></data_format>
 				<width>35%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh Xã/ Thị trấn</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -443,7 +443,7 @@
                 <data_format>text</data_format>
                 <optional>true</optional>
                 <width>10%</width>
-                <max_length></max_length>
+
                 <message>Phải nhập thông tin năm sinh bên A</message>
                 <note></note>
                 <xml_data>true</xml_data>
@@ -460,7 +460,7 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message>DIA CHI khong duoc de trong</message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -514,7 +514,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -551,7 +551,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note> thửa</note>
 				<xml_data>true</xml_data>
@@ -568,7 +568,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -586,7 +586,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>31.4%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -603,7 +603,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -620,7 +620,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message>SO GIAY CHUNG NHAN khong duoc de trong</message>
 				<note></note>
 				<row>2</row>
@@ -638,7 +638,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -656,7 +656,7 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>31.4%</width>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -718,7 +718,7 @@
 				<data_format></data_format>
 				<width>98%</width>
 				<optional>true</optional>			
-				<max_length></max_length>
+
 				<dsp_status>1</dsp_status>
 				<message>Phai xac dinh it nhat mot TAI LIEU KEM THEO DON</message>
 				<note></note>
@@ -753,7 +753,7 @@
 				<width>6%</width>
 				<row></row>
 				<optional>true</optional>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
@@ -771,7 +771,7 @@
 				<width>20%</width>
 				<row></row>
 				<optional>true</optional>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>

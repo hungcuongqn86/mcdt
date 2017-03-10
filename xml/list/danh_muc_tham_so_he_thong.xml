@@ -37,7 +37,7 @@
 				<data_format></data_format>
 				<width>60%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<message>TEN DANH MUC khong duoc de trong</message>
 				<note></note>
 				<js_function_list>onchange_submit(this)</js_function_list>
@@ -57,7 +57,7 @@
 				<optional>true</optional>
 				<max></max>
 				<min></min>
-				<max_length></max_length>
+
 				<message></message>
 				<note></note>
 				<js_function_list></js_function_list>
@@ -230,7 +230,7 @@
 						<data_format></data_format>
 						<width>60%</width>
 						<optional>false</optional>
-						<max_length></max_length>
+
 						<message>Phai xac dinh LOAI HO SO</message>
 						<note></note>
 						<js_function_list></js_function_list>
@@ -275,7 +275,7 @@
 						<default_value>date("d/m/Y")</default_value>
 						<max></max>
 						<min></min>
-						<max_length></max_length>
+
 						<message></message>
 						<note></note>
 						<xml_data>true</xml_data>

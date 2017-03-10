@@ -27,7 +27,7 @@
 			<data_format></data_format>
 			<width>45%</width>
 			<optional>true</optional>
-			<max_length></max_length>
+
 			<message>Phai xac dinh TRANG THAI HO SO!</message>
 			<note></note>
 			<tooltip></tooltip>
@@ -47,7 +47,7 @@
 			<optional>false</optional>
 			<max></max>
 			<min></min>
-			<max_length></max_length>
+
 			<message>TU NGAY khong duoc de trong</message>
 			<note></note>
 			<js_function_list></js_function_list>
@@ -68,7 +68,7 @@
 			<optional>false</optional>
 			<max></max>
 			<min></min>
-			<max_length></max_length>
+
 			<message>DEN NGAY khong duoc de trong</message>
 			<note></note>
 			<js_function_list></js_function_list>
