@@ -692,7 +692,7 @@
 			<tai_lieu_kt>
 					<label>&lt;left&gt;&lt;B&gt;Tài liệu kèm theo đơn&lt;/B&gt;&lt;/left&gt;</label>
 					<type>item_attach_doc</type>
-					<input_data>efylist</input_data>
+					<input_data>listdata</input_data>
 					<public_list_code>1414_TLKT</public_list_code>
 					<width>72%</width>
 					<optional>true</optional>			

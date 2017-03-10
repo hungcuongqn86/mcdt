@@ -494,7 +494,7 @@ class Extra_Xml extends RAX
                             $this->value = $arrListItem[0][$this->sessionIdIndex];
                         }
                         $spRetHtml = $spRetHtml . Extra_Xml::_getValueFromArray($arrListItem, $this->sessionIdIndex, $this->sessionNameIndex, $this->value);
-                    } elseif ($this->inputData == "efylist") {//Lay du lieu tu file XML
+                    } elseif ($this->inputData == "listdata") {//Lay du lieu tu file XML
                         $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                         //
                         $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
@@ -535,7 +535,7 @@ class Extra_Xml extends RAX
                         }
                         $spRetHtml = $spRetHtml . "</select>";
 
-                    } elseif ($this->inputData == "efylist") {
+                    } elseif ($this->inputData == "listdata") {
                         $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                         $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                         if ($this->theFirstOfIdValue == "true" && $this->value == "") {
@@ -575,7 +575,7 @@ class Extra_Xml extends RAX
                 if ($this->inputData == "session") {
                     $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
                     $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
-                } elseif ($this->inputData == "efylist") {
+                } elseif ($this->inputData == "listdata") {
                     $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                     $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox(Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } else {
@@ -591,7 +591,7 @@ class Extra_Xml extends RAX
                 if ($this->inputData == "session") {
                     $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
                     $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
-                } elseif ($this->inputData == "efylist") {
+                } elseif ($this->inputData == "listdata") {
                     $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                     $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 } else {
@@ -602,7 +602,7 @@ class Extra_Xml extends RAX
                 }
                 break;
             case "multipleradio";
-                if ($this->inputData == "efylist") {
+                if ($this->inputData == "listdata") {
                     $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
                     $arrListItem = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } else {
@@ -1326,7 +1326,7 @@ class Extra_Xml extends RAX
                 $psRetHtml = '<td align="' . $this->v_align . '"><input type="checkbox" onclick="selectrow(this)" name="chk_item_id" id="chk_item_id" ' . ' value="' . $this->value . '" /></td>';
                 break;
             case "selectbox";
-                if ($this->inputData == "efylist") {
+                if ($this->inputData == "listdata") {
                     $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "listxml/output/" . $this->publicListCode . ".xml");
                     $arr_list_item = Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item");
                 } else {
