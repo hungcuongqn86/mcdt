@@ -84,7 +84,8 @@ class Extra_Xml extends RAX
     public $onclickFunction;
     public $widthLabel;
     public $sFullTextSearch;
-    protected $spTableDataXmlFileName;
+    public $spTableDataXmlFileName;
+    public $havelinebefore;
 
     /**
      * @param $spXmlString
@@ -791,7 +792,8 @@ class Extra_Xml extends RAX
     {
         $objconfig = new Extra_Init();
         $sxmlFileName = $objconfig->_setXmlFileUrlPath(2) . 'record/table/' . $psXmlFile . '.xml';
-        $psHtmlString = '';
+        $staffdivid = $sformFielName . '_#div';
+        $psHtmlString = '<div id = "'.$staffdivid.'">';
         if (!file_exists($sxmlFileName)) {
             $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/table/' . $psXmlFile . '.xml';
         }
@@ -812,6 +814,7 @@ class Extra_Xml extends RAX
                 $psHtmlString .= '</div>';
             }
         }
+        $psHtmlString .= '</div>';
         return $psHtmlString;
     }
 

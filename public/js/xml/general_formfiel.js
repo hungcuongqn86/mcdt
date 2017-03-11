@@ -49,6 +49,9 @@ Js_GeneralFormFiel.prototype.addObj = function () {
     var irow = this.row;
     var arrHtmladd = this.html_add.split('#row');
     var htmladd = arrHtmladd.join(irow.toString());
+    arrHtmladd = htmladd.split('#div');
+    htmladd = arrHtmladd.join(irow.toString());
+
     $('#pane_' + this.input_id).before(htmladd);
     irow++;
     this.row = irow;
