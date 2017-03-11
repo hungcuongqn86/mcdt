@@ -4,118 +4,6 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
-            <find_string>#NAME_A1#</find_string>
-            <xml_tag_in_db>registor_name</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NS_A1#</find_string>
-            <xml_tag_in_db>nam_sinh_a1</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#CMT_A1#</find_string>
-            <xml_tag_in_db>cmnd_nguoi_chuyen</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#DC_A1#</find_string>
-            <xml_tag_in_db>registor_address</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NAME_A2#</find_string>
-            <xml_tag_in_db>registor_name_other</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NS_A2#</find_string>
-            <xml_tag_in_db>nam_sinh_a2</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#CMT_A2#</find_string>
-            <xml_tag_in_db>cmnd_nguoi_chuyen_a2</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#DC_A2#</find_string>
-            <xml_tag_in_db>registor_address_other</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NAME_B1#</find_string>
-            <xml_tag_in_db>nguoi_nhan_b1</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NS_B1#</find_string>
-            <xml_tag_in_db>nam_sinh_b1</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#CMT_B1#</find_string>
-            <xml_tag_in_db>cmnd_nguoi_nhan_b1</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#DC_B1#</find_string>
-            <xml_tag_in_db>dia_chi_nguoi_nhan_b1</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NAME_B2#</find_string>
-            <xml_tag_in_db>nguoi_nhan_b2</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NS_B2#</find_string>
-            <xml_tag_in_db>nam_sinh_b2</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#CMT_B2#</find_string>
-            <xml_tag_in_db>cmnd_nguoi_nhan_b2</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#DC_B2#</find_string>
-            <xml_tag_in_db>dia_chi_nguoi_nhan_b2</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
             <find_string>#SO_GCN#</find_string>
             <xml_tag_in_db>so_phat_hanh</xml_tag_in_db>
             <field_name></field_name>
@@ -230,6 +118,22 @@
             <field_list>LOAI_DAT,DIEN_TICH</field_list>
             <xml_tag_in_db>trong_do</xml_tag_in_db>
             <field_name></field_name>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>formfieldata</data_format>
+            <sblockname>blockbena</sblockname>
+            <find_string_list>NAME_A,NS_A,CMT_A,DC_A</find_string_list>
+            <field_list>obj_name,obj_year,obj_id,obj_address</field_list>
+            <xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>formfieldata</data_format>
+            <sblockname>blockbenb</sblockname>ss
+            <find_string_list>NAME_B,NS_B,CMT_B,DC_B</find_string_list>
+            <field_list>obj_name,obj_year,obj_id,obj_address</field_list>
+            <xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
