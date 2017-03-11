@@ -688,7 +688,7 @@ class Extra_Xml extends RAX
             case "formfieldata";
                 $arrList = json_decode($this->value, true);
                 $row = count($arrList);
-                $spRetHtml .= '<div style="display:none"><input type="textbox" value=\'' . $this->value . '\' id="input_' . $this->formFielName . '" name="' . $this->formFielName . '"  optional="false" xml_data="true" xml_tag_in_db="' . $this->formFielName . '"><input id="NAME_XML_TAB_FORM_FIEL_DATA" value= "' . $this->formFielName . '"/></div>';
+                $spRetHtml .= '<div style="display:none"><input type="textbox" value=\'' . $this->value . '\' id="input_' . $this->formFielName . '" name="' . $this->formFielName . '" '. Extra_Xml::_generatePropertyType("optional", $this->optOptional) .' xml_data="true" xml_tag_in_db="' . $this->formFielName . '" message="'.$this->spMessage.'"><input id="NAME_XML_TAB_FORM_FIEL_DATA" value= "' . $this->formFielName . '"/></div>';
                 $spRetHtml .= '<div style="overflow:auto;" id="div_' . $this->formFielName . '" >';
                 $spRetHtml .= '<div id="pane_' . $this->formFielName . '" class="normal_label"><label class="normal_label" style="float: none;"></label><img onclick="Js_GeneralFormFiel_' . $this->formFielName . '.addObj()" title="Thêm" src="' . $this->efyListWebSitePath . 'public/images/add.png"></div>';
                 $spRetHtml .= '</div>';
@@ -793,7 +793,9 @@ class Extra_Xml extends RAX
         $objconfig = new Extra_Init();
         $sxmlFileName = $objconfig->_setXmlFileUrlPath(2) . 'record/table/' . $psXmlFile . '.xml';
         $staffdivid = $sformFielName . '_#div';
-        $psHtmlString = '<div id = "'.$staffdivid.'">';
+        $delstaffdivid = 'deleteFormFiel_'.$sformFielName;
+        $psHtmlString = '<div style="border-top:1px solid #ddd;" id = "'.$staffdivid.'">';
+        $psHtmlString .= '<div><span style="float: right;" class="delete_datatable_row '.$delstaffdivid.'"></span></div>';
         if (!file_exists($sxmlFileName)) {
             $sxmlFileName = $objconfig->_setXmlFileUrlPath(1) . 'record/table/' . $psXmlFile . '.xml';
         }
@@ -858,9 +860,9 @@ class Extra_Xml extends RAX
             case "textbox";
                 $spRetHtml .= $v_str_label;
                 if ($data_format == "isdate") {
-                    $spRetHtml .= '<input type="text" id="' . $inputid . '"  name="' . $inputid . '" class="normal_textbox formfielgen datepicker2c ' . $sformFielName . '_formfielgen_#row" value="' . $value . '" style="width:' . $width . '" ' . self::_generateEventAndFunction($js_function_list, $js_action_list) . '" >';
+                    $spRetHtml .= '<input type="text" optional="true" id="' . $inputid . '"  name="' . $inputid . '" class="normal_textbox formfielgen datepicker2c ' . $sformFielName . '_formfielgen_#row" value="' . $value . '" style="width:' . $width . '" ' . self::_generateEventAndFunction($js_function_list, $js_action_list) . '" >';
                 } else {
-                    $spRetHtml .= '<input type="text" id="' . $inputid . '"  name="' . $inputid . '" class="normal_textbox formfielgen ' . $sformFielName . '_formfielgen_#row" value="' . $value . '" style="width:' . $width . '" ' . self::_generateEventAndFunction($js_function_list, $js_action_list) . '" >';
+                    $spRetHtml .= '<input type="text" optional="true" id="' . $inputid . '"  name="' . $inputid . '" class="normal_textbox formfielgen ' . $sformFielName . '_formfielgen_#row" value="' . $value . '" style="width:' . $width . '" ' . self::_generateEventAndFunction($js_function_list, $js_action_list) . '" >';
                 }
                 $spRetHtml = $spRetHtml . $this->note;
                 $spRetHtml .= $note;

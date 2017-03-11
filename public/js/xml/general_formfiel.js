@@ -22,16 +22,19 @@ Js_GeneralFormFiel.prototype.setInput = function (oSettings) {
     this.input_id = oSettings.input_id;
     this.html_add = oSettings.html_add;
     var y = document.createElement('textarea');
-    y.innerHTML = '<div style="height: 15px;"></div>' + this.html_add;
+    y.innerHTML = this.html_add;
     this.html_add = y.value;
-
-    this.arrListValue = $.parseJSON(oSettings.list_value);
+    var list_value = $.parseJSON(oSettings.list_value);
+    if(!list_value){
+        list_value = [];
+    }
+    this.arrListValue = list_value;
     this.row = oSettings.rowid;
 };
 // Tao doi tuong
 Js_GeneralFormFiel.prototype.general = function (oSettings) {
     this.setInput(oSettings);
-    if (!this.arrListValue) {
+    if (!this.arrListValue.length) {
         this.addObj();
     } else {
         var i = 0;
@@ -77,6 +80,20 @@ Js_GeneralFormFiel.prototype.setEvens = function () {
             })
         });
     }
+
+    $('.deleteFormFiel_'+id).unbind('click').bind('click', function () {
+        if (confirm("Bạn có thực sự muốn xóa đối tượng này?")) {
+            $(this).parent().parent().remove();
+            myjs.insert_value_to_div();
+        }
+    })
+
+    $(".datepicker2c").datepicker({
+        changeMonth: true,
+        gotoCurrent: true,
+        minDate: new Date(1945, 1 - 1, 1),
+        changeYear: true
+    });
 };
 
 //Ham lay du lieu tren table sau do day ra bien an
@@ -107,8 +124,11 @@ Js_GeneralFormFiel.prototype.insert_value_to_div = function () {
             arrValue.push(item);
         }
     }
-    //console.log(arrValue);
-    var strrJson = JSON.stringify(arrValue);
+
+    var strrJson = '';
+    if(arrValue.length){
+        strrJson = JSON.stringify(arrValue);
+    }
     $("#input_" + this.input_id).val(strrJson);
 };
 

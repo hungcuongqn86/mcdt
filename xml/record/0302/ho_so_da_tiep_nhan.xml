@@ -422,7 +422,7 @@
 				<file_name_xml>ds_staff_info</file_name_xml>
 				<width>70%</width>
 				<row>3</row>
-				<optional>true</optional>
+				<optional>false</optional>
 				<max_length>200</max_length>
 				<message>Phải nhập thông tin bên chuyển nhượng!</message>
 				<xml_data>true</xml_data>
@@ -441,7 +441,7 @@
 				<file_name_xml>ds_staff_info</file_name_xml>
 				<width>70%</width>
 				<row>3</row>
-				<optional>true</optional>
+				<optional>false</optional>
 				<max_length>200</max_length>
 				<message>Phải nhập thông tin bên nhận chuyển nhượng!</message>
 				<xml_data>true</xml_data>
