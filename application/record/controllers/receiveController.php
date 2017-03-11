@@ -486,9 +486,7 @@ class record_receiveController extends  Zend_Controller_Action {
      *
      */
 	public function deleteAction(){
-		$objrecordfun = new Extra_Ecs();
 		$objReceive = new record_modReceive();
-		$objconfig = new Extra_Init();
 		$sRecordIdList = $this->_request->getParam('hdn_object_id_list','');
 		$sRetError = $objReceive->eCSRecordDelete($sRecordIdList,1);
 		//Luu cac dieu kien tim kiem len session
@@ -1389,6 +1387,7 @@ class record_receiveController extends  Zend_Controller_Action {
         $arrRecord['file'] = $arFileAttach;
         $this->view->generalhtmlinfo = $objrecordfun->generalhtmlinfo($arrConst,$arrRecord);
     }
+
     /**
      *
      */
@@ -1471,6 +1470,7 @@ class record_receiveController extends  Zend_Controller_Action {
 			$this->view->sdocpertotal = "Danh sách này không có hồ sơ nào";
 		}
 	}
+
     /**
      *
      */
@@ -1825,13 +1825,15 @@ class record_receiveController extends  Zend_Controller_Action {
                         $arrDocx = array();
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
-                        foreach ($arrValue as $key => $value) {
-                            $arrTemp = array();
-                            for($i=0;$i<sizeof($arrfind_string);$i++){
-                                $key = '#'.$arrfind_string[$i].'#';
-                                $arrTemp[$key] = $value->$arrfield[$i];
+                        if($arrValue){
+                            foreach ($arrValue as $key => $value) {
+                                $arrTemp = array();
+                                for($i=0;$i<sizeof($arrfind_string);$i++){
+                                    $key = '#'.$arrfind_string[$i].'#';
+                                    $arrTemp[$key] = $value->$arrfield[$i];
+                                }
+                                array_push($arrDocx, $arrTemp);
                             }
-                            array_push($arrDocx, $arrTemp);
                         }
                         $phpdocx->assignBlock($sBlockName, $arrDocx);
                     }
