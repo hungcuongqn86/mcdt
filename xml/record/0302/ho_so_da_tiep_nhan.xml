@@ -581,13 +581,9 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>15%</width>
-
-
+				
 				<note>m2</note>
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>ht_su_dung_rieng</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -599,13 +595,8 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>27%</width>
-
-
 				<note>m2</note>
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>ht_su_dung_chung</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -615,36 +606,22 @@
                 <label>Danh sách loại đất theo mục đích sử dụng</label>
                 <type>tabledata</type>
                 <file_name_xml>ds_loai_dat</file_name_xml>
-
                 <width>70%</width>
                 <row>3</row>
                 <optional>true</optional>
                 <max_length>200</max_length>
-
-
                 <xml_data>true</xml_data>
-
-
-
                 <xml_tag_in_db>ds_loai_dat</xml_tag_in_db>
                 <readonly_in_edit_mode>false</readonly_in_edit_mode>
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </ds_loai_dat>
-
-
 			<nguon_goc_su_dung>
 				<label>Nguồn gốc sử dụng</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-
-
-
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>nguon_goc_su_dung</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -655,7 +632,6 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-
 				<note>m2 (Phân cách phần thập phân bằng dấu ",")</note>
 				<xml_data>true</xml_data>
                 <js_function_list>convert_number_to_string_acreage(this,&quot;string_acreage_cn&quot;)</js_function_list>
@@ -670,13 +646,7 @@
                 <data_format>text</data_format>
                 <optional>true</optional>
                 <width>50%</width>
-
-
-
                 <xml_data>true</xml_data>
-
-
-
                 <xml_tag_in_db>string_acreage_cn</xml_tag_in_db>
                 <readonly_in_edit_mode>false</readonly_in_edit_mode>
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -687,11 +657,8 @@
 				<data_format>ismoney</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-
-
 				<note>đồng</note>
 				<xml_data>true</xml_data>
-
 				<js_function_list>business_capital_onchange(this)</js_function_list>
 				<js_action_list>OnBlur</js_action_list>
 				<xml_tag_in_db>gia_chuyen_nhuong</xml_tag_in_db>
@@ -704,13 +671,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>50%</width>
-
-
-
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>business_capital_string</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -719,37 +680,22 @@
                 <label>Trong đó</label>
                 <type>tabledata</type>
                 <file_name_xml>ds_loai_dat_cn</file_name_xml>
-
                 <width>50%</width>
                 <row>3</row>
                 <optional>true</optional>
                 <max_length>200</max_length>
-
-
                 <xml_data>true</xml_data>
-
-
-
                 <xml_tag_in_db>trong_do</xml_tag_in_db>
                 <readonly_in_edit_mode>false</readonly_in_edit_mode>
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </trong_do>
-
-
-
 			<trong_do_dat_so>
 				<label>Tại thửa đất số</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>70%</width>
-
-
-
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>trong_do_dat_so</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -761,15 +707,11 @@
 				<checkbox_multiple_id_column>0</checkbox_multiple_id_column>
 				<checkbox_multiple_name_column>1</checkbox_multiple_name_column>
 				<checkbox_multiple_value_list>0</checkbox_multiple_value_list>
-
 				<width>98%</width>
-				<optional>true</optional>			
-
+				<optional>true</optional>
 				<dsp_status>1</dsp_status>
 				<message>Phai xac dinh it nhat mot TAI LIEU KEM THEO DON</message>
-
-				<xml_data>true</xml_data>			
-
+				<xml_data>true</xml_data>
 				<js_action_list>onChange</js_action_list>
 				<xml_tag_in_db>tai_lieu_kt</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -783,11 +725,7 @@
 				<optional>true</optional>
 				<max_length>1000</max_length>			
 				<message>Ban phai nhap danh sach tai lieu ho so khac</message>
-
-
 				<xml_data>true</xml_data>
-
-
 				<xml_tag_in_db>tl_khac</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -797,11 +735,7 @@
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<width>6%</width>
-
 				<optional>true</optional>
-
-
-
 				<xml_data>true</xml_data>
 				<js_function_list>petition_period_num_change_tax_date()</js_function_list>
 				<js_action_list>OnChange</js_action_list>
@@ -815,14 +749,8 @@
 				<type>textbox</type>
 				<data_format>isdate</data_format>
 				<width>20%</width>
-
 				<optional>true</optional>
-
-
-
 				<xml_data>true</xml_data>
-
-
 				<xml_tag_in_db>ngay_hen_nop_thue</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -830,16 +758,10 @@
 			<ghi_chu>
 				<label>Ghi chú</label>
 				<type>textarea</type>
-
 				<width>72.3%</width>
-
 				<optional>true</optional>
 				<max_length>200</max_length>
-
-
 				<xml_data>true</xml_data>
-
-
 				<xml_tag_in_db>ghi_chu</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
