@@ -825,6 +825,31 @@ class record_wreceiveController extends  Zend_Controller_Action {
                                                 $sValue = "ngày ".date("d", strtotime($sValue))." tháng ".date("m", strtotime($sValue))." năm ".date("Y", strtotime($sValue));
                                             }
                                         }*/
+                    if ($sDataFormat == "formfieldata"){
+                        $sBlockName = $arrElement["sblockname"];
+                        $sfind_string_list = $arrElement["find_string_list"];
+                        $arrfind_string = explode(',',$sfind_string_list);
+                        $sfield_list = $arrElement["field_list"];
+                        $arrfield = explode(',',$sfield_list);
+                        $arrDocx = array();
+                        $sValue = htmlspecialchars_decode($sValue);
+                        $arrValue = json_decode($sValue);
+                        if($arrValue){
+                            foreach ($arrValue as $index => $value) {
+                                $arrTemp = array();
+                                for($i=0;$i<sizeof($arrfind_string);$i++){
+                                    $key = '#'.$arrfind_string[$i].'#';
+                                    $objkey = $sXmlTagInDb.'_'.$arrfield[$i].'_'.$index;
+                                    //echo $objkey;
+                                    $arrTemp[$key] = $value->$objkey;
+                                }
+                                array_push($arrDocx, $arrTemp);
+                            }
+                        }
+                        //var_dump($arrDocx);exit;
+                        $phpdocx->assignBlock($sBlockName, $arrDocx);
+                    }
+
                     //Kieu du lieu muc dich su dung dat
                     if ($sDataFormat == "datatable"){
                         $sBlockName = $arrElement["sblockname"];
@@ -835,13 +860,15 @@ class record_wreceiveController extends  Zend_Controller_Action {
                         $arrDocx = array();
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
-                        foreach ($arrValue as $key => $value) {
-                            $arrTemp = array();
-                            for($i=0;$i<sizeof($arrfind_string);$i++){
-                                $key = '#'.$arrfind_string[$i].'#';
-                                $arrTemp[$key] = $value->$arrfield[$i];
+                        if($arrValue){
+                            foreach ($arrValue as $key => $value) {
+                                $arrTemp = array();
+                                for($i=0;$i<sizeof($arrfind_string);$i++){
+                                    $key = '#'.$arrfind_string[$i].'#';
+                                    $arrTemp[$key] = $value->$arrfield[$i];
+                                }
+                                array_push($arrDocx, $arrTemp);
                             }
-                            array_push($arrDocx, $arrTemp);
                         }
                         $phpdocx->assignBlock($sBlockName, $arrDocx);
                     }
