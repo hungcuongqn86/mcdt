@@ -867,8 +867,15 @@ class Extra_Xml extends RAX
                 $spRetHtml = $spRetHtml . $this->note;
                 $spRetHtml .= $note;
                 break;
+            case "selectbox_sex";
+                $spRetHtml .= $v_str_label;
+                $spRetHtml .= '<select id="'.$inputid.'" name="'.$inputid.'" class="normal_textbox formfielgen ' . $sformFielName . '_formfielgen_#row" style="width:' . $width . '" ' . self::_generateEventAndFunction($js_function_list, $js_action_list) . '" >';
+                $spRetHtml .= '<option id="Ông" name="Ông" value="Ông">Ông</option>';
+                $spRetHtml .= '<option id="Bà" name="Bà" value="Ông">Bà</option>';
+                $spRetHtml .= "</select>";
+                break;
             default:
-                $spRetHtml = $styleLabel;
+                $spRetHtml .= $styleLabel;
         }
         return $spRetHtml;
     }
