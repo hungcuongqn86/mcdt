@@ -1175,7 +1175,7 @@ class Extra_Ecs
                 //Duyet cac phan tu cua
                 foreach ($TagElements as $elements => $arrElement) {
                     $sFromXmlData = $arrElement["from_xml_data"];
-                    $sDataFormat = $arrElement["data_format"];
+                    isset($arrElement["data_format"]) ? $sDataFormat = $arrElement["data_format"] : $sDataFormat = '';
                     $sFindString = $arrElement["find_string"];
                     $sFieldName = $arrElement["field_name"];
                     isset($arrElement["xml_tag_in_db"]) ? $sXmlTagInDb = $arrElement["xml_tag_in_db"] : $sXmlTagInDb = '';
