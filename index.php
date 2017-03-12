@@ -6,7 +6,7 @@ date_default_timezone_set('Europe/London');
 set_include_path('./library/'
     . PATH_SEPARATOR . './application/models' . PATH_SEPARATOR . './application/');
 // Goi class Zend_Load
-require_once './vendor/autoload.php';
+//require_once './vendor/autoload.php';
 require_once './library/Zend/Loader/Autoloader.php';
 $autoloader = Zend_Loader_Autoloader::getInstance();
 $autoloader->registerNamespace('Zend_');

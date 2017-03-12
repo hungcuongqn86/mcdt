@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteRule !\.(htm|html|txt|swf|js|ico|gif|jpg|JPG|png|css|php|xml|doc|prc|docx|bmp|xls|xsl|vsd|rpt|pdf|ppt|pps|rtf|cdf|DOC)$ index.php
+RewriteRule !\.(htm|html|txt|swf|js|ico|gif|jpg|JPG|png|css|php|xml|doc|prc|docx|bmp|xls|xsl|vsd|rpt|pdf|ppt|pps|rtf|cdf|DOC|rar)$ index.php
 
 
 php_value memory_limit 128M
