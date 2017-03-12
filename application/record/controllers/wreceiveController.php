@@ -881,14 +881,16 @@ class record_wreceiveController extends  Zend_Controller_Action {
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
                         $sValue = '';
-                        foreach ($arrValue as $key => $value) {
-                            foreach ($arrfield as $index => $field) {
-                                $stempval = $value->$field;
-                                if($stempval!=''){
-                                    $sValue.=$stempval.$arrnote[$index];
+                        if($arrValue){
+                            foreach ($arrValue as $key => $value) {
+                                foreach ($arrfield as $index => $field) {
+                                    $stempval = $value->$field;
+                                    if($stempval!=''){
+                                        $sValue.=$stempval.$arrnote[$index];
+                                    }
                                 }
+                                $sValue.=', ';
                             }
-                            $sValue.=', ';
                         }
                         if(($sValue!='')&&(strlen($sValue)>2)){
                             $sValue = substr($sValue,0,-2);
