@@ -35,13 +35,13 @@
 				<selectbox_option_name_column>2</selectbox_option_name_column>
 				<selectbox_option_value_column>0</selectbox_option_value_column>
 				<the_first_of_id_value>true</the_first_of_id_value>
-				<data_format></data_format>
+
 				<width>75%</width>
 				<optional>false</optional>
-				<max_length></max_length>
+
 				<cache_option></cache_option><!--Tùy chọn xác định có thiết lập cache dữ liệu truy vấn dữ liệu không? Nếu rỗng thì không thực hiện cache; = true thì thực hiện cache. Tuy nhiên chỉ thiết lập cache với trường hợp truy vấn dữ liệu -->
 				<message>TEN DANH MUC khong duoc de trong</message>
-				<note></note>
+
 				<js_function_list>onchange_submit(this)</js_function_list>
 				<js_action_list>onChange</js_action_list>
 				<xml_data>true</xml_data>
@@ -54,16 +54,16 @@
 			<list_name>
 				<label>Tìm tên đối tượng</label>
 				<type>textbox</type>
-				<data_format></data_format>
+
 				<width>64%</width>
 				<optional>true</optional>
-				<max></max>
-				<min></min>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
+
+
+
+
+
 				<xml_data>true</xml_data>
 				<xml_tag_in_db>list_name</xml_tag_in_db>
 				<colume_name>C_NAME</colume_name>
@@ -88,7 +88,7 @@
 					<compare_value></compare_value>
 					<xml_data>false</xml_data>
 					<column_name>PK_LIST</column_name>
-					<xml_tag_in_db></xml_tag_in_db>
+
 					<id_column>true</id_column>
 				</col>
 				<col>
@@ -100,7 +100,7 @@
 					<compare_value></compare_value>
 					<xml_data>false</xml_data>
 					<column_name>C_CODE</column_name>
-					<xml_tag_in_db></xml_tag_in_db>
+
 				</col>
 				<col>
 					<label>Tên đối tượng</label>
@@ -111,7 +111,7 @@
 					<compare_value></compare_value> <!--Gia tri so sanh ma cac phan tu can dem phai thoa man-->
 					<xml_data>false</xml_data>
 					<column_name>C_NAME</column_name>
-					<xml_tag_in_db></xml_tag_in_db>
+
 				</col>
 				<col>
 					<label>Thứ tự</label>
@@ -122,7 +122,7 @@
 					<compare_value></compare_value> <!--Gia tri so sanh ma cac phan tu can dem phai thoa man-->
 					<xml_data>false</xml_data>
 					<column_name>C_ORDER</column_name>
-					<xml_tag_in_db></xml_tag_in_db>
+
 				</col>
 				<col>
 					<label>Tình trạng</label>
@@ -133,7 +133,7 @@
 					<compare_value></compare_value>
 					<xml_data>false</xml_data>
 					<column_name>C_STATUS</column_name>
-					<xml_tag_in_db></xml_tag_in_db>
+
 					<php_function></php_function>
 				</col> 
 		</list_body>
@@ -189,13 +189,13 @@
 						<width>20%</width>
 						<max_length>100</max_length>
 						<message>Phai xac dinh MA DOI TUONG</message>
-						<note></note>
+
 						<only>true</only>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>false</xml_data>
 						<column_name>C_CODE</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
 					</list_code_update>
@@ -207,31 +207,31 @@
 						<width>60%</width>
 						<max_length>300</max_length>
 						<message>Phai xac dinh TEN DOI TUONG</message>
-						<note></note>
+
 						<only>true</only>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>false</xml_data>
 						<column_name>C_NAME</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
 					</list_name_update>				
 					<note_list>
 						<label>Ghi chú</label>
 						<type>textarea</type>
-						<data_format></data_format>
+
 						<optional>true</optional>
 						<only>false</only>
 						<width>60%</width>
 						<row>3</row>
 						<max_length>200</max_length>
 						<message>Phai xac dinh GHI CHU</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>note_list</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -245,11 +245,11 @@
 						<width>70%</width>
 						<max_length>100</max_length>
 						<message>Phai xac dinh FILE XML dinh kem</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>xml_file_name</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -257,38 +257,38 @@
 					<list_order>
 						<label>Thứ tự hiển thị</label>
 						<type>textboxorder</type>
-						<data_format></data_format>
+
 						<optional>false</optional>
 						<only>false</only>
 						<width>20%</width>
 						<max_length>100</max_length>
 						<message>Thu tu hien thi khong hop le (Phai la so nguyen va nhan gia tri tu 1 den 999)</message>
-						<note></note>
+
 						<min>0</min>
 						<max>10000</max>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>false</xml_data>
 						<column_name>C_ORDER</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
 					</list_order>
 					<list_status>
 						<label>Hoạt động</label>
 						<type>checkboxstatus</type>
-						<data_format></data_format>
+
 						<optional>true</optional>
 						<only>false</only>
 						<width>10%</width>
 						<max_length>100</max_length>
-						<message></message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
+
 						<xml_data>false</xml_data>
 						<column_name>C_STATUS</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
 					</list_status>
@@ -302,18 +302,18 @@
 						<checkbox_multiple_name_column>name</checkbox_multiple_name_column>
 						<checkbox_multiple_id_column>code</checkbox_multiple_id_column>
 						<dsp_div>1</dsp_div><!-- = 1 thi hien thi DIV; = 0 thi khong hien thi-->
-						<data_format></data_format>
+
 						<optional>false</optional>
 						<only>false</only>
 						<width>45%</width>
 						<max_length>100</max_length>
 						<message>Chua chon DON VI SU DUNG!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>false</xml_data>
 						<column_name>C_OWNER_CODE_LIST</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>										
 					</owner_code_list>	

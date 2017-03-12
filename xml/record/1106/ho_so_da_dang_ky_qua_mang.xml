@@ -18,7 +18,7 @@
 				<align>center</align>
 				<xml_data>false</xml_data>
 				<column_name>PK_NET_RECORD</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>
 			<col>
 				<label>Mã hồ sơ</label>
@@ -27,7 +27,7 @@
 				<align>left</align>
 				<xml_data>false</xml_data>
 				<column_name>C_CODE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>
 			<col>
 				<label>Tên tổ chức/cá nhân</label>
@@ -35,7 +35,7 @@
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db>registor_name</xml_tag_in_db>
 			</col>
 			<col>
@@ -44,7 +44,7 @@
 				<width>30%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db>dia_chi_dk</xml_tag_in_db>
 			</col>
 			<col>
@@ -54,7 +54,7 @@
 				<align>CENTER</align>
 				<xml_data>false</xml_data>
 				<column_name>C_APPOINTED_DATE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>
 			<col>
 				<label>Ngày trả kết quả</label>
@@ -63,7 +63,7 @@
 				<align>CENTER</align>
 				<xml_data>false</xml_data>
 				<column_name>C_RESULT_DATE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>
 		</list_body>
 	</list_of_object>

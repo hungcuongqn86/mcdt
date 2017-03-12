@@ -18,7 +18,7 @@
 				<align>center</align>
 				<xml_data>false</xml_data>
 				<column_name>PK_NET_RECORD</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>
 			<col>
 				<label>Mã hồ sơ</label>
@@ -27,7 +27,7 @@
 				<align>left</align>
 				<xml_data>false</xml_data>
 				<column_name>C_CODE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>
 			<col>
 				<label>Họ và tên</label>
@@ -35,7 +35,7 @@
 				<width>15%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db>registor_name</xml_tag_in_db>
 			</col>
 			<col>
@@ -44,7 +44,7 @@
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db>registor_address</xml_tag_in_db>
 			</col>
 			<col>
@@ -54,7 +54,7 @@
 				<align>left</align>
 				<xml_data>false</xml_data>
 				<column_name>C_TEXT_STATUS</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>			
 			<col>
 				<label>Ngày hẹn trả KQ</label>
@@ -63,7 +63,7 @@
 				<align>CENTER</align>
 				<xml_data>false</xml_data>
 				<column_name>C_ORIGINAL_APPLICATION_DATE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>
 			<col>
 				<label>Thông báo</label>
@@ -72,7 +72,7 @@
 				<align>left</align>
 				<xml_data>false</xml_data>
 				<column_name>C_MESSAGE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 			</col>
 		</list_body>
 	</list_of_object>

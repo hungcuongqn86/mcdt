@@ -26,14 +26,14 @@
 			<from_xml_data>false</from_xml_data>
 			<data_format>text</data_format>
 			<find_string>#RECORDTYPE#</find_string>
-			<xml_tag_in_db></xml_tag_in_db>
+
 			<field_name>C_NAME</field_name>
 		</replace>
 		<replace>
 			<from_xml_data>false</from_xml_data>
 			<data_format>isdatelicense</data_format>
 			<find_string>#APPOINTED_DATE#</find_string>
-			<xml_tag_in_db></xml_tag_in_db>
+
 			<field_name>C_APPOINTED_DATE</field_name>
 		</replace>		
 		<replace>
@@ -45,16 +45,16 @@
 		</replace>			
 		<replace>
 			<from_xml_data>false</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#RECORD_CODE#</find_string>
-			<xml_tag_in_db></xml_tag_in_db>
+
 			<field_name>C_CODE</field_name>
 		</replace>			
 		<replace>
 			<from_xml_data>false</from_xml_data>
 			<data_format>iscate</data_format>
 			<find_string>#CATE#</find_string>
-			<xml_tag_in_db></xml_tag_in_db>
+
 			<field_name>C_CATE</field_name>
 		</replace>				
 	</replace_list>

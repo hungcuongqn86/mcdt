@@ -14,21 +14,21 @@ data_format : Thẻ này xác định kiểu định dạng data
 			<data_format>text</data_format>
 			<find_string>#OWNER_NAME#</find_string>
 			<field_name>OWNER_NAME</field_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</replace>
 		 <replace>
 			<from_xml_data>false</from_xml_data>
 			<data_format>text</data_format>
 			<find_string>#OWNER_PHONE#</find_string>
 			<field_name>OWNER_PHONE</field_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</replace>
 <!--		<replace>
 			<from_xml_data>false</from_xml_data> 
 			<data_format>text</data_format> 
 			<find_string>#OWNER_PHONE#</find_string>
 			<field_name>OWNER_PHONE</field_name>
-			<xml_tag_in_db></xml_tag_in_db>	
+
 		</replace>	-->
 <!-- Các thẻ liên quan đến thông tin của cán bộ nhận hồ sơ -->
 		 <replace>
@@ -36,7 +36,7 @@ data_format : Thẻ này xác định kiểu định dạng data
 			<data_format>text</data_format>
 			<find_string>#STAFF_NAME#</find_string>
 			<field_name>STAFF_NAME</field_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</replace>
 <!-- Các thẻ liên quan đến thông tin của người nhận-->
 		<replace>
@@ -73,14 +73,14 @@ data_format : Thẻ này xác định kiểu định dạng data
 			<data_format>text</data_format>
 			<find_string>#RECORD_NAME#</find_string>
 			<field_name>C_NAME</field_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</replace>
 		<replace>
 			<from_xml_data>false</from_xml_data>
 			<data_format>text</data_format>
 			<find_string>#RECORD_CODE#</find_string>
 			<field_name>C_CODE</field_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
@@ -94,7 +94,7 @@ data_format : Thẻ này xác định kiểu định dạng data
 			<data_format>text</data_format>
 			<find_string>#RECEIVED_DATE#</find_string>
 			<field_name>C_RECEIVED_DATE</field_name>
-			<xml_tag_in_db></xml_tag_in_db>			
+
 		</replace>
 		<replace>
 			<from_xml_data>false</from_xml_data>
@@ -115,7 +115,7 @@ data_format : Thẻ này xác định kiểu định dạng data
 			<from_xml_data>false</from_xml_data>
 			<data_format>getdate</data_format>
 			<find_string>#GET_DATE#</find_string>
-			<xml_tag_in_db></xml_tag_in_db>
+
 			<field_name></field_name>
 		</replace>
 		<replace>
@@ -123,7 +123,7 @@ data_format : Thẻ này xác định kiểu định dạng data
 			<data_format>text</data_format>
 			<find_string>#BARCODE_LINK#</find_string>
 			<field_name>BARCODE_LINK</field_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</replace>
 	</replace_list>
 </root>

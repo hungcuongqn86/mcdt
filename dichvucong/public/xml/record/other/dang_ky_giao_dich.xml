@@ -58,7 +58,7 @@
 				<message>Phai xac dinh HINH THUC NOP HO SO</message>
 				<note></note>
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
+
 				<js_action_list>onChange</js_action_list>
 				<xml_tag_in_db>hinh_thuc_nop_hs</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -78,7 +78,7 @@
 				<message>Phai xac dinh LOAI HO SO</message>
 				<note></note>
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
+
 				<js_action_list>onChange</js_action_list>
 				<xml_tag_in_db>loai_hs</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -103,7 +103,7 @@
 				<message>Phai xac dinh HINH THUC HO SO</message>
 				<note></note>
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
+
 				<js_action_list>onChange</js_action_list>
 				<xml_tag_in_db>hinh_thuc_hs</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -139,7 +139,7 @@
 				<message>Phai xac dinh GIOI TINH</message>
 				<note></note>
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>gioi_tinh_nk</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -158,7 +158,7 @@
 				<message>PHAI XAC DINH TUOI NGUOI NOP HS</message>
 				<note>(Nhập tuổi từ 15 -> 100)</note>
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>ngay_sinh_nk</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -176,7 +176,7 @@
 				<note></note>
 				<xml_data>true</xml_data>
 				<default_value>Kinh</default_value>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>dan_toc_nk</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -194,7 +194,7 @@
 				<note></note>
 				<xml_data>true</xml_data>
 				<default_value>Việt Nam</default_value>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>quoc_tich</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -211,7 +211,7 @@
 				<note></note>
 				<xml_data>true</xml_data>
 				<default_value></default_value>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>so_cmnd_nk</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -230,7 +230,7 @@
 				<message></message>
 				<note></note>
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>ngay_cap_socmnd_nk</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -247,7 +247,7 @@
 				<note></note>
 				<xml_data>true</xml_data>
 				<default_value></default_value>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>noi_cap_socmnd_nk</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -264,7 +264,7 @@
 				<note></note>
 				<xml_data>true</xml_data>
 				<default_value></default_value>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>registor_address</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -281,7 +281,7 @@
 				<note>(Phải nhập đúng thông tin số điện thoại)</note>
 				<xml_data>true</xml_data>
 				<default_value></default_value>
-				<js_function_list></js_function_list>
+
 				<js_action_list></js_action_list>
 				<xml_tag_in_db>dien_thoai_nk</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>

@@ -20,14 +20,14 @@
 			<session_id_index>id</session_id_index>
 			<session_name_index>name</session_name_index>
 			<session_value_index>id</session_value_index>
-			<data_format></data_format>
+
 			<optional>false</optional>
 			<width>48%</width>
 			<max_length>100</max_length>
 			<message>Phai xac dinh TEN CAN BO THU LY!</message>
-			<note></note>
+
 			<xml_data>true</xml_data>
-			<column_name></column_name>
+
 			<xml_tag_in_db>thu_ly</xml_tag_in_db>
 			<readonly_in_edit_mode>false</readonly_in_edit_mode>
 			<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -39,13 +39,13 @@
 			<data_format>isdate</data_format>
 			<width>20%</width>
 			<optional>false</optional>
-			<max></max>
-			<min></min>
-			<max_length></max_length>
+
+
+
 			<message>TU NGAY khong duoc de trong</message>
-			<note></note>
-			<js_function_list></js_function_list>
-			<js_action_list></js_action_list>
+
+
+
 			<xml_data>true</xml_data>
 			<xml_tag_in_db>from_date</xml_tag_in_db>
 			<colume_name></colume_name>
@@ -60,13 +60,13 @@
 			<data_format>isdate</data_format>
 			<width>20%</width>
 			<optional>false</optional>
-			<max></max>
-			<min></min>
-			<max_length></max_length>
+
+
+
 			<message>DEN NGAY khong duoc de trong</message>
-			<note></note>
-			<js_function_list></js_function_list>
-			<js_action_list></js_action_list>
+
+
+
 			<xml_data>true</xml_data>
 			<xml_tag_in_db>to_date</xml_tag_in_db>
 			<colume_name></colume_name>

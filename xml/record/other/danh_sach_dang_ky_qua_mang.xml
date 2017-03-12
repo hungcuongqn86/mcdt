@@ -17,7 +17,7 @@
 			<align>center</align>
 			<xml_data>false</xml_data>
 			<column_name>PK_NET_ORDER</column_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</col>
 		<col>
 			<label>Mã đăng ký</label>
@@ -26,7 +26,7 @@
 			<align>center</align>
 			<xml_data>false</xml_data>
 			<column_name>C_CODE</column_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</col>
 		<col>
 			<label>Họ tên người đăng ký</label>
@@ -34,7 +34,7 @@
 			<width>15%</width>
 			<align>left</align>
 			<xml_data>true</xml_data>
-			<column_name></column_name>
+
 			<xml_tag_in_db>registor_name</xml_tag_in_db>
 		</col>
 		<col>
@@ -43,7 +43,7 @@
 			<width>20%</width>
 			<align>left</align>
 			<xml_data>true</xml_data>
-			<column_name></column_name>
+
 			<xml_tag_in_db>registor_address</xml_tag_in_db>
 		</col>
 		<col>
@@ -52,7 +52,7 @@
 			<width>15%</width>
 			<align>center</align>
 			<xml_data>true</xml_data>
-			<column_name></column_name>
+
 			<xml_tag_in_db>dien_thoai_nk</xml_tag_in_db>
 		</col>
 		<col>
@@ -71,7 +71,7 @@
 			<align>left</align>
 			<xml_data>false</xml_data>
 			<column_name>C_MESSAGE</column_name>
-			<xml_tag_in_db></xml_tag_in_db>
+
 		</col>
 		</list_body>
 	</list_of_object>

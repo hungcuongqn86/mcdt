@@ -35,11 +35,11 @@
 				<optional>true</optional>
 				<width>79%</width>
 				<max_length>300</max_length>
-				<message></message>
-				<note></note>
+
+
 				<only>true</only>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_data>true</xml_data>
 				<compare_operator>like</compare_operator> 
 				<xml_tag_in_db>registor_name</xml_tag_in_db>
@@ -53,11 +53,11 @@
 				<optional>true</optional>
 				<width>38%</width>
 				<max_length>300</max_length>
-				<message></message>
-				<note></note>
+
+
 				<only>true</only>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_data>true</xml_data>
 				<compare_operator>=</compare_operator> 
 				<xml_tag_in_db>so_cmnd_nk</xml_tag_in_db>

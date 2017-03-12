@@ -167,12 +167,12 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>10%</width>
-				<max_length></max_length>
+
 				<message>SO không được để trống!</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>so_ks</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -184,12 +184,12 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>10%</width>
-				<max_length></max_length>
+
 				<message>QUYEN SO không được để trống!</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>quyen_so</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -202,9 +202,9 @@
 				<width>30%</width>
 				<max_length>100</max_length>
 				<message>Tên người khai không được để trống</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
+
 				<js_action_list>onChange</js_action_list>
 				<xml_tag_in_db>ten_nguoi_cap</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -216,13 +216,13 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
+
 				<message>Nơi thường trú, tạm trú không được để trống</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<default_value></default_value>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
+
 				<xml_tag_in_db>noi_tt_nguoi_cap</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -233,12 +233,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>so_cmnd</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -249,12 +249,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>qh_voi_nguoi_cap</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -269,11 +269,11 @@
 				<data_format>text</data_format>
 				<optional>false</optional>
 				<width>30%</width>
-				<max_length></max_length>
+
 				<message>Họ tên không được bỏ trống!</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
+
 				<js_action_list>onChange</js_action_list>
 				<xml_tag_in_db>registor_name</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
@@ -287,15 +287,15 @@
 				<selectbox_option_id_column>0</selectbox_option_id_column>
 				<selectbox_option_name_column>1</selectbox_option_name_column>
 				<selectbox_option_value_column>1</selectbox_option_value_column>
-				<data_format></data_format>
+
 				<width>31.2%</width>
 				<optional>true</optional>
-				<max_length></max_length>
+
 				<message>Phai xac dinh GIOI TINH</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>gioi_tinh</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -306,9 +306,9 @@
 				<data_format>isdate</data_format>
 				<optional>false</optional>
 				<width>30%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
 				<js_function_list>convertDate(this)</js_function_list>
 				<js_action_list>onChange</js_action_list>
@@ -319,17 +319,17 @@
 			<ngay_sinh_dtc_chu>
 				<label>Ghi bằng chữ</label>
 				<type>textbox</type>
-				<data_format></data_format>
+
 				<width>72.4%</width>
 				<optional>false</optional>
-				<max></max>
-				<min></min>
-				<max_length></max_length>
+
+
+
 				<message>Phải xác định ngày tháng năm sinh người được khai</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>ngay_sinh_dtc_chu</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -340,12 +340,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>noi_sinh</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -357,12 +357,12 @@
 				<optional>true</optional>
 				<width>30%</width>
 				<default_value>Kinh</default_value>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>dan_toc</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -375,12 +375,12 @@
 				<optional>true</optional>
 				<width>31.2%</width>
 				<default_value>Việt Nam</default_value>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>quoc_tich</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -391,12 +391,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>que_quan_nguoi_cap</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -407,12 +407,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>registor_address</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -423,12 +423,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>ten_cha</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -440,12 +440,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>10%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>tuoi_cha</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -457,12 +457,12 @@
 				<optional>true</optional>
 				<width>15%</width>
 				<default_value>Kinh</default_value>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>dan_toc_cha</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -475,12 +475,12 @@
 				<optional>true</optional>
 				<width>16%</width>
 				<default_value>Việt Nam</default_value>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>quoc_tich_cha</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -491,12 +491,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>dia_chi_cha</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -507,12 +507,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>ten_me</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -524,12 +524,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>10%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>tuoi_me</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -541,12 +541,12 @@
 				<optional>true</optional>
 				<width>15%</width>
 				<default_value>Kinh</default_value>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>dan_toc_me</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -559,12 +559,12 @@
 				<optional>true</optional>
 				<width>16%</width>
 				<default_value>Việt Nam</default_value>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>quoc_tich_me</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -575,12 +575,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>dia_chi_me</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -592,16 +592,16 @@
 				<selectbox_option_id_column>0</selectbox_option_id_column>
 				<selectbox_option_name_column>1</selectbox_option_name_column>
 				<selectbox_option_value_column>1</selectbox_option_value_column>
-				<data_format></data_format>
+
 				<width>30%</width>
 				<optional>true</optional>
-				<max_length></max_length>
+
 				<message>Phải xác định Xã/ thị trấn</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
 				<tooltip>Xã, thị trấn của địa điểm kinh doanh</tooltip>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>registor_province</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -612,12 +612,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
+
 				<message>Nơi đăng ký không được bỏ trống</message>
-				<note></note>
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>noi_dang_ky</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -628,12 +628,12 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>ngay_dang_ky</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -641,16 +641,16 @@
 			<ve_viec>
 				<label>Quyết định về việc</label>
 				<type>textbox</type>
-				<data_format></data_format>
+
 				<width>72.3%</width>
-				<row></row>
+
 				<optional>true</optional>
 				<max_length>100</max_length>
-				<message></message>
-				<note></note>
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>ve_viec</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -658,16 +658,16 @@
 			<trich_yeu>
 				<label>Trích yếu</label>
 				<type>textarea</type>
-				<data_format></data_format>
+
 				<width>72.3%</width>
-				<row></row>
+
 				<optional>true</optional>
 				<max_length>300</max_length>
-				<message></message>
-				<note></note>
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>trich_yeu</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -675,16 +675,16 @@
 			<noi_dung_cai_chinh_1>
 				<label>Từ</label>
 				<type>textarea</type>
-				<data_format></data_format>
+
 				<width>72.3%</width>
-				<row></row>
+
 				<optional>true</optional>
 				<max_length>300</max_length>
-				<message></message>
-				<note></note>
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>noi_dung_cai_chinh_1</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -692,16 +692,16 @@
 			<noi_dung_cai_chinh_2>
 				<label>Thành</label>
 				<type>textarea</type>
-				<data_format></data_format>
+
 				<width>72.3%</width>
-				<row></row>
+
 				<optional>true</optional>
 				<max_length>300</max_length>
-				<message></message>
-				<note></note>
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>noi_dung_cai_chinh_2</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -712,12 +712,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>nguoi_di_khai</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -728,12 +728,12 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-				<max_length></max_length>
-				<message></message>
-				<note></note>
+
+
+
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>quan_he_ndk</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -741,16 +741,16 @@
 			<ghi_chu>
 				<label>Ghi chú</label>
 				<type>textarea</type>
-				<data_format></data_format>
+
 				<width>72.3%</width>
-				<row></row>
+
 				<optional>true</optional>
 				<max_length>200</max_length>
-				<message></message>
+
 				<note>Cấp lại tại UBND huyện Quỳnh Lưu ngày ... tháng ... năm ...</note>
 				<xml_data>true</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_tag_in_db>ghi_chu</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>

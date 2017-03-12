@@ -41,12 +41,12 @@
 				<row>3</row>
 				<max_length>200</max_length>
 				<message>NGAY BAN GIAO HO SO khong dung dinh dang ngay/thang/nam!</message>
-				<note></note>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
+
 				<xml_data>false</xml_data>
 				<column_name>C_MOVE_DATE</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ngay_bangiao_hoso>
@@ -60,18 +60,18 @@
 				<session_name_index>name</session_name_index>
 				<session_value_index>id</session_value_index>
 				<dsp_div>1</dsp_div><!-- = 1 thi hien thi DIV; = 0 thi khong hien thi-->
-				<data_format></data_format>
+
 				<optional>false</optional>
 				<only>false</only>
 				<width>100%</width>
 				<max_length>100</max_length>
 				<message>Chua chon PHONG BAN THU LY ho so!</message>
-				<note></note>
+
 				<xml_data>false</xml_data>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<column_name>FK_HANDLE_UNIT_ID_LIST</column_name>
-				<xml_tag_in_db></xml_tag_in_db>
+
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>										
 			</phong_thu_ly>		

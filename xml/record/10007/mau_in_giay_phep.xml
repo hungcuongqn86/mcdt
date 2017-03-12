@@ -7,7 +7,7 @@
 	<replace_list>
 		<replace>  <!--Noi dung can thay the vao trong mau giay phep-->
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#LICENSE_NUMBER#</find_string>
 			<xml_tag_in_db>record_number</xml_tag_in_db>
 			<field_name></field_name>
@@ -23,7 +23,7 @@
 			<from_xml_data>false</from_xml_data>
 			<data_format>isdate</data_format>
 			<find_string>#RECEIVED_DATE#</find_string>
-			<xml_tag_in_db></xml_tag_in_db>
+
 			<field_name>C_RECEIVED_DATE</field_name>
 		</replace>
 		<replace>
@@ -50,21 +50,21 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#BUSSINESS_NAME#</find_string>
 			<xml_tag_in_db>bussiness_name</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#BUSSINESS_PLACE#</find_string>
 			<xml_tag_in_db>registor_address</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#TEL#</find_string>
 			<xml_tag_in_db>registor_phone</xml_tag_in_db>
 			<field_name></field_name>
@@ -92,7 +92,7 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#BUSSINESS#</find_string>
 			<xml_tag_in_db>business_note</xml_tag_in_db>
 			<field_name></field_name>
@@ -106,14 +106,14 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#BC_STRING#</find_string>
 			<xml_tag_in_db>business_capital_string</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#REGISTOR_NAME#</find_string>
 			<xml_tag_in_db>registor_name</xml_tag_in_db>
 			<field_name></field_name>
@@ -128,56 +128,56 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#BIRTHDAY#</find_string>
 			<xml_tag_in_db>registor_birthday</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#DT#</find_string>
 			<xml_tag_in_db>investor_national</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#CARD_ID#</find_string>
 			<xml_tag_in_db>registor_card_id</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#CARD_DATE#</find_string>
 			<xml_tag_in_db>registor_card_date</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#CARD_PLACE#</find_string>
 			<xml_tag_in_db>registor_card_place</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#RESIDENT_ADDRESS#</find_string>
 			<xml_tag_in_db>registor_address_resident</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#TEMPORARY_ADDRESS#</find_string>
 			<xml_tag_in_db>investor_temporary_address</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format></data_format>
+
 			<find_string>#TIME_BUSINESS#</find_string>
 			<xml_tag_in_db>time_business</xml_tag_in_db>
 			<field_name></field_name>

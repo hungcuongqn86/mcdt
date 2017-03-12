@@ -50,11 +50,11 @@
 				<row>3</row>
 				<max_length>200</max_length>
 				<message>NGAY TRA HO SO khong dung dinh dang ngay/thang/nam!</message>
-				<note></note>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
+
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db>ngay_tra</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -70,11 +70,11 @@
 				<row>3</row>
 				<max_length>200</max_length>
 				<message>NGUOI NHAN HO SO khong duoc de trong!</message>
-				<note></note>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
+
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db>nguoi_nhan</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -90,10 +90,10 @@
 				<message>LE PHI khong dung dinh dang (phai la kieu so)!</message>
 				<note> đồng</note>
 				<only>true</only>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db>le_phi</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -102,18 +102,18 @@
 			<ghi_chu>					
 				<label>Ghi chú</label>
 				<type>textarea</type>
-				<data_format></data_format>
+
 				<optional>true</optional>
 				<only>false</only>
 				<width>100%</width>
 				<row>3</row>
 				<max_length>200</max_length>
 				<message>GHI CHU khong duoc de trong!</message>
-				<note></note>
-				<js_function_list></js_function_list>
-				<js_action_list></js_action_list>
+
+
+
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db>ghi_chu</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>

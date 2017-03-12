@@ -98,35 +98,35 @@
 						<selectbox_option_name_column>1</selectbox_option_name_column>
 						<selectbox_option_value_column>0</selectbox_option_value_column>
 						<the_first_of_id_value>false</the_first_of_id_value>
-						<data_format></data_format>
+
 						<optional>false</optional>
 						<width>100%</width>
 						<message>Phai xac dinh THONG TIN DU AN!</message>	
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>false</xml_data>
 						<column_name>FK_PROJECT</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
 					</du_an>					
 					<ten_ho_so>					
 						<label>Tên hồ sơ</label>
 						<type>textarea</type>
-						<data_format></data_format>
+
 						<optional>false</optional>
 						<only>false</only>
 						<width>100%</width>
 						<row>3</row>
 						<max_length>200</max_length>
 						<message>Phai xac dinh TEN HO SO!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>false</xml_data>
 						<column_name>C_NAME</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
 					</ten_ho_so>
@@ -138,12 +138,12 @@
 						<width>20%</width>
 						<max_length>100</max_length>
 						<message>NGAY NOP HO SO khong dung dinh dang ngay/thang/nam!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>false</xml_data>
 						<column_name>C_RECEIVE_DATE</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
 					</ngay_nop_hoso>	
@@ -159,7 +159,7 @@
 						<js_function_list>f_appointed_date()</js_function_list>
 						<js_action_list>onChange</js_action_list>
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>so_ngay_giai_quyet</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -172,12 +172,12 @@
 						<width>20%</width>
 						<max_length>100</max_length>
 						<message>NGAY HEN TRA KET QUA khong dung dinh dang ngay/thang/nam!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>false</xml_data>
 						<column_name>C_APPOINTED_DATE</column_name>
-						<xml_tag_in_db></xml_tag_in_db>
+
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
 					</ngay_hen_tra>					
@@ -189,12 +189,12 @@
 						<width>100%</width>
 						<max_length>100</max_length>
 						<message>Phai xac dinh TEN NGUOI NOP ho so!</message>
-						<note></note>
+
 						<only>true</only>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>nguoi_nop_ho_so</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -202,18 +202,18 @@
 					<don_vi_nguoi_nop>
 						<label>Thuộc đơn vị</label>
 						<type>textarea</type>
-						<data_format></data_format>
+
 						<optional>false</optional>
 						<only>false</only>
 						<width>100%</width>
 						<row>2</row>
 						<max_length>1000</max_length>
 						<message>Phai xac dinh DON VI nguoi nop ho so!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>don_vi_nguoi_nop</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>					
@@ -226,12 +226,12 @@
 						<width>30%</width>
 						<max_length>100</max_length>
 						<message>Phai xac dinh TO TRINH SO!</message>
-						<note></note>
+
 						<only>true</only>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>to_trinh_so</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -247,10 +247,10 @@
 						<message>TONG MUC DAU TU khong dung dinh dang (phai la dang so)!</message>
 						<note>(VND)</note>
 						<only>true</only>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>tong_muc_dau_tu</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -263,11 +263,11 @@
 						<width>20%</width>
 						<max_length>100</max_length>
 						<message>NGAY VAN BAN TREN TO TRINH  khong dung dinh dang ngay/thang/nam!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>ngay_vb_tren_to_trinh</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -280,12 +280,12 @@
 						<width>100%</width>
 						<max_length>100</max_length>
 						<message>Phai xac dinh TEN DON VI TU VAN!</message>
-						<note></note>
+
 						<only>true</only>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>dv_tu_van</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -293,18 +293,18 @@
 					<dc_don_vi_tu_van>
 						<label>Địa chỉ đơn vị tư vấn</label>
 						<type>textarea</type>
-						<data_format></data_format>
+
 						<optional>true</optional>
 						<only>false</only>
 						<width>100%</width>
 						<row>2</row>
 						<max_length>1000</max_length>
 						<message>Phai xac dinh DIA CHI DON VI TU VAN!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>dc_don_vi_tu_van</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>	
@@ -317,12 +317,12 @@
 						<width>25%</width>
 						<max_length>100</max_length>
 						<message>Phai xac dinh SO DIEN THOAI DON VI TU VAN!</message>
-						<note></note>
+
 						<only>true</only>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>dienthoai_dv_tuvan</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -335,12 +335,12 @@
 						<width>66%</width>
 						<max_length>100</max_length>
 						<message>DIA CHI EMAIL DON VI TU VAN khong dung!</message>
-						<note></note>
+
 						<only>true</only>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>email_dv_tuvan</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -348,18 +348,18 @@
 					<kien_nghi>
 						<label>Kiến nghị</label>
 						<type>textarea</type>
-						<data_format></data_format>
+
 						<optional>true</optional>
 						<only>false</only>
 						<width>100%</width>
 						<row>3</row>
 						<max_length>1000</max_length>
 						<message>Phai xac dinh NOI DUNG KIEN NGHI!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>kien_nghi</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>	
@@ -369,25 +369,25 @@
 						<label>&lt;B&gt;FILE ĐÍNH KÈM&lt;/B&gt; (&lt;I&gt;File đính kèm nên để dạng không dấu, ví dụ : ho-so-bao-cao-kt_kt.doc&lt;/I&gt;)</label>
 						<type>label</type>
 						<width>100%</width>
-						<data_format></data_format>
+
 						<optional>true</optional>
 					</label_tlkt>	
 					
 					<tai_lieu_kem_theo>					
 						<label>Tài liệu kèm theo hồ sơ</label>
 						<type>textarea</type>
-						<data_format></data_format>
+
 						<optional>true</optional>
 						<only>false</only>
 						<width>100%</width>
 						<row>8</row>
 						<max_length>200</max_length>
 						<message>Phai xac dinh TEN HO SO!</message>
-						<note></note>
-						<js_function_list></js_function_list>
-						<js_action_list></js_action_list>
+
+
+
 						<xml_data>true</xml_data>
-						<column_name></column_name>
+
 						<xml_tag_in_db>tai_lieu_kem_theo</xml_tag_in_db>
 						<readonly_in_edit_mode>false</readonly_in_edit_mode>
 						<disabled_in_edit_mode>false</disabled_in_edit_mode>

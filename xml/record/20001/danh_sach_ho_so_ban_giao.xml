@@ -34,7 +34,7 @@
 				<calculate></calculate>
 				<compare_value></compare_value>
 				<xml_data>false</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db_list></xml_tag_in_db_list>
 				<recordtype_code_list></recordtype_code_list>
 				<selectbox_option_sql></selectbox_option_sql>
@@ -76,7 +76,7 @@
 				<calculate></calculate>  
 				<compare_value></compare_value> 
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db_list>registor_name</xml_tag_in_db_list>
 				<recordtype_code_list></recordtype_code_list>
 				<selectbox_option_sql></selectbox_option_sql>
@@ -90,7 +90,7 @@
 				<calculate></calculate>   
 				<compare_value></compare_value> 
 				<xml_data>true</xml_data>
-				<column_name></column_name>
+
 				<xml_tag_in_db_list>registor_address</xml_tag_in_db_list>
 				<recordtype_code_list></recordtype_code_list>
 				<selectbox_option_sql></selectbox_option_sql>

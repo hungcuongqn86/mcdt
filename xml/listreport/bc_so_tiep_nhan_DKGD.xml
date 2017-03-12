@@ -15,13 +15,13 @@
 			<data_format>isdate</data_format>
 			<width>20%</width>
 			<optional>false</optional>
-			<max></max>
-			<min></min>
-			<max_length></max_length>
+
+
+
 			<message>TU NGAY khong duoc de trong</message>
-			<note></note>
-			<js_function_list></js_function_list>
-			<js_action_list></js_action_list>
+
+
+
 			<xml_data>true</xml_data>
 			<xml_tag_in_db>from_date</xml_tag_in_db>
 			<colume_name></colume_name>
@@ -36,13 +36,13 @@
 			<data_format>isdate</data_format>
 			<width>20%</width>
 			<optional>false</optional>
-			<max></max>
-			<min></min>
-			<max_length></max_length>
+
+
+
 			<message>DEN NGAY khong duoc de trong</message>
-			<note></note>
-			<js_function_list></js_function_list>
-			<js_action_list></js_action_list>
+
+
+
 			<xml_data>true</xml_data>
 			<xml_tag_in_db>to_date</xml_tag_in_db>
 			<colume_name></colume_name>
