@@ -29,7 +29,6 @@
 				<width>30%</width>
 				<max_length>100</max_length>
 				<message>BEN CHUYEN NHUONG khong duoc de trong</message>
-				<note></note>
 				<xml_data>true</xml_data>
 				<js_function_list>set_upcase_value(this);</js_function_list>
 				<js_action_list>onblur</js_action_list>
