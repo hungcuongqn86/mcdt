@@ -1412,11 +1412,11 @@ class Extra_Ecs
                         $taxkey = $sXmlTagInDb.'_'.$tax_tag.'_'.$rowindex;
                         if(property_exists($objItem,$taxkey)){
                             $taxcode = $objItem->$taxkey;
-                            for($i=0;$i<10;$i++){
+                            for($i=0;$i<strlen($taxcode);$i++){
                                 $phpdocx->assign('#'.$tax_prefix.$i.'#',$taxcode[$i]);
                             }
                         }else{
-                            for($i=0;$i<10;$i++){
+                            for($i=0;$i<30;$i++){
                                 $phpdocx->assign('#'.$tax_prefix.$i.'#','');
                             }
                         }
