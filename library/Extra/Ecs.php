@@ -1372,6 +1372,56 @@ class Extra_Ecs
                         $phpdocx->assignBlock($sBlockName, $arrDocx);
                     }
 
+                    if ($sDataFormat == "formfieldatatax"){
+                        $sfind_string_list = $arrElement["find_string_list"];
+                        $arrfind_string = explode(',',$sfind_string_list);
+                        $sfield_list = $arrElement["field_list"];
+                        $arrfield = explode(',',$sfield_list);
+                        $tax_tag = $arrElement["tax_tag"];
+                        $tax_prefix = $arrElement["tax_prefix"];
+
+                        $sValue = htmlspecialchars_decode($sValue);
+                        $arrValue = json_decode($sValue);
+                        $objItem = array();
+                        $rowindex = 0;
+                        if($arrValue){
+                            $objItem = $arrValue[0];
+                            foreach ($arrValue as $index => $value) {
+                                $taxkey = $sXmlTagInDb.'_'.$tax_tag.'_'.$index;
+                                if(property_exists($value,$taxkey)){
+                                    if($value->$taxkey!=''){
+                                        $objItem = $value;
+                                        $rowindex = $index;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        for($i=0;$i<sizeof($arrfind_string);$i++){
+                            $key = '#'.$arrfind_string[$i].'#';
+                            $objkey = $sXmlTagInDb.'_'.$arrfield[$i].'_'.$rowindex;
+                            if(property_exists($objItem,$objkey)){
+                                //echo $key, $objItem->$objkey;
+                                $phpdocx->assign($key,$objItem->$objkey);
+                            }else{
+                                $phpdocx->assign($key,'');
+                            }
+                        }
+
+                        $taxkey = $sXmlTagInDb.'_'.$tax_tag.'_'.$rowindex;
+                        if(property_exists($objItem,$taxkey)){
+                            $taxcode = $objItem->$taxkey;
+                            for($i=0;$i<10;$i++){
+                                $phpdocx->assign('#'.$tax_prefix.$i.'#',$taxcode[$i]);
+                            }
+                        }else{
+                            for($i=0;$i<10;$i++){
+                                $phpdocx->assign('#'.$tax_prefix.$i.'#','');
+                            }
+                        }
+                    }
+
                     //Kieu du lieu muc dich su dung dat
                     if ($sDataFormat == "datatable"){
                         $sBlockName = $arrElement["sblockname"];
@@ -1403,14 +1453,16 @@ class Extra_Ecs
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
                         $sValue = '';
-                        foreach ($arrValue as $key => $value) {
-                            foreach ($arrfield as $index => $field) {
-                                $stempval = $value->$field;
-                                if($stempval!=''){
-                                    $sValue.=$stempval.$arrnote[$index];
+                        if($arrValue){
+                            foreach ($arrValue as $key => $value) {
+                                foreach ($arrfield as $index => $field) {
+                                    $stempval = $value->$field;
+                                    if($stempval!=''){
+                                        $sValue.=$stempval.$arrnote[$index];
+                                    }
                                 }
+                                $sValue.=', ';
                             }
-                            $sValue.=', ';
                         }
                         if(($sValue!='')&&(strlen($sValue)>2)){
                             $sValue = substr($sValue,0,-2);
@@ -1469,7 +1521,9 @@ class Extra_Ecs
                     /*                    $phpdocx->assign("#ngay#",date('d'));
                                         $phpdocx->assign("#thang#",date('m'));
                                         $phpdocx->assign("#nam#",date('Y'));*/
-                    $phpdocx->assign($sFindString,$sValue);
+                    if($sFindString!=''){
+                        $phpdocx->assign($sFindString,$sValue);
+                    }
                 }
             }
         }
