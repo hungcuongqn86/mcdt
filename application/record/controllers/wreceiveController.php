@@ -354,10 +354,11 @@ class record_wreceiveController extends  Zend_Controller_Action {
   		if(!file_exists($sxmlFileName)){
 			$sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_da_tiep_nhan.xml';	
 		}
+        //var_dump($arrinfoRecordType);
 		//echo $sxmlFileName;
 		$this->view->RecodeCode = $objrecordfun->generateRecordCode($sRecordTypeCode);
 		$this->view->RecodeTypeName = $arrinfoRecordType['C_NAME'];
-		$this->view->iNumberProcessDate = $arrinfoRecordType['C_WARDS_PROCESS_NUMBER_DATE'];
+		$this->view->iNumberProcessDate = $arrinfoRecordType['C_WARDS_PROCESS_NUMBER_DATE'] + $arrinfoRecordType['C_PROCESS_NUMBER_DATE'];
 		//echo '$sxmlFileName:'.$sxmlFileName;
 		$this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>', array(),true,true);
 		//Lay thong tin file dinh kem
