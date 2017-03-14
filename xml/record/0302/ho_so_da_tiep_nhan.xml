@@ -617,7 +617,7 @@
             </ds_loai_dat>
 			<nguon_goc_su_dung>
 				<label>Nguồn gốc sử dụng</label>
-				<type>textbox</type>
+				<type>textarea</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
