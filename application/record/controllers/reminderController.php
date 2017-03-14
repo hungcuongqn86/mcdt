@@ -67,6 +67,7 @@ class Record_ReminderController extends  Zend_Controller_Action {
 			$v_recordnetpreliminary = $arrRss[$i]['C_RECORD_NET_PRELIMINARY'];
 			//Ho so moi tiep nhan
 			$v_recordnew= $arrRss[$i]['C_NEW_RECORD'];
+            $v_recordnewpasward= $arrRss[$i]['C_NEW_RECORD_PASS_WARD'];
             //Ho so lien thong cho nhan
             $v_transitionnew= $arrRss[$i]['C_TRANSITION_RECORD'];
 			//Ho so cho bo sung cua can bo tiep nhan
@@ -122,7 +123,12 @@ class Record_ReminderController extends  Zend_Controller_Action {
 				}
 				$htmlString.='<a href=' . $url . '><font  size = 2px; color="black">'.$sSpace.'[Có '.
 								$v_recordnew
-								.' h&#7891; s&#417; m&#7899;i ti&#7871;p nh&#7853;n]</font></a>';
+								.' h&#7891; s&#417; m&#7899;i ti&#7871;p nh&#7853;n</font>';
+                //$v_recordnewpasward = 1;
+				if($v_recordnewpasward<>0){
+                    $htmlString.=', <font  size = 2px; color="red">Trong đó có '.$v_recordnewpasward.' hồ sơ quá hạn chuyển liên thông</font>';
+                }
+                $htmlString.=']</a>';
 				$iSum++;
 			}
 

@@ -67,7 +67,7 @@
             <div>
                 <label>Số ngày xử lý tại xã<span class="requiein">*</span></label>
                 <input style="width:17%;" type="text" id="ward_limit_date" name="ward_limit_date" align="right" optional = "true" value = "<?=$this->iNumberWardProcessDate?>"  column_name="" message="SO NGAY phai la so nguyen duong (1, 2, ...)!" onblur="appointed_date(document.getElementById('C_RECEIVED_DATE').value,document.getElementById('ward_limit_date'),document.getElementById('C_WARD_END_DATE'));">
-                <label style="width:12%;float:none;">Hẹn chuyển huyện</label>
+                <label style="width:12%;float:none;">Hạn chuyển huyện</label>
                 <input class="textbox datepicker2c" style="width:15%;"  id ="C_WARD_END_DATE" name="C_WARD_END_DATE" type="text" isdate="true" option = "true"  xml_tag_in_db="" xml_data="false" column_name="C_WARD_END_DATE" message="<?php echo "NGÀY HẸN không đúng định dạng ngày/tháng/năm!";?>" onKeyUp="DateOnkeyup(this,event)"/>
             </div>
 		</div>

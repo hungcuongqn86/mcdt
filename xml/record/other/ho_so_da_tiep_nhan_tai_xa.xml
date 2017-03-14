@@ -56,7 +56,7 @@
 				<ItemIndex>0</ItemIndex>
 			</col>
 			<col>
-				<label>Hẹn chuyển huyện</label>
+				<label>Hạn chuyển huyện</label>
 				<type>text</type>
 				<width>13%</width>
 				<align>CENTER</align>
