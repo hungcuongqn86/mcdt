@@ -15,6 +15,7 @@
         , {"C_CODE": "C_HS_DA_GIAI_QUYET_QH", "C_NAME": "HỒ SƠ ĐÃ XỬ LÝ QUÁ HẠN"}
         , {"C_CODE": "C_TONG_SO_DANG_GIAI_QUYET", "C_NAME": "TỔNG HỒ SƠ ĐANG XỬ LÝ"}
         , {"C_CODE": "C_HS_DANG_GIAI_QUYET_DUNG_HAN", "C_NAME": "HỒ SƠ ĐANG XỬ LÝ CÒN HẠN"}
+        , {"C_CODE": "C_HS_CHAM_CHUYEN_HUYEN", "C_NAME": "HỒ SƠ CHẬM CHUYỂN HUYỆN"}
         , {"C_CODE": "C_HS_DANG_GIAI_QUYET_QUA_HAN", "C_NAME": "HỒ SƠ ĐANG XỬ LÝ QUÁ HẠN"}];
 }
 
@@ -601,7 +602,7 @@ record_search.prototype.generalMatrix = function (arrResult, mode) {
             '<td align="center" class="normal_label"><span style="color:blue;">' + tl_danggq_dh + '%</span></td>' +
             '<td align="center" class="normal_label datacell" mode="' + mode + '" code="' + code + '" recordtype="' + recordtype + '" type="C_HS_DANG_GIAI_QUYET_QUA_HAN" >' + item.C_HS_DANG_GIAI_QUYET_QUA_HAN + '</td>' +
             '<td align="center" class="normal_label"><span style="color:red;">' + tl_danggq_qh + '%</span></td>' +
-            '<td align="center" class="normal_label"><span style="color:red;">' + item.C_HS_CHAM_CHUYEN_HUYEN + '</span></td>' +
+            '<td align="center" class="normal_label datacell" mode="' + mode + '" code="' + code + '" recordtype="' + recordtype + '" type="C_HS_CHAM_CHUYEN_HUYEN" ><span style="color:red;">' + item.C_HS_CHAM_CHUYEN_HUYEN + '</span></td>' +
             '</tr>';
     });
     if (classtr == 'odd_row') {
