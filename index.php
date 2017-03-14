@@ -1,6 +1,6 @@
 <?php
 //phpinfo();exit;
-@ini_set('display_errors', 1);
+@ini_set('display_errors', 0);
 date_default_timezone_set('Europe/London');
 // Dinh nghia duong dan den thu vien cua Zend
 set_include_path('./library/'
