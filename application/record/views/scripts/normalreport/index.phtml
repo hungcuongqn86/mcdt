@@ -185,6 +185,13 @@
 			data: '&recordtype='+recordtype+'&reporttype='+value+'&xmlname='+xmlname+'&ownercode=<?=$_SESSION['OWNER_CODE']?>',
 			success: function(data){
 				$('#reportFillterList').html(data);
+
+                $(".datepicker2c").datepicker({
+                    changeMonth: true,
+                    gotoCurrent: true,
+                    minDate: new Date(1945, 1 - 1, 1),
+                    changeYear: true
+                });
 			}
 		});				
 	}	
