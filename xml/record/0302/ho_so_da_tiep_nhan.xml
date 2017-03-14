@@ -740,6 +740,7 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</lydo_bd>
+			
 			<business_capital_string>
 				<label>Giá chuyển nhượng bằng chữ</label>
 				<type>textbox</type>
