@@ -4,8 +4,8 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>formfieldatatax</data_format>
-            <find_string_list>NAME_B,TAX_B,DC_B,PHONE_B</find_string_list>
-            <field_list>obj_name,obj_taxcode,obj_address,obj_phone</field_list>
+            <find_string_list>NAME_B,TAX_B,DC_B,PHONE_B,XOM_B,XA_B</find_string_list>
+            <field_list>obj_name,obj_taxcode,obj_address,obj_phone,obj_ads,obj_xom</field_list>
             <tax_tag>obj_taxcode</tax_tag>
             <tax_prefix>B</tax_prefix>
             <xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
