@@ -133,28 +133,8 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>registor_name</tag_list>
-					<row_id>registor_name</row_id>
-				</update_row>		
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>registor_address</tag_list>
-					<row_id>id_registor_address</row_id>
-				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>dien_thoai_nk</tag_list>
-					<row_id>dien_thoai_nk</row_id>
-				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>so_cmnd_nk,ngay_cap_socmnd_nk</tag_list>
-					<row_id>id_ngaycap_noicap_nk</row_id>
-				</update_row>	
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>noi_cap_socmnd_nk</tag_list>
-					<row_id>noi_cap_socmnd_nk</row_id>
+					<tag_list>ben_chuyen_nhuong</tag_list>
+					<row_id>row_ben_chuyen_nhuong</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -192,6 +172,11 @@
                     <row_id>dien_tich_thua_dat</row_id>
                 </update_row>
 				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>dt_chuyen_md</tag_list>
+					<row_id>dt_chuyen_md</row_id>
+				</update_row>
+				<update_row>
 					<have_line_before>true</have_line_before>
 					<tag_list>label_tip_top_3</tag_list>
 					<row_id>label_tip_top_3</row_id>
@@ -220,6 +205,16 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>noi_dung_sau</tag_list>
 					<row_id>noi_dung_sau</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>label_tip_top_16</tag_list>
+					<row_id>label_tip_top_16</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>thoi_han</tag_list>
+					<row_id>thoi_han</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>true</have_line_before>
@@ -461,7 +456,7 @@
 				<selectbox_option_value_column>1</selectbox_option_value_column>
 
 				<optional>false</optional>
-				<width>72.4%</width>
+				<width>30%</width>
 
 				<message>HINH THUC HO SO khong duoc de trong</message>
 
@@ -472,109 +467,19 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</hinh_thuc_hs>
-			<registor_name>
-				<label>Tên người sử dụng đất</label>
-				<type>textbox</type>
-				<data_format>text</data_format>
+			<ben_chuyen_nhuong>
+				<type>formfieldata</type>
+				<file_name_xml>ds_staff_info</file_name_xml>
+				<width>70%</width>
+				<row>3</row>
 				<optional>false</optional>
-				<width>72.4%</width>
-				<max_length>100</max_length>
-				<message>TEN NGUOI SU DUNG khong duoc de trong</message>
-
+				<max_length>200</max_length>
+				<message>Phải nhập thông tin bên chuyển nhượng!</message>
 				<xml_data>true</xml_data>
-				<js_function_list>set_upcase_value(this)</js_function_list>
-				<js_action_list>onChange</js_action_list>
-				<xml_tag_in_db>registor_name</xml_tag_in_db>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</registor_name>		
-			<registor_address>
-				<label>Địa chỉ</label>
-				<type>textbox</type>
-				<data_format>text</data_format>
-				<optional>false</optional>
-				<width>72.4%</width>
-
-				<message>DIA CHI khong duoc de trong</message>
-
-				<xml_data>true</xml_data>
-
-
-
-				<xml_tag_in_db>registor_address</xml_tag_in_db>
-				<readonly_in_edit_mode>false</readonly_in_edit_mode>
-				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</registor_address>
-			<dien_thoai_nk>
-				<label>Điện thoại</label>
-				<type>textbox</type>
-				<data_format>text</data_format>
-				<optional>true</optional>
-				<width>72.5%</width>
-				<max_length>100</max_length>
-				<message>DIEN THOAI khong dung dinh dang!</message>
-
-				<xml_data>true</xml_data>
-
-
-
-				<xml_tag_in_db>dien_thoai_nk</xml_tag_in_db>
-				<readonly_in_edit_mode>false</readonly_in_edit_mode>
-				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</dien_thoai_nk>
-			<so_cmnd_nk>
-				<label>Số CMND</label>
-				<type>textbox</type>
-				<data_format>text</data_format>
-				<optional>true</optional>
-				<width>47%</width>
-				<max_length>12</max_length>
-				<message>SO CMND khong duoc de trong!</message>
-
-				<xml_data>true</xml_data>
-
-
-
-				<xml_tag_in_db>so_cmnd_nk</xml_tag_in_db>
-				<readonly_in_edit_mode>false</readonly_in_edit_mode>
-				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</so_cmnd_nk>	
-			<ngay_cap_socmnd_nk>
-				<label>Ngày cấp</label>
-				<width_label>10%;text-align:left;padding-left:5px;</width_label>
-				<type>textbox</type>
-				<data_format>isdate</data_format>
-				<width>14.3%</width>
-				<optional>true</optional>
-
-
-
-
-
-				<xml_data>true</xml_data>
-
-
-				<xml_tag_in_db>ngay_cap_socmnd_nk</xml_tag_in_db>
-				<readonly_in_edit_mode>false</readonly_in_edit_mode>
-				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</ngay_cap_socmnd_nk>	
-			<noi_cap_socmnd_nk>
-				<label>Nơi cấp</label>
-				<type>textbox</type>
-				<data_format>text</data_format>
-				<optional>true</optional>
-				<width>72.4%</width>
-				<max_length>100</max_length>
-
-
-				<xml_data>true</xml_data>
-
-
-
-				<xml_tag_in_db>noi_cap_socmnd_nk</xml_tag_in_db>
-				<readonly_in_edit_mode>false</readonly_in_edit_mode>
-				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</noi_cap_socmnd_nk>
+			</ben_chuyen_nhuong>
 			<label_tip>
 					<label>&lt;I&gt;(Kê khai theo đúng tên và địa chỉ như trên giấy chứng nhận đã cấp. trường hợp có thay đổi thì ghi cả thông tin trước và sau khi thay đổi và nộp giấy tờ chứng minh sự thay đổi kèm theo)&lt;/I&gt;</label>												
 					<type>label</type>
@@ -687,7 +592,7 @@
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </dia_chi_thua_dat>
             <dien_tich_thua_dat>
-                <label>Diện tích</label>
+                <label>Diện tích trên giấy chứng nhận đã cấp</label>
                 <type>textbox</type>
                 <data_format>text</data_format>
                 <optional>true</optional>
@@ -703,6 +608,23 @@
                 <readonly_in_edit_mode>false</readonly_in_edit_mode>
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </dien_tich_thua_dat>
+			<dt_chuyen_md>
+				<label>Diện tích xin chuyển mục đích</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>30%</width>
+
+
+				<note>m2</note>
+				<xml_data>true</xml_data>
+
+
+
+				<xml_tag_in_db>dt_chuyen_md</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</dt_chuyen_md>
 			<label_tip_top_4>
 				<label>&lt;B&gt;3. Nội dung chuyển mục đích &lt;/B&gt;</label>												
 				<type>label</type>
@@ -751,6 +673,24 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</noi_dung_sau>
+			<label_tip_top_16>
+				<label>3.3 Thời hạn sử dụng</label>
+				<type>label</type>
+			</label_tip_top_16>
+			<thoi_han>
+				<label>Thời hạn</label>
+				<width_label>25%;text-align:left;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<width>10%</width>
+				<optional>true</optional>
+				<max_length>1000</max_length>
+				<message></message>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>thoi_han</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</thoi_han>
 			<label_ly_do>
 				<label>&lt;B&gt;4. Lý do chuyển mục đích&lt;/B&gt;</label>												
 				<type>label</type>
