@@ -162,7 +162,11 @@ class record_searchController extends  Zend_Controller_Action {
         $arrRecord = $objSearch->eCSSearchGetAll($sRecordTypeId,$sRecordType,$dFromReceiveDate,$dToReceiveDate,$sFulltextsearch,$sStatus,$sOwnerCode,$sXmlTagList,$sXmlValueList,$sXmlOperatorList,$sXmlTrueFalseList,$sDelimetor,$iCurrentPage,$iNumberRecordPerPage);
         $genlist = $objXml->_xmlGenerateList($sXmlFileName,'col',$arrRecord, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sFulltextsearch,false,false,$sAction = '../viewrecord/status/index/');
         $arrResult[0]=sizeof($arrRecord);
-        $arrResult[1]=$arrRecord[0]['C_TOTAL_RECORD'];
+        if(isset($arrRecord[0])){
+            $arrResult[1]=$arrRecord[0]['C_TOTAL_RECORD'];
+        }else{
+            $arrResult[1] = 0;
+        }
         $arrResult[2]=$genlist;
         echo Zend_Json::encode($arrResult);
         exit;

@@ -167,6 +167,7 @@ record_search.prototype.loadlistrecord = function () {
         data: data,
         dataType: 'json',
         success: function (arrResult) {
+            console.log(111);
             $('#recordlist').html(arrResult[2]);
             if(arrResult[0]>0){
                 var total = arrResult[1];
