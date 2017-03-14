@@ -47,7 +47,7 @@
                             <fieldset class="normal_label" style="border: 1px solid #dddddd;">
                                 <legend style="border: 1px solid #DDDDDD;padding: 3px;box-shadow: 1px 2px 3px #888888;">Chọn phòng ban</legend>
 
-                                <?
+                                <?php
                                 foreach($arrDepartmentList as $key => $sDepartmentid) {
                                     $sDepartmentname = $objrecordfun->getNameUnitByIdUnitList($sDepartmentid);
                                     ?>
@@ -55,7 +55,7 @@
                                         <input style="float: left;" type="radio" class="normal_radiobutton" value="<?=$sDepartmentid;?>" <?=$checkDep?> name="chk_unit" id="chk_unit<?=$key;?>">
                                         <label style="float: left;padding-left: 5px;" for="chk_unit<?=$key;?>" class="normal_label"><?=$sDepartmentname;?> </label>
                                     </div>
-                                <?
+                                <?php
                                 }
                                 ?>
                             </fieldset>
@@ -70,7 +70,7 @@
                             <fieldset class="normal_label" style="border: 1px solid #dddddd;">
                                 <legend style="border: 1px solid #DDDDDD;padding: 3px;box-shadow: 1px 2px 3px #888888;">Chọn cán bộ</legend>
 
-                                <?
+                                <?php
                                 foreach($arrHandleList as $key => $sHandleid) {
                                     $sHandlename = $objrecordfun->getNamePositionStaffByIdList($sHandleid);
                                     ?>
@@ -78,7 +78,7 @@
                                         <input style="float: left;" type="radio" class="normal_radiobutton" value="<?=$sHandleid;?>" <?=$checkHand?> name="chk_handle" id="chk_handle<?=$key;?>">
                                         <label style="float: left;padding-left: 5px;" for="chk_handle<?=$key;?>" class="normal_label"><?=$sHandlename;?> </label>
                                     </div>
-                                <?
+                                <?php
                                 }
                                 ?>
                             </fieldset>
