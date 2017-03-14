@@ -170,6 +170,11 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
+					<tag_list>so_ho_khau,ngay_cap_ho_khau</tag_list>
+					<row_id>so_ho_khau</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
 					<tag_list>registor_name1</tag_list>
 					<row_id>registor_name1</row_id>
 				</update_row>
