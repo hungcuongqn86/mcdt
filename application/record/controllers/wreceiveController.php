@@ -409,6 +409,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
 				'C_LICENSE_XML_DATA' => '',
 				'C_OWNER_CODE' =>$_SESSION['OWNER_CODE'],																	
 				'NEW_FILE_ID_LIST'=>$arrFileNameUpload,
+                'C_WARD_END_DATE' => $ojbEfyLib->_ddmmyyyyToYYyymmdd($this->_request->getParam('C_WARD_END_DATE',''))
 			);	
 			$arrResult = $objReceive->eCSRecordUpdate($arrParameter);
 			//thuc hien update file dinh kem
@@ -461,6 +462,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
 		$srecordId = $this->_request->getParam('hdn_object_id','');
 		$this->view->srecordId = $srecordId;
 		$arrSingleRecord = $objrecordfun->eCSRecordGetSingle($srecordId, $_SESSION['OWNER_CODE'],'');
+		//var_dump($arrSingleRecord);
 		$this->view->arrSingleRecord = $arrSingleRecord;
 		$this->view->RecodeCode = $arrSingleRecord[0]['C_CODE'];
 		if($this->_request->getParam('rc') != '')

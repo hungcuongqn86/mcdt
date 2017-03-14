@@ -26,6 +26,7 @@ class record_modReceive extends Extra_Db {
 		$psSql .= ",'" . $arrParameter['C_LICENSE_XML_DATA'] . "'";
 		$psSql .= ",'" . $arrParameter['C_OWNER_CODE'] . "'";
 		$psSql .= ",'" . $arrParameter['NEW_FILE_ID_LIST'] . "'";
+        $psSql .= ",'" . $arrParameter['C_WARD_END_DATE'] . "'";
 		//echo $psSql; exit;
 		try {			
 			$arrTempResult = $this->adodbExecSqlString($psSql) ; 
