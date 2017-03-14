@@ -770,7 +770,7 @@ class Extra_Ecs
         $sql = $sql . ",'" . $sfulltextsearch . "'";
         $sql = $sql . ",'" . $iPage . "'";
         $sql = $sql . ",'" . $iNumberRecordPerPage . "'";
-        //echo $sql . '<br>'; //exit;
+        echo $sql . '<br>'; //exit;
         try {
             $arrResul = $objConn->adodbQueryDataInNameMode($sql);
         } catch (Exception $e) {
