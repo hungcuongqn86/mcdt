@@ -88,13 +88,52 @@
 			<field_name></field_name>
 		</replace>
 
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#THUA_SO#</find_string>
-            <xml_tag_in_db>thua_dat_so</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#THUA_SO#</find_string>
+			<xml_tag_in_db>thua_dat_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TO_BANDO#</find_string>
+			<xml_tag_in_db>ban_do_so_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DIEN_TICH#</find_string>
+			<xml_tag_in_db>dien_tich_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#THUA_SO1#</find_string>
+			<xml_tag_in_db>thua_dat_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TO_BANDO1#</find_string>
+			<xml_tag_in_db>ban_do_so_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DIEN_TICH1#</find_string>
+			<xml_tag_in_db>dien_tich_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+
+
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
