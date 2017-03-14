@@ -60,28 +60,8 @@
 	</list_of_object>
 	<list_print>
 		<item_print>
-			<label>Bản cam kết</label>
-			<tempcode>ban_cam_ket</tempcode>
-		</item_print>
-		<item_print>
-			<label>Phiếu lấy ý kiến khu dân cư (Mẫu 05/ĐK)</label>
-			<tempcode>phieu_lay_y_kien_05dk</tempcode>
-		</item_print>
-		<item_print>
-			<label>Danh sách công khai (Mẫu 06)</label>
-			<tempcode>danh_sach_cong_khai_03bdstncn</tempcode>
-		</item_print>
-		<item_print>
 			<label>Đơn đăng ký (Mẫu 04a/ĐK)</label>
 			<tempcode>don_dang_ky_04adk</tempcode>
-		</item_print>
-		<item_print>
-			<label>Tờ khai tiền sử dụng đất (Mẫu 01/TSDĐ)</label>
-			<tempcode>tk_tien_su_dung_dat_01tsdd</tempcode>
-		</item_print>
-		<item_print>
-			<label>Tờ khai lệ phí trước bạ (Mẫu 01/LPTB)</label>
-			<tempcode>tk_le_phi_truoc_ba_01lptb</tempcode>
 		</item_print>
 	</list_print>
 	<update_object>
@@ -518,7 +498,7 @@
 			<hinh_thuc_hs>
 				<label>Hình thức hồ sơ</label>
 				<type>selectbox</type>
-				<selectbox_option_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', '0328_DM_HT'</selectbox_option_sql>
+				<selectbox_option_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', '0324_DM_HT'</selectbox_option_sql>
 				<selectbox_option_id_column>0</selectbox_option_id_column>
 				<selectbox_option_name_column>1</selectbox_option_name_column>
 				<selectbox_option_value_column>1</selectbox_option_value_column>
