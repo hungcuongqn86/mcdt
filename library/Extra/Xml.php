@@ -1760,6 +1760,7 @@ class Extra_Xml extends RAX
         Zend_Loader::loadClass('Extra_Util');
         $arr_all_cooperator = explode(",", $p_valuelist);
         $v_cooperator_count = sizeof($arr_all_cooperator);
+        $strHTML = '';
         if (trim($p_valuelist) != "" && trim($p_valuelist) != "0") {
             $strHTML = '<table class="list_table2" width="100%" cellpadding="0" cellspacing="0">';
             $strHTML = $strHTML . '<col width="10%"><col width="25%"><col width="25%"><col width="30%"><col width="10%">';

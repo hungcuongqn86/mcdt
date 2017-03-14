@@ -897,7 +897,7 @@ class Extra_Util
         $strTop .= '<param name="opening_node_img_name" value="' . $sPath . $opening_node_img_name . '"/>' . "\n";
         $strTop .= '<param name="closing_node_img_name" value="' . $sPath . $closing_node_img_name . '"/>' . "\n";
         $strTop .= '<param name="leaf_node_img_name" value="' . $sPath . $leaf_node_img_name . '"/>' . "\n";
-        $strTop .= '<param name="modal_dialog_mode" value="' . $_MODAL_DIALOG_MODE . '"/>' . "\n";
+        $strTop .= '<param name="modal_dialog_mode" value="0"/>' . "\n";
         $strTop .= '<param name="show_control" value="' . $show_control . '"/>' . "\n";
         $strTop .= '<param name="select_parent" value="' . $select_parent . '"/>' . "\n";
         $strTop .= "</custom-parameters>" . "\n";
