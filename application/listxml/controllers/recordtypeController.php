@@ -235,7 +235,7 @@ class listxml_recordtypeController extends  Zend_Controller_Action {
         //Lay DM Linh vuc TTHC
         $this->view->arrCate = $objFunction->getAllObjectbyListCode($sOwnerCode,"DANH_MUC_LINH_VUC",1);
         //Lay So cap duyet
-        $this->view->arrApproveLevel = $objFunction->getAllObjectbyListCode($sOwnerCode,"DANH_MUC_CAP_DUYET",1);
+        $this->view->arrApproveLevel = $objFunction->getAllObjectbyListCode($sOwnerCode,"DANH_MUC_CAP_DUYET",0);
         //Lay Autocomplete Cac phong ban
         $this->view->arr_autocomplete_department = $objFunction->doc_search_ajax($_SESSION['arr_all_unit'],"id","name","C_DEPARTMENT_LIST","hdn_department_list",0,"",0);
         //Lay Pk cua TTHC can hieu chinh

@@ -591,7 +591,7 @@ class Extra_Ecs
         $sql = $sql . " ,'" . $sCode . "'";
         //echo $sql . '<br>';exit;
         try {
-            $arrObject = $objConn->adodbQueryDataInNameMode($sql, $optCache);
+            $arrObject = $objConn->adodbQueryDataInNameMode($sql, 0);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
