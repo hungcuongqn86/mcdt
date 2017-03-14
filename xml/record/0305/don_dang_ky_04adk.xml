@@ -3,23 +3,11 @@
     <replace_list>
         <replace>
             <from_xml_data>true</from_xml_data>
-            <data_format>list_info</data_format>
-            <lable_list>Ông#sinh năm#số CMND</lable_list>
-            <field_list>nguoi_nhan_b1,nam_sinh_b1,cmnd_nguoi_nhan_b1</field_list>
-            <find_string>#NAME_B1#</find_string>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>list_info</data_format>
-            <lable_list>Bà#sinh năm#số CMND</lable_list>
-            <field_list>nguoi_nhan_b2,nam_sinh_b2,cmnd_nguoi_nhan_b2</field_list>
-            <find_string>#NAME_B2#</find_string>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>dia_chi_nguoi_nhan_b1,dia_chi_nguoi_nhan_b2</field_list>
-            <find_string>#DC_B#</find_string>
+            <data_format>formfieldata</data_format>
+            <sblockname>blockbenb</sblockname>ss
+            <find_string_list>POS,NAME_B,NS_B,CMT_B,DC_B</find_string_list>
+            <field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+            <xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
@@ -78,6 +66,12 @@
             <note_list>: #</note_list>
             <find_string>#THOI_HAN_SD#</find_string>
             <xml_tag_in_db>ds_loai_dat</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#TL_KEM_THEO#</find_string>
+            <xml_tag_in_db>tai_lieu_kt</xml_tag_in_db>
         </replace>
     </replace_list>
 </root>

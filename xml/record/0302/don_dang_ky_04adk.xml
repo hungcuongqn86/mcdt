@@ -67,5 +67,11 @@
             <find_string>#THOI_HAN_SD#</find_string>
             <xml_tag_in_db>ds_loai_dat</xml_tag_in_db>
         </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#TL_KEM_THEO#</find_string>
+            <xml_tag_in_db>tai_lieu_kt</xml_tag_in_db>
+        </replace>
     </replace_list>
 </root>
