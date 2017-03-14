@@ -170,8 +170,8 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>so_ho_khau,ngay_cap_ho_khau</tag_list>
-					<row_id>so_ho_khau</row_id>
+					<tag_list>mst</tag_list>
+					<row_id>mst</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -666,6 +666,7 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</so_ho_khau>
+
 			<ngay_cap_ho_khau>
 				<label>Ngày cấp</label>
 				<width_label>13%;text-align:left;padding-left:5px;</width_label>
@@ -683,6 +684,22 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ngay_cap_ho_khau>
+			<mst>
+				<label>Mã số thuế</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.4%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>mst</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</mst>
 			<registor_name1>
 				<label>&lt;left&gt; &lt;B&gt;Người sử dụng đất (Bà)&lt;/B&gt; &lt;/left&gt;</label>
 				<type>textbox</type>
