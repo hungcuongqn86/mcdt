@@ -493,7 +493,7 @@ style='mso-tab-count:2'>                      </span>Điệ
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Nội dung:<span
-style='mso-spacerun:yes'>  </span>Đăng ký biến động quyền sử dụng đất</span></p>
+style='mso-spacerun:yes'>  </span>Chuyển nhượng quyền sử dụng đất</span></p>
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Thành phần hồ sơ:<o:p></o:p></span></p>
@@ -524,17 +524,18 @@ line-height:120%;mso-ansi-language:EN-US'>Trả kết quả thuế vào ngày (�
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Trả kết quả GCN QSD Đất vào
-ngày:……………<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><strong>#APPOINTED_DATE#</strong></span>…………………</span></p>
+ngày:………………………<span
+    style='font-size:12.0pt;font-family:"Times New Roman","serif"'><strong>#APPOINTED_DATE#</strong><b>
+<o:p></o:p>
+</b></span>…………</span></p>
 
 <p class=MsoNormal style='line-height:120%'><b style='mso-bidi-font-weight:
 normal'><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:EN-US'><span
-style='mso-tab-count:1'>            </span><span class="MsoNormal" style="line-height:120%"><b style='mso-bidi-font-weight:
-normal'><span
-style='mso-tab-count:1'></span>CÁN BỘ TN&amp;TKQ<span style='mso-tab-count:
+style='mso-tab-count:1'>            </span>CÁN BỘ TN&amp;TKQ<span style='mso-tab-count:
 5'>                                                  </span>LÃNH ĐẠO VĂN
-PHÒNG</b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
-EN-US'></span></span></span></b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
-EN-US'><o:p></o:p></span></p>
+PHÒNG</span></b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
+EN-US'>
+<o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>

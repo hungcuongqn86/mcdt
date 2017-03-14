@@ -53,7 +53,7 @@
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<xml_tag_in_db>obj_year</xml_tag_in_db>
-				<width>10%</width>
+				<width>12%</width>
 			</obj_year>
 			<obj_address>
 				<label>Địa chỉ thường trú</label>
@@ -113,7 +113,7 @@
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<xml_tag_in_db>obj_xom</xml_tag_in_db>
-				<width>15%</width>
+				<width>12%</width>
 			</obj_xom>
 		</update_formfield_list>
 	</update_object>

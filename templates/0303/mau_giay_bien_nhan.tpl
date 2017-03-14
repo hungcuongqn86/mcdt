@@ -911,13 +911,12 @@ table.MsoTableGrid
     mso-bidi-font-weight:bold'><b> </b></span><span style='font-size:12.0pt;
     font-family:"Times New Roman","serif"'>#TELEPHONE#<b><o:p></o:p></b></span></p>    </td>
    </tr>
-   
    <tr style='mso-yfti-irow:10'>
      <td colspan=7 valign=top style='width:371.25pt;border:none;
     border-right:dotted black 1.0pt;mso-border-right-alt:dotted black .75pt;
     padding:0cm 5.4pt 0cm 5.4pt'><span style="font-size:13.0pt;
-line-height:120%;mso-ansi-language:EN-US"><strong>Nội dung:</strong><span
-style='mso-spacerun:yes'>  </span>Đăng ký biến động quyền sử dụng đất</span></td>
+line-height:120%;mso-ansi-language:EN-US"><strong>Nội dung: </strong><span
+style='mso-spacerun:yes'> </span>Chuyển nhượng quyền sử dụng đất</span></td>
    </tr>
    <tr style='mso-yfti-irow:10'>
     <td colspan=7 valign=top style='width:371.25pt;border:none;
@@ -1113,7 +1112,7 @@ style='mso-spacerun:yes'>  </span>Đăng ký biến động quyền sử dụng
     padding:0cm 5.4pt 0cm 5.4pt'></td>
    </tr>
    <tr style='mso-yfti-irow:28'>
-    <td colspan=7 valign=top style='width:500px;border:none; border-right:dotted 1px;'>
+   <td colspan=7 valign=top style='width:500px;padding:0cm 5.4pt 0cm 5.4pt; border-right:dotted 1px;'>
    	<p class=msonormal1 align=center style='text-align:center; font-family:'Times New Roman', Times, serif;'><em><span
     style='font-size:10.0pt; font-family:Times New Roman;'>Để tra cứu thông tin hồ sơ, cán bộ đưa vào máy quét
     mã vạch hoặc nhập mã số hồ sơ vào ô tra cứu và nhấn phím Enter (không nhập
@@ -1293,11 +1292,10 @@ style='mso-spacerun:yes'>  </span>Đăng ký biến động quyền sử dụng
     font-family:"Times New Roman","serif"'>#TELEPHONE#<b><o:p></o:p></b></span></p>    </td>
    </tr>
    
-   
    <tr style='mso-yfti-irow:10'>
      <td colspan=7 valign=top style='width:371.25pt;padding:0cm 5.4pt 0cm 5.4pt'><span style="font-size:13.0pt;
-line-height:120%;mso-ansi-language:EN-US"><strong>Nội dung:</strong><span
-style='mso-spacerun:yes'>  </span>Đăng ký biến động quyền sử dụng đất</span></td>
+line-height:120%;mso-ansi-language:EN-US"><strong>Nội dung: </strong><span
+style='mso-spacerun:yes'> </span>Chuyển nhượng quyền sử dụng đất</span></td>
    </tr>
    <tr style='mso-yfti-irow:10'>
     <td colspan=7 valign=top style='width:371.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
