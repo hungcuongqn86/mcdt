@@ -156,9 +156,9 @@ class record_wreceiveController extends  Zend_Controller_Action {
 		$this->view->sRecordTypeCode = $sRecordTypeCode;
 		$this->view->sRecordTypeId = $sRecordTypeId;
 
-		$sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/ho_so_da_tiep_nhan.xml';
+		$sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/ho_so_da_tiep_nhan_tai_xa.xml';
 		if(!file_exists($sxmlFileName)){
-			$sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_da_tiep_nhan.xml';	
+			$sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_da_tiep_nhan_tai_xa.xml';
 		}
 
 		//Day gia tri tim kiem ra view
