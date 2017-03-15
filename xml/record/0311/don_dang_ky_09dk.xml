@@ -3,16 +3,20 @@
     <replace_list>
         <replace>
             <from_xml_data>true</from_xml_data>
-            <data_format>list_info</data_format>
-            <lable_list>Ông#sinh năm#số CMND#ngày cấp#nơi cấp</lable_list>
-            <field_list>registor_name,nam_sinh,so_cmnd_nk,ngay_cap_socmnd_nk,noi_cap_socmnd_nk</field_list>
-            <find_string>#NAME_A1#</find_string>
+            <data_format>formfieldata</data_format>
+            <sblockname>blockbenb</sblockname>ss
+            <find_string_list>POS,NAME_B,NS_B,CMT_B,DC_B</find_string_list>
+            <field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+            <xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#DC_A#</find_string>
-            <xml_tag_in_db>registor_address</xml_tag_in_db>
+            <data_format>formfieldatatax</data_format>
+            <find_string_list>DIACHI_B</find_string_list>
+            <field_list>obj_address</field_list>
+            <tax_tag>obj_address</tax_tag>
+            <tax_prefix>B</tax_prefix>
+            <xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
@@ -36,13 +40,13 @@
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#NOI_DUNG_TRUOC_BD#</find_string>
-            <xml_tag_in_db>noi_dung_truoc</xml_tag_in_db>
+            <xml_tag_in_db>nd_truoc_bd</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#NOI_DUNG_SAU_BD#</find_string>
-            <xml_tag_in_db>noi_dung_sau</xml_tag_in_db>
+            <xml_tag_in_db>nd_sau_bd</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>

@@ -524,14 +524,18 @@ line-height:120%;mso-ansi-language:EN-US'>Trả kết quả thuế vào ngày (�
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Trả kết quả GCN QSD Đất vào
-ngày:……………………<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><strong>#APPOINTED_DATE#</strong></span>………………</span></p>
+ngày:………………………<span
+    style='font-size:12.0pt;font-family:"Times New Roman","serif"'><strong>#APPOINTED_DATE#</strong><b>
+<o:p></o:p>
+</b></span>…………</span></p>
 
 <p class=MsoNormal style='line-height:120%'><b style='mso-bidi-font-weight:
 normal'><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:EN-US'><span
-style='mso-tab-count:1'>            </span>PHỤ TRÁCH TT<span style='mso-tab-count:
-5'>                                                     </span>LÃNH ĐẠO VĂN
+style='mso-tab-count:1'>            </span>CÁN BỘ TN&amp;TKQ<span style='mso-tab-count:
+5'>                                                  </span>LÃNH ĐẠO VĂN
 PHÒNG</span></b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
-EN-US'><o:p></o:p></span></p>
+EN-US'>
+<o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>

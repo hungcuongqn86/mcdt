@@ -40,14 +40,14 @@
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
 			<find_string>#NAME#</find_string>
-			<xml_tag_in_db>registor_name</xml_tag_in_db>
+			<xml_tag_in_db>ten_nguoi_nop_hs</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
 			<find_string>#ADDRESS#</find_string>
-			<xml_tag_in_db>registor_address</xml_tag_in_db>
+			<xml_tag_in_db>dia_chi_nguoi_nop_hs</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
