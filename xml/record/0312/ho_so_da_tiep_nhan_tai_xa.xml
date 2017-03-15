@@ -66,6 +66,12 @@
 			</col>			
 		</list_body>
 	</list_of_object>
+	<list_print>
+		<item_print>
+			<label>Đơn xin giao đất, cho thuê đất</label>
+			<tempcode>don_xin_giao_dat</tempcode>
+		</item_print>
+	</list_print>
 	<update_object>
 		<table_struct_of_update_form> 
 			<update_row_list>	<!--Phan mo ta cac dong Form cap nhat doi tuong-->
