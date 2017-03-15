@@ -105,13 +105,7 @@ class Extra_Db extends Zend_Db {
 		global $adoConn;
 		//Thoi gian Cache
 		$adoConn->SetFetchMode(ADODB_FETCH_ASSOC);
-		if ($optCache == ""){
-			$ArrAllData = $adoConn->GetArray($sql); 
-		}else{
-			global $ADODB_CACHE_TIMEOUT;
-			$cacheTime = $ADODB_CACHE_TIMEOUT;
-			$ArrAllData = $adoConn->CacheGetAll($cacheTime,$sql); 
-		}
+        $ArrAllData = $adoConn->GetArray($sql);
 		return $ArrAllData;
 	}
 
