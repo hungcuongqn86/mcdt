@@ -1374,7 +1374,6 @@ class Extra_Ecs
 
                     if ($sDataFormat == "formfieldatatolist"){
                         $sfind_string = $arrElement["find_string"];
-                        $key = '#'.$sfind_string.'#';
                         $sfield_tag = $arrElement["field_tag"];
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
@@ -1391,7 +1390,7 @@ class Extra_Ecs
                             }
                         }
                         //var_dump($arrDocx);exit;
-                        $phpdocx->assign($key,$str_value);
+                        $phpdocx->assign($sfind_string,$str_value);
                     }
 
                     if ($sDataFormat == "formfieldatatax"){
