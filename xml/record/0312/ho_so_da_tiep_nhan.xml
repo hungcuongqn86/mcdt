@@ -100,17 +100,22 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>phuong_xa</tag_list>
 					<row_id>id_phuong_xa</row_id>
-				</update_row>				
+				</update_row>
+<!-- Ket thuc phan mo ta thong tin nguoi nop HS -->
+				<update_row>
+					<have_line_before>true</have_line_before>
+					<tag_list>label_hop_thua_nguoi</tag_list>
+					<row_id>label_hop_thua_nguoi</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>ben_chuyen_nhuong</tag_list>
+					<row_id>row_ben_chuyen_nhuong</row_id>
+				</update_row>
 				<update_row>
 					<have_line_before>true</have_line_before>
 					<tag_list>thong_tin_ho_so</tag_list>
-					<row_id>id_thong_tin_ho_so</row_id>
-				</update_row>
-<!-- Ket thuc phan mo ta thong tin nguoi nop HS -->		
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>registor_name</tag_list>
-					<row_id>registor_name</row_id>
+					<row_id>thong_tin_ho_so</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -190,7 +195,24 @@
 			</update_row_list>
 		</table_struct_of_update_form>
 		<update_formfield_list>	
-			<!-- Phan mo ta chi tiet thong tin nguoi nop hs -->			
+			<!-- Phan mo ta chi tiet thong tin nguoi nop hs -->
+			<label_hop_thua_nguoi>
+				<label>&lt;b&gt;THÔNG TIN NGƯỜI SỬ DỤNG ĐẤT&lt;/b&gt;</label>
+				<type>label</type>
+			</label_hop_thua_nguoi>
+			<ben_chuyen_nhuong>
+				<type>formfieldata</type>
+				<file_name_xml>ds_staff_info</file_name_xml>
+				<width>70%</width>
+				<row>3</row>
+				<optional>false</optional>
+				<max_length>200</max_length>
+				<message>Phải nhập thông tin bên chuyển nhượng!</message>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ben_chuyen_nhuong>
 			<hinh_thuc_nop_hs>
 				<label>Cách thức nộp hồ sơ</label>
 				<type>selectbox</type>
@@ -230,12 +252,13 @@
 				<xml_tag_in_db>loai_hs</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</loai_hs>						<thong_tin_nguoi_nop>
-				<label>&lt;center&gt;&lt;B&gt;THÔNG TIN NGƯỜI NỘP HỒ SƠ&lt;/B&gt;&lt;/center&gt;</label>			
+			</loai_hs>
+			<thong_tin_nguoi_nop>
+				<label>&lt;B&gt;THÔNG TIN NGƯỜI NỘP HỒ SƠ&lt;/B&gt;&lt;/center&gt;</label>
 				<type>label</type>
 			</thong_tin_nguoi_nop>
 			<thong_tin_ho_so>
-				<label>&lt;center&gt;&lt;B&gt;THÔNG TIN HỒ SƠ&lt;/B&gt;&lt;/center&gt;</label>			
+				<label>&lt;B&gt;THÔNG TIN HỒ SƠ&lt;/B&gt;&lt;/center&gt;</label>
 				<type>label</type>
 			</thong_tin_ho_so>	
 			<ten_nguoi_nop_hs>
