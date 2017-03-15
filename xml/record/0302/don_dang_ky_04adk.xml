@@ -41,7 +41,7 @@
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#THOI_DIEM#</find_string>
-            <xml_tag_in_db>nguon_goc_su_dung</xml_tag_in_db>
+            <xml_tag_in_db>thoi_diem_sd</xml_tag_in_db>
             <field_name></field_name>
         </replace>
         <replace>

@@ -203,6 +203,11 @@
                 </update_row>
                 <update_row>
                     <have_line_before>false</have_line_before>
+                    <tag_list>thoi_diem_sd</tag_list>
+                    <row_id>thoi_diem_sd</row_id>
+                </update_row>
+                <update_row>
+                    <have_line_before>false</have_line_before>
                     <tag_list>nguon_goc_su_dung</tag_list>
                     <row_id>nguon_goc_su_dung</row_id>
                 </update_row>
@@ -235,6 +240,21 @@
                     <have_line_before>false</have_line_before>
                     <tag_list>business_capital_string</tag_list>
                     <row_id>business_capital_string</row_id>
+                </update_row>
+                <update_row>
+                    <have_line_before>false</have_line_before>
+                    <tag_list>nd_truoc_bd</tag_list>
+                    <row_id>nd_truoc_bd</row_id>
+                </update_row>
+                <update_row>
+                    <have_line_before>false</have_line_before>
+                    <tag_list>nd_sau_bd</tag_list>
+                    <row_id>nd_sau_bd</row_id>
+                </update_row>
+                <update_row>
+                    <have_line_before>false</have_line_before>
+                    <tag_list>lydo_bd</tag_list>
+                    <row_id>lydo_bd</row_id>
                 </update_row>
                 <update_row>
                     <have_line_before>true</have_line_before>
@@ -685,7 +705,17 @@
                 <readonly_in_edit_mode>false</readonly_in_edit_mode>
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </ds_loai_dat>
-
+            <thoi_diem_sd>
+                <label>Sử dụng từ thời điểm</label>
+                <type>textarea</type>
+                <data_format>text</data_format>
+                <optional>true</optional>
+                <width>72.4%</width>
+                <xml_data>true</xml_data>
+                <xml_tag_in_db>thoi_diem_sd</xml_tag_in_db>
+                <readonly_in_edit_mode>false</readonly_in_edit_mode>
+                <disabled_in_edit_mode>false</disabled_in_edit_mode>
+            </thoi_diem_sd>
 
             <nguon_goc_su_dung>
                 <label>Nguồn gốc sử dụng</label>
@@ -806,6 +836,40 @@
                 <readonly_in_edit_mode>false</readonly_in_edit_mode>
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </business_capital_string>
+
+            <nd_truoc_bd>
+                <label>Nội dung trước khi biến động</label>
+                <type>textarea</type>
+                <data_format>text</data_format>
+                <optional>true</optional>
+                <width>72.4%</width>
+                <xml_data>true</xml_data>
+                <xml_tag_in_db>nd_truoc_bd</xml_tag_in_db>
+                <readonly_in_edit_mode>false</readonly_in_edit_mode>
+                <disabled_in_edit_mode>false</disabled_in_edit_mode>
+            </nd_truoc_bd>
+            <nd_sau_bd>
+                <label>Nội dung sau khi biến động</label>
+                <type>textarea</type>
+                <data_format>text</data_format>
+                <optional>true</optional>
+                <width>72.4%</width>
+                <xml_data>true</xml_data>
+                <xml_tag_in_db>nd_sau_bd</xml_tag_in_db>
+                <readonly_in_edit_mode>false</readonly_in_edit_mode>
+                <disabled_in_edit_mode>false</disabled_in_edit_mode>
+            </nd_sau_bd>
+            <lydo_bd>
+                <label>Lý do biến động</label>
+                <type>textarea</type>
+                <data_format>text</data_format>
+                <optional>true</optional>
+                <width>72.4%</width>
+                <xml_data>true</xml_data>
+                <xml_tag_in_db>lydo_bd</xml_tag_in_db>
+                <readonly_in_edit_mode>false</readonly_in_edit_mode>
+                <disabled_in_edit_mode>false</disabled_in_edit_mode>
+            </lydo_bd>
 
             <tai_lieu_kt>
                 <label>Tài liệu kèm theo đơn</label>

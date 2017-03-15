@@ -12,8 +12,24 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>formfieldata</data_format>
+            <sblockname>blockbenc</sblockname>
+            <find_string_list>POS_C,NAME_C,NS_C,CMT_C,DC_C</find_string_list>
+            <field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+            <xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>formfieldata</data_format>
             <sblockname>blockbenb</sblockname>ss
             <find_string_list>POS,NAME_B,NS_B,CMT_B,DC_B</find_string_list>
+            <field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+            <xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>formfieldata</data_format>
+            <sblockname>blockbend</sblockname>ss
+            <find_string_list>POS_D,NAME_D,NS_D,CMT_D,DC_D</find_string_list>
             <field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
             <xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
         </replace>
