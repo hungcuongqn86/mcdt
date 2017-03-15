@@ -3,51 +3,48 @@
     <replace_list>
         <replace>
             <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>registor_name,registor_name_other</field_list>
-            <find_string>#NAME_A#</find_string>
+            <data_format>formfieldatatax</data_format>
+            <find_string_list>NAME_A,NS_A,CMT_A,NGAY_CMT_A,NOICAP_CMT_A,DC_A,DIENTHOAI_A,XOM_A,XA_A</find_string_list>
+            <field_list>obj_name,obj_year,obj_id,obj_id_day,obj_id_unit,obj_address,obj_phone,obj_ads,obj_xom</field_list>
+            <tax_tag>obj_taxcode</tax_tag>
+            <tax_prefix>A</tax_prefix>
+            <xml_tag_in_db>ben_phan_chia</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>cmnd_nguoi_chuyen,cmnd_nguoi_chuyen_a2</field_list>
-            <find_string>#CMT_A#</find_string>
+            <data_format>formfieldatatax</data_format>
+            <find_string_list>NAME_B,NS_B,CMT_B,NGAY_CMT_B,NOICAP_CMT_B,DC_B,DIENTHOAI_B,XOM_B,XA_B</find_string_list>
+            <field_list>obj_name,obj_year,obj_id,obj_id_day,obj_id_unit,obj_address,obj_phone,obj_ads,obj_xom</field_list>
+            <tax_tag>obj_taxcode</tax_tag>
+            <tax_prefix>B</tax_prefix>
+            <xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>ngay_cap_socmnd_nk_ben_chuyen,ngay_cap_socmnd_nk_ben_chuyen_a2</field_list>
-            <find_string>#NGAY_CMT_A#</find_string>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>noi_cap_socmnd_nk_ben_chuyen,noi_cap_socmnd_nk_ben_chuyen_a2</field_list>
-            <find_string>#NOICAP_CMT_A#</find_string>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>registor_address,registor_address_other</field_list>
-            <find_string>#DC_A#</find_string>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>dt_nguoi_chuyen,dt_nguoi_chuyen_a2</field_list>
+            <data_format>text</data_format>
             <find_string>#PHONE_A#</find_string>
+            <xml_tag_in_db>dien_thoai_nguoi_nop_hs</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
-            <find_string>#SO_GCN#</find_string>
+            <find_string>#SO_PH#</find_string>
             <xml_tag_in_db>so_phat_hanh</xml_tag_in_db>
+            <field_name></field_name>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
-            <find_string>#NGAY_VAO_SO#</find_string>
+            <find_string>#SO_VS#</find_string>
+            <xml_tag_in_db>so_vao_so</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#TG_PH#</find_string>
             <xml_tag_in_db>ngay_vao_so</xml_tag_in_db>
+            <field_name></field_name>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
@@ -60,8 +57,8 @@
             <data_format>datatable</data_format>
             <sblockname>blockdientich</sblockname>
             <find_string_list>DAT,DIEN_TICH</find_string_list>
-            <field_list>LOAI_DAT_MD,DIEN_TICH_MD</field_list>
-            <xml_tag_in_db>ds_loai_dat</xml_tag_in_db>
+            <field_list>LOAI_DAT,DIEN_TICH</field_list>
+            <xml_tag_in_db>trong_do</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>

@@ -3,21 +3,12 @@
     <replace_list>
         <replace>
             <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>nguoi_nhan,nguoi_nhan_b2</field_list>
-            <find_string>#NAME_B#</find_string>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>dia_chi_nguoi_nhan,dia_chi_nguoi_nhan_b1</field_list>
-            <find_string>#DC_B#</find_string>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>dt_nguoi_nhan_b1,dt_nguoi_nhan_b1</field_list>
-            <find_string>#PHONE_B#</find_string>
+            <data_format>formfieldatatax</data_format>
+            <find_string_list>NAME_B,NS_B,CMT_B,NGAY_CMT_B,NOICAP_CMT_B,DC_B,DIENTHOAI_B,XOM_B,XA_B</find_string_list>
+            <field_list>obj_name,obj_year,obj_id,obj_id_day,obj_id_unit,obj_address,obj_phone,obj_ads,obj_xom</field_list>
+            <tax_tag>obj_taxcode</tax_tag>
+            <tax_prefix>B</tax_prefix>
+            <xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>

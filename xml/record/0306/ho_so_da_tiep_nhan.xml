@@ -492,15 +492,15 @@
 			</ben_chuyen_nhuong>
 
 			<thong_tin_ben_c>
-				<label>&lt;B&gt;THÔNG TIN DANH SÁCH NHỮNG NGƯỜI ĐỒNG Ý PHÂN CHIA TÀI SẢN&lt;/B&gt;</label>
+				<label>&lt;B&gt;DANH SÁCH NHỮNG NGƯỜI ĐỒNG Ý PHÂN CHIA TÀI SẢN&lt;/B&gt;</label>
 				<type>label</type>
 			</thong_tin_ben_c>
 			<ben_phan_chia>
 				<type>formfieldata</type>
-				<file_name_xml>ds_staff_info</file_name_xml>
+				<file_name_xml>ds_thutuc_thuake</file_name_xml>
 				<width>70%</width>
 				<row>3</row>
-				<optional>false</optional>
+				<optional>true</optional>
 				<max_length>200</max_length>
 				<message>Phải nhập thông tin bên chuyển nhượng!</message>
 				<xml_data>true</xml_data>
@@ -515,12 +515,12 @@
 			</thong_tin_ben_b>
 			<ben_nhan_chuyen_nhuong>
 				<type>formfieldata</type>
-				<file_name_xml>ds_thutuc_thuake</file_name_xml>
+				<file_name_xml>ds_staff_info</file_name_xml>
 				<width>70%</width>
 				<row>3</row>
-				<optional>false</optional>
+				<optional>true</optional>
 				<max_length>200</max_length>
-				<message>Phải nhập thông tin bên nhận chuyển nhượng!</message>
+				<message>Phải nhập thông tin người thừa kế!</message>
 				<xml_data>true</xml_data>
 				<xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
