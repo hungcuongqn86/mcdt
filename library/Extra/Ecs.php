@@ -1372,6 +1372,28 @@ class Extra_Ecs
                         $phpdocx->assignBlock($sBlockName, $arrDocx);
                     }
 
+                    if ($sDataFormat == "formfieldatatolist"){
+                        $sfind_string = $arrElement["find_string"];
+                        $key = '#'.$sfind_string.'#';
+                        $sfield_tag = $arrElement["field_tag"];
+                        $sValue = htmlspecialchars_decode($sValue);
+                        $arrValue = json_decode($sValue);
+                        $str_value = '';
+                        if($arrValue){
+                            foreach ($arrValue as $index => $value) {
+                                if(property_exists($value,$sfield_tag)){
+                                    if($str_value==''){
+                                        $str_value .= $value->$sfield_tag;
+                                    }else{
+                                        $str_value .= ', '.$value->$sfield_tag;
+                                    }
+                                }
+                            }
+                        }
+                        //var_dump($arrDocx);exit;
+                        $phpdocx->assign($key,$str_value);
+                    }
+
                     if ($sDataFormat == "formfieldatatax"){
                         $sfind_string_list = $arrElement["find_string_list"];
                         $arrfind_string = explode(',',$sfind_string_list);
