@@ -2403,7 +2403,6 @@ class Extra_Ecs
     public function _createFolder($pathLink, $folderYear, $folderMonth, $sCurrentDay = "")
     {
         $sPath = $pathLink;
-        var_dump(file_exists($sPath . $folderYear));
         if (!file_exists($sPath . $folderYear)) {
             mkdir($sPath . $folderYear, 0777,true);
             $sPath = $sPath . $folderYear;
@@ -2413,13 +2412,12 @@ class Extra_Ecs
         } else {
             $sPath = $sPath . $folderYear;
         }
-        echo $sPath;exit;
         //Tao ngay trong nam->thang
         //echo $sPath . chr(92) . $folderMonth . chr(92) . $sCurrentDay;exit;
         if (!file_exists($sPath . chr(92) . $folderMonth . chr(92) . $sCurrentDay)) {
             mkdir($sPath . chr(92) . $folderMonth . chr(92) . $sCurrentDay, 0777);
         }
-        $strReturn = str_replace("\\", "/", $root) . $pathLink . $folderYear . '/' . $folderMonth . '/' . $sCurrentDay . '/';
+        $strReturn = $sPath .'/'. $folderMonth . '/' . $sCurrentDay . '/';
         //echo $strReturn;exit;
         return $strReturn;
     }
@@ -2449,7 +2447,6 @@ class Extra_Ecs
             // Neu la file
             if ($arrAttach[$index] != "" && (is_file($_FILES[$sAttachFileName]['name']) || $_FILES[$sAttachFileName]['name'] != '')) {
                 //echo 'full file name:'. $sFullFileName; exit;
-                echo $path . self::_convertVNtoEN($sFullFileName);exit;
                 move_uploaded_file($_FILES[$sAttachFileName]['tmp_name'], $path . self::_convertVNtoEN($sFullFileName));
                 $sFileNameList .= $arrAttach[$index] . ':' . $sFullFileName . $sDelimitor;
             }

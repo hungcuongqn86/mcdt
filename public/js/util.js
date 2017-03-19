@@ -3450,6 +3450,6 @@ function convert_number_to_string_acreage(p_obj, stringobj) {
 }
 
 function open_new_tab(url) {
-    var win = window.open(url, '_blank');
+    var win = window.open(_GET_HTTP_AND_HOST+url, '_blank');
     win.focus();
 }

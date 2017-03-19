@@ -1650,8 +1650,7 @@ class Extra_Xml extends RAX
                     $file_id = explode("_", $arrFilename[0]);
                     //Get URL
                     $sActionUrl = $urlFileAttach->_setAttachFileUrlPath() . $file_id[0] . "/" . $file_id[1] . "/" . $file_id[2] . "/" . $v_file;
-                    
-                    if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $sActionUrl)) {
+                    if (!file_exists($sActionUrl)) {
                         $sActionUrl = $urlFileAttach->_setDvcAttachFileUrlPath() . $file_id[0] . "/" . $file_id[1] . "/" . $file_id[2] . "/" . $v_file;
                     }
                 }

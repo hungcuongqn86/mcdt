@@ -53,7 +53,7 @@ class Extra_Init
      */
     public function _setAttachFileUrlPath()
     {
-        return '.public/attach-file/';
+        return './public/attach-file/';
     }
 
     /**
