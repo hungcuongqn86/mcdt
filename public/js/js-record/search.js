@@ -650,6 +650,7 @@ record_search.prototype.generalList = function (arrResult) {
     var html;
     html = '';
     var classtr = "odd_row";
+    console.log(arrResult);
     $.each(arrResult, function (i, item) {
         if (classtr == 'odd_row') {
             classtr = "round_row";

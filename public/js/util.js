@@ -7,27 +7,14 @@ if (typeof(_ALLOW_EDITING_IN_MODAL_DIALOG) == "undefined")
 if (typeof(_DECIMAL_DELIMITOR) == "undefined")
     _DECIMAL_DELIMITOR = ","; // Ngam dinh su dung day PHAY (,) de phan cach hang nghin
 
-//************************************************************************
-// Ham _btn_show_all_file: goi modal dialog de hien thi danh sach cac file trong mot thu muc
-// Cach dung:   p_directory      -- thu muc can lay file
-//				p_typefile_list  -- danh sach cac phan mo rong cua file
-//				p_obj_text 		 -- Doi tuong ma ten file tra lai
-function _btn_show_all_file(p_directory, p_typefile_list, p_obj_text) {
-    v_url = _DSP_MODAL_DIALOG_URL_PATH;
-    v_url = v_url + "?goto_url=" + escape("dsp_file_in_directory.php?hdn_directory=" + p_directory + "&hdn_typefile_list=" + p_typefile_list);
-    v_url = v_url + "&modal_dialog_mode=1" + "&" + randomizeNumber();
-    sRtn = showModalDialog(v_url, "", "dialogWidth=400pt;dialogHeight=280pt;dialogTop=80pt;status=no;scroll=no;");
-    if (!sRtn) return;
-    p_obj_text.value = sRtn;
-}
-
-// Tao danh sach (list) chua cac the XML va danh sach gia tri tuong ung. Cac the nay duoc luu vao CSDL duoi danh chuoi XML
-//Sau do luu vao 2 bien hidden.
-// f: form object
-// hdn_obj_tag: ten bien hidden chua danh sach cac the XML
-// hdn_obj_value: ten bien hidden chua danh sach cac gia tri tuong ung voi moi the XML
-// p_only_for_xml_data: neu la true thi chi luu cac the XML va gia tri cua cac form field co thuoc tinh xml_data='true'
-
+/**
+ *
+ * @param p_form_obj
+ * @param p_hdn_tag_obj
+ * @param p_hdn_value_obj
+ * @param p_only_for_xml_data
+ * @private
+ */
 function _save_xml_tag_and_value_list(p_form_obj, p_hdn_tag_obj, p_hdn_value_obj, p_only_for_xml_data) {
     var list_tag = "";
     var list_value = "";
@@ -36,7 +23,7 @@ function _save_xml_tag_and_value_list(p_form_obj, p_hdn_tag_obj, p_hdn_value_obj
     _save_checkbox_value_to_textbox_obj(document.getElementsByName('chk_multiple_checkbox'), ',');
     _save_checkbox_value_to_textbox_obj(document.getElementsByName('chk_unit_id'), ',');
     _save_checkbox_value_to_textbox_obj(document.getElementsByName('chk_staff_id'), ',');
-    f = p_form_obj
+    f = p_form_obj;
     for (i = 0; i < f.length; i++) {
         var e = f.elements[i];
         if ((p_only_for_xml_data && e.getAttribute("xml_data") == 'true' && e.getAttribute("store_in_child_table") != 'true') || (!p_only_for_xml_data)) {
@@ -98,17 +85,11 @@ function _save_checkbox_value_to_textbox_obj(p_chk_obj, the_separator) {
         ;
     }
 }
-
-//**********************************************************************************************************************
-// CAC HAM LIEN QUAN DEN VIEC XU LY KHI NSD NHAN CHUOT VAO CAC O CHECKBOX TRONG 1 DANH SACH DE CHON HOAC BO CHON 1 DOI TUONG
-//**********************************************************************************************************************
-
-//**********************************************************************************************************************
-// Ham show_row_selected de hien thi TAT CA cac dong DA DUOC CHON (checked)
-// rad_id: la ten cua bien radio xac dinh che do HIEN THI TAT CA hay Chi HIEN THI NHUNG DOI TUONG DUOC CHON
-// (vi du neu ta co <input name="rad_indicator_filter" thi rad_id="rad_indicator_filter")
-// tr_name: ten cua id tuong uong voi dong chua doi tuong (vi d? neu ta co <tr id="xxxx"> thi tr_name="xxxx")
-//**********************************************************************************************************************
+/**
+ *
+ * @param tablename
+ * @private
+ */
 function _show_row_selected(tablename) {
     var v_count, objtable, i, v_modul_checked = false;
     objtable = document.getElementById(tablename);
@@ -118,13 +99,11 @@ function _show_row_selected(tablename) {
             objtable.rows[i].style.display = "none";
     }
 }
-
-//**********************************************************************************************************************
-// Ham show_row_all de hien thi TAT CA cac dong (khong phan biet da DUOC CHON hay khong)
-// rad_id: la ten cua bien radio xac dinh che do HIEN THI TAT CA hay Chi HIEN THI NHUNG DOI TUONG DUOC CHON
-// (vi du neu ta co <input name="rad_indicator_filter" thi rad_id="rad_indicator_filter")
-// tr_name: ten cua id tuong uong voi dong chua doi tuong (vi d? neu ta co <tr id="xxxx"> thi tr_name="xxxx")
-//**********************************************************************************************************************
+/**
+ *
+ * @param tablename
+ * @private
+ */
 function _show_row_all(tablename) {
     var v_count, objtable, i, v_modul_checked = false;
     objtable = document.getElementById(tablename);
@@ -133,17 +112,12 @@ function _show_row_all(tablename) {
         objtable.rows[i].style.display = "";
 }
 
-// Ham change_item_checked
-// Chuc nang: Xu ly khi NSD click mouse vao checkbox cua mot doi tuong trong danh sach
-//	-Tim tr_name chua checkbox duoc click va thay doi trang thai cua attribute checked ("" hoac "checked")
-//	-Kiem tra cac trang thai checked cua cac function trong modul de xac dinh trang thai checked cua modul
-//	(Neu khong co function nao duoc chon thi checked=""; neu co thi checked="checked")
-//	-Kiem tra che do hien thi (qua radio button) de refresh lai man hinh
-// Tham so:
-//	-chk_obj: doi tuong checkbox duoc click
-//	-tr_name: ten id cua row chua checkbox (tr_function hoac tr_enduser)
-//	-rad_id:  ten id cua radio button xac dinh che do hien thi cua moi loai (rad_group_enduser hoac rad_group_function)
-
+/**
+ *
+ * @param chk_obj
+ * @param tablename
+ * @private
+ */
 function _change_item_checked(chk_obj, tablename) {
     var v_count, objtable, i, v_modul_checked = false;
     objtable = document.getElementById(tablename);
@@ -161,7 +135,15 @@ function _change_item_checked(chk_obj, tablename) {
         }
     }
 }
-//chuc nang: dat trang thai checked khi chon file dinh kem
+
+/**
+ *
+ * @param chk_obj
+ * @param file_obj
+ * @param index
+ * @param tablename
+ * @private
+ */
 function _change_item_checked_row(chk_obj, file_obj, index, tablename) {
     if (file_obj.value != '') {
         objtable = document.getElementById(tablename);
@@ -170,10 +152,11 @@ function _change_item_checked_row(chk_obj, file_obj, index, tablename) {
         chk_obj[index + 1].checked = 'true';
     }
 }
-//
-// Ham select_unit_checkbox() cho phep danh dau cac staff cua mot phong ban
-// Tham so:
-// node: ten object cua doi doi tuong phong ban
+
+/**
+ *
+ * @param node
+ */
 function select_unit_checkbox(node) {
     var checked = 0;
     var v_count = document.all.chk_staff_id.length;
@@ -199,12 +182,11 @@ function select_unit_checkbox(node) {
         }
     }
 }
-// Ham select_unit_checkbox_treeuser() cho phep danh dau cac staff cua mot phong ban dung cho khai bao xml
-// Editer: Hoang Van Toan
-// date: 11/10/2009
-// Hieu chinh de duyet tren moi trinh duyet
-// Tham so:
-// node: ten object cua doi doi tuong phong ban
+
+/**
+ *
+ * @param node
+ */
 function select_unit_checkbox_treeuser(node) {
     var checked = 0;
     var v_staff = document.getElementsByName('chk_staff_id');
@@ -230,25 +212,12 @@ function select_unit_checkbox_treeuser(node) {
         }
     }
 }
-// Ham select_unit_checkbox_treeuser() cho phep danh dau cac staff cua mot phong ban dung cho khai bao xml
-// Tham so:
-// node: ten object cua doi doi tuong phong ban
-function select_staff_checkbox_treeuser(node) {
-    var checked = 0;
-    var v_count = document.getElementsByName('chk_staff_id').length;
-    //alert(node.parent_id);
-    //for(i=0; i < v_count; i++){
-    //	if(document.all.chk_staff_id[i].value!=node.value && document.all.chk_staff_id[i].xml_tag_in_db_name==node.xml_tag_in_db_name){
-    //		document.all.chk_staff_id[i].checked = false;
-    //	}
-    //}
-}
-////////////////////////////////////////////////////////////////////////
-// Ham add_new_row() duoc goi khi NSD muon them mot dong
-// Tham so:
-// p_row_obj: ten object cua cac dong
-// p_limit: so row toi da duoc them
-////////////////////////////////////////////////////////////////////////////
+
+/**
+ *
+ * @param p_row_obj
+ * @param p_limit
+ */
 function add_row(p_row_obj, p_limit) {
     for (var i = 0; i < p_limit; i++) {
         if (p_row_obj[i].style.display == "none") {
