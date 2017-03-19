@@ -117,37 +117,12 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>label_tip_top</tag_list>
 					<row_id>label_tip_top</row_id>
-				</update_row>				
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>hinh_thuc_hs</tag_list>
-					<row_id>hinh_thuc_hs</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>registor_name</tag_list>
-					<row_id>registor_name</row_id>
+					<tag_list>ben_chuyen_nhuong</tag_list>
+					<row_id>row_ben_chuyen_nhuong</row_id>
 				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>registor_address</tag_list>
-					<row_id>registor_address</row_id>
-				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>dien_thoai_nk</tag_list>
-					<row_id>dien_thoai_nk</row_id>
-				</update_row>				
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>so_cmnd_nk,ngay_cap_socmnd_nk</tag_list>
-					<row_id>id_ngaycap_noicap_nk</row_id>
-				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>noi_cap_cmnd</tag_list>
-					<row_id>noi_cap_cmnd</row_id>
-				</update_row>								
 				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>label_tip</tag_list>
@@ -528,7 +503,20 @@
 			<label_tip_top>
 				<label>&lt;B&gt;1. Người sử dụng đất chủ sở hữu tài sản gắn liền với đất&lt;/B&gt;</label>												
 				<type>label</type>
-			</label_tip_top>	
+			</label_tip_top>
+			<ben_chuyen_nhuong>
+				<type>formfieldata</type>
+				<file_name_xml>ds_staff_info</file_name_xml>
+				<width>70%</width>
+				<row>3</row>
+				<optional>false</optional>
+				<max_length>200</max_length>
+				<message>Phải nhập thông tin bên chuyển nhượng!</message>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ben_chuyen_nhuong>
 			<hinh_thuc_hs>
 				<label>Hình thức hồ sơ</label>
 				<type>selectbox</type>

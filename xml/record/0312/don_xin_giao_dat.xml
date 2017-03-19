@@ -39,20 +39,20 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
-            <find_string>#NOI_DUNG_TRUOC_BD#</find_string>
-            <xml_tag_in_db>nd_truoc_bd</xml_tag_in_db>
+            <find_string>#DIEN_TICH#</find_string>
+            <xml_tag_in_db>dien_tich_thua_dat</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
-            <find_string>#NOI_DUNG_SAU_BD#</find_string>
-            <xml_tag_in_db>nd_sau_bd</xml_tag_in_db>
+            <find_string>#MUC_DICH#</find_string>
+            <xml_tag_in_db>muc_dich_su_dung</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
-            <find_string>#LY_DO#</find_string>
-            <xml_tag_in_db>ly_do_gia_han</xml_tag_in_db>
+            <find_string>#THOI_HAN#</find_string>
+            <xml_tag_in_db>thoi_han_su_dung</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>

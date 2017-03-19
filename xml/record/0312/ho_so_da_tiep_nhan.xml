@@ -494,7 +494,7 @@
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</dia_chi_thua_dat>
 			<dien_tich_thua_dat>
-				<label>Diện tích thế chấp</label>
+				<label>Diện tích</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
