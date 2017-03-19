@@ -3024,7 +3024,7 @@ function set_checked_onlabel(obj, value, option) {
  *
  * @param p_file
  */
-function delete_file(p_file) {//alert('abc');
+function delete_file(p_file) {
     document.getElementsByName(p_file)[0].value = '';
 }
 
@@ -3053,13 +3053,14 @@ function delete_file_upload(hdn_attach_filename, p_id, p_value) {//alert('123');
         }
     }
 }
-/* lay xau chua value cua checkbox (neu khong check thi de rong)
- p_chk_obj: checkbox
- the_separator: dau phan cach ','
- hdn_obj_value: bien hiden
- xml_tag_in_db_name: ten xml_tag_in_db_name trong xml
- */
 
+/**
+ *
+ * @param p_chk_obj
+ * @param the_separator
+ * @param hdn_obj_value
+ * @param xml_tag_in_db_name
+ */
 function get_list_multiple_net(p_chk_obj, the_separator, hdn_obj_value, xml_tag_in_db_name) {
     //alert('vao day');
     var list = "";
