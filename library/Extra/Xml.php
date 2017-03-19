@@ -1685,7 +1685,7 @@ class Extra_Xml extends RAX
                     $strHTML = $strHTML . "<td onclick = \"set_checked(document.getElementsByName('chk_multiple_checkbox'),'$v_item_id','table_$this->formFielName')\">$v_item_name</td>";
                 } else {
                     if ($v_file != '') {
-                        $strHTML = $strHTML . "<td onclick = \"set_checked(document.getElementsByName('chk_multiple_checkbox'),'$v_item_id','table_$this->formFielName')\"><div id='div_ajax$i'>$v_item_name<a href='$sActionUrl' > ($file_name)  </a></div></td>";
+                        $strHTML = $strHTML . "<td onclick = \"set_checked(document.getElementsByName('chk_multiple_checkbox'),'$v_item_id','table_$this->formFielName')\"><div id='div_ajax$i'>$v_item_name<a onclick=\"open_new_tab('".$sActionUrl."')\" > ($file_name)  </a></div></td>";
                     } else {
                         $strHTML = $strHTML . "<td onclick = \"set_checked(document.getElementsByName('chk_multiple_checkbox'),'$v_item_id','table_$this->formFielName')\">$v_item_name</td>";
                     }
