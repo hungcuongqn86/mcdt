@@ -220,7 +220,7 @@ class Extra_Ecs
                 if ($psHaveUpLoadFields) {
                     $strHTML = $strHTML . "<input type='checkbox' name='chk_file_attach_exist_id' id = '' value='$sFileName'>";
                 }
-                $strHTML = $strHTML . "<a href='$sActionUrl' > $file_name  </a></td></tr>";
+                $strHTML = $strHTML . '<a onclick="open_new_tab(\''.$sActionUrl.'\')">'. $file_name  .'</a></td></tr>';
             }
         }
         //Them moi

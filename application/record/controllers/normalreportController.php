@@ -5,7 +5,7 @@
  */
 class Record_normalreportController extends  Zend_Controller_Action {
 	public function init(){
-		//Extra_Ecs::CheckLogin();
+
 		//Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
 		$this->_dirApp = $tempDirApp->toArray();

@@ -3448,3 +3448,8 @@ function convert_number_to_string_acreage(p_obj, stringobj) {
     $(p_obj).val(number_val);
     $('#' + stringobj).val(str);
 }
+
+function open_new_tab(url) {
+    var win = window.open(url, '_blank');
+    win.focus();
+}

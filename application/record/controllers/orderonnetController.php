@@ -1,24 +1,13 @@
 ﻿<?php
 
 /**
- * Nguoi tao: Tientk
- * Ngay tao: 17/05/2011
- * Y nghia: Class Xu ly ho so den
+ * Class record_orderonnetController
  */
 class record_orderonnetController extends Zend_Controller_Action
 {
-    //Bien public luu quyen
-    public $_publicPermission;
-
-    /**
-     * Creater : Tientk
-     * Date : 17/05/2011
-     * @see Zend_Controller_Action::init()
-     * Idea : Tao phuong thuc khoi tao
-     */
     public function init()
     {
-        //Extra_Ecs::CheckLogin();
+
         //Load cau hinh thu muc trong file config.ini
         $tempDirApp = Zend_Registry::get('conDirApp');
         $this->_dirApp = $tempDirApp->toArray();
