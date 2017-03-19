@@ -226,16 +226,13 @@ function add_row(p_row_obj, p_limit) {
         }
     }
 }
-////////////////////////////////////////////////////////////////////////////
-// Ham delete_row() xu ly khi NSD xoa cac file dinh kem hien co
-//Chuc nang:
-//	- Khong hien thi cac file bi xoa
-//	- Luu ID cua cac file bi xoa vao mot doi tuong kieu hidden
-//Tham so:
-//	- p_row_obj: ten doi tuong (duoc dinh nghia bang thuoc tinh "id" trong tag <tr>)
-//	- p_checkbox_obj: ten doi tuong checkbox tuong ung
-//	- p_hdn_obj ten doi tuong hidden luu gia tri cua cac file bi xoa
-////////////////////////////////////////////////////////////////////////////
+
+/**
+ *
+ * @param p_row_obj
+ * @param p_checkbox_obj
+ * @param p_hdn_obj
+ */
 function delete_row(p_row_obj, p_checkbox_obj, p_hdn_obj) {
     if (checkbox_value_to_list(p_checkbox_obj, _LIST_DELIMITOR) != "") {
         if (p_hdn_obj.value != "") {
@@ -297,9 +294,15 @@ function row_onclick(p_obj, p_value, p_goto_url) {
     document.getElementsByTagName('form')[0].submit();
 }
 
-// ham btn_delete_onclick() duoc goi khi NSD nhan chuot vao nut "Xoa"
-//  - p_checkbox_name: ten cua checckbox, vi du "chk_building_form_id"
-//  - p_url: Dia chi URL de thuc thi
+/**
+ *
+ * @param p_checkbox_obj
+ * @param p_hidden_obj
+ * @param p_url
+ * @param UrlAjax
+ * @param DocType
+ * @param TableName
+ */
 function btn_delete_onclick(p_checkbox_obj, p_hidden_obj, p_url, UrlAjax, DocType, TableName) {
     var Delimitor = '!#~$|*';
     if (!checkbox_value_to_list(p_checkbox_obj, ",")) {
@@ -316,6 +319,7 @@ function btn_delete_onclick(p_checkbox_obj, p_hidden_obj, p_url, UrlAjax, DocTyp
         }
     }
 }
+
 /**
  *
  * @param p_checkbox_obj
@@ -336,37 +340,11 @@ function btn_update_onclick(p_checkbox_obj, p_url) {
             row_onclick(document.getElementById('hdn_object_id'), v_value_list, p_url, 0);
     }
 }
-// ham btn_add_onclick() duoc goi khi NSD nhan chuot vao nut "Them"
-//  - p_obj: ten cua object chua id duoc chon (dat bang 0)
-//  - p_fuseaction: ten fuseaction tiep theo
-function btn_add_onclick(p_obj, p_fuseaction, p_goto_url) {
-    p_obj.value = 0;
-    if (_MODAL_DIALOG_MODE == 1) {
-        v_url = _DSP_MODAL_DIALOG_URL_PATH;
-        v_url = v_url + "?goto_url=" + p_goto_url + "&hdn_item_id=0" + "&fuseaction=" + p_fuseaction + "&modal_dialog_mode=1" + "&" + randomizeNumber();
-        sRtn = showModalDialog(v_url, "", "dialogWidth=470pt;dialogHeight=210pt;status=no;scroll=no;");
-        //alert(sRtn);
-        document.forms[0].fuseaction.value = "";
-        document.forms[0].submit();
-    } else {
-        document.forms[0].fuseaction.value = p_fuseaction;
-        document.forms[0].submit();
-    }
-}
 
-// ham btn_select_onclick() duoc goi khi NSD nhan chuot vao nut "Chon". Ham nay tra lai gia tri cua dong duoc chon va dong cua so lai
-function btn_select_onclick(p_checkbox_obj) {
-    list_of_id = checkbox_value_to_list(p_checkbox_obj, ",");
-    if (!list_of_id) {
-        alert("chua co doi tuong nao duoc chon");
-        return;
-    }
-    window.returnValue = list_get_first(list_of_id, ',');
-    window.close();
-}
-
-// ham btn_save_onclick() duoc goi khi NSD nhan chuot vao nut "Chap nhan"
-//  - p_fuseaction: ten fuseaction tiep theo
+/**
+ *
+ * @param p_fuseaction
+ */
 function btn_save_onclick(p_fuseaction) {
     if (_MODAL_DIALOG_MODE == 1)
         document.forms[0].action = "index.php?modal_dialog_mode=1";
@@ -379,18 +357,10 @@ function btn_save_onclick(p_fuseaction) {
     }
 }
 
-// ham btn_single_checkbox_onclick() duoc goi khi NSD nhan chuot vao mot o Check-box
-//  - p_checkbox_obj: ten doi tuong checkbox chi nhan 1 trong 2 gia tri 1 va 0
-//  - p_checkbox_obj: ten doi tuong (kieu hidden) luu gia tri cua checkbox
-function btn_single_checkbox_onclick(p_checkbox_obj, p_hidden_obj) {
-    if (p_checkbox_obj.checked)
-        p_hidden_obj.value = 1;
-    else
-        p_hidden_obj.value = 0;
-}
-
-// ham btn_back_onclick() duoc goi khi NSD nhan chuot vao nut "Quay lai"
-//  - p_url: URL quay lai
+/**
+ *
+ * @param p_url
+ */
 function btn_back_onclick(p_url) {
     if (_MODAL_DIALOG_MODE == 1) {
         if (_ALLOW_EDITING_IN_MODAL_DIALOG != 1)
@@ -405,8 +375,12 @@ function btn_back_onclick(p_url) {
     }
 }
 
-// checkbox_value_to_list(the_field) converts all values of a checkbox object to a list
-// the_field is a checkbox object
+/**
+ *
+ * @param the_field
+ * @param the_separator
+ * @returns {string}
+ */
 function checkbox_value_to_list(the_field, the_separator) {
     var ret = "";
     try {
@@ -427,12 +401,6 @@ function checkbox_value_to_list(the_field, the_separator) {
     }
     return ret;
 }
-// Lay phan tu dau tien cua mot danh sach
-function list_get_first(the_list, the_separator) {
-    if (the_list == "") return "";
-    arr_value = the_list.split(the_separator);
-    return arr_value[0];
-}
 
 // Kiem tra phan tu the_element co trong danh sach the_list hay khong
 function list_have_element(the_list, the_element, the_separator) {
@@ -445,14 +413,7 @@ function list_have_element(the_list, the_element, the_separator) {
     }
     return -1;
 }
-function list_count_element(the_list, the_separator) {
-    if (the_list == "") return -1;
-    arr_value = the_list.split(the_separator);
-    if (arr_value.length > 0) {
-        return arr_value.length;
-    }
-    return -1;
-}
+
 // add a value to a list
 function list_append(the_list, the_value, the_separator) {
     var list = the_list;
@@ -464,34 +425,7 @@ function list_append(the_list, the_value, the_separator) {
 function nothing() {
     return;
 }
-//Add p_numberofday days to  p_date
-// p_date and return value are in US format
-function set_date(p_date, p_numberofday) {
-    dt_date = new Date(p_date);
-    dt_date.setDate(p_numberofday);
-    return dt_date.toLocaleString();
-}
-// Return number of dates from the begining of the month
-function get_date(p_date) {
-    dt_date = new Date(p_date);
-    dt_date.getDate();
-    return dt_date.getDate();
-}
-//Convert date from mmddyyyy format to ddmmyyyy format
-function mmddyyyy_to_ddmmyyyy(theDate) {
-    strSeparator = ""
-    if (theDate.indexOf("/") != -1) strSeparator = "/";
-    if (theDate.indexOf("-") != -1) strSeparator = "-";
-    if (theDate.indexOf(".") != -1) strSeparator = ".";
-    if (strSeparator == "")
-        return "";
-    parts = theDate.split(strSeparator);
-    day = parts[1];
-    month = parts[0];
-    year = parts[2];
-    return day + strSeparator + month + strSeparator + year.substr(0, 4);
 
-}
 //Convert date from ddmmyyyy format to mmddyyyy fromat
 function ddmmyyyy_to_mmddyyyy(theDate) {
     strSeparator = ""
@@ -2189,11 +2123,10 @@ function list_have_date(the_list, the_element, the_separator) {
     }
     return 0;
 }
-/*
- Creater: phongtd
- Date: 13/05/2010
- Idea: Ham nay thuc thi khi NSD chon vao mot trang tren danh sach cac trang dang hien thi
- Parameters:	pCurrentPage : Gia tri trang hien thoi
+/**
+ *
+ * @param pCurrentPage
+ * @param pUrl
  */
 function break_page(pCurrentPage, pUrl) {
     _save_xml_tag_and_value_list(document.forms[0], document.getElementById('hdn_filter_xml_tag_list'), document.getElementById('hdn_filter_xml_value_list'), true);
@@ -2201,27 +2134,7 @@ function break_page(pCurrentPage, pUrl) {
     //document.getElementsByTagName('form')[0].submit();
     actionUrl(pUrl);
 }
-/*
- Creater: phongtd
- Date: 14/05/2010
- Idea: Ham nay thuc thi khi NSD muon "Previous" hoac "Next" trang
- Parameters:	psPreviousNextPage : Gia tri la "Previous" hoac "Next"
- */
 
-function previous_next_page(psPreviousNextPage, pUrl) {
-    if (psPreviousNextPage == "Previous") {
-        _save_xml_tag_and_value_list(document.forms[0], document.getElementById('hdn_filter_xml_tag_list'), document.getElementById('hdn_filter_xml_value_list'), true);
-        document.getElementById('hdn_current_page').value = parseInt(document.getElementById('hdn_current_page').value) - 1;
-        //document.getElementsByTagName('form')[0].submit();
-        actionUrl(pUrl);
-    }
-    if (psPreviousNextPage == "Next") {
-        _save_xml_tag_and_value_list(document.forms[0], document.getElementById('hdn_filter_xml_tag_list'), document.getElementById('hdn_filter_xml_value_list'), true);
-        document.getElementById('hdn_current_page').value = parseInt(document.getElementById('hdn_current_page').value) + 1;
-        //document.getElementsByTagName('form')[0].submit();
-        actionUrl(pUrl);
-    }
-}
 //----------------
 //set hidden man hinh danh sach van ban den
 function set_hidden(obj, chk_obj, hdn_obj, value) {
@@ -2238,19 +2151,10 @@ function set_hidden(obj, chk_obj, hdn_obj, value) {
         }
     }
 }
-//set hidden man hinh danh sach tim kiem van ban den
-function set_hidden_search(obj, hdn_obj, value) {
-    //hdn_obj.value ="";
-    hdn_obj.value = value;
-    $('td').parent().removeClass('selected');
-    $(obj).parent().addClass('selected');
-}
 
 /**
- * http://www.openjs.com/scripts/events/keyboard_shortcuts/
- * Version : 2.01.B
- * By Binny V A
- * License : BSD
+ *
+ * @type {{all_shortcuts: {}, add: shortcut.add, remove: shortcut.remove}}
  */
 shortcut = {
     'all_shortcuts': {},//All the shortcuts are stored in this array
@@ -2469,6 +2373,7 @@ shortcut = {
         else ele['on' + type] = false;
     }
 }
+
 //Ham checkbox all
 function checkbox_all_item_id(p_chk_obj) {
     //remove class cua tat ca cac tr trong table
@@ -2573,16 +2478,12 @@ function Set_Cookie(name, value, expires, path, domain, secure) {
         ( ( secure ) ? ";secure" : "" );
 }
 
-/*
- Creater ; HUNGVM
- Date : 16/06/2010
- Idea : Tao ham khoi tao bien luu trong Cookie
- Paras :
- + check_name  : Ten Cookie can lay gia tri
+/**
+ *
+ * @param check_name
+ * @returns {*}
+ * @constructor
  */
-
-// this fixes an issue with the old method, ambiguous values
-// with this test document.cookie.indexOf( name + "=" );
 function Get_Cookie(check_name) {
 
     // first we'll split this cookie up into name/value pairs
@@ -3118,21 +3019,20 @@ function set_checked_onlabel(obj, value, option) {
         }
     }
 }
+
 /**
- * create KHOINV
- * Des: Ham thuc hien xoa file trong obj khi dang nhap
- * @param obj :ten obj can thao tac
- * return: xoa file trong obj
+ *
+ * @param p_file
  */
 function delete_file(p_file) {//alert('abc');
-
     document.getElementsByName(p_file)[0].value = '';
 }
+
 /**
- * create KHOINV
- * Des: Ham thuc hien xoa file tren o cung
- * @param obj :ten obj can thao tac
- * return: xoa file tren o cung
+ *
+ * @param hdn_attach_filename
+ * @param p_id
+ * @param p_value
  */
 function delete_file_upload(hdn_attach_filename, p_id, p_value) {//alert('123');
     if (document.getElementById(hdn_attach_filename).value != '') {
@@ -3436,24 +3336,6 @@ function change_focus_in_login(f, o, ev) {
     return true;
 }
 
-function goExit() {
-    parent.window.close();
-}
-function test_tag(name_tag) {
-    var v_test_tag = false;
-    var f = document.forms[0];
-    for (i = 0; i < f.length; i++) {
-        var e = f.elements[i];
-        alert();
-        if (document.getElementById(name_tag) != "undefined") {
-            v_test_tag = true;
-            break;
-        }
-    }
-    return v_test_tag;
-}
-
-
 /**
  Creater: Truongdv
  Des: Tao modal dialog
@@ -3530,50 +3412,6 @@ function ConvertYear(value) {
         }
     }
     return string;
-}
-/**
- *  Hàm để bắt chọn tên người chuyển nhượng/ nhận chuyển nhượng
- *  nếu đã nhập chồng thì ko bắt buộc nhập vợ và ngược lại
- *
- **/
-
-function set_registor_option(objectid, taglisten, taglistdis, option) {
-    var value = $("#" + objectid).val();
-    var arrtaged = taglisten.split(',');
-    var arrtagdis = taglistdis.split(',');
-    if (value != '') {
-        if (option) {
-            $.each(arrtaged, function (key, value) {
-                $("#" + value).attr('optional', 'true');
-            });
-            $.each(arrtagdis, function (key, value) {
-                $("#" + value).removeAttr('optional');
-            });
-        } else {
-            $.each(arrtaged, function (key, value) {
-                $("#" + value).removeAttr('optional');
-            });
-            $.each(arrtagdis, function (key, value) {
-                $("#" + value).attr('optional', 'true');
-            });
-        }
-    } else {
-        if (option) {
-            $.each(arrtaged, function (key, value) {
-                $("#" + value).removeAttr('optional');
-            });
-            $.each(arrtagdis, function (key, value) {
-                $("#" + value).attr('optional', 'true');
-            });
-        } else {
-            $.each(arrtaged, function (key, value) {
-                $("#" + value).attr('optional', 'true');
-            });
-            $.each(arrtagdis, function (key, value) {
-                $("#" + value).removeAttr('optional');
-            });
-        }
-    }
 }
 
 function convert_number_to_string_acreage(p_obj, stringobj) {
