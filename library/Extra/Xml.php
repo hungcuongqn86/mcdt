@@ -128,6 +128,9 @@ class Extra_Xml extends RAX
                 $_SESSION['RECORDID'] = $p_arr_item_value[0]['FK_RECORD'];
             }
             $p_xml_string = $p_arr_item_value[0][$p_xml_string_in_db];
+        }else{
+            unset($_SESSION['RECORDID']);
+            unset($_SESSION['NET_RECORDID']);
         }
 
         $this->efyListWebSitePath = $ojbEfyInitConfig->_getCurrentHttpAndHost();
@@ -1635,7 +1638,8 @@ class Extra_Xml extends RAX
                 $v_item_id = $arrList[$i][$IdColumn];
                 $v_item_name = $arrList[$i][$NameColumn];
                 //lay file dinh kem da co
-                $arr_single_data = $modSendRecord->eCSFileGetSingle($v_record_id, $v_item_id);//var_dump($arr_single_data);exit;
+                $arr_single_data = $modSendRecord->eCSFileGetSingle($v_record_id, $v_item_id);
+                //var_dump($arr_single_data);exit;
                 $v_file = '';
                 if($arr_single_data){
                     $v_file = trim($arr_single_data[0]['C_FILE_NAME']);//echo $v_file;exit;

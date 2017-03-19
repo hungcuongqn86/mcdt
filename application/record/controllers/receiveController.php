@@ -250,8 +250,6 @@ class record_receiveController extends  Zend_Controller_Action {
 		$this->view->iNumberProcessDate = $arrinfoRecordType['C_PROCESS_NUMBER_DATE'];
 		//echo '$sxmlFileName:'.$sxmlFileName;
 		$this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>', array(),true,true);
-		$arFileAttach = array();	
-		$this->view->AttachFile = $objrecordfun->DocSentAttachFile($arFileAttach,sizeof($arFileAttach),10,true,50);	
 		$sOption = $this->_request->getParam('hdh_option','');
 		$this->view->option = $sOption;
 		//Luu cac dieu kien tim kiem len session
@@ -400,14 +398,7 @@ class record_receiveController extends  Zend_Controller_Action {
 		$this->view->option = $sOption;
 		if ($sOption == "QUAY_LAI")
 			$this->_redirect('record/receive/index');
-		$sRecordIdTemp = $srecordId;
-		if($sOption == "GHI_THEMTIEP")
-			$sRecordIdTemp = "";
-		if($sOption != "GHI_TAM"){
-			$arFileAttach = $objReceive->DOC_GetAllDocumentFileAttach($sRecordIdTemp, 'HO_SO', 'T_eCS_RECORD');
-			$this->view->AttachFile = $objrecordfun->DocSentAttachFile($arFileAttach,sizeof($arFileAttach),10,true,50);	
-		}
-			
+
 		//Kiem tra neu form da duoc submit
 		if($this->_request->getParam('hdn_is_update','') == '1'){
 			//Tao xau xml luu vao database

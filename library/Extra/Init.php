@@ -53,7 +53,7 @@ class Extra_Init
      */
     public function _setAttachFileUrlPath()
     {
-        return self::_setLibUrlPath() . "attach-file/";
+        return '.public/attach-file/';
     }
 
     /**

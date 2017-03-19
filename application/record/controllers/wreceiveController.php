@@ -362,10 +362,6 @@ class record_wreceiveController extends  Zend_Controller_Action {
         $this->view->iNumberWardProcessDate = $arrinfoRecordType['C_WARDS_PROCESS_NUMBER_DATE'];
 		//echo '$sxmlFileName:'.$sxmlFileName;
 		$this->view->generateFormHtml = $objxml->_xmlGenerateFormfield($sxmlFileName, 'update_object/table_struct_of_update_form/update_row_list/update_row','update_object/update_formfield_list', '<?xml version="1.0" encoding="UTF-8"?><root><data_list></data_list></root>', array(),true,true);
-		//Lay thong tin file dinh kem
-		$arrFileNameUpload = $ojbEfyLib->_uploadFileList(10,$this->_request->getBaseUrl() . "/public/attach-file/",'FileName','!#~$|*');
-		$arFileAttach = array();	
-		$this->view->AttachFile = $objrecordfun->DocSentAttachFile($arFileAttach,sizeof($arFileAttach),10,true,50);	
 		$sOption = $this->_request->getParam('hdh_option','');
 		$this->view->option = $sOption;
 		//Luu cac dieu kien tim kiem len session
@@ -408,7 +404,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
 				'C_RECEIVED_RECORD_XML_DATA' => $strXml,
 				'C_LICENSE_XML_DATA' => '',
 				'C_OWNER_CODE' =>$_SESSION['OWNER_CODE'],																	
-				'NEW_FILE_ID_LIST'=>$arrFileNameUpload,
+				'NEW_FILE_ID_LIST'=>'',
                 'C_WARD_END_DATE' => $ojbEfyLib->_ddmmyyyyToYYyymmdd($this->_request->getParam('C_WARD_END_DATE',''))
 			);	
 			$arrResult = $objReceive->eCSRecordUpdate($arrParameter);
@@ -419,7 +415,7 @@ class record_wreceiveController extends  Zend_Controller_Action {
 			}
 			$sUrlFileAttach=$objconfig->_setAttachFileUrlPath();
 			$arrFileNameAttach = $objrecordfun->_uploadFileAttachList($v_list_attach_value,$sUrlFileAttach,'dk_file_attach',',');
-			$sRecordID=$arrResult['NEW_ID'];			
+			$sRecordID=$arrResult['NEW_ID'];
 			$objReceive->eCSUpdateFileAttach($sRecordID,$arrFileNameAttach,'T_eCS_RECORD');
 			//Xu ly cac truong hop NSD luu du lieu
 			if ($sOption == "GHI_THEMMOI")	
