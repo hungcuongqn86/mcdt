@@ -585,18 +585,9 @@ class Extra_Xml extends RAX
             //kieu mulriplecheckbox co file dinh kem
             case "multiplecheckbox_fileAttach";
                 $spRetHtml = $v_str_label;
-                if ($this->inputData == "session") {
-                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
-                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckboxFromSession($this->sessionName, $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
-                } elseif ($this->inputData == "listdata") {
-                    $v_xml_data_in_url = Extra_Util::_readFile($this->efyListWebSitePath . "xml/list/output/" . $this->publicListCode . ".xml");
-                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Xml::_convertXmlStringToArray($v_xml_data_in_url, "item"), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
-                } else {
-                    //thay the ma don vi cua nguoi dang nhap hien thoi vao chuoi SQL
-                    $this->checkBoxMultipleSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->checkBoxMultipleSql);
-                    $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
-                    $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
-                }
+                $this->checkBoxMultipleSql = str_replace("#OWNER_CODE#", $_SESSION['OWNER_CODE'], $this->checkBoxMultipleSql);
+                $spRetHtml = $spRetHtml . "<div style='display:none'><input type='textbox' id='$this->formFielName' name='$this->formFielName' value='' hide='true' readonly " . Extra_Xml::_generatePropertyType("optional", $this->optOptional) . "xml_data='true' xml_tag_in_db='$this->xmlTagInDb' message='$this->spMessage'></div>";
+                $spRetHtml = $spRetHtml . Extra_Xml::_generateHtmlForMultipleCheckbox_fileAttach(Extra_Db::adodbQueryDataInNumberMode($this->checkBoxMultipleSql, $this->cacheOption), $this->checkBoxMultipleIdColumn, $this->checkBoxMultipleNameColumn, $this->value);
                 break;
             case "multipleradio";
                 if ($this->inputData == "listdata") {

@@ -72,8 +72,7 @@ class Extra_Db extends Zend_Db {
 	public function adodbExecSqlString($sql){
 		global $adoConn;
 		$adoConn->SetFetchMode(ADODB_FETCH_ASSOC);
-		$ArrSingleData = $adoConn->GetRow($sql); 
-		return $ArrSingleData;
+		return $adoConn->GetRow($sql);
 	}
 
     /**
@@ -83,17 +82,8 @@ class Extra_Db extends Zend_Db {
      */
 	public function adodbQueryDataInNumberMode($sql, $optCache = ""){
 		global $adoConn;
-		//Thoi gian Cache
 		$adoConn->SetFetchMode(ADODB_FETCH_NUM);
-		if ($optCache == ""){
-			//echo "1";
-			$ArrAllData = $adoConn->GetArray($sql); 
-		}else{
-			global $ADODB_CACHE_TIMEOUT;
-			$cacheTime = $ADODB_CACHE_TIMEOUT;
-			$ArrAllData = $adoConn->CacheGetAll($cacheTime,$sql); 
-		}
-		return $ArrAllData;
+		return $adoConn->GetArray($sql);
 	}
 
     /**
