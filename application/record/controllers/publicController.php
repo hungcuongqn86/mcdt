@@ -937,4 +937,46 @@ class record_publicController extends  Zend_Controller_Action {
             exit;
         }
     }
+
+    public function deletefileAction(){
+        isset($_REQUEST['fileNameList'])?$fileNameList = $_REQUEST['fileNameList']:$fileNameList = '';
+        if($fileNameList!=''){
+            $conn = new Extra_Db();
+            $sConfig = new Extra_Init;
+            $sql = "Exec [_deleteFileUpload] '" . $fileNameList . "'";
+            //echo $sql; exit;
+            try {
+                $arrTempResult = $conn->adodbExecSqlString($sql);
+            }catch (Exception $e){
+                echo $e->getMessage();
+            }
+            //xoa file tren o cung
+            $arrFileName = explode("!#~$|*", $fileNameList);
+            $scriptUrl = $_SERVER['SCRIPT_FILENAME'];
+            $scriptFileName = explode("/", $scriptUrl);
+            $k = 3;
+            $sWebsitePart = $sConfig ->_setWebSitePath();
+            $sWebsitePart = substr($sWebsitePart,1,-1);
+            $linkFile = "";
+            for($i= 0;$i< sizeof($scriptFileName);$i++){
+                if($scriptFileName[$i] == $sWebsitePart){
+                    $k = $i;
+                    break;
+                }
+            }
+            for($j = 0; $j <=$k; $j++ ){
+                $linkFile .= $scriptFileName[$j]."\\";
+            }
+            $linkFile .= "public\attach-file\\";
+            for($i =0; $i < sizeof($arrFileName); $i ++){
+                $fileId = explode("!~!", $arrFileName[$i]);
+                $fileId = explode("_" ,$fileId[0]);
+                $unlink = $linkFile . $fileId[0] . "\\" . $fileId[1] . "\\" . $fileId[2] . "\\" . $arrFileName[$i];
+                //echo $unlink;
+                unlink($unlink);
+            }
+        }
+        echo 1;
+        exit;
+    }
 }?>

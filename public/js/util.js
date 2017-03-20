@@ -253,33 +253,6 @@ function delete_row(p_row_obj, p_checkbox_obj, p_hdn_obj) {
         ;
     }
 }
-function delete_row_exist(p_row_obj, p_checkbox_obj, fileUrl) {
-    if (confirm("Ban co that su muon xoa file da dinh kem trong he thong?")) {
-        try {
-            var fileNameList = "";
-            for (i = 0; i < p_row_obj.length; i++) {
-                if (p_checkbox_obj[i].checked) {
-                    fileNameList = fileNameList + p_checkbox_obj[i].value + '!#~$|*';
-                    p_row_obj[i].style.display = "none";
-                    p_checkbox_obj[i].checked = false;
-                }
-            }
-        }
-        catch (e) {
-            ;
-        }
-        try {
-            arrUrl = fileUrl.split('/');
-            var key = 'fileNameList=' + fileNameList;
-            //alert('/' + arrUrl[1] + '/public/ajax/deleteFileUpload.php');
-            if (key != "") {
-                postAJAXHTTPText('/' + arrUrl[1] + '/public/ajax/deleteFileUpload.php', key, null, null);
-            }
-        } catch (e) {
-            ;
-        }
-    }
-}
 
 /**
  *
@@ -3034,22 +3007,21 @@ function delete_file(p_file) {
  * @param p_id
  * @param p_value
  */
-function delete_file_upload(hdn_attach_filename, p_id, p_value) {//alert('123');
+function delete_file_upload(hdn_attach_filename, p_id, p_value) {
     if (document.getElementById(hdn_attach_filename).value != '') {
         if (confirm("Bạn có thật sự muốn xóa file đã đính kèm trong hệ thống?")) {
             var fileNameList = document.getElementById(hdn_attach_filename).value;
-            try {
-                //arrUrl = fileUrl.split('/');
-                var key = 'fileNameList=' + fileNameList + '&text=' + p_value;
-                //alert(key);
-                var id = 'div_ajax' + p_id;
-                if (key != "") {
-                    postAJAXHTTPText('../deletefile/', key, document.getElementById(id), null);
+            var p_url = _WEBSITE_PATH + 'record/public/deletefile';
+            var data = {fileNameList: fileNameList,text:p_value};
+            $.ajax({
+                url: p_url
+                , type: 'POST'
+                , dataType: 'html'
+                , data: data,
+                success: function (data) {
                     document.getElementById(hdn_attach_filename).value = '';
                 }
-            } catch (e) {
-                ;
-            }
+            });
         }
     }
 }

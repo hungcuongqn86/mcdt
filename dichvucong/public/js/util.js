@@ -329,38 +329,6 @@ function delete_row(p_row_obj, p_checkbox_obj, p_hdn_obj) {
         ;
     }
 }
-function delete_row_exist(p_row_obj, p_checkbox_obj, fileUrl) {
-    if (confirm("Ban co that su muon xoa file da dinh kem trong he thong?")) {
-        try {
-            var fileNameList = "";
-            for (i = 0; i < p_row_obj.length; i++) {
-                if (p_checkbox_obj[i].checked) {
-                    fileNameList = fileNameList + p_checkbox_obj[i].value + '!#~$|*';
-                    p_row_obj[i].style.display = "none";
-                    p_checkbox_obj[i].checked = false;
-                }
-            }
-        }
-        catch (e) {
-            ;
-        }
-        try {
-            arrUrl = fileUrl.split('/');
-            var key = 'fileNameList=' + fileNameList;
-            //alert('/' + arrUrl[1] + '/public/ajax/deleteFileUpload.php');
-            if (key != "") {
-                $.ajax({
-                    url: '/' + arrUrl[1] + '/public/ajax/deleteFileUpload.php',
-                    type: 'POST',
-                    dataType: 'html',
-                    data: key
-                });
-            }
-        } catch (e) {
-            ;
-        }
-    }
-}
 
 ////////////////////////////////////////////////////////////////////////
 // Ham reshow_row() DAU cac dong da bi xoa truoc do
