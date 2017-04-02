@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<replace_list>
+		<replace>
+			<from_xml_data>false</from_xml_data>
+
+			<find_string>#RECORD_CODE#</find_string>
+
+			<field_name>C_CODE</field_name>
+		</replace>
+		
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NAME#</find_string>
+			<xml_tag_in_db>registor_name</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#ADDRESS#</find_string>
+			<xml_tag_in_db>registor_address</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>false</from_xml_data>
+			<data_format>isdate</data_format>
+			<find_string>#RECEIVED_DATE#</find_string>
+
+			<field_name>C_RECEIVED_DATE</field_name>
+		</replace>
+		<replace>
+			<from_xml_data>false</from_xml_data>
+			<data_format>isdate</data_format>
+			<find_string>#APPOINTED_DATE#</find_string>
+
+			<field_name>C_APPOINTED_DATE</field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>checkboxmultiple</data_format>
+			<find_string>#INCLUDE_DOCUMENT#</find_string>
+			<xml_tag_in_db>tai_lieu_kt</xml_tag_in_db>
+			<field_name></field_name>
+			<checkbox_multiple_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', '01_TLKT' </checkbox_multiple_sql>
+		</replace>
+		
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#INCLUDE_DOCUMENT_ANOTHER#</find_string>
+			<xml_tag_in_db>tl_khac</xml_tag_in_db>
+			<field_name></field_name>
+			<checkbox_multiple_sql></checkbox_multiple_sql>
+		</replace>			
+		
+	</replace_list>
+</root>

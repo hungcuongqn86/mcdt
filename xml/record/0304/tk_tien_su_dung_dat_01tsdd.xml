@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <replace_list>
+        <replace>
+        <from_xml_data>true</from_xml_data>
+        <data_format>formfieldata</data_format>
+        <sblockname>blockbena</sblockname>
+        <find_string_list>POS,NAME_A,NS_A,CMT_A,DC_A</find_string_list>
+        <field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+        <xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+    </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>formfieldatatax</data_format>
+            <find_string_list>NAME_B,DIACHI_B,PHONE_B</find_string_list>
+            <field_list>obj_name,obj_address,obj_phone</field_list>
+            <tax_tag>obj_address</tax_tag>
+            <tax_prefix>B</tax_prefix>
+            <xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#PHONE#</find_string>
+            <xml_tag_in_db>dien_thoai_nk</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#DIA_CHI_DAT#</find_string>
+            <xml_tag_in_db>dia_chi_thua_dat</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#DIEN_TICH#</find_string>
+            <xml_tag_in_db>dien_tich_thua_dat</xml_tag_in_db>
+        </replace>
+    </replace_list>
+</root>

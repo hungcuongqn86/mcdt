@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<replace_list>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>formfieldatatax</data_format>
+			<find_string_list>NAME_A,TAX_A,NS_A,CMT_A,NGAY_CMT_A,NOICAP_CMT_A,DC_A,DIENTHOAI_A</find_string_list>
+			<field_list>obj_name,obj_taxcode,obj_year,obj_id,obj_id_day,obj_id_unit,obj_address,obj_phone</field_list>
+			<tax_tag>obj_taxcode</tax_tag>
+			<tax_prefix>A</tax_prefix>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#SO_GCN#</find_string>
+			<xml_tag_in_db>so_phat_hanh</xml_tag_in_db>
+		</replace>
+	</replace_list>
+</root>
