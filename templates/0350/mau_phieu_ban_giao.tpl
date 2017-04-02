@@ -533,8 +533,7 @@ normal'><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:EN-US'>
 style='mso-tab-count:1'>            </span><span class="MsoNormal" style="line-height:120%"><b style='mso-bidi-font-weight:
 normal'><span
 style='mso-tab-count:1'></span>CÁN BỘ TN&amp;TKQ<span style='mso-tab-count:
-5'>                                                  </span>LÃNH ĐẠO VĂN
-PHÒNG</b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
+5'>                                                  </span>LÃNH ĐẠO</b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
 EN-US'></span></span></span></b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
 EN-US'><o:p></o:p></span></p>
 

@@ -529,8 +529,7 @@ ngày:……………………<span style="font-size:12.0pt;font-family:&quot;Ti
 <p class=MsoNormal style='line-height:120%'><b style='mso-bidi-font-weight:
 normal'><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:EN-US'><span
 style='mso-tab-count:1'>            </span>PHỤ TRÁCH TT<span style='mso-tab-count:
-5'>                                                     </span>LÃNH ĐẠO VĂN
-PHÒNG</span></b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
+5'>                                                     </span>LÃNH ĐẠO</span></b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
 EN-US'><o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
