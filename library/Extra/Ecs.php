@@ -92,27 +92,27 @@ class Extra_Ecs
         }
         $ResHtmlString .= "<tr class='normal_label'>";
         $ResHtmlString .= "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_TEN_TO_CHUC_CA_NHAN'] . "</td>";
-        $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['registor_name'] . "</td>";
+        $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['ten_nguoi_nop_hs'] . "</td>";
         $ResHtmlString .= "</tr>";
 
         $ResHtmlString .= "<tr class='normal_label'>";
         $ResHtmlString .= "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_DIA_CHI'] . "</td>";
-        $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['registor_address'] . "</td>";
+        $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['dia_chi_nguoi_nop_hs'] . "</td>";
         $ResHtmlString .= "</tr>";
 
-        if ($arrRecord[0]['dt_nguoi_chuyen']) {
+        if ($arrRecord[0]['dien_thoai_nguoi_nop_hs']) {
             $ResHtmlString .= "<tr class='normal_label'>";
             $ResHtmlString .= "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_DIEN_THOAI'] . "</td>";
-            $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['dt_nguoi_chuyen'] . "</td>";
+            $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['dien_thoai_nguoi_nop_hs'] . "</td>";
             $ResHtmlString .= "</tr>";
         }
 
-        if ($arrRecord[0]['email_nk']) {
+        /*if ($arrRecord[0]['email_nk']) {
             $ResHtmlString .= "<tr class='normal_label'>";
             $ResHtmlString .= "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>Email</td>";
             $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['email_nk'] . "</td>";
             $ResHtmlString .= "</tr>";
-        }
+        }*/
         $sOwnerCode = $sOwnerCode = $_SESSION['OWNER_CODE'];
         $arrTrainingLevel = self::getAllListObjectCode($sOwnerCode, $sValueList);
         $arrDoc = explode(',', $arrRecord[0]['tai_lieu_kt']);
