@@ -40,6 +40,12 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
+            <find_string>#NOI_DUNG_BD#</find_string>
+            <xml_tag_in_db>noi_dung_bd</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
             <find_string>#NOI_DUNG_TRUOC_BD#</find_string>
             <xml_tag_in_db>noi_dung_truoc</xml_tag_in_db>
         </replace>

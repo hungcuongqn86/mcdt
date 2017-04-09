@@ -160,6 +160,11 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
+					<tag_list>noi_dung_bd</tag_list>
+					<row_id>noi_dung_bd</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
 					<tag_list>label_tip_top_5</tag_list>
 					<row_id>label_tip_top_5</row_id>
 				</update_row>
@@ -608,6 +613,20 @@
 				<label>&lt;B&gt;3. Nội dung biến động &lt;/B&gt;</label>												
 				<type>label</type>
 			</label_tip_top_4>
+			<noi_dung_bd>
+				<label>Nội dung biến động về</label>
+				<width_label>13%;text-align:left;padding-left:5px;</width_label>
+				<type>textarea</type>
+				<data_format>text</data_format>
+				<width>80%</width>
+				<optional>true</optional>
+				<max_length>1000</max_length>
+				<message>LY DO khong duoc de trong</message>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>noi_dung_bd</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</noi_dung_bd>
 			<label_tip_top_5>
 				<label>3.1 Nội dung trên GCN trước khi biến động</label>												
 				<type>label</type>
