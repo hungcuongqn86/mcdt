@@ -493,7 +493,7 @@ style='mso-tab-count:2'>                      </span>Điệ
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Nội dung:<span
-style='mso-spacerun:yes'>  </span>Chuyển nhượng quyền sử dụng đất</span></p>
+style='mso-spacerun:yes'>  </span>Gia hạn sử dụng đất</span></p>
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Thành phần hồ sơ:<o:p></o:p></span></p>
