@@ -91,7 +91,7 @@
 				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>gioi_tinh_nguoi_nop_hs,dan_toc_nguoi_nop_hs,quoc_tich_nguoi_nop_hs</tag_list>
-					<row_id>gioi_tinh_nguoi_nop_hs</row_id>
+					<row_id>gioi_tinh_nguoi_nop_hs</row_id>s
 				</update_row>						
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -165,6 +165,11 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
+					<tag_list>loai_dat</tag_list>
+					<row_id>loai_dat</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
 					<tag_list>dia_chi_thua_dat</tag_list>
 					<row_id>dia_chi_thua_dat</row_id>
 				</update_row>
@@ -172,6 +177,11 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>dien_tich_thua_dat</tag_list>
 					<row_id>dien_tich_thua_dat</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>string_acreage_cn</tag_list>
+					<row_id>string_acreage_cn_rowid</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -207,6 +217,11 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>noi_cap_qsdd,ngay_cap_qsdd</tag_list>
 					<row_id>noi_cap_qsdd</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>ly_do_duoc_cap</tag_list>
+					<row_id>ly_do_duoc_cap</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -713,19 +728,24 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</to_ban_do>
+			<loai_dat>
+				<label>Loại đất</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.4%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>loai_dat</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</loai_dat>
 			<dia_chi_thua_dat>
 				<label>Địa chỉ thửa đất</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-
-
-
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>dia_chi_thua_dat</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -736,17 +756,25 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-
-
-				<note>m2</note>
+				<note>m2 (Phân cách phần thập phân bằng dấu ",")</note>
 				<xml_data>true</xml_data>
-
-
-
+				<js_function_list>convert_number_to_string_acreage(this,&quot;string_acreage_cn&quot;)</js_function_list>
+				<js_action_list>OnBlur</js_action_list>
 				<xml_tag_in_db>dien_tich_thua_dat</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</dien_tich_thua_dat>
+			<string_acreage_cn>
+				<label>Diện tích chuyển nhượng bằng chữ</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>50%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>string_acreage_cn</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</string_acreage_cn>
 			<ht_sd_chung>
 				<label>Hình thức sử dụng chung</label>
 				<type>textbox</type>
@@ -908,31 +936,31 @@
 				<data_format>isdate</data_format>
 				<optional>true</optional>
 				<width>26.2%</width>
-
-
-
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>ngay_cap_qsdd</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ngay_cap_qsdd>
-			<ly_do_thu_hoi>
-				<label>Mục đích thu hồi</label>
+			<ly_do_duoc_cap>
+				<label>Lý do được cấp</label>
 				<type>textarea</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.3%</width>
-
-
-
 				<row>2</row>
 				<xml_data>true</xml_data>
-
-
-
+				<xml_tag_in_db>ly_do_duoc_cap</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ly_do_duoc_cap>
+			<ly_do_thu_hoi>
+				<label>Lý do thu hồi</label>
+				<type>textarea</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.3%</width>
+				<row>2</row>
+				<xml_data>true</xml_data>
 				<xml_tag_in_db>ly_do_thu_hoi</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
