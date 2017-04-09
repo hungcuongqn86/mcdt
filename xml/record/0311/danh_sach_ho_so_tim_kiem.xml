@@ -17,7 +17,6 @@
 			<align>center</align>
 			<xml_data>false</xml_data>
 			<column_name>PK_RECORD</column_name>
-
 		</col>
 		<col>
 			<label>Mã hồ sơ</label>
@@ -26,7 +25,6 @@
 			<align>left</align>
 			<xml_data>false</xml_data>
 			<column_name>C_CODE</column_name>
-
 		</col>
 			<col>
 				<label>Họ tên</label>
@@ -47,33 +45,22 @@
 				<attr>ben_chuyen_nhuong_obj_address</attr>
 				<ItemIndex>0</ItemIndex>
 			</col>
-		<col>
-			<label>Trạng thái</label>
-			<type>text</type>
-			<width>15%</width>
-			<align>left</align>
-			<xml_data>false</xml_data>
-			<column_name>C_TEXT_STATUS</column_name>
-
-		</col>
-		<col>
-			<label>Hạn xử lý</label>
-			<type>text</type>
-			<width>10%</width>
-			<align>CENTER</align>
-			<xml_data>false</xml_data>
-			<column_name>OUT_OF_DATE</column_name>
-
-		</col>
-		<col>
-			<label>Thông báo</label>
-			<type>text</type>
-			<width>20%</width>
-			<align>left</align>
-			<xml_data>false</xml_data>
-			<column_name>C_MESSAGE</column_name>
-
-		</col>
+			<col>
+				<label>Trạng thái</label>
+				<type>text</type>
+				<width>15%</width>
+				<align>CENTER</align>
+				<xml_data>false</xml_data>
+				<column_name>C_CURRENT_STATUS</column_name>
+			</col>
+			<col>
+				<label>Hạn xử lý</label>
+				<type>text</type>
+				<width>10%</width>
+				<align>CENTER</align>
+				<xml_data>false</xml_data>
+				<column_name>C_APPOINTED_DATE</column_name>
+			</col>
 		</list_body>
 	</list_of_object>
 </root>
