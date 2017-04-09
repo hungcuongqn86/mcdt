@@ -19,7 +19,7 @@
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
 			<find_string>#TELEPHONE#</find_string>
-			<xml_tag_in_db>dt_nguoi_chuyen</xml_tag_in_db>
+			<xml_tag_in_db>dien_thoai_nguoi_nop_hs</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
@@ -30,17 +30,24 @@
 			<field_name></field_name>
 		</replace>			
 		<replace>
+			<from_xml_data>false</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#RECORDTYPE#</find_string>
+
+			<field_name>C_NAME</field_name>
+		</replace>		
+		<replace>
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
 			<find_string>#NAME#</find_string>
-			<xml_tag_in_db>registor_name</xml_tag_in_db>
+			<xml_tag_in_db>ten_nguoi_nop_hs</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
 			<find_string>#ADDRESS#</find_string>
-			<xml_tag_in_db>registor_address</xml_tag_in_db>
+			<xml_tag_in_db>dia_chi_nguoi_nop_hs</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 
@@ -64,9 +71,8 @@
 			<find_string>#INCLUDE_DOCUMENT#</find_string>
 			<xml_tag_in_db>tai_lieu_kt</xml_tag_in_db>
 			<field_name></field_name>
-			<checkbox_multiple_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', '25_TLKT' </checkbox_multiple_sql>
+			<checkbox_multiple_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', '0301_TLKT'</checkbox_multiple_sql>
 		</replace>
-		
 		<replace>
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
@@ -74,7 +80,6 @@
 			<xml_tag_in_db>tl_khac</xml_tag_in_db>
 			<field_name></field_name>
 			<checkbox_multiple_sql></checkbox_multiple_sql>
-		</replace>			
-		
+		</replace>
 	</replace_list>
 </root>
