@@ -210,7 +210,7 @@ class Extra_Xml extends RAX
                 isset($arrTable_rows[$arr_tag[$i]]["defaultValue"]) ? $this->defaultValue = $arrTable_rows[$arr_tag[$i]]["defaultValue"] : $this->defaultValue = '';
                 isset($arrTable_rows[$arr_tag[$i]]["readonly_in_edit_mode"]) ? $this->readonlyInEditMode = $arrTable_rows[$arr_tag[$i]]["readonly_in_edit_mode"] : $this->readonlyInEditMode = '';
                 isset($arrTable_rows[$arr_tag[$i]]["disabled_in_edit_mode"]) ? $this->disabledInEditMode = $arrTable_rows[$arr_tag[$i]]["disabled_in_edit_mode"] : $this->disabledInEditMode = '';
-                isset($arrTable_rows[$arr_tag[$i]]["sessionName"]) ? $this->sessionName = $arrTable_rows[$arr_tag[$i]]["sessionName"] : $this->sessionName = '';
+                isset($arrTable_rows[$arr_tag[$i]]["session_name"]) ? $this->sessionName = $arrTable_rows[$arr_tag[$i]]["session_name"] : $this->sessionName = '';
                 //lay du lieu tu session
                 isset($arrTable_rows[$arr_tag[$i]]["session_id_index"]) ? $this->sessionIdIndex = $arrTable_rows[$arr_tag[$i]]["session_id_index"] : $this->sessionIdIndex = '';
                 isset($arrTable_rows[$arr_tag[$i]]["session_name_index"]) ? $this->sessionNameIndex = $arrTable_rows[$arr_tag[$i]]["session_name_index"] : $this->sessionNameIndex = '';

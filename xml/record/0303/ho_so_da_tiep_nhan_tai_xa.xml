@@ -18,7 +18,6 @@
 				<align>center</align>
 				<xml_data>false</xml_data>
 				<column_name>PK_RECORD</column_name>
-
 			</col>
 			<col>
 				<label>Mã hồ sơ</label>
@@ -27,7 +26,6 @@
 				<align>left</align>
 				<xml_data>false</xml_data>
 				<column_name>C_CODE</column_name>
-
 			</col>
 			<col>
 				<label>Họ tên</label>
