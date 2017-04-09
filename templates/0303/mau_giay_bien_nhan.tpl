@@ -916,7 +916,7 @@ table.MsoTableGrid
     border-right:dotted black 1.0pt;mso-border-right-alt:dotted black .75pt;
     padding:0cm 5.4pt 0cm 5.4pt'><span style="font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US"><strong>Nội dung: </strong><span
-style='mso-spacerun:yes'> </span>Chuyển nhượng quyền sử dụng đất</span></td>
+style='mso-spacerun:yes'> </span>Đăng ký biến động quyền sử dụng đất</span></td>
    </tr>
    <tr style='mso-yfti-irow:10'>
     <td colspan=7 valign=top style='width:371.25pt;border:none;
@@ -1295,7 +1295,7 @@ style='mso-spacerun:yes'> </span>Chuyển nhượng quyền sử dụng đất</
    <tr style='mso-yfti-irow:10'>
      <td colspan=7 valign=top style='width:371.25pt;padding:0cm 5.4pt 0cm 5.4pt'><span style="font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US"><strong>Nội dung: </strong><span
-style='mso-spacerun:yes'> </span>Chuyển nhượng quyền sử dụng đất</span></td>
+style='mso-spacerun:yes'> </span>Đăng ký biến động quyền sử dụng đất</span></td>
    </tr>
    <tr style='mso-yfti-irow:10'>
     <td colspan=7 valign=top style='width:371.25pt;padding:0cm 5.4pt 0cm 5.4pt'>
