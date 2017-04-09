@@ -30,7 +30,7 @@
 
 			</col>
 			<col>
-				<label>Họ tên</label>
+				<label>Họ và tên</label>
 				<type>json</type>
 				<width>20%</width>
 				<align>left</align>
@@ -40,12 +40,13 @@
 			</col>
 			<col>
 				<label>Địa chỉ</label>
-				<type>text</type>
-				<width>25%</width>
+				<type>json</type>
+				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-
-				<xml_tag_in_db>registor_address</xml_tag_in_db>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_chuyen_nhuong_obj_address</attr>
+				<ItemIndex>0</ItemIndex>
 			</col>
 			<col>
 				<label>Ngày hẹn trả KQ</label>
