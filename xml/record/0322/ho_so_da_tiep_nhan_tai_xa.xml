@@ -35,8 +35,8 @@
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
-				<attr>ben_chuyen_nhuong_obj_name</attr>
+				<xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_nhan_chuyen_nhuong_obj_name</attr>
 			</col>
 			<col>
 				<label>Địa chỉ</label>
@@ -44,8 +44,8 @@
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
-				<attr>ben_chuyen_nhuong_obj_address</attr>
+				<xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_nhan_chuyen_nhuong_obj_address</attr>
 				<ItemIndex>0</ItemIndex>
 			</col>
 			<col>
