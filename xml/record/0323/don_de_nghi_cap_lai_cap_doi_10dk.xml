@@ -142,6 +142,35 @@
 			<field_name></field_name>
 		</replace>
 
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TEN_CT#</find_string>
+			<xml_tag_in_db>ten_cong_trinh_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DT_CT#</find_string>
+			<xml_tag_in_db>dien_tich_xay_dung_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TEN_CT1#</find_string>
+			<xml_tag_in_db>ten_cong_trinh_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DT_CT1#</find_string>
+			<xml_tag_in_db>dien_tich_xay_dung_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
 
 
         <replace>

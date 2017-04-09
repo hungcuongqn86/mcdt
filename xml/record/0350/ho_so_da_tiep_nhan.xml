@@ -30,22 +30,23 @@
 
 			</col>
 			<col>
-				<label>Họ tên</label>
-				<type>text</type>
+				<label>Họ và tên</label>
+				<type>json</type>
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-
-				<xml_tag_in_db>registor_name</xml_tag_in_db>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_chuyen_nhuong_obj_name</attr>
 			</col>
 			<col>
 				<label>Địa chỉ</label>
-				<type>text</type>
-				<width>25%</width>
+				<type>json</type>
+				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-
-				<xml_tag_in_db>registor_address</xml_tag_in_db>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_chuyen_nhuong_obj_address</attr>
+				<ItemIndex>0</ItemIndex>
 			</col>
 			<col>
 				<label>Ngày hẹn trả KQ</label>
@@ -97,7 +98,8 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>dia_chi_nguoi_nop_hs</tag_list>
 					<row_id>id_dia_chi_nguoi_nop_hs</row_id>
-				</update_row>				<update_row>
+				</update_row>
+				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>dien_thoai_nguoi_nop_hs</tag_list>
 					<row_id>id_dien_thoai_nguoi_nop_hs</row_id>
@@ -132,6 +134,11 @@
 					<have_line_before>true</have_line_before>
 					<tag_list>label_tip_top_2</tag_list>
 					<row_id>label_tip_top_2</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>chu_so_huu</tag_list>
+					<row_id>row_chu_so_huu</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -282,7 +289,33 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>thong_tin_cay_lau_nam_thay_doi</tag_list>
 					<row_id>thong_tin_cay_lau_nam_thay_doi</row_id>
-				</update_row>																																																																
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>thong_tin_tren_thay_doi1</tag_list>
+					<row_id>thong_tin_tren_thay_doi1</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>true</have_line_before>
+					<tag_list>label_tip_top_131</tag_list>
+					<row_id>label_tip_top_131</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>label_tip_top_141,thong_tin_cay_lau_nam_tren_gcn_da_cap1</tag_list>
+					<row_id>label_tip_top_141</row_id>
+				</update_row>
+
+				<update_row>
+					<have_line_before>true</have_line_before>
+					<tag_list>label_tip_top_151</tag_list>
+					<row_id>label_tip_top_151</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>mucdich1,thoigian1</tag_list>
+					<row_id>label_mucdich1</row_id>
+				</update_row>
 				<update_row>
 					<have_line_before>true</have_line_before>
 					<tag_list>tai_lieu_kt</tag_list>
@@ -501,7 +534,7 @@
 			</phuong_xa>
 <!-- Ket thuc phan mo ta thong tin nguoi nop hs -->
 			<label_tip_top>
-				<label>&lt;B&gt;1. Người sử dụng đất chủ sở hữu tài sản gắn liền với đất&lt;/B&gt;</label>												
+				<label>&lt;B&gt;1. Người sử dụng đất chủ sở hữu tài sản gắn liền với đất sau khi được cấp đổi&lt;/B&gt;</label>
 				<type>label</type>
 			</label_tip_top>
 			<ben_chuyen_nhuong>
@@ -517,6 +550,19 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ben_chuyen_nhuong>
+			<chu_so_huu>
+				<type>formfieldata</type>
+				<file_name_xml>ds_staff_info</file_name_xml>
+				<width>70%</width>
+				<row>3</row>
+				<optional>false</optional>
+				<max_length>200</max_length>
+				<message>Phải nhập thông tin bên chuyển nhượng!</message>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>chu_so_huu</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</chu_so_huu>
 			<hinh_thuc_hs>
 				<label>Hình thức hồ sơ</label>
 				<type>selectbox</type>
@@ -646,7 +692,7 @@
 				<type>label</type>
 			</label_tip>	
 			<label_tip_top_2>
-				<label>&lt;B&gt;2. Giấy chứng nhận đã cấp đề nghị cấp lại cấp đổi&lt;/B&gt;</label>												
+				<label>&lt;B&gt;2. Thông tin giấy chứng nhận đã cấp đề nghị cấp lại cấp đổi&lt;/B&gt;</label>
 				<type>label</type>
 			</label_tip_top_2>
 			<so_vao_so_cap_gcn>
@@ -955,6 +1001,14 @@
 				<label>&lt;B&gt;7. Cây lâu năm có thay đổi(nếu có)&lt;/B&gt;&lt;/br&gt;&lt;I&gt;(chỉ ghi những thông tin trên GCN đã cấp có thay đổi)&lt;/I&gt;</label>												
 				<type>label</type>
 			</label_tip_top_13>
+			<label_tip_top_131>
+				<label>&lt;B&gt;8. Mục đích và thời gian trước khi cấp đổi&lt;/B&gt;&lt;/br&gt;&lt;I&gt;&lt;/I&gt;</label>
+				<type>label</type>
+			</label_tip_top_131>
+			<label_tip_top_151>
+			<label>&lt;B&gt;9. Mục đích và thời gian sau khi cấp đổi&lt;/B&gt;&lt;/br&gt;&lt;I&gt;&lt;/I&gt;</label>
+			<type>label</type>
+			</label_tip_top_151>
 			<label_tip_top_14>
 				<label>7.1 Thông tin trên GCN đã cấp</label>
 				<type>label</type>
@@ -996,7 +1050,56 @@
 				<xml_tag_in_db>thong_tin_cay_lau_nam_thay_doi</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</thong_tin_cay_lau_nam_thay_doi>																	
+			</thong_tin_cay_lau_nam_thay_doi>
+
+			<label_tip_top_141>
+				<label>8.1 Mục đích</label>
+
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>28.2%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>label_tip_top_141</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</label_tip_top_141>
+			<thong_tin_cay_lau_nam_tren_gcn_da_cap1>
+				<label>8.2 Thời gian</label>
+				<width_label>13%;text-align:left;padding-left:5px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>28.2%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>thong_tin_cay_lau_nam_tren_gcn_da_cap1</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</thong_tin_cay_lau_nam_tren_gcn_da_cap1>
+			<mucdich1>
+				<label>9.1 Mục đích</label>
+
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>28.2%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>mucdich1</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</mucdich1>
+			<thoigian1>
+				<label>9.2 Thời gian</label>
+				<width_label>13%;text-align:left;padding-left:5px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>28.2%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>thoigian1</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</thoigian1>
 		<tai_lieu_kt>				
 				<label>&lt;B&gt;Những giấy tờ liên quan đến nội dung thay đổi nộp kèm theo&lt;/B&gt;</label>
 				<type>multiplecheckbox_fileAttach</type>
