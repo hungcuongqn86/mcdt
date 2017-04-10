@@ -33,6 +33,13 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
+            <find_string>#NOI_DUNG_BD_VE#</find_string>
+            <xml_tag_in_db>nd_bd</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
             <find_string>#NOI_DUNG_TRUOC_BD#</find_string>
             <xml_tag_in_db>nd_truoc_bd</xml_tag_in_db>
             <field_name></field_name>

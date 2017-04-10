@@ -241,6 +241,11 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
+					<tag_list>nd_bd</tag_list>
+					<row_id>nd_bd</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
 					<tag_list>nd_truoc_bd</tag_list>
 					<row_id>nd_truoc_bd</row_id>
 				</update_row>
@@ -538,13 +543,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>31.3%</width>
-
-
-
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>to_ban_do</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -555,13 +554,7 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>72.4%</width>
-
-
-
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>dia_chi_thua_dat</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -572,11 +565,8 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-
-
 				<note>m2</note>
 				<xml_data>true</xml_data>
-
                 <js_function_list>convert_number_to_string_acreage(this,&quot;string_acreage&quot;)</js_function_list>
                 <js_action_list>OnBlur</js_action_list>
 				<xml_tag_in_db>dien_tich_thua_dat</xml_tag_in_db>
@@ -589,13 +579,7 @@
                 <data_format>text</data_format>
                 <optional>true</optional>
                 <width>50%</width>
-
-
-
                 <xml_data>true</xml_data>
-
-
-
                 <xml_tag_in_db>string_acreage</xml_tag_in_db>
                 <readonly_in_edit_mode>false</readonly_in_edit_mode>
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -606,7 +590,6 @@
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>15%</width>
-				
 				<note>m2</note>
 				<xml_data>true</xml_data>
 				<xml_tag_in_db>ht_su_dung_rieng</xml_tag_in_db>
@@ -626,7 +609,6 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ht_su_dung_chung>
-
             <ds_loai_dat>
                 <label>Danh sách loại đất theo mục đích sử dụng</label>
                 <type>tabledata</type>
@@ -712,6 +694,17 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</trong_do_dat_so>
+			<nd_bd>
+				<label>Nội dung biến động về</label>
+				<type>textarea</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.4%</width>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>nd_bd</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</nd_bd>
 			<nd_truoc_bd>
 				<label>Nội dung trước khi biến động</label>
 				<type>textarea</type>
