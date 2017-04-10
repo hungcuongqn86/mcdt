@@ -10,13 +10,23 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
+					<tag_list>obj_id,obj_id_day,obj_id_unit</tag_list>
+					<row_id>obj_id</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
 					<tag_list>obj_address</tag_list>
 					<row_id>obj_address</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>obj_id_day,obj_id,obj_id_unit</tag_list>
-					<row_id>obj_id</row_id>
+					<tag_list>obj_taxcode</tag_list>
+					<row_id>obj_taxcode</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_ct_day,obj_code,obj_ct_unit</tag_list>
+					<row_id>obj_ct</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -62,38 +72,29 @@
 				<xml_tag_in_db>obj_address</xml_tag_in_db>
 				<width>31%</width>
 			</obj_address>
-			<obj_phone>
-				<label>Số điện thoại</label>
-				<width_label>10%;text-align:left;padding-left:8px;</width_label>
-				<type>textbox</type>
-				<data_format>text</data_format>
-				<xml_tag_in_db>obj_phone</xml_tag_in_db>
-				<width>12%</width>
-			</obj_phone>
-			<obj_id>
+			<obj_code>
 				<label>Theo GCT số</label>
 				<width_label>10%;text-align:left;padding-left:8px;</width_label>
 				<type>textbox</type>
 				<data_format>text</data_format>
-				<xml_tag_in_db>obj_id</xml_tag_in_db>
+				<xml_tag_in_db>obj_code</xml_tag_in_db>
 				<width>16%</width>
-			</obj_id>
-			<obj_id_day>
+			</obj_code>
+			<obj_ct_day>
 				<label>Ngày chết</label>
-
 				<type>textbox</type>
 				<data_format>isdate</data_format>
-				<xml_tag_in_db>obj_id_day</xml_tag_in_db>
+				<xml_tag_in_db>obj_ct_day</xml_tag_in_db>
 				<width>20%</width>
-			</obj_id_day>
-			<obj_id_unit>
+			</obj_ct_day>
+			<obj_ct_unit>
 				<label>Quyển số</label>
 				<width_label>5%;text-align:left;padding-left:8px;</width_label>
 				<type>textbox</type>
 				<data_format>text</data_format>
-				<xml_tag_in_db>obj_id_unit</xml_tag_in_db>
+				<xml_tag_in_db>obj_ct_unit</xml_tag_in_db>
 				<width>15%</width>
-			</obj_id_unit>
+			</obj_ct_unit>
 			<obj_ads>
 				<label>DO UBND cấp xã</label>
 				<type>textbox</type>
@@ -116,6 +117,36 @@
 				<xml_tag_in_db>obj_quanhe</xml_tag_in_db>
 				<width>30%</width>
 			</obj_quanhe>
+			<obj_id>
+				<label>Số CMND</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_id</xml_tag_in_db>
+				<width>20%</width>
+			</obj_id>
+			<obj_id_day>
+				<label>Ngày cấp</label>
+				<width_label>6%;text-align:left;padding-left:8px;</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<xml_tag_in_db>obj_id_day</xml_tag_in_db>
+				<width>12%</width>
+			</obj_id_day>
+			<obj_id_unit>
+				<label>Nơi cấp</label>
+				<width_label>5%;text-align:left;padding-left:8px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_id_unit</xml_tag_in_db>
+				<width>15%</width>
+			</obj_id_unit>
+			<obj_taxcode>
+				<label>Mã số thuế</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_taxcode</xml_tag_in_db>
+				<width>31%</width>
+			</obj_taxcode>
 		</update_formfield_list>
 	</update_object>
 </root>

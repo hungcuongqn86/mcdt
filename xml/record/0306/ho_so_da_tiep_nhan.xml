@@ -26,7 +26,6 @@
 				<align>left</align>
 				<xml_data>false</xml_data>
 				<column_name>C_CODE</column_name>
-
 			</col>
 			<col>
 				<label>Bên cho</label>
@@ -34,7 +33,6 @@
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-
 				<xml_tag_in_db>registor_name</xml_tag_in_db>
 			</col>
 			<col>
@@ -43,7 +41,6 @@
 				<width>20%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-
 				<xml_tag_in_db>nguoi_nhan</xml_tag_in_db>
 			</col>
 			<col>
@@ -52,7 +49,6 @@
 				<width>25%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
-
 				<xml_tag_in_db>registor_address</xml_tag_in_db>
 			</col>
 			<col>
@@ -62,7 +58,6 @@
 				<align>CENTER</align>
 				<xml_data>false</xml_data>
 				<column_name>C_APPOINTED_DATE</column_name>
-
 			</col>			
 		</list_body>
 	</list_of_object>
@@ -443,9 +438,6 @@
 				<message>PHAI XAC DINH SO DIEN THOAI NGUOI NOP HS!</message>
 				<note>(Phải nhập đúng thông tin số điện thoại)</note>
 				<xml_data>true</xml_data>
-
-
-
 				<xml_tag_in_db>dien_thoai_nguoi_nop_hs</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
