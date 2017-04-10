@@ -93,6 +93,10 @@
             <label>Tờ khai lệ phí trước bạ (Mẫu 01/LPTB)</label>
             <tempcode>tk_le_phi_truoc_ba_01lptb</tempcode>
         </item_print>
+		<item_print>
+			<label>Đơn đăng ký biến động (Mẫu 09/ĐK)</label>
+			<tempcode>don_dang_ky_09dk</tempcode>
+		</item_print>
     </list_print>
 	<update_object>
 		<table_struct_of_update_form> 
