@@ -28,6 +28,11 @@
 					<tag_list>obj_ads,obj_xom</tag_list>
 					<row_id>obj_ads</row_id>
 				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_ads_ct,obj_xom_ct</tag_list>
+					<row_id>obj_ads_ct</row_id>
+				</update_row>
 			</update_row_list>
 		</table_struct_of_update_form>
 		<update_formfield_list>
@@ -101,7 +106,7 @@
 				<width>31%</width>
 			</obj_taxcode>
 			<obj_ads>
-				<label>Thôn, xóm</label>
+				<label>Hộ khẩu: Thôn, xóm</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<xml_tag_in_db>obj_ads</xml_tag_in_db>
@@ -115,6 +120,21 @@
 				<xml_tag_in_db>obj_xom</xml_tag_in_db>
 				<width>12%</width>
 			</obj_xom>
+			<obj_ads_ct>
+				<label>Cư trú tại thôn, xóm</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_ads_ct</xml_tag_in_db>
+				<width>31%</width>
+			</obj_ads_ct>
+			<obj_xom_ct>
+				<label>Xã, thị trấn</label>
+				<width_label>10%;text-align:left;padding-left:8px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_xom_ct</xml_tag_in_db>
+				<width>12%</width>
+			</obj_xom_ct>
 		</update_formfield_list>
 	</update_object>
 </root>
