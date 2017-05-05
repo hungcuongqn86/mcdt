@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<update_object>
+		<table_struct_of_update_form>
+			<update_row_list>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_sex,obj_name,obj_year</tag_list>
+					<row_id>obj_name</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_address,obj_phone</tag_list>
+					<row_id>obj_address</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_id,obj_id_day,obj_id_unit</tag_list>
+					<row_id>obj_id</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_taxcode</tag_list>
+					<row_id>obj_taxcode</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_ads,obj_xom</tag_list>
+					<row_id>obj_ads</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>obj_quanhe</tag_list>
+					<row_id>obj_quanhe</row_id>
+				</update_row>
+			</update_row_list>
+		</table_struct_of_update_form>
+		<update_formfield_list>
+			<obj_sex>
+				<label>Họ và tên</label>
+				<type>selectbox_sex</type>
+				<xml_tag_in_db>obj_sex</xml_tag_in_db>
+				<width>5%</width>
+			</obj_sex>
+			<obj_name>
+				<label></label>
+				<width_label>1%;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_name</xml_tag_in_db>
+				<width>25%</width>
+				<js_function_list>set_upcase_value(this);</js_function_list>
+				<js_action_list>onblur</js_action_list>
+			</obj_name>
+			<obj_year>
+				<label>Sinh năm</label>
+				<width_label>10%;text-align:left;padding-left:8px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_year</xml_tag_in_db>
+				<width>12%</width>
+			</obj_year>
+			<obj_address>
+				<label>Địa chỉ thường trú</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_address</xml_tag_in_db>
+				<width>31%</width>
+			</obj_address>
+			<obj_phone>
+				<label>Số điện thoại</label>
+				<width_label>10%;text-align:left;padding-left:8px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_phone</xml_tag_in_db>
+				<width>12%</width>
+			</obj_phone>
+			<obj_id>
+				<label>Số CMND</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_id</xml_tag_in_db>
+				<width>20%</width>
+			</obj_id>
+			<obj_id_day>
+				<label>Ngày cấp</label>
+				<width_label>6%;text-align:left;padding-left:8px;</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<xml_tag_in_db>obj_id_day</xml_tag_in_db>
+				<width>12%</width>
+			</obj_id_day>
+			<obj_id_unit>
+				<label>Nơi cấp</label>
+				<width_label>5%;text-align:left;padding-left:8px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_id_unit</xml_tag_in_db>
+				<width>15%</width>
+			</obj_id_unit>
+			<obj_taxcode>
+				<label>Mã số thuế</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_taxcode</xml_tag_in_db>
+				<width>31%</width>
+			</obj_taxcode>
+			<obj_ads>
+				<label>Thôn, xóm</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_ads</xml_tag_in_db>
+				<width>31%</width>
+			</obj_ads>
+			<obj_xom>
+				<label>Xã, thị trấn</label>
+				<width_label>10%;text-align:left;padding-left:8px;</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_xom</xml_tag_in_db>
+				<width>12%</width>
+			</obj_xom>
+			<obj_quanhe>
+				<label>Quan hệ với chủ sử dụng đất</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<xml_tag_in_db>obj_quanhe</xml_tag_in_db>
+				<width>30%</width>
+			</obj_quanhe>
+		</update_formfield_list>
+	</update_object>
+</root>

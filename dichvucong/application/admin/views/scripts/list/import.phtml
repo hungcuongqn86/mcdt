@@ -1,0 +1,143 @@
+<form action="index" method="POST" id="frmImport" enctype="multipart/form-data" autocomplete="off">
+    <!--ID cua ListType-->
+    <?php echo $this->formHidden("hdn_listtype_id", $this->iListTypeId, null); ?>
+    <!--Sinh mot hidden luu list ID ma NSD chon!-->
+    <?php echo $this->formHidden("hdn_object_id_list", "", null); ?>
+    <!--Sinh mot hidden luu gia tri xac dinh so ban ghi / 1 trang!-->
+    <?php echo $this->formHidden("hdn_record_number_page", $this->NumberRowOnPage, null); ?>
+    <!--Sinh mot hidden luu gia tri trang hien thoi 1, 2, ...!-->
+    <?php echo $this->formHidden("hdn_page", $this->numCurrentPage, null); ?>
+    <?php echo $this->formHidden("hdn_xml_tag_list", '', null); ?>
+    <!--Bien hdn_xml_value_list dung de luu danh sach cac gia tri cua cac THE XML tuong ung voi cac THUOC TINH cua mot doi tuong-->
+    <?php echo $this->formHidden("hdn_xml_value_list", '', null); ?>
+    <?php echo $this->formHidden("hdn_owner_code_list", '', null); ?>
+    <?php echo $this->formHidden("hdn_attach_file_name", '', null); ?>
+    <input type="hidden" name="showLeftMenu" id="showLeftMenu"/>
+
+    <div id="form-container">
+        <div id="form-header">
+            <div id="form-header-left" style="width:90%;">
+                <?= $this->bodyTitle; ?>
+            </div>
+            <div id="form-header-right">&nbsp;</div>
+        </div>
+        <div id="form-content">
+            <div>
+                <label class="lbl_title normal_label">Loại danh mục</label>
+
+                <div class="normal_label" style="font-weight:bold;" id="progress_rerordTypeName">Import
+                    "<?= $this->sListTypeName ?>"
+                </div>
+            </div>
+            <div style="height:10px;"></div>
+            <div>
+                <div><label class="lbl_title normal_label" style="display:inline;">Đường dẫn file dữ liệu
+                        (*.xls)</label></div>
+                <input id="file_upload" type="file" name="Filedata" size="100"/>
+            </div>
+            <div id="SelectedFileName">
+                <div>
+                    <label class="lbl_title normal_label" style="display:inline;">File đã chọn</label>
+
+                    <div id="ImportFileName" class="clsFileName"></div>
+                    <br>
+                </div>
+            </div>
+            <div>
+                <label class="lbl_title normal_label">Hướng dẫn thao tác:</label>&nbsp;
+            </div>
+            <div style="padding-left:30px;" class="lbl_title normal_label">
+                <ul>
+                    <li>
+                        <div style="display:inline;"> - <U>Bước 1</U>:</div>
+                        <div style="padding-left:50px;">
+                            Chọn đường dẫn file Excel chứa dữ liệu cần import (Lưu ý: File dữ liệu import phải được
+                            chuyển đồi font về Unicode (Tham khảo địa chỉ: <i>http://www.bentre.edu.vn/index.php?option=com_content&view=article&id=794:hng-dn-chuyn-i-font-ch-bng-unikey-toolkit&catid=94:cong-ngh-thong-tin&Itemid=109</i>),
+                            trường hợp để font TCVN3 khi hiển thị sẽ lỗi font), bằng cách chọn vào nút "Select Files",
+                            xin đợi trong giây lát để hệ thống tải file lên máy chủ trước khi import;
+                        </div>
+                    </li>
+                    <li> - <U>Bước 2</U>:
+                        <div style="padding-left:50px;">
+                            Nhấn vào nút "Import dữ liệu" để hệ thống update dữ liệu từ file Excel vào CSDL, nhất nút
+                            "Quay lại" màn hình danh sách đối tượng danh mục.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="ajax_loader" style="display:none;">
+            <img src="<?= $this->baseUrl ?>images/ajax-loader1.gif" style="width:327px;"/>
+            <br>
+
+            <div style="color:blue;font-weight:bold;text-align:center;">Đang xử lý dữ liệu, xin đợi trong giây lát!
+            </div>
+        </div>
+        <div id="ajax_import_data"></div>
+        <div style="height:10px;"></div>
+        <div class="button-container">
+            <input type="button" name="btn_import" id="btn_import" value="Import dữ liệu" class="link-button"
+                   onClick="ImportData('DM_DON_VI_THAM_GIA_BHXH');">
+            <?= $this->formsubmit('btn-back', 'Quay lại', array("onClick" => "actionUrl('../index/')", "class" => "link-button")) ?>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#SelectedFileName").css("display", "none");
+        arrUrl = '<?=$this->UrlAjax?>'.split('/');
+        $('#file_upload').uploadify({
+            'uploader': '<?=G_Global::_setImageUrlPath()?>uploadify.swf',
+            'script': arrUrl[0] + '/' + arrUrl[1] + '/' + arrUrl[2] + '/' + arrUrl[3] + '/public/ajax/uploadify.php',
+            'cancelImg': '<?=G_Global::_setImageUrlPath()?>cancel.png',
+            'folder': '<?=G_Global::_setAttachFileUrlPath()?>TempUpload',
+            'buttonText': 'Select Files',
+            'fileExt': '*.xls;',
+            'fileDesc': 'Excel Files',
+            onComplete: function (event, queueID, fileObj, response, data) {
+                $("#SelectedFileName").css("display", "block");
+                var obj = jQuery.parseJSON(response);
+                document.getElementById('hdn_attach_file_name').value = obj.objFileName;
+                $("div.clsFileName").html(obj.defaultFileName);
+                $("#ImportFileName").css("color", "blue");
+                $("#ImportFileName").css("font-size", "13px");
+                $("#ImportFileName").css("font-family", "arial");
+            },
+            'auto': true
+        });
+    });
+    //Xu ly Ajax lay thong tin don vi tham gia BHXH
+    function ImportData(obj) {
+        if ($("#hdn_attach_file_name").val() == "") {
+            alert("Phải xác định tên file Excel ('*.xls') cần import!");
+            return;
+        }
+        arrUrl = '<?=$this->UrlAjax?>'.split('/');
+        var IdRecordType = '<?=$this->iIdListType?>';
+        var sProvinceId = '<?=$_SESSION['SessionProvince']?>';
+        var sOwnerCode = '<?=Zend_Auth::getInstance()->getIdentity()->sOwnerCode?>';
+        //show modal
+        $('#ajax_loader').modal({close: false, maxHeight: 55, maxWidth: 343, autoResize: true});
+        var strtem = document.getElementById("progress_rerordTypeName").innerHTML;
+        var sDataFileAttach = $("#hdn_attach_file_name").val();
+        $("#ajax_import_data").load(arrUrl[0] + '/' + arrUrl[1] + '/' + arrUrl[2] + '/' + arrUrl[3] + "/public/ajax/ajaxFunction.php",
+            {
+                FuntionName: 'ImportData',
+                recordtypeId: IdRecordType,
+                DataFileAttach: sDataFileAttach,
+                ParentOwnerCode: sProvinceId,
+                OwnerCode: sOwnerCode,
+                ListTypeCode: obj
+            }, function callback(data) {
+                $.modal.close();
+                if (data == "ERROR") {
+                    document.getElementById("ajax_import_data").innerHTML = "Import không thành công!";
+                } else {
+                    document.getElementById("ajax_import_data").innerHTML = "Import thành công!";
+                    $("#ajax_import_data").css("color", "blue");
+                    $("#ajax_import_data").css("font-weight", "bold");
+                }
+            }
+        );
+    }
+</script>			

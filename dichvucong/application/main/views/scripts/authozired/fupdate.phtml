@@ -1,0 +1,122 @@
+<form action="" method="" accept-charset="utf-8" id="frmauthozired_update">
+    <input type="hidden" id="hdn_list_function" name="hdn_list_function" optional="false" value=""
+           message="Chức năng không được để trống!"/>
+    <?php
+    echo $this->formHidden('pk_authozired', $this->pk_authozired, null);
+    $arrDefault = $this->arrDefault;
+    ?>
+    <div class="fix_title_button titleview">
+        <div class="normal_title blc-left"><?= $this->bodyTitle; ?></div>
+        <div class="blc-right">
+            <input class="ghi link-button clsaveauth" type="button" value="Ghi"/>
+            <input id="btnback" class="back link-button clback" type="button" value="Quay lại"/>
+        </div>
+    </div>
+    <div id="form-content" style="padding-top:5px;">
+        <div class="normal_label" style="padding-bottom:5px;">
+            <!-- Phong ban -->
+            <label class="normal_label label1">Chọn phòng ban</label>
+
+            <div style="width: 30%;display: inline-block;">
+                <select name="auth_department" id="auth_department" class="textbox input40 chzn-select" tabindex="2">
+                    <option id="" selected="" value="" name="">------Chọn phòng ban------</option>
+                    <?php
+                    echo G_Gen::getInstance()->_generateSelectOption($this->arrUnit, 'id', 'id', 'name', $arrDefault['FkDepartmentAuthozired']);
+                    ?>
+                </select>
+            </div>
+            <!-- Can bo -->
+            <label class="normal_label label1" style="float:none;float:none;padding-left:10px;">Chọn cán bộ
+                <small class="normal_starmark">*</small>
+            </label>
+
+            <div style="width: 30%;display: inline-block;">
+                <select name="auth_staff" id="auth_staff" class="textbox input40 chzn-select" tabindex="2"
+                        optional="false" message="Cán bộ không được để trống!">
+                    <option id="" selected="" value="" name="">------Chọn cán bộ------</option>
+                    <?php
+                    echo G_Gen::getInstance()->_generateSelectOption(array(), 'code', 'code', 'name', '');
+                    ?>
+                </select>
+            </div>
+        </div>
+        <!-- Chuc nang -->
+        <div class="normal_label">
+            <label class="normal_label label1" style="vertical-align: top;">Chức năng
+                <small class="normal_starmark">*</small>
+            </label>
+
+            <div style="width: 60%;display: inline-block;  border: 1px solid #DDDDDD;" id="tree-function">
+                <?= $this->authfunction ?>
+            </div>
+        </div>
+        <!-- Thoi gian -->
+        <div class="normal_label">
+            <label class="normal_label label1">Thời gian hoạt động</label>
+            <label class="normal_label" for="NOT_LIMIT">Không giới hạn</label>
+            <input id="NOT_LIMIT" class="normal_textbox" type="radio" value="" name="option_time">
+            <label class="normal_label" for="LIMIT">Có giới hạn</label>
+            <input id="LIMIT" class="normal_textbox" type="radio" value="LIMIT" name="option_time">
+        </div>
+        <div class="normal_label" style="display:none;" id="display-limit">
+            <label class="normal_label label1" for="AUT05">Từ ngày</label>
+            <input type="text" message="Từ ngày không đúng định dạng ngày/tháng/năm!" onkeyup="DateOnkeyup(this,event)"
+                   isdate="true" optional="true" class="normal_textbox hasDatepicker" name="AUT05" id="AUT05"
+                   date="isdate">
+            <label class="normal_label label1" for="AUT06">Đến ngày</label>
+            <input type="text" message="Đến ngày không đúng định dạng ngày/tháng/năm!" onkeyup="DateOnkeyup(this,event)"
+                   isdate="true" optional="true" class="normal_textbox hasDatepicker" name="AUT06" id="AUT06"
+                   date="isdate">
+
+        </div>
+    </div>
+    <div class="button-container">
+        <input class="ghi link-button clsaveauth" type="button" value="Ghi"/>
+        <input id="btnback" class="back link-button clback" type="button" value="Quay lại"/>
+    </div>
+</form>
+<script type="text/javascript">
+    var arrDefault = [];
+    arrDefault.FkDepartmentAuthozired = "<?=$arrDefault['FkDepartmentAuthozired'] ?>";
+    arrDefault.FkStaffAuthozired = "<?=$arrDefault['FkStaffAuthozired'] ?>";
+    arrDefault.FunctionAuthozired = "<?=$arrDefault['FunctionAuthozired'] ?>";
+    arrDefault.sOptionTime = "<?=$arrDefault['sOptionTime'] ?>";
+    $(function () {
+        var htmls = $('#tree-function').html();
+        var arrChecked = [];
+        if (arrDefault.FunctionAuthozired != '') {
+            arrChecked = arrDefault.FunctionAuthozired.split(',');
+        }
+        ;
+        var obj = $("#tree-function");
+        // alert(arrChecked.length);
+        $("#tree-function").jstree({
+            // "core" : { "initially_open" : [ "root" ] },
+            "html_data": {
+                "data": htmls
+            },
+            "themes": {
+                "theme": "default",
+                "dots": false,
+                "icons": false,
+                "url": baseUrl + '/public/js/jsTree/themes/default/style.css'
+            },
+            "ui": {},
+            "plugins": ["themes", "html_data", "checkbox", "ui"],
+        })
+            .bind("select_node.jstree", function (event, data) {
+                $(obj).jstree("toggle_node", data.rslt.obj);
+            })
+        ;
+        setTimeout(function () {
+            for (var i = 0; i < arrChecked.length; i++) {
+                $(obj).jstree("check_node", "#" + arrChecked[i]);
+            }
+            ;
+        }, 1000);
+    });
+    $(".chzn-select").chosen({widthdiv: 20});
+    fixTitleView();
+    lddadepicker();
+</script>
+

@@ -1,0 +1,162 @@
+<form action="index" method="POST" id="frmAddListType" enctype="multipart/form-data" autocomplete="off">
+    <!--ID cua ListType-->
+    <?php echo $this->formHidden("hdn_listtype_id", $this->iListTypeId, null); ?>
+    <?php echo $this->formHidden("hdn_object_id_list", "", null); ?>
+    <?php echo $this->formHidden("hdn_record_number_page", $this->NumberRowOnPage, null); ?>
+    <?php echo $this->formHidden("hdn_page", $this->numCurrentPage, null); ?>
+    <?php echo $this->formHidden("hdn_update", 'OK', null); ?>
+    <?php echo $this->formHidden("hdn_xml_tag_list", '', null); ?>
+    <?php echo $this->formHidden("hdn_xml_value_list", '', null); ?>
+    <?php echo $this->formHidden("hdn_owner_code_list", '', null); ?>
+    <?php
+    $arrConst = $this->arrConst;
+    $SesGetAllOwner = G_Cache::getInstance()->getSesGetAllOwner();
+    ?>
+    <input type="hidden" name="showLeftMenu" id="showLeftMenu"/>
+
+    <div id="form-container">
+        <div id="form-header">
+            <div id="form-header-left" class="normal_title" style="width:90%;">
+                <?= $this->bodyTitle; ?>
+            </div>
+            <div id="form-header-right">&nbsp;</div>
+        </div>
+        <div id="form-content" class="divcontent">
+            <div>
+                <label class="lbl_title normal_label">Mã loại danh mục
+                    <small class="normal_starmark">*</small>
+                </label>
+                <?= $this->formText('sCode', $this->arrInput['sCode'], array('size' => 50, 'class' => 'normal_textbox', 'optional' => false, 'message' => 'Ma LOAI DANH MUC khong duoc de trong!')); ?>
+            </div>
+            <div>
+                <label class="lbl_title normal_label">Tên loại danh mục
+                    <small class="normal_starmark">*</small>
+                </label>
+                <?= $this->formText('sName', $this->arrInput['sName'], array('size' => 90, 'class' => 'normal_textbox', 'optional' => false, 'message' => 'TEN LOAI DANH MUC khong duoc de trong!')); ?>
+            </div>
+            <div>
+                <label class="lbl_title normal_label">Thứ tự hiền thị</label>
+                <?= $this->formText('iOrder', $this->arrInput['iOrder'], array('size' => 10, 'class' => 'normal_textbox')); ?>
+            </div>
+            <div>
+                <label class="lbl_title normal_label">Import dữ liệu</label><?php
+                $ChkImportStatus = false;
+                if ($this->arrInput['sImportStatus']) {
+                    $ChkImportStatus = true;
+                }?>
+                <?= $this->formcheckbox('CHK_IMPORT_STATUS', $this->arrInput['sImportStatus'], array('size' => 10, 'checked' => $ChkImportStatus, 'class' => 'normal_textbox', 'optional' => true)); ?>
+                <div class="lbl_title normal_label" style="display:inline;" id="ID_IMPORT_DATA_STATUS">Có (Cho phép NSD
+                    Import dữ liệu từ file Excel)
+                </div>
+            </div>
+            <div>
+                <label class="lbl_title normal_label">Tự động sinh mã đối tượng</label><?php
+                $ChkAutoGenerateCodeStatus = false;
+                if ($this->arrInput['bAutoGenerateObjectStatus']) {
+                    $ChkAutoGenerateCodeStatus = true;
+                }?>
+                <?= $this->formcheckbox('CHK_AUTO_GENERATE_OBJECT_CODE', $this->arrInput['bAutoGenerateObjectStatus'], array('size' => 10, 'checked' => $ChkAutoGenerateCodeStatus, 'class' => 'normal_textbox', 'optional' => true)); ?>
+                <div class="lbl_title normal_label" style="display:inline;"
+                     onClick="chk_show_hide_auto_generate_object_code();">Có (Cho phép NSD định nghĩa tự động sinh mã
+                    đối tương)
+                </div>
+            </div><?php
+            $DisplayStatus = "none";
+            if ($this->arrInput['bAutoGenerateObjectStatus']) {
+                $DisplayStatus = "block";
+            }?>
+            <div id="ID_AUTO_GENERATE_OBJECT_CODE" style="display:<?= $DisplayStatus; ?>;">
+                <label class="lbl_title normal_label">Mã tiền tố đối tượng</label>
+                <?= $this->formText('TXT_AUTO_GENERATE_OBJECT_CODE', $this->arrInput['bAutoGenerateObjectCode'], array('size' => 50, 'class' => 'normal_textbox', 'message' => 'Phai xac dinh Ma Tien do doi tuong danh muc!')); ?>
+            </div>
+            <div>
+                <label class="lbl_title normal_label">File XML</label>
+                <?= $this->formText('txt_xml_file_name', $this->arrInput['sXmlFileName'], array('type' => 'text', 'style' => 'display:inline;', 'size' => 77, 'class' => 'normal_textbox')); ?>
+                <?= $this->formButton("popupDialog", "Browse", array("type" => "button", 'style' => 'display:inline;', "class" => "link-button", "onClick" => "$('#modal_xml_file_name').dialog('open'); return false")) ?>
+            </div>
+            <div>
+                <!--Goi mot Digloa bang javascript-->
+                <div id="somediv" style="display:none">
+                    <?php echo $this->divDialog; ?>
+                </div>
+            </div>
+            <div>
+                <label class="lbl_title normal_label">Đơn vị sử dụng
+                    <small class="normal_starmark">*</small>
+                </label>
+                <table id="table_owner_code" cellspacing="0" cellpadding="0" class="table_detail_doc" style="width:70%;"
+                       border="1">
+                    <col width="2%">
+                    <col width="48%">
+                    <col width="2%">
+                    <col width="48%">
+                    <?php
+                    $sHtml = "<tr>";
+                    $i = 0;
+                    foreach ($SesGetAllOwner as $owner) {
+                        $i++;
+                        $sischeck = '';
+                        if ($owner['code'] === Zend_Auth::getInstance()->getIdentity()->sOwnerCode)
+                            $sischeck = 'checked';
+                        $sHtml .= "<td><input type = 'checkbox' " . $sischeck . " name = 'chk_onwer_code_list[]' value = '" . $owner['code'] . "'/></td>";
+                        $sHtml .= "<td onclick = 'set_checked(document.getElementsByName(\"chk_onwer_code_list[]\"),\"" . $owner['code'] . "\",\"table_owner_code\")'>" . $owner["name"] . "</td>";
+                        if ($i == 2) {
+                            $sHtml .= "</tr><tr>";
+                            $i = 0;
+                        }
+                    }
+                    echo $sHtml;
+                    ?>
+                    <tr>
+                        <td colspan="4" align="right" class="small_radiobutton">
+                            <input type="radio"
+                                   onclick="set_check_all(document.getElementsByName('chk_onwer_code_list[]'),1);"
+                                   hide="true" value="1" optional="true" name="rad_owner_code_list"><font
+                                onclick="document.getElementsByName('rad_owner_code_list')[0].checked = true;set_check_all(document.getElementsByName('chk_onwer_code_list[]'),1);">Chọn
+                                tất cả</font>
+                            <input type="radio"
+                                   onclick="set_check_all(document.getElementsByName('chk_onwer_code_list[]'),2);"
+                                   hide="true" value="2" optional="true" name="rad_owner_code_list"><font
+                                onclick="document.getElementsByName('rad_owner_code_list')[1].checked = true;set_check_all(document.getElementsByName('chk_onwer_code_list[]'),0);">Bỏ
+                                chọn tất cả</font>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <label class="lbl_title normal_label">Trạng thái</label>
+                <?= $this->formCheckbox('sStatus', 1, array('checked' => true)); ?><label for="sStatus" class="lbl_title normal_label" style="float: none;line-height: 16px;padding-left: 3px;">Hoạt động</label>
+            </div>
+        </div>
+        <div class="button-container">
+            <input name="btn_update" act_event="next" id="btn_update" type="button"
+                   value="<?= $arrConst['_GHI_THEM_MOI'] ?>" class="link-button clsave">
+            <input name="btn_update" act_event="prev" id="btn_update" type="button"
+                   value="<?= $arrConst['_GHI_QUAY_LAI'] ?>" class="link-button clsave">
+            <input name="btn-back" id="btn-back" type="button" value="<?= $arrConst['_QUAY_LAI'] ?>"
+                   class="link-button clback">
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    $('#ID_IMPORT_DATA_STATUS').click(function () {
+        if ($('#CHK_IMPORT_STATUS').is(":checked")) {
+            $('#CHK_IMPORT_STATUS').attr("checked", false);
+        } else {
+            $('#CHK_IMPORT_STATUS').attr("checked", true);
+        }
+    });
+    //
+    $('#CHK_AUTO_GENERATE_OBJECT_CODE').click(function () {
+        if ($('#CHK_AUTO_GENERATE_OBJECT_CODE:checked').val() !== undefined) {
+            $('#CHK_AUTO_GENERATE_OBJECT_CODE').attr("checked", true);
+            $('#ID_AUTO_GENERATE_OBJECT_CODE').show();
+            if ($('#TXT_AUTO_GENERATE_OBJECT_CODE').val() == "") {
+                $('#TXT_AUTO_GENERATE_OBJECT_CODE').attr("value", $("#sCode").val());
+            }
+        } else {
+            $('#CHK_AUTO_GENERATE_OBJECT_CODE').attr("checked", false);
+            $('#ID_AUTO_GENERATE_OBJECT_CODE').hide();
+        }
+    });
+</script>

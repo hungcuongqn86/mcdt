@@ -1,0 +1,29 @@
+<form action="" method="" accept-charset="utf-8" id="form_viewinfopetition">
+    <div id="form-content" class="frm_input_data"><?= $this->frmhtml ?></div>
+</form>
+<script type="text/javascript">
+    var oForm = $('form#form_viewinfopetition');
+    var R12 = $(oForm).find('#R12').val();
+    if (R12 == 'CA_NHAN') {
+        $(oForm).find('#R13').hide();
+        $(oForm).find('#R13').prev().hide();
+    }
+    else {
+        $(oForm).find('#R13').show();
+        $(oForm).find('#R13').prev().show();
+    }
+    var R09 = $(oForm).find('select#R09').val();
+    if (R09 == 'DON_VI_KHAC') {
+        $(oForm).find('#R10').show();
+        $(oForm).find('#R10').prev().show();
+        $(oForm).find('#R11').show();
+        $(oForm).find('#R11').prev().show();
+    }
+    else {
+        $(oForm).find('#R10').hide();
+        $(oForm).find('#R10').prev().hide();
+        $(oForm).find('#R11').hide();
+        $(oForm).find('#R11').prev().hide();
+    }
+</script>
+

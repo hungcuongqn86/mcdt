@@ -1,0 +1,73 @@
+<?php
+$sCate = $this->arrCate;
+?>
+<div id="viewall">
+    <div id="viewfilter">
+        <form action="" method="POST" autocomplete="off" name="formfilter" id="formfilter">
+            <input id="hdn_current_page" type="hidden" value="1" name="hdn_current_page">
+            <input id="hdn_record_number_page" type="hidden" value="15" name="hdn_record_number_page">
+            <div id="titleList" class="large_title">TỔNG HỢP TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ</div>
+            <div id="filter">
+                <div class="normal_label" style="margin-top:1px;margin-left:2px;">
+                    <span style="margin: 0 10px 0 0">Từ ngày</span><input onchange="checkvalauedate('fromdate')" style="width:9%;" class="textbox" id ="dFromDate" name="dFromDate" type="text" isdate="true" value="<?=$this->dFromDate?>" option = "true"  message="NGAY BAT DAU khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)" onKeyUp='DateOnkeyup(this,event)' >
+                    <span style="margin: 0 10px 0 15px;">Đến ngày</span><input onchange="checkvalauedate('todate')" style="width:9%;" class="textbox" id ="dToDate" name="dToDate" type="text" isdate="true" value="<?=$this->dToDate?>" option = "true"  message="NGAY KET THUC khong dung dinh dang ngay/thang/nam!" onKeyDown="change_focus(document.forms[0],this)" onKeyUp='DateOnkeyup(this,event)' >
+                    <div id="divcate" style="width: 50%;display: inline;">
+                        <label style="padding-left: 15%;padding-right: 10px;">Lĩnh vực</label>
+                        <select id="CateId" name="CateId"   style="width:20%;height: 25px;" class="normal_selectbox" optional="true">
+                            <option value = '' >----- Chọn tất cả -----</option>
+                            <?php echo Extra_Util::_generateSelectOption($sCate,'C_CODE','C_CODE','C_NAME',$this->sCate);?>
+                        </select>
+                    </div>
+                    <input style="margin-left:20px;" type="button" value="Tìm kiếm" class="add_large_button seachbutton" >
+                </div>
+            </div>
+            <div class="link-view">
+                <div class="homeIcon"></div>
+                <div id="link-view" style="display: inline-block; width: 85%;"></div>
+            </div>
+        </form>
+    </div>
+
+    <div id="viewGeneral">
+        <form action="" method="POST" autocomplete="off" name="formGeneral" id="formGeneral">
+            <div id="viewMatrix" style="margin: 3px 0;">
+                <div id="div_matrix"></div>
+<!--                <div style="padding-top: 5px; padding-bottom: 5px;text-align: center;">
+                    <input id="btn_add" name="btn_add" type="button" class="add_large_button" value="In">
+                </div>-->
+            </div>
+            <div id="node" style="padding-left: 10px;"></div>
+        </form>
+    </div>
+
+    <div id="viewAllRecord" style="margin: 3px 0;">
+        <form action="" method="POST" autocomplete="off" name="formRecordList" id="formRecordList">
+            <div id="RecordList">
+                <table width="99%" cellspacing="0" cellpadding="0" border="0" align="center" id="table1" class="list_table2">
+                    <colgroup><col width="12%"><col width="22%"><col width="12%"><col width="19%"><col width="18%"><col width="12%"><col width="5%"></colgroup>
+                    <thead>
+                        <tr class="header">
+                            <td align="center" class="title">Mã hồ sơ</td><td align="center" class="title">Tên hồ sơ</td><td align="center" class="title">Ngày tiếp nhận</td><td align="center" class="title">Cá nhân/ tổ chức</td><td align="center" class="title">Địa chỉ</td><td align="center" class="title">Ngày hẹn</td><td align="center" class="title">#</td>
+                        </tr>
+                    </thead>
+                    <TBODY></TBODY>
+                </table>
+            </div>
+            <div id="ListInfo" class="normal_label" style="display: inline-block; width: 100%;text-align: center;margin: 10px;"></div>
+        </form>
+    </div>
+</div>
+<div id="modal_tempo" style="display: none"></div>
+<script type="text/javascript">
+    var baseUrl = "<?=$this->baseUrl();?>";
+    var arrOwner = $.parseJSON('<?=$this->arrOwner;?>');
+    var checkward = "<?=$this->checkward?>";
+    var obj_record_search = new record_search(baseUrl, 'record', 'search', arrOwner,checkward);
+    jQuery(document).ready(function ($) {
+        if(checkward=='1'){
+            obj_record_search.loadGeneral('unit','');
+        }else{
+            obj_record_search.loadGeneral('tthc',"<?=$this->sOwnerCode;?>");
+        }
+    });
+</script>

@@ -1,0 +1,74 @@
+<form action="" method="POST" autocomplete="off" name="form">
+<div><?php
+	$arrConst = $this->arrConst;
+	$arrRecordType = $this->arrRecordType;
+	?>
+	<table width='100%'  border='0' cellspacing='0' cellpadding='0' class="table_title">
+		<tr>
+			<td class="large_title" style="padding-left:7px;text-align:left;">
+				<!--Cac doi tuong hidden tren form-->
+				<?php echo $this->formHidden("hdn_current_page",$this->iCurrentPage,null); ?>
+				<?php echo $this->formHidden("cbo_nuber_record_page",$this->iNumRowOnPage,null); ?>
+				<?php echo $this->formHidden("hdn_record_number_page",$this->iNumRowOnPage,null); ?>
+				<?php echo $this->formHidden("hdn_object_id_list","",null); ?>
+				<?php echo $this->formHidden("hdn_list_id","",null); ?>
+				<?php echo $this->formHidden("hdn_filter_xml_tag_list",$this->filterXmlTagList,null); ?>
+				<?php echo $this->formHidden("hdn_filter_xml_value_list",$this->filterXmlValueList,null); ?>
+				<?php echo $this->formHidden("hdn_object_id",'',null); ?>
+				<?php echo $this->formHidden("hdn_XmlTagValueList",$this->XmlTagValueList,null); ?>
+				<!--Bien hdn_deleted_new_file_id_list dung de luu Id cua nhung doi tuong file dinh kem se xoa-->	
+				<?php echo $this->formHidden("hdn_deleted_new_file_id_list","",null); ?>	
+				<!--Bien hdn_deleted_exist_file_id_list dung de ...-->	
+				<?php echo $this->formHidden("hdn_deleted_exist_file_id_list","",null);?>
+				<!-- Tim kiem -->
+				<?php echo $this->formHidden("txtfullTextSearch","",null);?>	
+				<!-- ID TTHC -->
+				<?php echo $this->formHidden("recordType",$this->sRecordTypeId,null);?>	
+				<?php $arrConst = $this->arrConst;
+					  $sUrlEdit  = "../edit/";	?>	
+				<!--Cac doi tuong hidden tren form-->
+				<?=	$this->bodyTitle ;?>
+			</td>
+		</tr>
+	</table>
+	
+	<?php echo $this->filter_form;?>
+	<?php echo $this->genlist;?>				
+	<!--Hien thi trang can xem!-->	
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td style="color:red;width:30%;padding-left:1%;" class="small_label">
+				<small class="small_starmark"><?=$this->sdocpertotal;?></small>
+			</td>
+			<td align="center" style="width="50%">
+				<table width="10%"><?php
+					//Hien thi danh sach so trang
+					echo $this->generateStringNumberPage;?>
+				</table>
+			</td>
+			<td width="30%" align="right" style="font-size:13px; padding-right:1%; font:tahoma" class="normal_label"><?php
+				//Hien thi so trang
+				echo $this->generateHtmlSelectBoxPage;?>
+			</td>
+		</tr>
+	</table>	
+</div>
+</form>
+<script type="text/javascript">
+var keyEnter="13";
+var x='';	
+function handler(e){
+	//IE return :event.keyCode; FF return : e.which;
+	var  x=(window.event)?event.keyCode:e.which; 
+	if (x==13){	//Enter					
+				document.getElementsByTagName('form')[0].action = '';
+				document.getElementsByTagName('form')[0].submit();
+	}
+}	
+if (!document.all){
+	window.captureEvents(Event.KEYPRESS);
+	window.onkeypress=handler;
+}else{
+	document.onkeypress = handler;
+} 	
+</script>

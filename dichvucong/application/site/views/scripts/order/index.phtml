@@ -1,0 +1,82 @@
+<script>
+    if (typeof(site_record) != 'function') {
+        var arrJsCss = $.parseJSON('<?=$this->arrJsCss; ?>');
+        loadfileJsCss(arrJsCss);
+    }
+</script>
+<div id="IndexFrm">
+    <form id="frm_record_index" accept-charset="utf-8" method="" action="">
+        <?php
+        echo $this->formHidden("hdn_current_page", $this->iCurrentPage, null);
+        echo $this->formHidden("hdn_record_number_page", $this->iNumberRecordPerPage, null);
+        echo $this->formHidden("recordTypeCode", '', null);
+        ?>
+        <div class="searh-fixed">
+            <div class="formfield">
+                <div class="label"  style="width:20%">
+                    <span class="labeltext" style="line-height: 28px;">Loại hồ sơ</span>
+                    <span class="labeltext" style="padding-right:10px;">&nbsp</span>
+                </div>
+                <div class="value"  style="width:80%">
+                    <select class="textbox"  id="recordtype" name="recordtype">
+                    <?php
+                        $arrRecordType = $this->arrRecordType;
+                        $option = '';
+                        for ($i=0; $i < sizeof($arrRecordType); $i++) { 
+                            $option .= '<option code="' . $arrRecordType[$i]['C_CODE'] . '" value="' . $arrRecordType[$i]['PK_RECORDTYPE'] . '">' . $arrRecordType[$i]['C_NAME'] . '</option>';
+                        }
+
+                        echo $option;
+                    ?>
+                    </select>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="button-link-container" align="right">
+                <div class="blc-left">
+                    <input name="btn_search" id="btn_search" type="button" value="Tìm kiếm" class="but_formfield clsearch">
+                </div>
+                <div class="blc-right">
+                    <input name="btn_add" id="btn_add" type="button" value="Thêm" class="but_formfield cladd">
+                    <input name="btn_edit" id="btn_edit" type="button" value="Sửa" class="but_formfield cledit">
+                    <input name="btn_delete" id="btn_delete" type="button" value="Xóa" class="but_formfield cldelete">
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div id="table-container"></div>
+        <!-- Phân trang dữ liệu -->
+        <table class="table-page-number" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td class="left-col small_label" valign="top">
+                    <small class="small_starmark" id="sdocpertotal"></small>
+                </td>
+                <td class="center-col" align="center" id="generateStringNumberPage"></td>
+                <td class="right-col normal_label" id="generateHtmlSelectBoxPage">
+                    Hiển thị 
+                    <select class='textbox' id='cbo_nuber_record_page' name='cbo_nuber_record_page' optional='true' style='width:60'>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>Hồ sơ/1 trang
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div id="UpdateFrm"></div>
+<script type="text/javascript">
+    baseUrl = "<?=$this->baseUrl();?>";
+    var pathxml = "<?=$this->sPath;?>";
+    var obj_site_record = new site_order(baseUrl, 'site', 'order');
+    $(document).ready(function ($) {
+        $('form#frm_record_index').process_paging({
+            autoStart: 0,
+            getData: function (callback) {
+                obj_site_record.loadList(callback);
+            },
+            obj: obj_site_record
+        });
+        obj_site_record.loadIndex();
+    })
+</script>

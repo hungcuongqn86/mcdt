@@ -1,0 +1,103 @@
+<form action="index" method="POST" id="frmLicense" autocomplete="off" enctype="multipart/form-data">
+	<?php 
+		echo $this->formHidden("hdn_type","",null); 
+		//Cac doi tuong hidden tren form
+		echo $this->formHidden("hdn_current_page",$this->iCurrentPage,null); 
+		echo $this->formHidden("cbo_nuber_record_page",$this->iNumRowOnPage,null); 
+		echo $this->formHidden("hdn_record_number_page",$this->iNumRowOnPage,null); 
+		echo $this->formHidden("hdn_object_id_list","",null); 
+		echo $this->formHidden("hdh_option","",null);
+		echo $this->formHidden("hdn_is_update","",null);
+		echo $this->formHidden("hdn_record_type_id",$this->RecordTypeId,null); 
+		echo $this->formHidden("hdn_filter_xml_tag_list",$this->filterXmlTagList,null); 
+		echo $this->formHidden("hdn_filter_xml_value_list",$this->filterXmlValueList,null); 
+		echo $this->formHidden("hdn_object_id",$this->srecordId,null); 
+		echo $this->formHidden("hdn_xml_tag_list","",null); 
+		echo $this->formHidden("hdn_xml_value_list","",null); 
+		echo $this->formHidden("hdn_XmlTagValueList","",null);
+		echo $this->formHidden("hdn_list_xml_value","",null);
+		echo $this->formHidden("hdn_list_xml_tag","",null);
+		echo $this->formHidden("hdn_exporttype","",null); 	
+
+		//Begin//Bang chua cac dong co dinh cua ho so
+		$v_html_string = $v_html_string . "<table width='100%' class='form_table1'  border='0' cellspacing='0' cellpadding='0'><tr><td>&nbsp;</td></tr>";
+		$v_html_string = $v_html_string . "<tr><td class='small_title' style='text-align:center;font-size: 14px;'>".$this->v_form_title."</td></tr><tr><td>&nbsp;</td></tr></table>";
+		echo $v_html_string;
+	?>
+	<div id="contentXml">
+		<?php echo $this->generateFormHtml;?>
+	</div>
+	<div>
+		<table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+			<tr>
+				<td class='small_title' align='left' colspan="3">
+					Ch&#7885;n &#273;&#7883;nh d&#7841;ng k&#7871;t xu&#7845;t
+				</td>
+				<td class="normal_label" style="width:5%">&nbsp;
+				</td>
+				<td class="normal_label">
+						<input type='radio' class='normal_radio' id = "rad_exporttype" name = "rad_exporttype" value='1'   onClick="btn_rad_onclick(this,document.getElementById('hdn_exporttype'));"> &#272;&#7883;nh d&#7841;ng Web
+				</td>
+				<td class="normal_label">
+					<input type='radio' class='normal_radio' id = "rad_exporttype" name="rad_exporttype" value='2' checked onClick="btn_rad_onclick(this,document.getElementById('hdn_exporttype'));"> &#272;&#7883;nh d&#7841;ng Word
+				</td>	
+				<td class="normal_label" style="width:20%">&nbsp;
+				</td>	
+			</tr>
+		</table>	
+	</div>
+	<!--Hien thi nut!-->
+	<div id="button"><?php 
+	if($this->sRecordTransitionId == ''){?>
+		<button name="btn_capnhat" id="btn_capnhat" type="button" value="Cập nhật" class="add_large_button" onClick="document.getElementById('hdn_is_update').value='1';_save_xml_tag_and_value_list(document.forms[0],document.getElementById('hdn_xml_tag_list'),document.getElementById('hdn_xml_value_list'));actionUrl('../handle/index');"><?='Cập nhật'?></button>
+		<button name="btn_quaylai" id="btn_quaylai" type="button" value="Quay lại" class="add_large_button" onClick="btn_back_onclick('../handle/index');"><?='Quay lại'?></button>
+		<button name="btn_ingiayphep" id="btn_ingiayphep" type="button" value="In giấy phép" class="add_large_button" onClick="btn_show_detail_report('<?php echo $this->license?>','<?php echo $this->srecordId?>','mau_in_giay_phep');"><?='In giấy phép'?></button><?php 
+	}?>
+	</div>
+</form>
+<div id = "div_ajax" style = "display:none;"></div>
+<script type="text/javascript">
+shortcut.add("Ctrl+K",function() {
+	document.getElementById('txtfullTextSearch').select();
+    document.getElementById('txtfullTextSearch').focus();
+});
+function btn_printReceipt_onclick(p_license,p_record_id, p_url,p_file_name){
+	if(p_license==''){
+		alert('Ch&#432;a c&#7853;p nh&#7853;t th&#244;ng tin c&#7845;p ph&#233;p');
+	}
+	else{
+		//Xac dinh cac phan tu duoc checked va luu vao bien hidden p_hidden_obj
+		$.ajax({
+			  url: '../printreceipt',type: 'POST',dataType: 'html',
+			  data: 'hdn_object_id=' + p_record_id + '&fileName='+p_file_name,
+			  success: function(data){				  
+			  	  document.getElementById('div_ajax').innerHTML = data;
+				  callprint('<?= $this->baseUrl?>');
+			  }
+		 });
+	}
+}
+function btn_show_detail_report(p_license,p_record_id,p_file_xml){
+	if(p_license==''){
+		alert('chua cap nhat thong tin cap phep');
+	}
+	else{
+		var v_exporttype = document.forms[0].hdn_exporttype.value;
+		if(v_exporttype==''){
+			v_exporttype='2';
+		}
+		v_url = '../printreceipt?hdn_exporttype=' + v_exporttype;
+		//Id cua loai ho so
+		v_url = v_url + '&hdn_object_id=' + p_record_id;
+		v_url = v_url + '&fileName=' + p_file_xml;
+		v_url = v_url + '&modal_dialog_mode=1';
+		sRtn = showModalDialog(v_url,"","dialogWidth=1px;dialogHeight=1px;status=yes;scroll=yes;dialogCenter=yes");
+		if (sRtn!=""){
+			window.open(sRtn);
+		}
+	}
+}
+function btn_rad_onclick(p_rad_obj,p_hdn_obj){
+	p_hdn_obj.value = p_rad_obj.value;
+}
+</script>

@@ -1,0 +1,48 @@
+<div class="top_menu">
+    <div class="top_menu_area">         
+        <ul>
+            <li class="">
+                <a href="<?=$this->baseUrl()?>">Trang chủ</a>
+            </li>
+            <li class="<?=($this->currentResource =='site_main_about' ? 'active' : '')?>">
+                <a href="<?=$this->baseUrl()?>/gioi-thieu">Giới thiệu</a>
+            </li>
+            <li class="<?=($this->currentResource =='site_search_index' ? 'active' : '')?>">
+                <a href="<?=$this->baseUrl()?>/tra-cuu-ho-so">Tra cứu hồ sơ</a>
+            </li>
+            <li class="<?=($this->currentResource =='site_order_index' ? 'active' : '')?>">
+                <a href="<?=$this->baseUrl()?>/dk-giao-dich">ĐK giao dịch</a>
+            </li>
+            <li class="<?=($this->currentResource =='site_record_index' ? 'active' : '')?>">
+                <a href="<?=$this->baseUrl()?>/gui-ho-so">gửi hồ sơ</a>
+            </li>
+            <li class="<?=($this->currentResource =='site_main_guide' ? 'active' : '')?>">
+                <a href="<?=$this->baseUrl()?>/huong-dan">hướng dẫn</a>
+            </li>
+        </ul>
+
+        <ul class="visitor_tabs">
+        <?php
+            if (G_Account::getInstance()->hasIdentity()) { ?>
+                <li>
+                    <a class="name" href=""><?= G_Account::getInstance()->getIdentity()->sFullName ?></a>
+                </li>
+                <li>
+                    <a class="email_visitor" href="<?=$this->baseUrl()?>/dang-xuat">Thoát</a>
+                </li>
+        <?php
+            } else { ?>
+                <li>
+                    <a href="<?=$this->baseUrl()?>/dang-nhap">Đăng nhập</a>
+                </li>
+                <li>
+                    <a href="<?=$this->baseUrl()?>/dang-ky">Đăng ký</a>
+                </li>
+        <?php
+            }
+        ?>
+            
+        </ul>
+    </div>
+</div>
+

@@ -1,0 +1,328 @@
+TABLE.list-table-data{color: #000000;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    width: 100%;}
+TABLE.list-table-data tr.header TD {
+    background-color: #ffffff;
+    background-image: linear-gradient(#ffffff, #f5f5f5);
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-top: medium none;
+    color: #464343;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+}
+table.list-table-data tr.selected td { background-color: #dae5fb;color:#000000; }
+
+TABLE.list-table-data tr:first-child TD {
+    border-top: 1px solid #dddddd;
+}
+TABLE.list-table-data TR TD:first-child {
+    border-left: 1px solid #dddddd;
+}
+table.list-table-data tr td {
+    padding: 0 3px;
+}
+TABLE.list-table-data TR TD {
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    color: #000000;
+    font-size: 13px;
+    height: 25px;
+    padding: 0 3px;
+}
+TABLE.list-table-data TR:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+TABLE.list-table-data TR.odd_row {
+}
+
+.formfield .label {font-weight: bold; text-align:  right;}
+.formfield .label, .formfield .value {
+    float: left;
+}
+.button-link-container{margin: 3px 0;}
+.button-link-container .blc-left {float: left;}
+.but_formfield {
+    background-color: #5087d0;
+    border-right: 1px solid #b2d1fb;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+}
+.searh-fixed .formfield{
+    margin: 2px;
+}
+table.table-page-number {
+    font-family: arial;
+    font-size: 13px;
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px 5px;
+}
+table.table-page-number td.left-col {
+    color: #383838;
+    padding-left: 0;
+    width: 26%;
+}
+
+table.table-page-number td.right-col {
+    color: #383838;
+    padding-right: 1%;
+    text-align: right;
+    width: 26%;
+}
+
+/*layzy*/
+div#note-process, div#load_data, div#process, div#file_export, div#loadingall, div#smallLoadIcon, div#notice-print, div#loadingpage {
+    display: none;
+}
+
+div#lda {
+    background: url("../images/loadingall.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 90px;
+}
+
+div.nq {
+    z-index: 9999999;
+}
+
+.vY {
+    height: 100%;
+    padding-top: 75px;
+    position: fixed;
+    top: 2px;
+    visibility: visible;
+    width: 100%;
+    z-index: 5;
+    /*cursor: wait;*/
+}
+
+.wait {
+    cursor: wait;
+}
+
+div#loadingall, div#load_data, div#file_export, div#loadingpage {
+    line-height: 100%;
+    margin: 0 auto;
+    padding: 6px 10px;
+    position: relative;
+    text-align: center;
+    top: 100px;
+    width: 15%;
+}
+
+div#loadingpage span {
+    color: #CC0000;
+    font-family: arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+div#load_data, div#file_export {
+    position: relative;
+    text-align: center;
+    width: 10%;
+    margin: 0 auto;
+    padding: 6px 10px;
+    line-height: 100%;
+    top: 100px;
+}
+
+div#load_data {
+    width: 217px;
+    padding: 12px;
+    background-color: #348AE9;
+    background-image: -webkit-linear-gradient(center top, #348AE9, #3777BD);
+    background-image: -moz-linear-gradient(center top, #348AE9, #3777BD);
+    background-image: -o-linear-gradient(center top, #348AE9, #3777BD);
+    background-image: -ms-linear-gradient(center top, #348AE9, #3777BD);
+    background-image: linear-gradient(center top, #348AE9, #3777BD);
+    border-radius: 10px 10px 10px 10px;
+    height: 50px;
+    position: relative;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    border: 1px solid #085AB7;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 0 1px rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 0 1px rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+div#file_export {
+    width: 300px;
+    padding: 12px;
+    background: none repeat scroll 0 0 #393E44;
+    -webkit-box-shadow: 0 0 75px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 0 75px rgba(0, 0, 0, 0.5) inset;
+    color: white;
+    padding: 15px 13px 45px 15px;
+    border-radius: 10px 10px 10px 10px;
+    height: 60px;
+    position: relative;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    border: 1px solid #393E44;
+}
+
+a.file_export-icon {
+    display: block;
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+a.xls, a.excel {
+    background: url("../images/excel.png") no-repeat scroll center center transparent;
+}
+
+a.doc {
+    background: url("../images/doc.png") no-repeat scroll center center transparent;
+}
+
+div.file_export-title a.doc {
+    background: transparent url("../images/doc.png") no-repeat scroll center center / 50% auto;
+}
+
+a.pdf {
+    background: url("../images/pdf.png") no-repeat scroll center center transparent;
+}
+
+p.file_export_close {
+    background: url("../images/close-button-modal.png") no-repeat scroll center center transparent;
+    display: block;
+    height: 24px;
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    width: 24px;
+    cursor: pointer;
+}
+
+div.file_export-title {
+    color: white;
+    font: bold 12px/1.1 Arial, sans-serif;
+    margin-bottom: 5px;
+    text-align: center;
+    text-shadow: 0 1px 0 black;
+    word-wrap: break-word;
+}
+
+#note-process #fade {
+    display: none;
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #ababab;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .2;
+    filter: alpha(opacity=80);
+}
+
+#note-process #modalnotify {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 64px;
+    height: 64px;
+    padding:30px 15px 0px;
+    /*border: 3px solid #ababab;*/
+    box-shadow:1px 1px 10px #ababab;
+    border-radius:20px;
+    background-color: white;
+    z-index: 1002;
+    text-align:center;
+    overflow: auto;
+}
+
+/*Form field*/
+
+div#form-content {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+#Bottom_contentXml {
+    border-top: medium none;
+    clear: both;
+    padding: 2px;
+}
+#Bottom_contentXml div {
+    display: inline-block;
+    padding: 2px 0;
+    width: 100%;
+}
+div#form-content div label {
+    display: inline-block;
+    line-height: 20px;
+    width: 180px;
+}
+.normal_textbox, .normal_selectbox, .normal_textarea{
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    font-size: 10pt;
+    padding: 3px;
+}
+.normal_label {
+    color: #464343;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: normal;
+    margin-bottom: 2px;
+}
+
+.normal_title {
+    color: #c12c2c;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1pt;
+}
+.tasks {margin: 2px 0;}
+.tasks .left, .tasks .right{ float: left;text-align: left; width: 50%; margin: 5px 0px;}
+.tasks .right{text-align: right;}
+.task_bottom{text-align: center;width: 100%;}
+
+span.iconattach:before {
+    background: rgba(0, 0, 0, 0) url("../images/img_skin/Attach.png") no-repeat scroll;
+    content: "";
+    cursor: pointer;
+    display: inline-block;
+    height: 24px;
+    margin-top: 3px;
+    padding-left: 7px;
+    width: 24px;
+}
+#Bottom_contentXml .modefile{width: 100%}
+#Bottom_contentXml .modefile .left{ float: left;text-align: left;width: 85%}
+#Bottom_contentXml .modefile .right{ float: left;text-align: right;width: 12%}
+.modefile .right .fileinput-button input{height: 24px;
+    left: 0;
+    right: auto;
+    top: -12px;
+    width: 24px;}
+.modefile .files > .fade td {padding: 0px; vertical-align: middle;}
+
+
+.ui-widget-header {
+    background: #4971a6 none repeat scroll 0 0;
+    border: 1px solid #4971a6;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.title_red{
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}

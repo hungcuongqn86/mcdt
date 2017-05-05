@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<common_para_list>
+		<common_para>
+			<form_title>TIẾP NHẬN HỒ SƠ MỚI</form_title>
+			<first_col_width>25%</first_col_width>
+			<js_file_name>js_functions_public.js</js_file_name>
+			<js_function>set_input()</js_function>
+			<list_tag_giay_bien_nhan>ghi_chu,tai_lieu_kt,ho_ten_nk,dia_chi_dk,dt_nguoi_chuyen</list_tag_giay_bien_nhan>
+		</common_para>
+	</common_para_list>
+	<list_of_object>
+		<list_body> 
+			<col>
+				<label>&lt;input type="checkbox" name="chk_all_item_id"  onclick="checkbox_all_item_id(document.forms[0].chk_item_id);"&gt;</label>
+				<type>checkbox</type>
+				<width>5%</width>
+				<align>center</align>
+				<xml_data>false</xml_data>
+				<column_name>PK_RECORD</column_name>
+			</col>
+			<col>
+				<label>Mã hồ sơ</label>
+				<type>text</type>
+				<width>12%</width>
+				<align>left</align>
+				<xml_data>false</xml_data>
+				<column_name>C_CODE</column_name>
+			</col>
+			<col>
+				<label>Bên chuyển</label>
+				<type>json</type>
+				<width>20%</width>
+				<align>left</align>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_chuyen_nhuong_obj_name</attr>
+			</col>
+			<col>
+				<label>Bên nhận</label>
+				<type>json</type>
+				<width>20%</width>
+				<align>left</align>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_nhan_chuyen_nhuong_obj_name</attr>
+			</col>
+			<col>
+				<label>Địa chỉ</label>
+				<type>json</type>
+				<width>20%</width>
+				<align>left</align>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+				<attr>ben_chuyen_nhuong_obj_address</attr>
+				<ItemIndex>0</ItemIndex>
+			</col>
+			<col>
+				<label>Hạn chuyển huyện</label>
+				<type>text</type>
+				<width>13%</width>
+				<align>CENTER</align>
+				<xml_data>false</xml_data>
+				<column_name>C_WARD_END_DATE</column_name>
+			</col>
+			<col>
+				<label>Ngày hẹn trả KQ</label>
+				<type>text</type>
+				<width>10%</width>
+				<align>CENTER</align>
+				<xml_data>false</xml_data>
+				<column_name>C_APPOINTED_DATE</column_name>
+			</col>			
+		</list_body>
+	</list_of_object>
+    <list_print>
+        <item_print>
+            <label>Hợp đồng chuyển nhượng</label>
+            <tempcode>hop_dong_chuyen_nhuong</tempcode>
+        </item_print>
+        <item_print>
+            <label>Đơn đăng ký (Mẫu 04a/ĐK)</label>
+            <tempcode>don_dang_ky_04adk</tempcode>
+        </item_print>
+        <item_print>
+            <label>Đơn đăng ký biến động (Mẫu 09/ĐK)</label>
+            <tempcode>don_dang_ky_09dk</tempcode>
+        </item_print>
+        <item_print>
+            <label>Tờ khai thuế TNCN (Mẫu 03/BĐS-TNCN)</label>
+            <tempcode>tk_thue_tncn_03bdstncn</tempcode>
+        </item_print>
+        <item_print>
+            <label>Tờ khai thuế TNCN</label>
+            <tempcode>tk_thue_tncn_00</tempcode>
+        </item_print>
+        <item_print>
+            <label>Tờ khai lệ phí trước bạ (Mẫu 01/LPTB)</label>
+            <tempcode>tk_le_phi_truoc_ba_01lptb</tempcode>
+        </item_print>
+    </list_print>
+</root>

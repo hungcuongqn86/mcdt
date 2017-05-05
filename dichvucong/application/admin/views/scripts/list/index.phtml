@@ -1,0 +1,120 @@
+<script>
+    if (typeof System_List != 'function' || !System_List) {
+        var arrJsCss = $.parseJSON('<?= $this->arrJsCss; ?>');
+        loadfileJsCss(arrJsCss);
+    }
+</script>
+<div id="IndexFrm">
+    <form action="index" method="POST" id="frmlist">
+        <?php
+        // Sinh mot hidden luu list ID ma NSD chon
+        echo $this->formHidden("hdn_object_id_list", "", null);
+        // Sinh mot hidden luu ID loai danh muc!
+        echo $this->formHidden("hdn_id_listtype", $this->iIdListType, null);
+        // Sinh mot hidden luu ID danh muc doi tuong
+        echo $this->formHidden("hdn_list_id", "", null);
+        // Bien hdn_xml_file dung de luu ten file XML cua loai danh muc hien thoi
+        echo $this->formHidden("hdn_xml_file", $this->xmlFileName, null);
+        // Bien hdn_xml_tag_list dung de luu danh sach cac THE XML tuong ung voi cac THUOC TINH cua mot doi tuong dang duoc cap nhat
+        echo $this->formHidden("hdn_xml_tag_list", '', null);
+        // Bien hdn_xml_value_list dung de luu danh sach cac gia tri cua cac THE XML tuong ung voi cac THUOC TINH cua mot doi tuong
+        echo $this->formHidden("hdn_xml_value_list", '', null);
+        // Bien hdn_filter_xml_tag_list dung de luu danh sach cac THE XML tuong ung voi cac tieu thuc loc tren giao dien DANH SACH DOI TUONG
+        echo $this->formHidden("hdn_filter_xml_tag_list", $this->filterXmlTagList, null);
+        // Bien hdn_filter_xml_tag_list dung de luu gia tri cua cac THE XML tuong ung voi cac tieu thuc loc tren giao dien DANH SACH DOI TUONG
+        echo $this->formHidden("hdn_filter_xml_value_list", $this->filterXmlValueList, null);
+        echo $this->formHidden("filexml", $this->filexml, null);
+        echo $this->formHidden("showLeftMenu", "", null);
+        echo $this->formHidden("hdn_current_page", $this->iCurrentPage, null);
+        echo $this->formHidden("hdn_record_number_page", $this->iNumberRecordPerPage, null);
+        ?>
+        <!--HIen thi tieu de man hinh danh sach!-->
+        <div class="searh-fixed">
+            <div class="normal_title">
+                <?= $this->bodyTitle; ?>
+            </div>
+            <div class="search-container">
+                <div id="contentXml" style="border:none;"><?php echo $this->generateFilterForm; ?>
+                </div>
+            </div>
+            <div class="button-link-container" align="right">
+                <div class="blc-left">
+                    <input name="btn_filter" id="btn_filter" type="button" value="Tìm kiếm"
+                           class="link-button clsearch">
+                </div>
+                <div class="blc-right">
+                    <input name="btn_add" id="btn_add" type="button" value="Thêm" class="link-button cladd">
+                    <input name="btn_edit" id="btn_edit" type="button" value="Sửa" class="link-button cledit">
+                    <input name="btn_delete" id="btn_delete" type="button" value="Xóa" class="link-button cldelete">
+                    <?php if ($this->chkImportStatus) { ?>
+                        <input name="btn_import" id="btn_import" type="button" value="Import dữ liệu"
+                               class="link-button" onclick="actionUrl('../import/');"><?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div id="table-container"></div>
+        <!-- Phân trang dữ liệu -->
+        <table class="table-page-number" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td class="left-col small_label" valign="top">
+                    <small class="small_starmark" id="sdocpertotal"></small>
+                </td>
+                <td class="center-col" align="center" id="generateStringNumberPage"></td>
+                <td class="right-col normal_label" id="generateHtmlSelectBoxPage">Hiển thị 
+                <select class='textbox'  id='cbo_nuber_record_page' name='cbo_nuber_record_page' optional='true' style='width:60'>
+                    <?php
+                        echo G_Gen::getInstance()->_generateSelectOption($this->arrListItem, 'sCode', 'sCode', 'sName', $this->arrListItem[0]);
+                        ?></select>Hồ sơ/1 trang
+                </td>
+            </tr>
+        </table>
+        <!-- Các tùy chọn -->
+        <div class="button-container">
+            <?php
+            //Nut "Them"
+            echo $this->formButton("btn_add", "Thêm", array("type" => "button", "class" => "link-button cladd")) . "&nbsp;";
+            echo $this->formButton("btn_edit", "Sửa", array("type" => "button", "class" => "link-button cledit")) . "&nbsp;";
+            //Nut "Xoa"
+            echo $this->formButton("btn_delete", "Xóa", array("type" => "button", "class" => "link-button cldelete")) . "&nbsp;";
+            if ($this->chkImportStatus) {
+                echo $this->formButton("btn_import", "Import dữ liệu", array("type" => "button", "class" => "link-button climport")) . "&nbsp;";
+            }
+            ?>
+        </div>
+    </form>
+</div>
+<div id="UpdateFrm"></div>
+<script type="text/javascript">
+    var myList = new System_List(baseUrl, 'system', 'list');
+    $("#listtype_type").addClass('chzn-select');
+    $("#listtype_type").attr('tabindex', 2);
+    $("#listtype_type").chosen();
+    //fix chosen
+    var widthdiv = $('div.searh-fixed #listtype_type').css('width');
+    $('div.searh-fixed .chzn-container').css('width', widthdiv);
+    $('.chzn-container ').css('style', 'width:60%');
+    $('div.searh-fixed .div-chosen').width('18px');
+    var widthdiv = $('div.searh-fixed #listtype_type').css('width');
+    $('div.searh-fixed .chzn-container').css('width', widthdiv);
+
+    $('form#frmlist').process_paging({
+        getData: function (callback) {
+            myList.getRecord(callback);
+        },
+        obj: myList
+    });
+    myList.loadIndexfrm();
+</script>
+<style type="text/css">
+    div.div-chosen {
+        clear: both;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+        height: 100%;
+        width: 18px;
+    }
+</style>

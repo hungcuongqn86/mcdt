@@ -1,0 +1,212 @@
+<?php
+function convertPHPSizeToBytes($sSize)
+{
+    if (is_numeric($sSize)) {
+        return $sSize;
+    }
+    $sSuffix = substr($sSize, -1);
+    $iValue = substr($sSize, 0, -1);
+    switch (strtoupper($sSuffix)) {
+        case 'P':
+            $iValue *= 1024;
+        case 'T':
+            $iValue *= 1024;
+        case 'G':
+            $iValue *= 1024;
+        case 'M':
+            $iValue *= 1024;
+        case 'K':
+            $iValue *= 1024;
+            break;
+    }
+    return $iValue;
+}
+
+?>
+<!-- The template to display files available for download -->
+<script id="template-upload" type="text/x-tmpl">
+<!-- The template to display files available for upload -->
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class = "percent"></span>
+        </td>
+        <td>
+            <p class = "file_uploading" id = "_{%=md5(file.name)%}">{%=file.name%}</p>
+        </td>
+        <td>
+        {% if (!i) { %}
+            <button class="btn btn-warning cancel">
+                <i class="glyphicon glyphicon-ban-circle"></i>
+                <span>Loại bỏ</span>
+            </button>
+        {% } %}
+        </td>
+    </tr>
+{% } %}
+
+
+</script>
+<script id="template-download" type="text/x-tmpl">
+<!-- The template to display files available for download -->
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        {% if (file.error) { %}
+            <td>
+            </td>
+            <td class = "center">
+                <p class = "file_report">
+                    <span class="label label-danger upload_error">Tải tệp tin không thành công</span>
+                </p>
+            </td>
+        {% } %}
+        {% if (file.deleteUrl) { %}
+
+
+            <td>
+                <span class="fa fa-check"></span>
+            </td>
+            <td>
+                <p class = "file_report upload_complete" file_name = "{%=file.name%}" old="0">
+                    <a target="_blank" href = "{%=file.url%}">{%=file.view_name%}</a>
+                </p>
+            </td>
+            <td>
+                <!--<span title = "Xóa tệp tin" class="fa fa-trash delete glyphicon glyphicon-trash" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"></span>-->
+                <button class="btn btn-danger delete" data-url="{%=file.deleteUrl%}" data-type="{%=file.deleteType%}">
+                <i class="glyphicon glyphicon-trash"></i>
+                <span>Xóa</span>
+                </button>
+            </td>
+        {% } else { %}
+            <td>
+                    <button class="btn btn-warning cancel">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                        <span>Loại bỏ</span>
+                    </button>
+            </td>
+        {% } %}
+    </tr>
+{% } %}
+
+
+
+</script>
+<script>
+    var uploading = 0;
+    var done2submit = 0;
+    var trueConfirm = 0;
+    var deleteMouseDownFired = false;
+    var globalDeleteConfirmed = false;
+    var max_filesize = '<?=convertPHPSizeToBytes(ini_get('upload_max_filesize'))?>';
+    var upload_max_filesize = '<?=ini_get('upload_max_filesize')?>';
+    $(function () {
+        $('.fileupload').each(function () {
+            $(this).fileupload({
+                dropZone: $(this),
+                url: baseUrl + '/main/file/upload/',
+                type: 'POST',
+                method: 'POST',
+                dataType: 'json',
+                maxChunkSize: max_filesize,
+                autoUpload: true,
+                acceptFileTypes: /(\.|\/)(gif|jpe?g|png|pdf|doc|docx|xls|xlsx|rar|zip|7z|xml)$/i,
+                progress: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    data.context.find('span.percent').text(progress + '%');
+                },
+                submit: function (e, data) {
+                    done2submit = 0;
+                    uploading++;
+                },
+                always: function (e, data) {
+                    uploading--;
+                    if (data.textStatus == 'success') {
+                        var errors = $('span.upload_error').length;
+                        if (uploading == 0 && done2submit == 1 && errors == 0) {
+                            if (typeof (fndone2submit) != 'function')  fndone2submit = function () {};
+                            fndone2submit.call(this);
+                            fndone2submit = function() {};
+                        }
+                        else {
+                            if (errors > 0 && done2submit == 1) {
+                                hideloadpage()
+                                jAlert('Có ' + errors + ' tệp tin tải lên không thành công. Vui lòng thử lại', 'Thông báo');
+                            }
+                        }
+                    }
+                },
+                /*add: function (e, data) {
+
+                 // array with all indexes of files with errors
+                 var error_uploads_indexes = [];
+
+                 // when add file - each file
+                 $.each(data.files, function(index, file) {
+
+                 // array for all errors - in example is only one: size
+                 var uploadErrors = [];
+
+                 // check size
+                 if(data.files[index]['size'] > max_filesize) {
+                 uploadErrors.push('Hệ thống chỉ cho phép upload các file dưới '+upload_max_filesize);
+                 };
+
+                 // when errors
+                 if(uploadErrors.length > 0) {
+
+                 // mark index of error file
+                 error_uploads_indexes.push(index);
+                 // alert error
+                 jAlert(uploadErrors.join("\n"),'Thông báo');
+
+                 };
+
+                 }); // << each
+
+
+                 // remove indexes (files) with error
+                 data.files = $.grep( data.files, function( n, i ) {
+                 return $.inArray(i, error_uploads_indexes) ==-1;
+                 });
+
+
+                 // if are files to upload
+                 if(data.files.length){
+                 // upload by ajax
+                 var jqXHR = data.submit().done(function (result, textStatus, jqXHR) {
+                 //...
+                 // alert('done!') ;
+                 // ...
+                 });
+                 } //
+                 }*/
+            })
+                .bind(
+                'fileuploaddestroy',
+                function (e, data) {
+                    if (deleteMouseDownFired) {
+                        if (globalDeleteConfirmed) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    else {
+                        return confirm("Bạn có chắc chắn muốn xóa file này?");
+                    }
+                })
+                .bind('fileuploaddestroyed', function (e, data) {
+                    var obj = data.context.find('p.upload_complete'),
+                        file_name = $(obj).attr('file_name'),
+                        hidden = $(data.context).closest('div.fileupload').find('#hdn_delete_file_upload'),
+                        list = '';
+                    if ($(obj).attr('old') == 1) {
+                        list = $('#hdn_delete_file_upload').val();
+                        if (list) list += '!~~!' + file_name;
+                        else list = file_name;
+                        $('#hdn_delete_file_upload').val(list);
+                    }
+                });
+        });
+    });
+</script>

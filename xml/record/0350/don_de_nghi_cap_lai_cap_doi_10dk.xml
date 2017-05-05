@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<replace_list>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>formfieldata</data_format>
+			<sblockname>blockbenb</sblockname>ss
+			<find_string_list>POS,NAME_B,NS_B,CMT_B,DC_B</find_string_list>
+			<field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>formfieldatatax</data_format>
+			<find_string_list>DIACHI_B</find_string_list>
+			<field_list>obj_address</field_list>
+			<tax_tag>obj_address</tax_tag>
+			<tax_prefix>B</tax_prefix>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+		</replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#SO_GCN_CU#</find_string>
+            <xml_tag_in_db>so_vao_so_cap_gcn</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#SO_PHATHANH#</find_string>
+            <xml_tag_in_db>so_phat_hanh</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+		<replace>
+		<from_xml_data>true</from_xml_data>
+		<data_format>text</data_format>
+		<find_string>#NGAYCAP_GCN#</find_string>
+		<xml_tag_in_db>ngay_cap_gcn_dat</xml_tag_in_db>
+		<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#LY_DO#</find_string>
+			<xml_tag_in_db>ly_do</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NOICAP_CMT_A1#</find_string>
+			<xml_tag_in_db>noi_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#DC_A1#</find_string>
+            <xml_tag_in_db>dia_chi_nguoi_nop_hs</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+
+
+
+
+
+
+
+	     <replace>
+			<from_xml_data>false</from_xml_data>
+			<data_format>getdate</data_format>
+			<find_string>#INFORM_DATE#</find_string>
+
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>false</from_xml_data>
+			<data_format>isdate</data_format>
+			<find_string>#INFORM_DATE#</find_string>
+
+			<field_name>C_RECEIVED_DATE</field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#ADDRESS#</find_string>
+			<xml_tag_in_db>registor_address</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#PHONE#</find_string>
+			<xml_tag_in_db>dien_thoai_nguoi_nop_hs</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#THUA_SO#</find_string>
+			<xml_tag_in_db>thua_dat_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TO_BANDO#</find_string>
+			<xml_tag_in_db>ban_do_so_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DIEN_TICH#</find_string>
+			<xml_tag_in_db>dien_tich_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#THUA_SO1#</find_string>
+			<xml_tag_in_db>thua_dat_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TO_BANDO1#</find_string>
+			<xml_tag_in_db>ban_do_so_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DIEN_TICH1#</find_string>
+			<xml_tag_in_db>dien_tich_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TEN_CT#</find_string>
+			<xml_tag_in_db>ten_cong_trinh_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DT_CT#</find_string>
+			<xml_tag_in_db>dien_tich_xay_dung_da_cap</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TEN_CT1#</find_string>
+			<xml_tag_in_db>ten_cong_trinh_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#DT_CT1#</find_string>
+			<xml_tag_in_db>dien_tich_xay_dung_thay_doi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+
+
+
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#DIA_CHI_DAT#</find_string>
+            <xml_tag_in_db>dia_chi_thua_dat</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+
+
+		<replace>
+			<from_xml_data>false</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#RECORDTYPE#</find_string>
+
+			<field_name>C_NAME</field_name>
+		</replace>
+		<replace>
+			<from_xml_data>false</from_xml_data>
+			<data_format>isdate</data_format>
+			<find_string>#RECEIVED_DATE#</find_string>
+
+			<field_name>C_RECEIVED_DATE</field_name>
+		</replace>
+		<replace>
+			<from_xml_data>false</from_xml_data>
+			<data_format>isdate</data_format>
+			<find_string>#APPOINTED_DATE#</find_string>
+
+			<field_name>C_APPOINTED_DATE</field_name>
+		</replace>
+	</replace_list>
+</root>

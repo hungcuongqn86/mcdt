@@ -1,0 +1,83 @@
+<form action="index" method="POST" id="frmReceived" autocomplete="off" enctype="multipart/form-data">
+<?php 
+	echo $this->formHidden("hdn_type","",null); 
+	//Cac doi tuong hidden tren form
+	echo $this->formHidden("hdn_current_page",$this->iCurrentPage,null); 
+	echo $this->formHidden("cbo_nuber_record_page",$this->iNumRowOnPage,null); 
+	echo $this->formHidden("hdn_record_number_page",$this->iNumRowOnPage,null); 
+	echo $this->formHidden("hdn_object_id_list","",null); 
+	echo $this->formHidden("hdh_option","",null);
+	echo $this->formHidden("hdn_is_update","",null); 
+	echo $this->formHidden("hdn_record_type_id",$this->RecordTypeId,null); 
+	echo $this->formHidden("hdn_filter_xml_tag_list",$this->filterXmlTagList,null); 
+	echo $this->formHidden("hdn_filter_xml_value_list",$this->filterXmlValueList,null); 
+	echo $this->formHidden("hdn_object_id",$this->srecordId,null); 
+	echo $this->formHidden("hdn_xml_tag_list","",null); 
+	echo $this->formHidden("hdn_xml_value_list","",null); 
+	echo $this->formHidden("hdn_XmlTagValueList","",null); 
+	//Bien hdn_deleted_new_file_id_list dung de luu Id cua nhung doi tuong file dinh kem se xoa
+	echo $this->formHidden("hdn_deleted_new_file_id_list","",null); 
+	echo $this->formHidden("htn_leftModule",$this->currentModulCodeForLeft,null);
+	echo $this->formHidden("hdn_deleted_exist_file_id_list","",null);
+?>
+	<?php
+		$arrConst = $this->arrConst;
+		$arrSingleRecord = $this->arrSingleRecord;
+	?>
+	<div class = "large_title">
+		<?=$this->titleBody;?>			
+	</div>
+	<table width='99%'  border='0' cellspacing='0' cellpadding='0' class="table_title">
+		<col width="85%" align="left"/><col width="15%" align="right"/>
+		<tr>
+			<td align="right" colspan="2">
+				<div style="text-align:right; width:98%;">
+					<label>
+						<a  class="small_link"  onclick="document.getElementById('hdh_option').value='GHI';btn_save_record(document.getElementById('hdn_xml_tag_list'),document.getElementById('hdn_xml_value_list'),'','<?=$this->UrlAjax?>');"><?=$arrConst['_GHI']?> | </a>
+						<a  class="small_link"  onclick="btn_back_onclick('../receive/additional')"><?=$arrConst['_QUAY_LAI']?></a>
+					</label>
+				</div>	
+			</td>
+		</tr>
+	</table>
+	<div id="contentXml">
+		<div id= "header_update_form">
+			<div>
+				<label><?php echo $arrConst['_LOAI_HO_SO'];?></label>
+				<input disabled value = "<?=$this->RecodeTypeName?>" class="textbox" style="width:60%;"  id ="C_RECORDTYPE" name="C_RECORDTYPE" type="text"  xml_tag_in_db="" xml_data="false" column_name="C_RECORDTYPE"  />
+			</div>
+			<div>
+				<label><?php echo $arrConst['_MA_HO_SO'];?></label>
+				<input readonly class="textbox" style="width:20%;" value = "<?= $this->RecodeCode?>"  id ="C_CODE" name="C_CODE" type="text" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_CODE"  />
+			</div>
+			<div>
+				<label><?=$arrConst['_NGAY_TIEP_NHAN']?><span class="requiein">*</span></label>
+				<input class="textbox datepicker2c" style="width:15%;"  id ="C_RECEIVED_DATE" name="C_RECEIVED_DATE" type="text" isdate="true" option = "false"  xml_tag_in_db="" xml_data="false" column_name="C_RECEIVED_DATE" message="<?php echo "NGÀY TIẾP NHẬN không đúng định dạng ngày/tháng/năm!";?>" value = "<?=Extra_Util::_yyyymmddToDDmmyyyy($arrSingleRecord[0]['C_RECEIVED_DATE'])?>" onKeyUp="DateOnkeyup(this,event)" />
+				<label style="width:7%;float:none;"><?php echo $arrConst['_SO_NGAY'];?></label> 
+				<input style="width:6%;" type="text" id="limit_date" name="limit_date" align="right" optional = "true" value = "<?=$this->iNumberProcessDate?>"  column_name="" message="SO NGAY phai la so nguyen duong (1, 2, ...)!" onblur="appointed_date(document.getElementById('C_RECEIVED_DATE').value,document.getElementById('limit_date'),document.getElementById('C_APPOINTED_DATE'));">														
+				<label style="width:7%;float:none;"><?php echo $arrConst['_NGAY_HEN'];?></label>
+				<input value = "<?= Extra_Util::_yyyymmddToDDmmyyyy($arrSingleRecord[0]['C_APPOINTED_DATE'])?>" class="textbox datepicker2c" style="width:15%;"  id ="C_APPOINTED_DATE" name="C_APPOINTED_DATE" type="text" isdate="true" option = "true"  xml_tag_in_db="" xml_data="false" column_name="C_APPOINTED_DATE" message="<?php echo "NGÀY HẸN không đúng định dạng ngày/tháng/năm!";?>" onKeyDown="change_focus(document.forms[0],this)" onKeyUp="DateOnkeyup(this,event)"/>
+			</div> 
+		</div>
+		<?php echo $this->generateFormHtml;?>
+		<div>
+			<label style="width:25%;margin-left: 0.5%;">File đính kèm</label>
+			<?php echo $this->AttachFile;?>
+		</div>
+	</div>
+	<!--Hien thi nut!-->
+	<div id="button">
+		<button name="btn_ghivaquaylai" id="btn_ghivaquaylai" type="button" value="Ghi&amp;Quay lại" class="add_large_button" onClick="document.getElementById('hdh_option').value='GHI';btn_save_record(document.getElementById('hdn_xml_tag_list'),document.getElementById('hdn_xml_value_list'),'','<?=$this->UrlAjax?>');"><?=$arrConst['_GHI']?></button>	
+		<input type="button" style="margin-left:0px;" name="quaylai" id="quaylai" value="<?=$arrConst['_QUAY_LAI']?>" onClick="btn_back_onclick('../receive/additional')" class="add_large_button">
+	</div>		
+</form>
+<script type = "text/javascript">
+    $(function () {
+        $(".datepicker2c").datepicker({
+            changeMonth: true,
+            gotoCurrent: true,
+            minDate: new Date(1945, 1 - 1, 1),
+            changeYear: true
+        });
+    });
+</script>
