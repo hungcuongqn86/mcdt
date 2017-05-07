@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<common_para_list>
+	</common_para_list>
+	<table_struct_of_filter_form><!--xac dinh cau truc table cua form chua cac tieu thuc loc du lieu-->
+			<filter_row>				
+				<tag_list>record_status</tag_list>
+			</filter_row>
+			<filter_row>				
+				<tag_list>from_date,to_date</tag_list>
+			</filter_row>
+	</table_struct_of_filter_form>
+	<filter_formfield_list><!-- phan mo ta cac dong cua  form chua cac tieu thuc loc du lieu-->
+		<record_status>
+			<label>Trạng thái hồ sơ: </label>
+			<width_label>text-align:left;padding-right:8px;</width_label>
+			<type>selectbox</type>
+			<selectbox_option_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', 'DM_TRANG_THAI_BAO_CAO'</selectbox_option_sql>
+			<selectbox_option_id_column>0</selectbox_option_id_column>
+			<selectbox_option_name_column>1</selectbox_option_name_column>
+			<selectbox_option_value_column>1</selectbox_option_value_column>
+
+			<width>45%</width>
+			<optional>false</optional>
+
+			<message>Phai xac dinh TRANG THAI HO SO!</message>
+
+
+			<xml_data>true</xml_data>
+
+
+			<xml_tag_in_db>record_status</xml_tag_in_db>
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</record_status>
+		<from_date>
+			<label>Từ ngày: </label>
+			<width_label>text-align:left;padding-right:8px;</width_label>
+			<type>textbox</type>
+			<data_format>isdate</data_format>
+			<width>20%</width>
+			<optional>false</optional>
+
+
+
+			<message>TU NGAY khong duoc de trong</message>
+
+
+
+			<xml_data>true</xml_data>
+			<xml_tag_in_db>from_date</xml_tag_in_db>
+			<colume_name></colume_name>
+			<compare_operator></compare_operator> 
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</from_date>
+		<to_date>
+			<label>Đến ngày: </label>
+			<width_label>10%;text-align:left;padding-left:5px;padding-right:8px;</width_label>
+			<type>textbox</type>
+			<data_format>isdate</data_format>
+			<width>20%</width>
+			<optional>false</optional>
+
+
+
+			<message>DEN NGAY khong duoc de trong</message>
+
+
+
+			<xml_data>true</xml_data>
+			<xml_tag_in_db>to_date</xml_tag_in_db>
+			<colume_name></colume_name>
+			<compare_operator></compare_operator>
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</to_date>
+	</filter_formfield_list>
+	<!--Dinh nghia file hien thi tieu de bao cao-->
+	<report_table_format>
+		 <report_label_file></report_label_file>
+	</report_table_format>
+	<report_sql> <!--Phan mo ta cau lenh SQL ket xuat du lieu cho bao cao -->
+		<sql>		
+			Exec eCS_BC02 '#record_type#','#record_status#','#from_date#','#to_date#','#owner_code#'
+		</sql>
+		<xml_data></xml_data> <!--Cot Du lieu duoc nhom co phai nam trong the xml hay khong?-->
+		<group_by></group_by>  <!--The nay xac dinh du lieu da duoc nhom theo cot nao-->
+		<group_name></group_name> <!--Cot chua ten cua nhom khi tinh toan nhom du lieu-->
+		<firt_row>5</firt_row> <!--Row bat dau hien thi bang du lieu-->
+	</report_sql>
+	<report_header> <!--Phan dau cua bao cao-->
+		<large_title>BÁO CÁO TÌNH HÌNH XỬ LÝ HỒ SƠ THEO TRẠNG THÁI XỬ LÝ</large_title>
+		<filter_list>record_type|#|record_status|#|from_date,to_date</filter_list>
+		<thead>true</thead>
+	</report_header>
+	<report_footer> <!--Ket thuc bao cao-->
+		<!--<footer_colspan>report_creator,report_approver,report_signer|5,2,2</footer_colspan>&lt;!&ndash; Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao &ndash;&gt;
+		<report_creator>CÁN BỘ TN VÀ TKQ</report_creator>
+		<report_approver></report_approver>
+		<report_signer>LÃNH ĐẠO VĂN PHÒNG HĐND VÀ UBND </report_signer>-->
+		<footer_colspan>report_creator,report_approver,report_signer|5,2,2</footer_colspan><!-- Thiet lap vi tri cac thong tin footer so voi cac cot du lieu bao cao -->
+		<report_creator>Người lập</report_creator>
+		<report_approver>Người duyệt</report_approver>
+		<report_signer>Người ký</report_signer>
+	</report_footer>
+	<pageSetup> <!--PageSetup-->
+		<!-- <orientation>landscape</orientation> -->
+		<orientation>portrait</orientation>
+		<paperSize>9</paperSize>
+	</pageSetup>	
+</root>

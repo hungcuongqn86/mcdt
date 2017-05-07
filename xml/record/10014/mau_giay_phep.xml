@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<common_para_list>
+		<common_para>			
+			<first_col_width>25%</first_col_width>
+			<js_file_name>js_functions_public.js,js_functions_0202.js</js_file_name>
+			<js_function>set_input()</js_function>
+			<list_tag_giay_bien_nhan>ghi_chu,tai_lieu_kt,ho_ten_nk,dia_chi_dk,registor_phone</list_tag_giay_bien_nhan>
+		</common_para>
+		<form_title>GIẤY ĐĂNG KÝ KẾT HÔN</form_title>
+	</common_para_list>
+	<update_object>
+		<table_struct_of_update_form> 
+			<update_row_list>	<!--Phan mo ta cac dong Form cap nhat doi tuong-->		
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>hinh_thuc_hs</tag_list>
+					<row_id>hinh_thuc_hs</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>registor_name,registor_phone</tag_list>
+					<row_id>registor_name</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>registor_address</tag_list>
+					<row_id>registor_address</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>so_cmnd,ngay_cap_cmnd,noi_cap_cmnd</tag_list>
+					<row_id>so_cmnd</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>qh_voi_nguoi_cap</tag_list>
+					<row_id>qh_voi_nguoi_cap</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>label_de_nghi_cap</tag_list>
+					<row_id>label_de_nghi_cap</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>ten_chong</tag_list>
+					<row_id>ten_chong</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>dan_toc_chong,quoc_tich_chong,tuoi_chong</tag_list>
+					<row_id>dan_toc_chong</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>dia_chi_chong</tag_list>
+					<row_id>dia_chi_chong</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>cmnd_chong</tag_list>
+					<row_id>cmnd_chong</row_id>
+				</update_row>				
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>ten_vo</tag_list>
+					<row_id>ten_vo</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>dan_toc_vo,quoc_tich_vo,tuoi_vo</tag_list>
+					<row_id>dan_toc_vo</row_id>
+				</update_row>	
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>dia_chi_vo</tag_list>
+					<row_id>dia_chi_vo</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>cmnd_vo</tag_list>
+					<row_id>cmnd_vo</row_id>
+				</update_row>	
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>noi_dang_ky,ngay_dang_ky</tag_list>
+					<row_id>noi_dang_ky</row_id>
+				</update_row>	
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>so_dang_ky,quyen_so</tag_list>
+					<row_id>so_dang_ky</row_id>
+				</update_row>					
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>ghi_chu</tag_list>
+					<row_id>ghi_chu</row_id>
+				</update_row>										
+			</update_row_list>
+		</table_struct_of_update_form>
+		<update_formfield_list>	
+			<hinh_thuc_hs>
+				<label>Hình thức hồ sơ</label>
+				<type>selectbox</type>
+				<selectbox_option_sql>EfyLib_ListGetAllbyListtypeCode '#OWNER_CODE#', '1402_DMHT'</selectbox_option_sql>
+				<selectbox_option_id_column>0</selectbox_option_id_column>
+				<selectbox_option_name_column>1</selectbox_option_name_column>
+				<selectbox_option_value_column>1</selectbox_option_value_column>
+
+				<width>25%</width>
+				<optional>false</optional>
+
+				<message>Phải xác định Hình thức hồ sơ</message>
+
+				<xml_data>true</xml_data>
+
+				<js_action_list>onChange</js_action_list>
+				<xml_tag_in_db>hinh_thuc_hs</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</hinh_thuc_hs>		
+			<registor_name>
+				<label>Họ tên người khai</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>false</optional>
+				<width>50%</width>
+				<max_length>100</max_length>
+				<message>Tên người khai không được để trống</message>
+
+				<xml_data>true</xml_data>
+
+				<js_action_list>onChange</js_action_list>
+				<xml_tag_in_db>registor_name</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</registor_name>
+			<registor_address>
+				<label>Nơi thường trú/ tạm trú</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>false</optional>
+				<width>72.4%</width>
+
+				<message>Nơi thường trú, tạm trú không được để trống</message>
+
+				<xml_data>true</xml_data>
+
+
+
+				<xml_tag_in_db>registor_address</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</registor_address>	
+			<so_cmnd>
+				<label>Số CMND/ Hộ chiếu</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>25%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>so_cmnd</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</so_cmnd>
+			<ngay_cap_cmnd>
+				<label>Ngày cấp</label>
+				<width_label>10%</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>true</optional>
+				<width>14.3%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>ngay_cap_cmnd</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ngay_cap_cmnd>		
+			<noi_cap_cmnd>
+				<label>Nơi cấp</label>
+				<width_label>10%</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>12%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>noi_cap_cmnd</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</noi_cap_cmnd>
+			<registor_phone>
+				<label>Số điện thoại</label>
+				<width_label>10%</width_label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>12%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>registor_phone</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</registor_phone>	
+			<qh_voi_nguoi_cap>
+				<label>Quan hệ với người được đăng ký kết hôn</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.3%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>qh_voi_nguoi_cap</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</qh_voi_nguoi_cap>	
+			<label_de_nghi_cap>
+				<label>&lt;b&gt;Đề nghị UBND Xã, Thị Trấn đăng ký kết hôn cho&lt;/b&gt;</label>
+				<width_label>auto;text-align:left;padding-left:10px;</width_label>
+				<type>label</type>
+			</label_de_nghi_cap>
+			<ten_chong>
+				<label>&lt;b&gt;Họ tên Chồng&lt;/b&gt;</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>false</optional>
+				<width>72.3%</width>
+
+				<message>Họ tên Chồng không được bỏ trống</message>
+
+				<xml_data>true</xml_data>
+				<js_action_list>onChange</js_action_list>
+				<xml_tag_in_db>ten_chong</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ten_chong>
+			<tuoi_chong>
+				<label>Năm sinh</label>
+				<width_label>10%</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>true</optional>
+				<width>12%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>tuoi_chong</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</tuoi_chong>				
+			<dan_toc_chong>
+				<label>Dân tộc</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>25%</width>
+				<default_value>Kinh</default_value>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>dan_toc_chong</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</dan_toc_chong>		
+			<quoc_tich_chong>
+				<label>Quốc tịch</label>
+				<width_label>10%</width_label>	
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>14.3%</width>
+				<default_value>Việt Nam</default_value>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>quoc_tich_chong</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</quoc_tich_chong>
+			<dia_chi_chong>
+				<label>Nơi thường trú/ tạm trú</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.3%</width>
+
+				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>dia_chi_chong</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</dia_chi_chong>
+			<cmnd_chong>
+				<label>Số Giấy CMND/ Giấy tờ hợp lệ thay thế </label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.3%</width>
+
+				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>cmnd_chong</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</cmnd_chong>			
+			<ten_vo>
+				<label>&lt;b&gt;Họ tên Vợ&lt;/b&gt;</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>false</optional>
+				<width>72.3%</width>
+
+				<message>Họ tên Vợ không được bỏ trống</message>
+
+				<xml_data>true</xml_data>
+				<js_action_list>onChange</js_action_list>
+				<xml_tag_in_db>ten_vo</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ten_vo>
+			<tuoi_vo>
+				<label>Năm sinh</label>
+				<width_label>10%</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>true</optional>
+				<width>12%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>tuoi_vo</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</tuoi_vo>				
+			<dan_toc_vo>
+				<label>Dân tộc</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>25%</width>
+				<default_value>Kinh</default_value>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>dan_toc_vo</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</dan_toc_vo>		
+			<quoc_tich_vo>
+				<label>Quốc tịch</label>
+				<width_label>10%</width_label>	
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>14.3%</width>
+				<default_value>Việt Nam</default_value>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>quoc_tich_vo</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</quoc_tich_vo>
+			<dia_chi_vo>
+				<label>Nơi thường trú/ tạm trú</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.3%</width>
+
+				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>dia_chi_vo</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</dia_chi_vo>
+			<cmnd_vo>
+				<label>Số Giấy CMND/ Giấy tờ hợp lệ thay thế  </label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.3%</width>
+
+				<message>Nơi thường trú/ tạm trú không được bỏ trống</message>
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>cmnd_vo</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</cmnd_vo>					
+			<noi_dang_ky>
+				<label>Nơi đăng ký kết hôn</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>50%</width>
+
+				<message>Nơi đăng ký không được bỏ trống</message>
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>noi_dang_ky</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</noi_dang_ky>	
+			<ngay_dang_ky>
+				<label>Ngày đăng ký</label>
+				<width_label>10%</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>true</optional>
+				<width>12%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>ngay_dang_ky</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ngay_dang_ky>
+			<so_dang_ky>
+				<label>Theo giấy đăng ký kết hôn số</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>25%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>so_dang_ky</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</so_dang_ky>
+			<quyen_so>
+				<label>Quyển số</label>
+				<width_label>10%</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>true</optional>
+				<width>14.3%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>quyen_so</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</quyen_so>	
+			<tai_lieu_kt>
+					<label>&lt;left&gt;&lt;B&gt;Tài liệu kèm theo đơn&lt;/B&gt;&lt;/left&gt;</label>
+					<type>item_attach_doc</type>
+					<input_data>efylist</input_data>
+					<public_list_code>1402_TLKT</public_list_code>
+					<width>72%</width>
+					<optional>true</optional>			
+					<message>Phải xác định ít nhất một tài liệu kèm theo đơn</message>
+					<xml_data>true</xml_data>			
+					<xml_tag_in_db>tai_lieu_kt</xml_tag_in_db>
+					<readonly_in_edit_mode>false</readonly_in_edit_mode>
+					<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</tai_lieu_kt>
+			<tl_khac>
+				<label>Nội dung tài liệu khác</label>
+				<type>textarea</type>
+				<data_format>text</data_format>
+				<width>72.3%</width>
+				<optional>true</optional>
+				<max_length>1000</max_length>			
+				<message>Ban phai nhap danh sach tai lieu ho so khac</message>
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>tl_khac</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</tl_khac>			
+			<ghi_chu>
+				<label>Ghi chú</label>
+				<type>textarea</type>
+
+				<width>72.3%</width>
+
+				<optional>true</optional>
+				<max_length>200</max_length>
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>ghi_chu</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ghi_chu>	
+		</update_formfield_list>
+		<update_sql>Exec EfyLib_ListUpdate #list_id#, #listtype_id#, '#list_code#', '#list_name#', #list_order#, '#list_status#', '#xml_data#', '#deleted_exist_file_id_list#', '#new_file_id_list#','#p_owner_code_list#'</update_sql>
+	</update_object>
+</root>
