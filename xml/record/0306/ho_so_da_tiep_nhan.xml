@@ -510,7 +510,7 @@
 			</thong_tin_ben_b>
 			<ben_nhan_chuyen_nhuong>
 				<type>formfieldata</type>
-				<file_name_xml>ds_staff_info</file_name_xml>
+				<file_name_xml>ds_staff_info_0306</file_name_xml>
 				<width>70%</width>
 				<row>3</row>
 				<optional>true</optional>
