@@ -1495,8 +1495,8 @@ class Extra_Ecs
                             $sValue = substr($sValue,0,-2);
                         }
                     }
-					
-					 if ($sDataFormat == "tabletostringlist"){
+
+                    if ($sDataFormat == "tabletostringlist"){
                         $sfield_list = $arrElement["field_list"];
                         $arrfield = explode(',',$sfield_list);
                         $snote_list = $arrElement["note_list"];
@@ -1513,7 +1513,7 @@ class Extra_Ecs
                                     }
                                 }
                                 $sValue.=' ';
-								$sValue = strstr($sValue, ' ');
+                                $sValue = strstr($sValue, ' ');
                             }
                         }
                         if(($sValue!='')&&(strlen($sValue)>2)){
