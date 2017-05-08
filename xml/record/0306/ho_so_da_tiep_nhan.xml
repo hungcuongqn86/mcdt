@@ -10,7 +10,7 @@
 		</common_para>
 	</common_para_list>
 	<list_of_object>
-		<list_body> 
+		<list_body>
 			<col>
 				<label>&lt;input type="checkbox" name="chk_all_item_id"  onclick="checkbox_all_item_id(document.forms[0].chk_item_id);"&gt;</label>
 				<type>checkbox</type>
@@ -62,27 +62,27 @@
 				<align>CENTER</align>
 				<xml_data>false</xml_data>
 				<column_name>C_APPOINTED_DATE</column_name>
-			</col>			
+			</col>
 		</list_body>
 	</list_of_object>
-    <list_print>
-        <item_print>
-            <label>Văn bản phân chia tài sản thừa kế (Mẫu 58/VBPC)</label>
-            <tempcode>van_ban_phan_chia_tstk_58vbpc</tempcode>
-        </item_print>
-        <item_print>
-            <label>Tờ khai thuế TNCN (Mẫu 03/BĐS-TNCN)</label>
-            <tempcode>tk_thue_tncn_03bdstncn</tempcode>
-        </item_print>
-        <item_print>
-            <label>Tờ khai thuế TNCN</label>
-            <tempcode>tk_thue_tncn_00</tempcode>
-        </item_print>
-        <item_print>
-            <label>Tờ khai lệ phí trước bạ (Mẫu 01/LPTB)</label>
-            <tempcode>tk_le_phi_truoc_ba_01lptb</tempcode>
-        </item_print>
-    </list_print>
+	<list_print>
+		<item_print>
+			<label>Văn bản phân chia tài sản thừa kế (Mẫu 58/VBPC)</label>
+			<tempcode>van_ban_phan_chia_tstk_58vbpc</tempcode>
+		</item_print>
+		<item_print>
+			<label>Tờ khai thuế TNCN (Mẫu 03/BĐS-TNCN)</label>
+			<tempcode>tk_thue_tncn_03bdstncn</tempcode>
+		</item_print>
+		<item_print>
+			<label>Tờ khai thuế TNCN</label>
+			<tempcode>tk_thue_tncn_00</tempcode>
+		</item_print>
+		<item_print>
+			<label>Tờ khai lệ phí trước bạ (Mẫu 01/LPTB)</label>
+			<tempcode>tk_le_phi_truoc_ba_01lptb</tempcode>
+		</item_print>
+	</list_print>
 	<update_object>
 		<table_struct_of_update_form>
 			<update_row_list>	<!--Phan mo ta cac dong Form cap nhat doi tuong-->
@@ -221,11 +221,11 @@
 					<tag_list>string_acreage_cn</tag_list>
 					<row_id>string_acreage_cn_rowid</row_id>
 				</update_row>
-				<!--<update_row>
+				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>trong_do</tag_list>
 					<row_id>trong_do</row_id>
-				</update_row>-->
+				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>trong_do_dat_so</tag_list>
@@ -510,7 +510,7 @@
 			</thong_tin_ben_b>
 			<ben_nhan_chuyen_nhuong>
 				<type>formfieldata</type>
-				<file_name_xml>ds_staff_info_0306</file_name_xml>
+				<file_name_xml>ds_staff_info</file_name_xml>
 				<width>70%</width>
 				<row>3</row>
 				<optional>true</optional>
@@ -749,7 +749,7 @@
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</nguon_goc_su_dung>
 			<dien_tich_chuyen_nhuong>
-				<label>Diện tích tặng cho</label>
+				<label>Tổng diện tích tặng cho</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
@@ -764,7 +764,7 @@
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</dien_tich_chuyen_nhuong>
 			<string_acreage_cn>
-				<label>Diện tích chuyển nhượng bằng chữ</label>
+				<label>Tổng diện tích chuyển nhượng bằng chữ</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>

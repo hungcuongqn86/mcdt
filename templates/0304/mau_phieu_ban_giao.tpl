@@ -493,7 +493,7 @@ style='mso-tab-count:2'>                      </span>Điệ
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Nội dung:<span
-style='mso-spacerun:yes'>  </span>Chuyển mục đích sử dụng đất</span></p>
+style='mso-spacerun:yes'>  </span>Đăng ký biến động quyền sử dụng đất</span></p>
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Thành phần hồ sơ:<o:p></o:p></span></p>
@@ -524,16 +524,17 @@ line-height:120%;mso-ansi-language:EN-US'>Trả kết quả thuế vào ngày (�
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Trả kết quả GCN QSD Đất vào
-ngày:……………………<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><strong>#APPOINTED_DATE#</strong></span>…………</span></p>
+ngày:………………………<span
+    style='font-size:12.0pt;font-family:"Times New Roman","serif"'><strong>#APPOINTED_DATE#</strong><b>
+<o:p></o:p>
+</b></span>…………</span></p>
 
 <p class=MsoNormal style='line-height:120%'><b style='mso-bidi-font-weight:
 normal'><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:EN-US'><span
-style='mso-tab-count:1'>            </span><span class="MsoNormal" style="line-height:120%"><b style='mso-bidi-font-weight:
-normal'><span
-style='mso-tab-count:1'></span>CÁN BỘ TN&amp;TKQ<span style='mso-tab-count:
-5'>                                                  </span>LÃNH ĐẠO</b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
-EN-US'></span></span></span></b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
-EN-US'><o:p></o:p></span></p>
+style='mso-tab-count:1'>            </span>CÁN BỘ TN&amp;TKQ<span style='mso-tab-count:
+5'>                                                  </span>LÃNH ĐẠO</span></b><span style='font-size:13.0pt;line-height:120%;mso-ansi-language:
+EN-US'>
+<o:p></o:p></span></p>
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
@@ -553,7 +554,7 @@ line-height:120%'>THEO DÕI QUÁ TRÌNH XỬ LÝ CÔNG VIỆC</span></b><b
 style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
 120%;mso-ansi-language:EN-US'><o:p></o:p></span></b></p>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=663
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=650
  style='width:487.35pt;border-collapse:collapse;border:none;mso-border-alt:
  solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
  mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
@@ -562,31 +563,36 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   solid windowtext .5pt;background:#D9D9D9;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='margin-top:6.0pt;margin-right:0cm;
   margin-bottom:6.0pt;margin-left:0cm;text-align:center'><b style='mso-bidi-font-weight:
-  normal'><span style='mso-ansi-language:EN-US'>TT<o:p></o:p></span></b></p>  </td>
+  normal'><span style='mso-ansi-language:EN-US'>TT<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border:solid windowtext 1.0pt;border-left:
   none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
   background:#D9D9D9;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='margin-top:6.0pt;margin-right:0cm;
   margin-bottom:6.0pt;margin-left:0cm;text-align:center'><b style='mso-bidi-font-weight:
-  normal'><span style='mso-ansi-language:EN-US'>Quy trình thụ lý hồ sơ<o:p></o:p></span></b></p>  </td>
+  normal'><span style='mso-ansi-language:EN-US'>Quy trình thụ lý hồ sơ<o:p></o:p></span></b></p>
+  </td>
   <td width=107 style='width:80.0pt;border:solid windowtext 1.0pt;border-left:
   none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
   background:#D9D9D9;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='margin-top:6.0pt;margin-right:0cm;
   margin-bottom:6.0pt;margin-left:0cm;text-align:center'><b style='mso-bidi-font-weight:
-  normal'><span style='mso-ansi-language:EN-US'>Ngày<o:p></o:p></span></b></p>  </td>
+  normal'><span style='mso-ansi-language:EN-US'>Ngày<o:p></o:p></span></b></p>
+  </td>
   <td width=125 style='width:93.85pt;border:solid windowtext 1.0pt;border-left:
   none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
   background:#D9D9D9;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='margin-top:6.0pt;margin-right:0cm;
   margin-bottom:6.0pt;margin-left:0cm;text-align:center'><b style='mso-bidi-font-weight:
-  normal'><span style='mso-ansi-language:EN-US'>Ký giao<o:p></o:p></span></b></p>  </td>
+  normal'><span style='mso-ansi-language:EN-US'>Ký giao<o:p></o:p></span></b></p>
+  </td>
   <td width=123 style='width:92.1pt;border:solid windowtext 1.0pt;border-left:
   none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
   background:#D9D9D9;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='margin-top:6.0pt;margin-right:0cm;
   margin-bottom:6.0pt;margin-left:0cm;text-align:center'><b style='mso-bidi-font-weight:
-  normal'><span style='mso-ansi-language:EN-US'>Ký nhận<o:p></o:p></span></b></p>  </td>
+  normal'><span style='mso-ansi-language:EN-US'>Ký nhận<o:p></o:p></span></b></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:1;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -594,30 +600,73 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>1<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>1<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>TTGDMCLT
-    chuyển Phòng TN-MT</span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>UBND xã/ thị trấn chuyển TTGDMCLT<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;height:1.0cm'>
+  <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
+  150%;mso-ansi-language:EN-US'>2<o:p></o:p></span></b></p>
+  </td>
+  <td width=258 style='width:193.25pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>TTGDMCLT
+  chuyển VP ĐKQSD Đất
+  <o:p></o:p></span></p>
+  </td>
+  <td width=107 style='width:80.0pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=125 style='width:93.85pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width=123 style='width:92.1pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:2;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -625,30 +674,38 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>2<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>3<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>Phòng TN-MT chuyển VP
-    ĐKQSD đất</span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>VP
+  ĐKQSD Đất chuyển<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>Cơ
+  quan QLNN về nhà ở, XD, N.nghiệp<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:3;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -656,30 +713,38 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>3<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>4<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style="font-size:10.0pt;mso-ansi-language:EN-US"> VP
-    ĐKQSD đất chuyển</span> <span style="font-size:10.0pt;mso-ansi-language:EN-US">Phòng TN-MT</span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>Cơ
+  quan LNNN về nhà ở,<span style='mso-spacerun:yes'>  </span>XD, N.nghiệp<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>chuyển
+  VP ĐKQSD Đất<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:4;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -687,30 +752,36 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>4<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>5<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style="font-size:10.0pt;mso-ansi-language:EN-US">Phòng TN-MT chuyển VP
-    ĐKQSD đất</span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>VP
+  ĐKQSD Đất chuyển CQ Thuế<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:5;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -718,30 +789,36 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>5<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>6<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style="font-size:10.0pt;mso-ansi-language:EN-US">VP
-    ĐKQSD đất chuyển</span> <span style="font-size:10.0pt;mso-ansi-language:EN-US">Phòng TN-MT</span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>CQ
+  Thuế chuyển VP ĐKQSD Đất<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:6;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -749,30 +826,36 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>6<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>7<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>VP
-    ĐKQSD đất chuyển Thuế</span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>VP
+  ĐKQSD Đất chuyển Phòng TN-MT<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:7;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -780,32 +863,36 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>7<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>8<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>Phòng
-    TNMT chuyển VP ĐKQSD Đất
-          <o:p></o:p>
-  </span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>Phòng
+  TNMT chuyển VP ĐKQSD Đất<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:8;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -813,30 +900,36 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>8<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>9<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>Cơ quan Thuế chuyển VP
-    ĐKQSD đất</span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>VP
+  ĐKQSD Đất chuyển UBND trình ký<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:9;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -844,30 +937,36 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>9<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>10<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>VP
-    ĐKQSD đất trình ký UBND huyện</span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>UBND
+  chuyển VP ĐKQSD Đất<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
  <tr style='mso-yfti-irow:10;mso-yfti-lastrow:yes;height:1.0cm'>
   <td width=38 style='width:28.15pt;border:solid windowtext 1.0pt;border-top:
@@ -875,36 +974,38 @@ style='mso-bidi-font-weight:normal'><span style='font-size:13.0pt;line-height:
   padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal align=center style='text-align:center;line-height:150%'><b
   style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;line-height:
-  150%;mso-ansi-language:EN-US'>10<o:p></o:p></span></b></p>  </td>
+  150%;mso-ansi-language:EN-US'>11<o:p></o:p></span></b></p>
+  </td>
   <td width=258 style='width:193.25pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
-  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'><p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>TTGD
-    một cửa liên thông
-          <o:p></o:p>
-  </span></p>
-      <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>Nhận
-        kết quả từ VP ĐKQSD Đất
-            <o:p></o:p>
-      </span></p></td>
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>TTGD
+  một cửa liên thông<o:p></o:p></span></p>
+  <p class=MsoNormal><span style='font-size:10.0pt;mso-ansi-language:EN-US'>Nhận
+  kết quả từ VP ĐKQSD Đất<o:p></o:p></span></p>
+  </td>
   <td width=107 style='width:80.0pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=125 style='width:93.85pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
   <td width=123 style='width:92.1pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:1.0cm'>
   <p class=MsoNormal style='line-height:150%'><span style='font-size:10.0pt;
-  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>  </td>
+  line-height:150%;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+  </td>
  </tr>
 </table>
 
