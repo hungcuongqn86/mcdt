@@ -741,7 +741,7 @@
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </nguon_goc_su_dung>
             <dien_tich_chuyen_nhuong>
-                <label>Diện tích tang cho</label>
+                <label>Tổng diện tích tặng cho</label>
                 <type>textbox</type>
                 <data_format>text</data_format>
                 <optional>true</optional>
@@ -777,7 +777,7 @@
                 <type>tabledata</type>
                 <file_name_xml>ds_loai_dat_cn</file_name_xml>
 
-                <width>50%</width>
+                <width>70%</width>
                 <row>3</row>
                 <optional>true</optional>
                 <max_length>200</max_length>

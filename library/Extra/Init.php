@@ -295,6 +295,7 @@ class Extra_Init
             "_HS_HOP_LE" => "H&#7891; s&#417; h&#7907;p l&#7879;",
             "_HS_KHONG_HOP_LE" => "H&#7891; s&#417; kh&#244;ng h&#7907;p l&#7879;",
             "_HAN_HOAN_THANH" => "H&#7841;n ho&#224;n th&#224;nh",
+            "_TRINH_KY" => "Tr&#236;nh k&#253;",
             //Phe duyet
             "_DUYET_HO_SO" => "Duy&#7879;t h&#7891; s&#417;",
             "_NGAY_THUC_HIEN" => "Ng&#224;y th&#7921;c hi&#7879;n",

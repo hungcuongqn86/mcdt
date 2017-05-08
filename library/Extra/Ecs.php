@@ -25,13 +25,30 @@ class Extra_Ecs
             $xml = '<?xml version="1.0" encoding="UTF-8"?>' . $item['C_RECEIVED_RECORD_XML_DATA'];
             $objXmlData = new Zend_Config_Xml($xml, 'data_list');
             $arrInfo = $objXmlData->toArray();
-            $strHTML .= '<tr>
+            $arrInfoName = $arrInfo['ben_chuyen_nhuong'];
+            $arrInfoName = json_decode($arrInfoName);
+            //echo $arrInfoName[1]-> ben_chuyen_nhuong_obj_name_1;
+            //var_dump($arrInfoName);
+            if($item['C_CATE'] = 'DAT_DAI_TNMT')
+            {
+                $strHTML .= '<tr>
                 <td align="CENTER">' . $item['C_CODE'] . '</td>
-                <td align="CENTER">' . $item['C_RECEIVED_DATE'] . '</td>
-                <td align="LEFT" class="data">' . $arrInfo['registor_name'] . '</td>
+                <td align="CENTER">' . $item['C_INPUT_DATE'] . '</td>
+                <td align="LEFT" class="data">' . $arrInfoName[0]-> ben_chuyen_nhuong_obj_name_0 . ',' . $arrInfoName[1]-> ben_chuyen_nhuong_obj_name_1 . '</td>
+                <td align="LEFT" class="data">' . $arrInfoName[0]-> ben_chuyen_nhuong_obj_address_0 . '</td>
+                <td align="CENTER" class="data">' . $item['C_APPOINTED_DATE'] . '</td>
+            </tr>';
+            }
+            else{
+                $strHTML .= '<tr>
+                <td align="CENTER">' . $item['C_CODE'] . '</td>
+                <td align="CENTER">' . $item['C_INPUT_DATE'] . '</td>
+                <td align="LEFT" class="data">' . $arrInfo['registor_address'] . '</td>
                 <td align="LEFT" class="data">' . $arrInfo['registor_address'] . '</td>
                 <td align="CENTER" class="data">' . $item['C_APPOINTED_DATE'] . '</td>
             </tr>';
+            }
+
         }
         $strHTML .= '</tbody></table>';
         return $strHTML;

@@ -9,28 +9,28 @@ class record_handleController extends  Zend_Controller_Action {
 		$this->_dirApp = $tempDirApp->toArray();
 		$this->view->dirApp = $tempDirApp->toArray();
 
-		//Cau hinh cho Zend_layout	
+		//Cau hinh cho Zend_layout
 		Zend_Layout::startMvc(array(
 			    'layoutPath' => $this->_dirApp['layout'],
-			    'layout' => 'index'			    
+			    'layout' => 'index'
 			    ));
 		//Load ca thanh phan cau vao trang layout (index.phtml)
 		$response = $this->getResponse();
 		//Ky tu dac biet phan tach giua cac phan tu
-		$this->view->delimitor 	= "!~~!";	
+		$this->view->delimitor 	= "!~~!";
 		//Load cau hinh thu muc trong file config.ini de lay ca hang so dung chung
         $tempConstPublic = Zend_Registry::get('ConstPublic');
-		$this->_ConstPublic = $tempConstPublic->toArray();	
+		$this->_ConstPublic = $tempConstPublic->toArray();
 		//Lay duong dan thu muc goc (path directory root)
-		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";	
-			
+		$this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";
+
 		//Goi lop Listxml_modList
 		Zend_Loader::loadClass('record_modHandle');
 		Zend_Loader::loadClass('record_modReceive');
 		//Lay cac hang so su dung trong JS public
 		$objConfig = new Extra_Init();
-		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();		
-		
+		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
+
 		//Tao doi tuong XML
         $objLibrary = new Extra_Util();
 		// Load tat ca cac file Js va Css
@@ -140,8 +140,8 @@ class record_handleController extends  Zend_Controller_Action {
 
 		$sOrderClause = 'order by  C_RECEIVED_DATE desc';
 		$sOwnerCode = $_SESSION['OWNER_CODE'];
-		$iCurrentPage		= $this->_request->getParam('hdn_current_page',0);		
-		if ($iCurrentPage <= 1) $iCurrentPage = 1; 
+		$iCurrentPage		= $this->_request->getParam('hdn_current_page',0);
+		if ($iCurrentPage <= 1) $iCurrentPage = 1;
 		$iNumberRecordPerPage = $this->_request->getParam('cbo_nuber_record_page',0);
 		if ($iNumberRecordPerPage == 0) $iNumberRecordPerPage = 15;
 		$pUrl = $_SERVER['REQUEST_URI'];
@@ -160,12 +160,12 @@ class record_handleController extends  Zend_Controller_Action {
 		$arrResult = $objRecordFunction->eCSRecordGetAll($sRecordTypeId,$sRecordType,$iCurrentStaffId,$sReceiveDate,$sStatusList,$sDetailStatusCompare,$sRole,$sOrderClause,$sOwnerCode,$sfullTextSearch,$iCurrentPage,$iNumberRecordPerPage);
 		//var_dump($arrResult);
 		//Lay file XML mo ta form danh sach
-		$sXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/danh_sach_hs_can_giai_quyet.xml';	
+		$sXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/danh_sach_hs_can_giai_quyet.xml';
 		if(!file_exists($sXmlFileName)){
-			$sXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/other/danh_sach_hs_can_giai_quyet.xml';	
-		}	
+			$sXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/other/danh_sach_hs_can_giai_quyet.xml';
+		}
 		$this->view->genlist = $objXml->_xmlGenerateList($sXmlFileName,'col',$arrResult, "C_RECEIVED_RECORD_XML_DATA","PK_RECORD",$sfullTextSearch,false,false,'../handle/viewindex');
-		$iTotalRecord = $arrResult[0]['C_TOTAL_RECORD'];	
+		$iTotalRecord = $arrResult[0]['C_TOTAL_RECORD'];
 		//Hien thi thong tin man hinh danh sach nay co bao nhieu ban ghi va hien thi Radio "Chon tat ca"; "Bo chon tat ca"
 		$this->view->SelectDeselectAll = $ojbEfyLib->_selectDeselectAll($iNumberRecordPerPage, $iTotalRecord);
 		if (count($arrResult) > 0){
@@ -192,6 +192,7 @@ class record_handleController extends  Zend_Controller_Action {
         $objrecordfun            = new Extra_Ecs();
         //Lay mang hang so dung chung
         $arrConst = $objInitConfig->_setProjectPublicConst();
+        //var_dump($arrConst);
         $this->view->arrConst = $arrConst;
         //Pk cua HS
         $sRecordPk = $this->_request->getParam('hdn_object_id','');
@@ -364,16 +365,16 @@ class record_handleController extends  Zend_Controller_Action {
 		$this->view->sStatus = $sStatus;
 		$sRole = 'THULY_CHINH';
 		$sStatusList = 'CAP_PHEP' ;
-		$sDetailStatusCompare = ' And C_DETAIL_STATUS = 21';			
-        
+		$sDetailStatusCompare = ' And C_DETAIL_STATUS = 21';
+
 		$this->view->sStatusList = $sStatusList;
-		$this->view->sRole = $sRole;	
+		$this->view->sRole = $sRole;
 		//Sap xep
 		$sOrderClause = $this->_request->getParam('hdn_OrderClause','');
 		if($sOrderClause==''){
 			$sOrderClause = 'order by  C_RECEIVED_DATE desc';
-		}		
-		$this->view->sOrderClause = $sOrderClause;				
+		}
+		$this->view->sOrderClause = $sOrderClause;
 		//Lay mang hang so dung chung
 		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();
 		if ($_SESSION['RECORD_TYPE']){
@@ -385,29 +386,29 @@ class record_handleController extends  Zend_Controller_Action {
 		}else{
 			if($sRecordTypeId == ""){
 				$sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];
-			}	
+			}
 			$_SESSION['RECORD_TYPE'] = $sRecordTypeId;
 		}
 		$arrinfoRecordType = $objRecordFunction->getinforRecordType($sRecordTypeId, $arrRecordType);
 		$this->view->sCheckResult = $arrinfoRecordType['C_RESULT_DOC_TYPE'];
-		
+
 		$sRecordTypeCode = $arrinfoRecordType['C_CODE'];
 		$sRecordType = $arrinfoRecordType['C_RECORD_TYPE'];
 		$sReceiveDate = '';
 		$sOwnerCode = $_SESSION['OWNER_CODE'];
-		$iCurrentPage		= $this->_request->getParam('hdn_current_page',0);		
-		if ($iCurrentPage <= 1) $iCurrentPage = 1; 
+		$iCurrentPage		= $this->_request->getParam('hdn_current_page',0);
+		if ($iCurrentPage <= 1) $iCurrentPage = 1;
 		$iNumberRecordPerPage = $this->_request->getParam('cbo_nuber_record_page',0);
 		if ($iNumberRecordPerPage == 0) $iNumberRecordPerPage = 15;
 		$pUrl = $_SERVER['REQUEST_URI'];
 		$sfullTextSearch 	= trim($this->_request->getParam('txtfullTextSearch',''));
 
-		$dFromDate 	= trim($this->_request->getParam('fromDate',''));		
-		$dToDate 	= trim($this->_request->getParam('toDate',''));	
+		$dFromDate 	= trim($this->_request->getParam('fromDate',''));
+		$dToDate 	= trim($this->_request->getParam('toDate',''));
 		$this->view->dFromDate = $dFromDate;
 		$this->view->dToDate = $dToDate;
 		$dFromDateTemp = $objLibrary->_ddmmyyyyToYYyymmdd($dFromDate);
-		$dToDateTemp = $objLibrary->_ddmmyyyyToYYyymmdd($dToDate);	
+		$dToDateTemp = $objLibrary->_ddmmyyyyToYYyymmdd($dToDate);
 		//Day gia tri tim kiem ra view
 		$arrInputfilter = array(
 								'fullTextSearch'=>$sfullTextSearch
@@ -415,9 +416,9 @@ class record_handleController extends  Zend_Controller_Action {
 								,'RecordTypeId'	=>$sRecordTypeId
 								,'fromDate'		=>$dFromDate
 								,'toDate'		=>$dToDate
-								);		
+								);
 		$this->view->filter_form = $objRecordFunction->genEcsFilterFrom($iCurrentStaffId, 'THU_LY', $arrRecordType,$arrInputfilter);
-		//Neu ton tai gia tri tim kiem tron session thi lay trong session				
+		//Neu ton tai gia tri tim kiem tron session thi lay trong session
 		if(isset($_SESSION['seArrParameter'])){
 			$Parameter 			= $_SESSION['seArrParameter'];
 			$sRecordTypeId		= $Parameter['recordType'];
@@ -430,9 +431,9 @@ class record_handleController extends  Zend_Controller_Action {
 		//C -> M: Truy van lay danh sach HS can giai quyet
 		$arrResult = $objRecordFunction->eCSRecordGetAll($sRecordTypeId,$sRecordType,$iCurrentStaffId,$sReceiveDate,$sStatusList,$sDetailStatusCompare,$sRole,$sOrderClause,$sOwnerCode,$sfullTextSearch,$iCurrentPage,$iNumberRecordPerPage,$dFromDateTemp,$dToDateTemp);
 		//Lay file XML mo ta form danh sach
-		$sXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/danh_sach_hs_can_giai_quyet.xml';	
+		$sXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/'.$sRecordTypeCode.'/danh_sach_hs_can_giai_quyet.xml';
 		if(!file_exists($sXmlFileName)){
-			$sXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/other/danh_sach_hs_can_giai_quyet.xml';	
+			$sXmlFileName = $objInitConfig->_setXmlFileUrlPath(1).'record/other/danh_sach_hs_can_giai_quyet.xml';
 		}
 		$this->view->hdn_xml_file_name = 'danh_sach_hs_can_giai_quyet.xml';
 		$this->view->sRecordTypeCode = $sRecordTypeCode;
@@ -530,17 +531,17 @@ class record_handleController extends  Zend_Controller_Action {
     /**
      *
      */
-	public function listAction(){	
+	public function listAction(){
 		//Goi cac doi tuong
 		$objInitConfig 			 = new Extra_Init();
 		$objRecordFunction	     = new Extra_Ecs();
 		$objXml					 = new Extra_Xml();
         $ojbEfyLib               = new Extra_Util();
 		//Lay mang hang so dung chung
-		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();		
+		$this->view->arrConst = $objInitConfig->_setProjectPublicConst();
 		//Lay mang cac TTHC
 		$arrRecordType = $_SESSION['arr_all_record_type'];
-		
+
 		//CAC THAM SO DE MODEL TRUY VAN LAY DS HO SO
 		$sRecordTypeId = $this->_request->getParam('recordType');
 		$this->view->sRecordTypeId = $sRecordTypeId;
@@ -553,7 +554,7 @@ class record_handleController extends  Zend_Controller_Action {
 		}else{
 			if($sRecordTypeId == ""){
 				$sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];
-			}	
+			}
 			$_SESSION['RECORD_TYPE'] = $sRecordTypeId;
 		}
 
@@ -569,8 +570,8 @@ class record_handleController extends  Zend_Controller_Action {
 
 		$sOrderClause = 'order by  C_RECEIVED_DATE desc';
 		$sOwnerCode = $_SESSION['OWNER_CODE'];
-		$iCurrentPage		= $this->_request->getParam('hdn_current_page',0);		
-		if ($iCurrentPage <= 1) $iCurrentPage = 1; 
+		$iCurrentPage		= $this->_request->getParam('hdn_current_page',0);
+		if ($iCurrentPage <= 1) $iCurrentPage = 1;
 		$iNumberRecordPerPage = $this->_request->getParam('cbo_nuber_record_page',0);
 		if ($iNumberRecordPerPage == 0) $iNumberRecordPerPage = 15;
 		$pUrl = $_SERVER['REQUEST_URI'];

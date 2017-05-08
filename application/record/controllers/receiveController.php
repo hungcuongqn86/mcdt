@@ -751,6 +751,7 @@ class record_receiveController extends  Zend_Controller_Action {
         $sRecordIdList = $this->_request->getParam('hdn_object_id_list');
         $this->view->sRecordIdList = $sRecordIdList;
         $arrRecordInfo = $objrecordfun->eCSGetInfoRecordFromListId($sRecordIdList);
+        //var_dump($arrRecordInfo);
         $this->view->general_information = $objrecordfun->general_information($arrRecordInfo);
         $sRecordTypeId = '';
         if($arrRecordInfo){
