@@ -34,11 +34,7 @@
 				<optional>true</optional>
 				<width>79%</width>
 				<max_length>300</max_length>
-
-
 				<only>true</only>
-
-
 				<xml_data>true</xml_data>
 				<compare_operator>like</compare_operator>
 				<xml_tag_in_db>registor_name</xml_tag_in_db>
