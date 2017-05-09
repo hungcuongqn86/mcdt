@@ -243,7 +243,7 @@ class record_modReceive extends Extra_Db {
 		$psSql = "Exec eCS_SearchGetSingle ";
 		$psSql .= "'"  . $sRecordId . "'";
 		$psSql .= ",'"  . $sOwnerCode . "'";
-		//echo  "<br>". $psSql . "<br>"; 
+		//echo  "<br>". $psSql . "<br>";
 		//exit;
 		try{
 			$arrResult = $this->adodbExecSqlString($psSql);

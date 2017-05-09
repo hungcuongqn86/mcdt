@@ -1130,7 +1130,6 @@ class record_wreceiveController extends  Zend_Controller_Action {
         if($sRecordTypeId == "")
             $sRecordTypeId = $arrRecordType[0]['PK_RECORDTYPE'];
         $_SESSION['RECORD_TYPE']=$sRecordTypeId;
-
         $iCurrentStaffId = $_SESSION['staff_id'];
         $sReceiveDate = '';
         $sStatusList = 'CHUYEN_QUAN_HUYEN';
@@ -1167,6 +1166,8 @@ class record_wreceiveController extends  Zend_Controller_Action {
         if(!file_exists($sxmlFileName)){
             $sxmlFileName = $objconfig->_setXmlFileUrlPath(1).'record/other/ho_so_da_tiep_nhan.xml';
         }
+        //Lay cac mau in
+        $this->view->str_print = $objxml->genEcsPrintGenerate($sxmlFileName);
 
         //Day gia tri tim kiem ra view
         $arrInputfilter = array('fullTextSearch'=>$sfullTextSearch,'pUrl'=>'../wreceive/transition','RecordTypeId'=>$sRecordTypeId);

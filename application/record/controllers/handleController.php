@@ -34,7 +34,7 @@ class record_handleController extends  Zend_Controller_Action {
 		//Tao doi tuong XML
         $objLibrary = new Extra_Util();
 		// Load tat ca cac file Js va Css
-		$sStyle = $objLibrary->_getAllFileJavaScriptCss('','js','handle/handle.js,js-record/handle.js,xml/general_datatable.js',',','js');
+		$sStyle = $objLibrary->_getAllFileJavaScriptCss('','js','handle/handle.js,js-record/handle.js,xml/general_datatable.js,xml/general_formfiel.js',',','js');
 		$this->view->LoadAllFileJsCss = $sStyle;
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "HANDLE";

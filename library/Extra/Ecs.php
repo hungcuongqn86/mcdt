@@ -79,11 +79,11 @@ class Extra_Ecs
         $ResHtmlString .= "</tr>";
         $ResHtmlString .= "<tr class='normal_label'>";
         $ResHtmlString .= "    <td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_NGAY_TIEP_NHAN'] . "</td>";
-        $ResHtmlString .= "    <td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $ojbEfyLib->_yyyymmddToDDmmyyyyhhmm($arrRecord['C_RECEIVED_DATE']) . "</td>";
+        $ResHtmlString .= "    <td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" .$arrRecord['C_RECEIVED_DATE'] . "</td>";
         $ResHtmlString .= "</tr>";
         $ResHtmlString .= "<tr class='normal_label'>";
         $ResHtmlString .= "    <td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_NGAY_HEN'] . "</td>";
-        $ResHtmlString .= "    <td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $ojbEfyLib->_yyyymmddToDDmmyyyyhhmm($arrRecord['C_APPOINTED_DATE']) . "</td>";
+        $ResHtmlString .= "    <td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord['C_APPOINTED_DATE'] . "</td>";
         $ResHtmlString .= "</tr>";
 
         if ($arrRecord['C_POSITION_NAME']) {
@@ -99,6 +99,22 @@ class Extra_Ecs
         $ResHtmlString .= "</tr>";
 
         $arrRecord = $objXml->_convertXmlStringToArray($arrRecord['C_RECEIVED_RECORD_XML_DATA'], 'data_list');
+        if($arrRecord){
+            $JsonarrRecord = $arrRecord[0]['ben_chuyen_nhuong'];
+            $sName = '';
+            $sAddress = '';
+            if($JsonarrRecord){
+                $arrInfoName = json_decode(html_entity_decode($JsonarrRecord), true);
+                foreach ($arrInfoName as $key => $item) {
+                    $sName .=  '<br>' .$item['ben_chuyen_nhuong_obj_name_'.$key];
+                    $sAddress .=  '<br>' .$item['ben_chuyen_nhuong_obj_address_0'];
+                }
+            }
+            else{
+                $sName = $arrRecord[0]['ten_nguoi_nop_hs'];
+                $sAddress = $arrRecord[0]['dia_chi_nguoi_nop_hs'];
+            }
+        }
         $sListCode = $arrRecord[0]['tai_lieu_kt'];
         $arr_value = explode(",", $sListCode);
         $sValueList = '';
@@ -109,12 +125,12 @@ class Extra_Ecs
         }
         $ResHtmlString .= "<tr class='normal_label'>";
         $ResHtmlString .= "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_TEN_TO_CHUC_CA_NHAN'] . "</td>";
-        $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['ten_nguoi_nop_hs'] . "</td>";
+        $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $sName . "</td>";
         $ResHtmlString .= "</tr>";
 
         $ResHtmlString .= "<tr class='normal_label'>";
         $ResHtmlString .= "	<td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_DIA_CHI'] . "</td>";
-        $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord[0]['dia_chi_nguoi_nop_hs'] . "</td>";
+        $ResHtmlString .= "	<td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $sAddress . "</td>";
         $ResHtmlString .= "</tr>";
 
         if ($arrRecord[0]['dien_thoai_nguoi_nop_hs']) {

@@ -756,7 +756,7 @@
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </dien_tich_chuyen_nhuong>
             <string_acreage_cn>
-                <label>Diện tích chuyển nhượng bằng chữ</label>
+                <label>Diện tích tặng cho bằng chữ</label>
                 <type>textbox</type>
                 <data_format>text</data_format>
                 <optional>true</optional>

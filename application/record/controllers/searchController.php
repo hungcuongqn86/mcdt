@@ -256,6 +256,7 @@ class record_searchController extends  Zend_Controller_Action {
     public function loadrecordAction(){
         $arrInput                = $this->_request->getParams();
         $ojbEfyLib				 = new Extra_Util();
+        $ojbExtra_Xml            = new Extra_Xml();
         $objSearch				 = new Record_modSearch();
         $iCurrentPage		     = $arrInput['hdn_current_page'];
         if ($iCurrentPage <= 1) $iCurrentPage = 1;
@@ -272,6 +273,27 @@ class record_searchController extends  Zend_Controller_Action {
             'C_RECORD_PER_PAGE'  => $iNumberRecordPerPage
         );
         $arrResult = $objSearch->eCSSearchRecordGetAll($arrParameter);
+        if($arrResult) {
+            foreach ($arrResult as $key => $item){
+                $arrResultXml = '<?xml version="1.0" encoding="UTF-8"?>' . $arrResult[$key]['C_RECEIVED_RECORD_XML_DATA'];
+                $JsonarrResultXml = $ojbExtra_Xml->_xmlGetXmlTagValue($arrResultXml,'data_list','ben_chuyen_nhuong');
+                $arrJsonarrResult = json_decode(html_entity_decode($JsonarrResultXml), true);
+                $sName = '';
+                $sAddress= '';
+                if($arrJsonarrResult){
+                    foreach ($arrJsonarrResult as $key1 => $item1) {
+                        $sName .=   '<br>'. $item1['ben_chuyen_nhuong_obj_name_'.$key1];
+                        $sAddress .= '<br>'. $item1['ben_chuyen_nhuong_obj_address_0'];
+                    }
+                    $arrResult[$key]['CHU_HS'] = $sName;
+                    $arrResult[$key]['DC_CHU_HS'] = $sAddress;
+                }
+                else{
+                     $arrResult[$key]['CHU_HS'] =  $arrResult[$key]['CHU_HS'];
+                }
+
+            }
+        }
         echo Zend_Json::encode($arrResult);
         exit;
     }
@@ -298,6 +320,7 @@ class record_searchController extends  Zend_Controller_Action {
         $this->view->arrWork = $objHandle->eCSHandleWorkGetAll($sRecordPk,'');
         //Thong tin ho so
         $arrRecord=$objSearch->eCSSearchGetSingle($sRecordPk,$sOwnerCode);
+        //var_dump($arrRecord);exit;
         $arFileAttach = $objSearch->DOC_GetAllDocumentFileAttach($sRecordPk, 'HO_SO', 'T_eCS_RECORD');
         $arrRecord['file'] = $arFileAttach;
         $this->view->generalhtmlinfo = $objrecordfun->generalhtmlinfo($arrConst,$arrRecord);

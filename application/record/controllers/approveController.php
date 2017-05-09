@@ -39,7 +39,7 @@ class record_approveController extends  Zend_Controller_Action {
 		$this->view->JSPublicConst = $objConfig->_setJavaScriptPublicVariable();
         $objLibrary = new Extra_Util();
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','/approve/approve.js,js-record/approve.js,xml/general_datatable.js',',','js');
+		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','/approve/approve.js,js-record/approve.js,xml/general_datatable.js,xml/general_formfiel.js',',','js');
 		//Lay tra tri trong Cookie
 		$sGetValueInCookie = $objLibrary->_getCookie("showHideMenu");
 		

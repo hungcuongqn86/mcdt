@@ -30,7 +30,7 @@ class record_wapproveController extends  Zend_Controller_Action {
 		
 		// Load tat ca cac file Js va Css
         $objLibrary = new Extra_Util();
-		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','js-record/wapprove.js',',','js');
+		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','js-record/wapprove.js,xml/general_formfiel.js',',','js');
 
 		//Lay tra tri trong Cookie
 		$sGetValueInCookie = $objLibrary->_getCookie("showHideMenu");

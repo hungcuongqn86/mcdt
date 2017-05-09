@@ -36,7 +36,7 @@ class record_assignController extends  Zend_Controller_Action {
 		Zend_Loader::loadClass('Extra_Xml');
         $objLibrary = new Extra_Util();
 		// Load tat ca cac file Js va Css
-		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','recordtype/recordtype.js,js-record/approve.js,xml/general_datatable.js',',','js');
+		$this->view->LoadAllFileJsCss = $objLibrary->_getAllFileJavaScriptCss('','js','recordtype/recordtype.js,js-record/approve.js,xml/general_datatable.js,xml/general_formfiel.js',',','js');
 		//Dinh nghia current modul code
 		$this->view->currentModulCode = "ASSIGN";
         $currentModulCodeForLeft = 'ASSIGN-RECORD';

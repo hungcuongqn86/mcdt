@@ -493,7 +493,7 @@ style='mso-tab-count:2'>                      </span>Điệ
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Nội dung:<span
-style='mso-spacerun:yes'>  </span>Đăng ký biến động quyền sử dụng đất</span></p>
+style='mso-spacerun:yes'>  </span>Giao đất, cấp giấy chứng nhận QSDĐ cho người trúng đấu giá quyền sử dụng đất </span></p>
 
 <p class=MsoNormal style='line-height:120%'><span style='font-size:13.0pt;
 line-height:120%;mso-ansi-language:EN-US'>Thành phần hồ sơ:<o:p></o:p></span></p>
