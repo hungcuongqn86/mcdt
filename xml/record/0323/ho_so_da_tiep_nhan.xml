@@ -175,7 +175,7 @@
 					<tag_list>thua_dat_da_cap</tag_list>
 					<row_id>thua_dat_da_cap</row_id>
 				</update_row>
-				<update_row>
+				<!--<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>ban_do_so_da_cap</tag_list>
 					<row_id>ban_do_so_da_cap</row_id>
@@ -184,7 +184,7 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>dien_tich_da_cap</tag_list>
 					<row_id>dien_tich_da_cap</row_id>
-				</update_row>
+				</update_row>-->
 				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>label_tip_top_6</tag_list>
@@ -195,7 +195,7 @@
 					<tag_list>thua_dat_thay_doi</tag_list>
 					<row_id>thua_dat_thay_doi</row_id>
 				</update_row>
-				<update_row>
+				<!--<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>ban_do_so_thay_doi</tag_list>
 					<row_id>ban_do_so_thay_doi</row_id>
@@ -204,7 +204,7 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>dien_tich_thay_doi</tag_list>
 					<row_id>dien_tich_thay_doi</row_id>
-				</update_row>
+				</update_row>-->
 				<update_row>
 					<have_line_before>true</have_line_before>
 					<tag_list>label_tip_top_7</tag_list>
@@ -777,6 +777,19 @@
 				<type>label</type>
 			</label_tip_top_5>
 			<thua_dat_da_cap>
+				<label></label>
+				<type>tabledata</type>
+				<file_name_xml>ds_thua_dat_cho_tang</file_name_xml>
+				<width>70%</width>
+				<row>3</row>
+				<optional>true</optional>
+				<max_length>200</max_length>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>thua_dat_da_cap</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</thua_dat_da_cap>
+			<!--<thua_dat_da_cap>
 				<label>Thửa đất số</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
@@ -823,12 +836,25 @@
 				<xml_tag_in_db>dien_tich_da_cap</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</dien_tich_da_cap>	
+			</dien_tich_da_cap>	-->
 			<label_tip_top_6>
 				<label>4.2 Thông tin thửa đất mới thay đổi</label>												
 				<type>label</type>
-			</label_tip_top_6>								
+			</label_tip_top_6>
 			<thua_dat_thay_doi>
+				<label></label>
+				<type>tabledata</type>
+				<file_name_xml>ds_thua_dat_cho_tang</file_name_xml>
+				<width>70%</width>
+				<row>3</row>
+				<optional>true</optional>
+				<max_length>200</max_length>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>thua_dat_thay_doi</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</thua_dat_thay_doi>
+			<!--<thua_dat_thay_doi>
 				<label>Thửa đất số</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
@@ -875,7 +901,7 @@
 				<xml_tag_in_db>dien_tich_thay_doi</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</dien_tich_thay_doi>
+			</dien_tich_thay_doi>-->
 			<label_tip_top_7>
 				<label>&lt;B&gt;5. Nhà ở, công trình xây dựng khác có thay đổi (nếu có)&lt;/B&gt;&lt;/br&gt;&lt;I&gt;(chỉ ghi những thông tin trên GCN đã cấp có thay đổi)&lt;/I&gt;</label>												
 				<type>label</type>
