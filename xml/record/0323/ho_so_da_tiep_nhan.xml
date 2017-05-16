@@ -147,7 +147,7 @@
 				</update_row>				
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>ngay_cap_gcn_dat</tag_list>
+					<tag_list>ngay_cap_gcn_dat,ngay_bd</tag_list>
 					<row_id>ngay_cap_gcn_dat</row_id>
 				</update_row>
 				<update_row>
@@ -295,27 +295,7 @@
 					<tag_list>thong_tin_tren_thay_doi1</tag_list>
 					<row_id>thong_tin_tren_thay_doi1</row_id>
 				</update_row>
-				<update_row>
-					<have_line_before>true</have_line_before>
-					<tag_list>label_tip_top_131</tag_list>
-					<row_id>label_tip_top_131</row_id>
-				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>label_tip_top_141,thong_tin_cay_lau_nam_tren_gcn_da_cap1</tag_list>
-					<row_id>label_tip_top_141</row_id>
-				</update_row>
 
-				<update_row>
-					<have_line_before>true</have_line_before>
-					<tag_list>label_tip_top_151</tag_list>
-					<row_id>label_tip_top_151</row_id>
-				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>mucdich1,thoigian1</tag_list>
-					<row_id>label_mucdich1</row_id>
-				</update_row>
 				<update_row>
 					<have_line_before>true</have_line_before>
 					<tag_list>tai_lieu_kt</tag_list>
@@ -746,6 +726,23 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ngay_cap_gcn_dat>
+			<ngay_bd>
+				<label>2.4 Ngày biến động</label>
+				<width_label>13%;text-align:left;padding-left:5px;</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>true</optional>
+				<width>28.2%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>ngay_bd</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ngay_bd>
 			<label_tip_top_3>
 				<label>&lt;B&gt;3. Lý do xin cấp lại cấp đổi&lt;/B&gt;</label>												
 				<type>label</type>

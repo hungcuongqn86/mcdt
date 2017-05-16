@@ -804,7 +804,7 @@
 			<timedangky_bd>
 				<label>Đã đăng ký biến động ngày</label>
 				<type>textbox</type>
-				<data_format>text</data_format>
+				<data_format>isdate</data_format>
 				<width>30%</width>
 				<optional>true</optional>
 				<message>PHAI XAC DINH Ngay dang da dang ky bien dong</message>

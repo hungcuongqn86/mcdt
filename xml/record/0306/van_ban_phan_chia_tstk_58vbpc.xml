@@ -91,6 +91,15 @@
 		<replace>
 			<from_xml_data>true</from_xml_data>
 			<data_format>datatable</data_format>
+			<sblockname>blockthongtindat</sblockname>
+			<find_string_list>NAME,LD,DT,TH,ST,TBD</find_string_list>
+			<field_list>NAME_TK,LOAI_DAT,DIEN_TICH,TH_SD,SO_THUA,SO_TO</field_list>
+			<xml_tag_in_db>trong_do</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>datatable</data_format>
 			<sblockname>blockthoihan</sblockname>
 			<find_string_list>DAT,THOI_HAN</find_string_list>
 			<field_list>LOAI_DAT_MD,THOI_HAN_MD</field_list>

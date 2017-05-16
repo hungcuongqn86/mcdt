@@ -154,7 +154,7 @@
 				</update_row>				
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>ngay_cap_gcn_dat</tag_list>
+					<tag_list>ngay_cap_gcn_dat,ngay_bd</tag_list>
 					<row_id>ngay_cap_gcn_dat</row_id>
 				</update_row>
                 <update_row>
@@ -540,6 +540,23 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ngay_cap_gcn_dat>
+			<ngay_bd>
+				<label>2.4 Ngày biến động</label>
+				<width_label>13%;text-align:left;padding-left:5px;</width_label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>true</optional>
+				<width>28.2%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>ngay_bd</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ngay_bd>
             <thua_dat_so>
                 <label>Thửa đất số</label>
                 <type>textbox</type>

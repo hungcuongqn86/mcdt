@@ -173,6 +173,11 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
+					<tag_list>ngay_bd</tag_list>
+					<row_id>ngay_bd</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
 					<tag_list>thua_dat_so,to_ban_do</tag_list>
 					<row_id>thua_dat_so</row_id>
 				</update_row>
@@ -578,6 +583,23 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ngay_vao_so>
+			<ngay_bd>
+				<label>Ngày biến động</label>
+				<type>textbox</type>
+				<data_format>isdate</data_format>
+				<optional>true</optional>
+				<width>15%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+
+				<xml_tag_in_db>ngay_bd</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</ngay_bd>
 			<thua_dat_so>
 				<label>Thửa đất số</label>
 				<type>textbox</type>
