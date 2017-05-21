@@ -3,25 +3,22 @@
 	<replace_list>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format>list_info</data_format>
-			<lable_list>Ông#sinh năm#số CMND</lable_list>
-			<field_list>registor_name,ngay_sinh,so_cmnd</field_list>
-			<find_string>#NAME_B1#</find_string>
+			<data_format>formfieldata</data_format>
+			<sblockname>blockbena</sblockname>ss
+			<find_string_list>POS,NAME_A,NS_A,CMT_A,DC_A</find_string_list>
+			<field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format>list_info</data_format>
-			<lable_list>Bà#sinh năm#số CMND</lable_list>
-			<field_list>registor_name1,ngay_sinh1,so_cmnd1</field_list>
-			<find_string>#NAME_B2#</find_string>
+			<data_format>formfieldatatax</data_format>
+			<find_string_list>DIACHI_A</find_string_list>
+			<field_list>obj_address</field_list>
+			<tax_tag>obj_address</tax_tag>
+			<tax_prefix>B</tax_prefix>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
 		</replace>
-		<replace>
-			<from_xml_data>true</from_xml_data>
-			<data_format>list_info</data_format>
-			<lable_list>#sinh năm#số CMND</lable_list>
-			<field_list>registor_address,dia_chi_nguoi_nhan_b2</field_list>
-			<find_string>#DC_B#</find_string>
-		</replace>
+
 		<replace>
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
@@ -66,10 +63,11 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format>text</data_format>
+			<data_format>tabletostring</data_format>
+			<field_list>LOAI_DAT_MD,DIEN_TICH_MD</field_list>
+			<note_list>: # m2</note_list>
 			<find_string>#MUC_DICH_SD#</find_string>
 			<xml_tag_in_db>muc_dich</xml_tag_in_db>
-			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
@@ -80,10 +78,11 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format>text</data_format>
+			<data_format>tabletostring</data_format>
+			<field_list>LOAI_DAT_MD,THOI_HAN_MD</field_list>
+			<note_list>: #</note_list>
 			<find_string>#THOI_HAN_SD#</find_string>
-			<xml_tag_in_db>thoi_han</xml_tag_in_db>
-			<field_name></field_name>
+			<xml_tag_in_db>muc_dich</xml_tag_in_db>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
@@ -218,7 +217,12 @@
 			<xml_tag_in_db>thoi_han_sd1</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
-
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TL_KEM_THEO#</find_string>
+			<xml_tag_in_db>tai_lieu_kt</xml_tag_in_db>
+		</replace>
 
 	</replace_list>
 </root>

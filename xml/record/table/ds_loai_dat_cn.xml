@@ -4,7 +4,7 @@
 		<list_body>
 			<col>
 				<label>Tên người nhận</label>
-				<id>LOAI_DAT</id>
+				<id>TEN_NN</id>
 				<type>text</type>
 				<width>25%</width>
 				<align>CENTER</align>

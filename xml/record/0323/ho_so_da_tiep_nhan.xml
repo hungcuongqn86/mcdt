@@ -137,8 +137,8 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>chu_so_huu</tag_list>
-					<row_id>row_chu_so_huu</row_id>
+					<tag_list>ben_nhan_chuyen_nhuong</tag_list>
+					<row_id>row_ben_nhan_chuyen_nhuong</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
@@ -175,6 +175,16 @@
 					<tag_list>thua_dat_da_cap</tag_list>
 					<row_id>thua_dat_da_cap</row_id>
 				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>label_tip_top_ct</tag_list>
+					<row_id>label_tip_top_ct</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>thua_dat_da_cap_chi_tiet</tag_list>
+					<row_id>thua_dat_da_cap_chi_tiet</row_id>
+				</update_row>
 				<!--<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>ban_do_so_da_cap</tag_list>
@@ -194,6 +204,16 @@
 					<have_line_before>false</have_line_before>
 					<tag_list>thua_dat_thay_doi</tag_list>
 					<row_id>thua_dat_thay_doi</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>label_tip_top_ct1</tag_list>
+					<row_id>label_tip_top_ct1</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>thua_dat_thay_doi_chi_tiet</tag_list>
+					<row_id>thua_dat_thay_doi_chi_tiet</row_id>
 				</update_row>
 				<!--<update_row>
 					<have_line_before>false</have_line_before>
@@ -530,7 +550,7 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</ben_chuyen_nhuong>
-			<chu_so_huu>
+			<ben_nhan_chuyen_nhuong>
 				<type>formfieldata</type>
 				<file_name_xml>ds_staff_info</file_name_xml>
 				<width>70%</width>
@@ -539,10 +559,10 @@
 				<max_length>200</max_length>
 				<message>Phải nhập thông tin bên chuyển nhượng!</message>
 				<xml_data>true</xml_data>
-				<xml_tag_in_db>chu_so_huu</xml_tag_in_db>
+				<xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</chu_so_huu>
+			</ben_nhan_chuyen_nhuong>
 			<hinh_thuc_hs>
 				<label>Hình thức hồ sơ</label>
 				<type>selectbox</type>
@@ -776,7 +796,7 @@
 			<thua_dat_da_cap>
 				<label></label>
 				<type>tabledata</type>
-				<file_name_xml>ds_thua_dat_cho_tang</file_name_xml>
+				<file_name_xml>ds_thua_dat_cho_tang_cha</file_name_xml>
 				<width>70%</width>
 				<row>3</row>
 				<optional>true</optional>
@@ -786,6 +806,23 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</thua_dat_da_cap>
+			<label_tip_top_ct>
+				<label>Trong đó</label>
+				<type>label</type>
+			</label_tip_top_ct>
+			<thua_dat_da_cap_chi_tiet>
+				<label></label>
+				<type>tabledata</type>
+				<file_name_xml>ds_thua_dat_cho_tang</file_name_xml>
+				<width>70%</width>
+				<row>3</row>
+				<optional>true</optional>
+				<max_length>200</max_length>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>thua_dat_da_cap_chi_tiet</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</thua_dat_da_cap_chi_tiet>
 			<!--<thua_dat_da_cap>
 				<label>Thửa đất số</label>
 				<type>textbox</type>
@@ -841,7 +878,7 @@
 			<thua_dat_thay_doi>
 				<label></label>
 				<type>tabledata</type>
-				<file_name_xml>ds_thua_dat_cho_tang</file_name_xml>
+				<file_name_xml>ds_thua_dat_cho_tang_cha</file_name_xml>
 				<width>70%</width>
 				<row>3</row>
 				<optional>true</optional>
@@ -851,6 +888,23 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</thua_dat_thay_doi>
+			<label_tip_top_ct1>
+				<label>Trong đó</label>
+				<type>label</type>
+			</label_tip_top_ct1>
+			<thua_dat_thay_doi_chi_tiet>
+				<label></label>
+				<type>tabledata</type>
+				<file_name_xml>ds_thua_dat_cho_tang</file_name_xml>
+				<width>70%</width>
+				<row>3</row>
+				<optional>true</optional>
+				<max_length>200</max_length>
+				<xml_data>true</xml_data>
+				<xml_tag_in_db>thua_dat_thay_doi_chi_tiet</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</thua_dat_thay_doi_chi_tiet>
 			<!--<thua_dat_thay_doi>
 				<label>Thửa đất số</label>
 				<type>textbox</type>

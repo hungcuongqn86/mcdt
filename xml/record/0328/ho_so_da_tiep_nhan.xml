@@ -155,6 +155,11 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
+					<tag_list>vi_tri</tag_list>
+					<row_id>vi_tri</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
 					<tag_list>dien_tich</tag_list>
 					<row_id>dien_tich</row_id>
 				</update_row>
@@ -165,18 +170,28 @@
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>muc_dich,thoi_diem</tag_list>
+					<tag_list>thoi_diem</tag_list>
+					<row_id>thoi_diem</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>muc_dich</tag_list>
 					<row_id>muc_dich</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
-					<tag_list>thoi_han,nguon_goc</tag_list>
+					<tag_list>nguon_goc</tag_list>
 					<row_id>nguon_goc</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>quyen_hanche,cua,noidung_qsd</tag_list>
 					<row_id>quyen_hanche</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>tt_tc</tag_list>
+					<row_id>tt_tc</row_id>
 				</update_row>
 				<update_row>
 					<have_line_before>true</have_line_before>
@@ -853,6 +868,22 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</dia_chi>
+			<vi_tri>
+				<label>Vị trí thửa đất</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.40%</width>
+
+
+
+				<xml_data>true</xml_data>
+
+
+				<xml_tag_in_db>vi_tri</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</vi_tri>
 			<dien_tich>
 				<label>Diện tích</label>
 				<type>textbox</type>
@@ -904,28 +935,24 @@
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 		</dung_rieng>
 		<muc_dich>
-				<label>Mục đích sử dụng</label>					
+			<label></label>
+			<type>tabledata</type>
+			<file_name_xml>ds_loai_dat</file_name_xml>
+			<width>70%</width>
+			<row>3</row>
+			<optional>true</optional>
+			<max_length>200</max_length>
+			<xml_data>true</xml_data>
+			<xml_tag_in_db>muc_dich</xml_tag_in_db>
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</muc_dich>
+		<thoi_diem>
+				<label>Thời điểm sử dụng</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
 				<width>30%</width>
-
-
-
-				<xml_data>true</xml_data>
-
-
-				<xml_tag_in_db>muc_dich</xml_tag_in_db>
-				<readonly_in_edit_mode>false</readonly_in_edit_mode>
-				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-		</muc_dich>
-		<thoi_diem>
-				<label>Thời điểm sử dụng</label>
-				<width_label>15%;text-align:left;padding-left:5px;</width_label>
-				<type>textbox</type>
-				<data_format>text</data_format>
-				<optional>true</optional>
-				<width>25%</width>
 
 
 
@@ -936,35 +963,15 @@
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 		</thoi_diem>
-		<thoi_han>
-				<label>Thời hạn sử dụng</label>
-				<type>textbox</type>
-				<data_format>text</data_format>
-				<optional>true</optional>
-				<width>30%</width>
 
-
-
-				<xml_data>true</xml_data>
-
-
-				<xml_tag_in_db>thoi_han</xml_tag_in_db>
-				<readonly_in_edit_mode>false</readonly_in_edit_mode>
-				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-		</thoi_han>
 		<nguon_goc>
 				<label>Nguồn gốc sử dụng đất</label>
-				<width_label>15%;text-align:left;padding-left:5px;</width_label>
-				<type>textbox</type>
+				<type>textarea</type>
 				<data_format>text</data_format>
 				<optional>true</optional>
-				<width>25%</width>
-
-
-
+				<width>70%</width>
+				<max_length>300</max_length>
 				<xml_data>true</xml_data>
-
-
 				<xml_tag_in_db>nguon_goc</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
@@ -1019,6 +1026,22 @@
 			<readonly_in_edit_mode>false</readonly_in_edit_mode>
 			<disabled_in_edit_mode>false</disabled_in_edit_mode>
 		</noidung_qsd>
+		<tt_tc>
+			<label>Tình trạng tranh chấp</label>
+			<type>textbox</type>
+			<data_format>text</data_format>
+			<optional>true</optional>
+			<width>70%</width>
+
+
+
+			<xml_data>true</xml_data>
+
+
+			<xml_tag_in_db>tt_tc</xml_tag_in_db>
+			<readonly_in_edit_mode>false</readonly_in_edit_mode>
+			<disabled_in_edit_mode>false</disabled_in_edit_mode>
+		</tt_tc>
 		<label_noi_dung>
 			<label>&lt;center&gt; &lt;B&gt;TÀI SẢN GẮN LIỀN VỚI ĐẤT&lt;/B&gt; &lt;/center&gt;</label>
 			<type>label</type>

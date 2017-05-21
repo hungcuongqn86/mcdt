@@ -1,109 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<replace_list>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NAME_A1#</find_string>
-            <xml_tag_in_db>registor_name</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format>text</data_format>
-			<find_string>#NAME_A2#</find_string>
-			<xml_tag_in_db>registor_name1</xml_tag_in_db>
-			<field_name></field_name>
-		</replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#NS_A1#</find_string>
-            <xml_tag_in_db>nam_sinh_a</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#CMT_A1#</find_string>
-            <xml_tag_in_db>nam_sinh_a</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>text</data_format>
-            <find_string>#DC_A1#</find_string>
-            <xml_tag_in_db>registor_address</xml_tag_in_db>
-            <field_name></field_name>
-        </replace>
-
-
-
-
-
-
-		<replace>
-			<from_xml_data>false</from_xml_data>
-			<data_format>istitle</data_format>
-			<find_string>#UNIT_NAME#</find_string>
-
-			<field_name></field_name>
-		</replace>
-	     <replace>
-			<from_xml_data>false</from_xml_data>
-			<data_format>getdate</data_format>
-			<find_string>#INFORM_DATE#</find_string>
-
-			<field_name></field_name>
-		</replace>
-		<replace>
-			<from_xml_data>false</from_xml_data>
-			<data_format>isdate</data_format>
-			<find_string>#INFORM_DATE#</find_string>
-
-			<field_name>C_RECEIVED_DATE</field_name>
+			<data_format>formfieldata</data_format>
+			<sblockname>blockbena</sblockname>ss
+			<find_string_list>POS,NAME_A,NS_A,CMT_A,DC_A</find_string_list>
+			<field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format>text</data_format>
-			<find_string>#ADDRESS#</find_string>
-			<xml_tag_in_db>registor_address</xml_tag_in_db>
-			<field_name></field_name>
-		</replace>
-		<replace>
-			<from_xml_data>true</from_xml_data>
-			<data_format>text</data_format>
-			<find_string>#ADDRESS1#</find_string>
-			<xml_tag_in_db>registor_address1</xml_tag_in_db>
-			<field_name></field_name>
-		</replace>
-		<replace>
-			<from_xml_data>true</from_xml_data>
-			<data_format>text</data_format>
-			<find_string>#TELEPHONE#</find_string>
-			<xml_tag_in_db>dt_nguoi_chuyen</xml_tag_in_db>
-			<field_name></field_name>
-		</replace>
-		<replace>
-			<from_xml_data>false</from_xml_data>
-			<data_format>text</data_format>
-			<find_string>#RECORDTYPE#</find_string>
-
-			<field_name>C_NAME</field_name>
-		</replace>
-		<replace>
-			<from_xml_data>false</from_xml_data>
-			<data_format>isdate</data_format>
-			<find_string>#RECEIVED_DATE#</find_string>
-
-			<field_name>C_RECEIVED_DATE</field_name>
-		</replace>
-		<replace>
-			<from_xml_data>false</from_xml_data>
-			<data_format>isdate</data_format>
-			<find_string>#APPOINTED_DATE#</find_string>
-
-			<field_name>C_APPOINTED_DATE</field_name>
+			<data_format>formfieldatatax</data_format>
+			<find_string_list>DC_A</find_string_list>
+			<field_list>obj_address</field_list>
+			<tax_tag>obj_address</tax_tag>
+			<tax_prefix>B</tax_prefix>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
@@ -142,10 +55,11 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format>text</data_format>
-			<find_string>#MUCDICH_A1#</find_string>
+			<data_format>datatable</data_format>
+			<sblockname>blockmd</sblockname>
+			<find_string_list>LD,DT,TH</find_string_list>
+			<field_list>LOAI_DAT_MD,DIEN_TICH_MD,THOI_HAN_MD</field_list>
 			<xml_tag_in_db>muc_dich</xml_tag_in_db>
-			<field_name></field_name>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>

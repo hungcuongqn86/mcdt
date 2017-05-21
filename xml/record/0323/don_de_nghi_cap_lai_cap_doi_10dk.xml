@@ -11,6 +11,14 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
+			<data_format>formfieldata</data_format>
+			<sblockname>blockbena</sblockname>ss
+			<find_string_list>POS,NAME_A,NS_A,CMT_A,DC_A</find_string_list>
+			<field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+			<xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
 			<data_format>formfieldatatax</data_format>
 			<find_string_list>DIACHI_B</find_string_list>
 			<field_list>obj_address</field_list>
@@ -127,7 +135,7 @@
 			<sblockname>blockMucdich</sblockname>ss
 			<find_string_list>DT,MD,TH</find_string_list>
 			<field_list>DIEN_TICH,MUC_DICH,THOI_HAN</field_list>
-			<xml_tag_in_db>thua_dat_da_cap</xml_tag_in_db>
+			<xml_tag_in_db>thua_dat_da_cap_chi_tiet</xml_tag_in_db>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
@@ -135,7 +143,7 @@
 			<sblockname>blockThoihan</sblockname>ss
 			<find_string_list>DT,MD,TH</find_string_list>
 			<field_list>DIEN_TICH,MUC_DICH,THOI_HAN</field_list>
-			<xml_tag_in_db>thua_dat_da_cap</xml_tag_in_db>
+			<xml_tag_in_db>thua_dat_da_cap_chi_tiet</xml_tag_in_db>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
@@ -143,7 +151,7 @@
 			<sblockname>blockMucdichsau</sblockname>ss
 			<find_string_list>DT,MD,TH</find_string_list>
 			<field_list>DIEN_TICH,MUC_DICH,THOI_HAN</field_list>
-			<xml_tag_in_db>thua_dat_thay_doi</xml_tag_in_db>
+			<xml_tag_in_db>thua_dat_thay_doi_chi_tiet</xml_tag_in_db>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
@@ -151,7 +159,7 @@
 			<sblockname>blockThoihansau</sblockname>ss
 			<find_string_list>DT,MD,TH</find_string_list>
 			<field_list>DIEN_TICH,MUC_DICH,THOI_HAN</field_list>
-			<xml_tag_in_db>thua_dat_thay_doi</xml_tag_in_db>
+			<xml_tag_in_db>thua_dat_thay_doi_chi_tiet</xml_tag_in_db>
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>

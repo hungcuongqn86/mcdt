@@ -2,7 +2,7 @@
 <root>
 	<list_of_object>
 		<list_body>
-			<!--<col>
+			<col>
 				<label>Thửa đất số</label>
                 <id>THUA_DAT_SO</id>
 				<type>text</type>
@@ -15,13 +15,6 @@
                 <type>text</type>
                 <width>10%</width>
                 <align>CENTER</align>
-            </col>-->
-            <col>
-                <label>Loại đất</label>
-                <id>MUC_DICH</id>
-                <type>text</type>
-                <width>10%</width>
-                <align>CENTER</align>
             </col>
             <col>
                 <label>Diện tích</label>
@@ -30,21 +23,13 @@
                 <width>10%</width>
                 <align>CENTER</align>
             </col>
-
             <col>
-                <label>Thời hạn</label>
-                <id>THOI_HAN</id>
-                <type>text</type>
-                <width>20%</width>
-                <align>CENTER</align>
-            </col>
-           <!-- <col>
                 <label>Nội dung thay đổi khác</label>
                 <id>NOI_DUNG</id>
                 <type>text</type>
                 <width>25%</width>
                 <align>CENTER</align>
-            </col>-->
+            </col>
 			<col>
 				<label></label>
 				<type>task</type>

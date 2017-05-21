@@ -30,22 +30,23 @@
 
 		</col>
 		<col>
-			<label>Họ và tên</label>
-			<type>text</type>
-			<width>30%</width>
+			<label>Họ tên</label>
+			<type>json</type>
+			<width>20%</width>
 			<align>left</align>
 			<xml_data>true</xml_data>
-
-			<xml_tag_in_db>registor_name</xml_tag_in_db>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+			<attr>ben_chuyen_nhuong_obj_name</attr>
 		</col>
 		<col>
-			<label>Địa điểm kinh doanh</label>
-			<type>text</type>
-			<width>35%</width>
+			<label>Địa chỉ</label>
+			<type>json</type>
+			<width>20%</width>
 			<align>left</align>
 			<xml_data>true</xml_data>
-
-			<xml_tag_in_db>dia_chi_dk</xml_tag_in_db>
+			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+			<attr>ben_chuyen_nhuong_obj_address</attr>
+			<ItemIndex>0</ItemIndex>
 		</col>
 		<col>
 			<label>Hạn xử lý</label>

@@ -46,8 +46,36 @@
 		<replace>
 			<from_xml_data>true</from_xml_data>
 			<data_format>text</data_format>
+			<find_string>#DT#</find_string>
+			<xml_tag_in_db>dien_tich</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
 			<find_string>#DC_DAT#</find_string>
 			<xml_tag_in_db>dia_chi</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#NGUON_GOC#</find_string>
+			<xml_tag_in_db>nguon_goc</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#THOI_DIEM#</find_string>
+			<xml_tag_in_db>thoi_diem</xml_tag_in_db>
+			<field_name></field_name>
+		</replace>
+		<replace>
+			<from_xml_data>true</from_xml_data>
+			<data_format>text</data_format>
+			<find_string>#TINH_TRANG_CT#</find_string>
+			<xml_tag_in_db>tt_tc</xml_tag_in_db>
 			<field_name></field_name>
 		</replace>
 		<replace>

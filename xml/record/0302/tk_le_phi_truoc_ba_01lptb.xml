@@ -3,6 +3,23 @@
     <replace_list>
         <replace>
             <from_xml_data>true</from_xml_data>
+            <data_format>formfieldata</data_format>
+            <sblockname>blockbena</sblockname>
+            <find_string_list>POS,NAME_A,NS_A,CMT_A,DC_A</find_string_list>
+            <field_list>obj_sex,obj_name,obj_year,obj_id,obj_address</field_list>
+            <xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>formfieldatatax</data_format>
+            <find_string_list>DIACHI_B</find_string_list>
+            <field_list>obj_address</field_list>
+            <tax_tag>obj_address</tax_tag>
+            <tax_prefix>B</tax_prefix>
+            <xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
             <data_format>formfieldatatax</data_format>
             <find_string_list>NAME_B,TAX_B,DC_B,PHONE_B,XOM_B,XA_B</find_string_list>
             <field_list>obj_name,obj_taxcode,obj_address,obj_phone,obj_ads,obj_xom</field_list>
@@ -19,28 +36,22 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>tabletostring</data_format>
-            <field_list>LOAI_DAT_MD,DIEN_TICH_MD</field_list>
+            <field_list>LOAI_DAT,DIEN_TICH</field_list>
             <note_list>: # m2</note_list>
             <find_string>#MUC_DICH_SD#</find_string>
-            <xml_tag_in_db>ds_loai_dat</xml_tag_in_db>
+            <xml_tag_in_db>trong_do</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#DIEN_TICH#</find_string>
-            <xml_tag_in_db>dien_tich_thua_dat</xml_tag_in_db>
+            <xml_tag_in_db>dien_tich_chuyen_nhuong</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#NGUON_GOC#</find_string>
             <xml_tag_in_db>nguon_goc_su_dung</xml_tag_in_db>
-        </replace>
-        <replace>
-            <from_xml_data>true</from_xml_data>
-            <data_format>if_else</data_format>
-            <field_list>registor_name,registor_name_other</field_list>
-            <find_string>#NAME_A#</find_string>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>

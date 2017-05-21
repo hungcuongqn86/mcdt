@@ -262,11 +262,11 @@
                     <tag_list>lydo_bd</tag_list>
                     <row_id>lydo_bd</row_id>
                 </update_row>
-				<update_row>
+				<!--<update_row>
                     <have_line_before>false</have_line_before>
                     <tag_list>timedangky_bd</tag_list>
                     <row_id>timedangky_bd</row_id>
-                </update_row>
+                </update_row>-->
                 <update_row>
                     <have_line_before>true</have_line_before>
                     <tag_list>tai_lieu_kt</tag_list>
@@ -576,7 +576,7 @@
                 <disabled_in_edit_mode>false</disabled_in_edit_mode>
             </ngay_vao_so>
             <ngay_bd>
-                <label>Ngày biến động</label>
+                <label>Đã đăng ký biến động ngày</label>
                 <type>textbox</type>
                 <data_format>isdate</data_format>
                 <optional>true</optional>

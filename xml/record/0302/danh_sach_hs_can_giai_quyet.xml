@@ -22,7 +22,7 @@
 		<col>
 			<label>Mã hồ sơ</label>
 			<type>text</type>
-			<width>15%</width>
+			<width>13%</width>
 			<align>left</align>
 			<xml_data>false</xml_data>
 			<column_name>C_CODE</column_name>
@@ -31,7 +31,7 @@
 			<col>
 				<label>Bên chuyển</label>
 				<type>json</type>
-				<width>20%</width>
+				<width>15%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
 				<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
@@ -40,7 +40,7 @@
 			<col>
 				<label>Bên nhận</label>
 				<type>json</type>
-				<width>20%</width>
+				<width>15%</width>
 				<align>left</align>
 				<xml_data>true</xml_data>
 				<xml_tag_in_db>ben_nhan_chuyen_nhuong</xml_tag_in_db>
@@ -59,7 +59,7 @@
 		<col>
 			<label>Trạng thái</label>
 			<type>text</type>
-			<width>15%</width>
+			<width>13%</width>
 			<align>left</align>
 			<xml_data>false</xml_data>
 			<column_name>C_TEXT_STATUS</column_name>
@@ -68,7 +68,7 @@
 		<col>
 			<label>Hạn xử lý</label>
 			<type>text</type>
-			<width>11%</width>
+			<width>10%</width>
 			<align>CENTER</align>
 			<xml_data>false</xml_data>
 			<column_name>OUT_OF_DATE</column_name>
