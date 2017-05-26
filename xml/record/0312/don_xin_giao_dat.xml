@@ -27,6 +27,24 @@
         <replace>
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
+            <find_string>#TRU_SO_CHINH#</find_string>
+            <xml_tag_in_db>tru_so_chinh</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#DC_DAT#</find_string>
+            <xml_tag_in_db>registor_address</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#DC_LH#</find_string>
+            <xml_tag_in_db>dc_lienhe</xml_tag_in_db>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
             <find_string>#SO_VAO_SO#</find_string>
             <xml_tag_in_db>so_vao_so</xml_tag_in_db>
         </replace>

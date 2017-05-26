@@ -115,6 +115,16 @@
 					<row_id>row_ben_chuyen_nhuong</row_id>
 				</update_row>
 				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>tru_so_chinh</tag_list>
+					<row_id>tru_so_chinh</row_id>
+				</update_row>
+				<update_row>
+					<have_line_before>false</have_line_before>
+					<tag_list>dc_lienhe</tag_list>
+					<row_id>dc_lienhe</row_id>
+				</update_row>
+				<update_row>
 					<have_line_before>true</have_line_before>
 					<tag_list>thong_tin_ho_so</tag_list>
 					<row_id>thong_tin_ho_so</row_id>
@@ -159,16 +169,7 @@
 					<tag_list>tai_san_gan_lien_voi_dat</tag_list>
 					<row_id>tai_san_gan_lien_voi_dat</row_id>
 				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>giay_cn_qsdd,so_vao_so</tag_list>
-					<row_id>giay_cn_qsdd</row_id>
-				</update_row>
-				<update_row>
-					<have_line_before>false</have_line_before>
-					<tag_list>noi_cap_qsdd,ngay_cap_qsdd</tag_list>
-					<row_id>noi_cap_qsdd</row_id>
-				</update_row>
+
 				<update_row>
 					<have_line_before>false</have_line_before>
 					<tag_list>thoi_han_xin_gia_han</tag_list>
@@ -409,22 +410,38 @@
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
 			</phuong_xa>
 <!-- Ket thuc phan mo ta thong tin nguoi nop hs -->
-			<registor_name>
-				<label>Tên người sử dụng đất</label>
+			<tru_so_chinh>
+				<label>Địa chỉ trụ sở chính</label>
 				<type>textbox</type>
 				<data_format>text</data_format>
-				<optional>false</optional>
+				<optional>true</optional>
 				<width>72.4%</width>
 				<max_length>100</max_length>
-				<message>TEN NGUOI SU DUNG DAT khong duoc de trong</message>
+				<message>Tru so chinh khong duoc de trong</message>
 
 				<xml_data>true</xml_data>
 				<js_function_list>set_upcase_value(this)</js_function_list>
 				<js_action_list>onChange</js_action_list>
-				<xml_tag_in_db>registor_name</xml_tag_in_db>
+				<xml_tag_in_db>tru_so_chinh</xml_tag_in_db>
 				<readonly_in_edit_mode>false</readonly_in_edit_mode>
 				<disabled_in_edit_mode>false</disabled_in_edit_mode>
-			</registor_name>
+			</tru_so_chinh>
+			<dc_lienhe>
+				<label>Địa chỉ liên hệ</label>
+				<type>textbox</type>
+				<data_format>text</data_format>
+				<optional>true</optional>
+				<width>72.4%</width>
+				<max_length>100</max_length>
+				<message>DC lien he khong duoc de trong</message>
+
+				<xml_data>true</xml_data>
+				<js_function_list>set_upcase_value(this)</js_function_list>
+				<js_action_list>onChange</js_action_list>
+				<xml_tag_in_db>dc_lienhe</xml_tag_in_db>
+				<readonly_in_edit_mode>false</readonly_in_edit_mode>
+				<disabled_in_edit_mode>false</disabled_in_edit_mode>
+			</dc_lienhe>
 			<registor_address>
 				<label>Địa chỉ</label>
 				<type>textbox</type>
