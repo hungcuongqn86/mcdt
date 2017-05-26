@@ -36,10 +36,9 @@
 		</replace>
 		<replace>
 			<from_xml_data>true</from_xml_data>
-			<data_format>formfieldatatax</data_format>
-			<sblockname>blockbendie</sblockname>
-			<find_string_list>POS_C,NAME_C</find_string_list>
+			<data_format>formfieldatatolist</data_format>
 			<field_list>obj_sex,obj_name</field_list>
+			<find_string_list>#CHU_TSTK#</find_string_list>
 			<xml_tag_in_db>ben_chuyen_nhuong</xml_tag_in_db>
 		</replace>
 		<replace>

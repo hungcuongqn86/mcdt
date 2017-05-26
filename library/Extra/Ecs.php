@@ -29,17 +29,15 @@ class Extra_Ecs
             $arrInfoName = json_decode($arrInfoName);
             //echo $arrInfoName[1]-> ben_chuyen_nhuong_obj_name_1;
             //var_dump($arrInfoName);
-            if($item['C_CATE'] = 'DAT_DAI_TNMT')
-            {
+            if ($item['C_CATE'] = 'DAT_DAI_TNMT') {
                 $strHTML .= '<tr>
                 <td align="CENTER">' . $item['C_CODE'] . '</td>
                 <td align="CENTER">' . $item['C_INPUT_DATE'] . '</td>
-                <td align="LEFT" class="data">' . $arrInfoName[0]-> ben_chuyen_nhuong_obj_name_0 . ',' . $arrInfoName[1]-> ben_chuyen_nhuong_obj_name_1 . '</td>
-                <td align="LEFT" class="data">' . $arrInfoName[0]-> ben_chuyen_nhuong_obj_address_0 . '</td>
+                <td align="LEFT" class="data">' . $arrInfoName[0]->ben_chuyen_nhuong_obj_name_0 . ',' . $arrInfoName[1]->ben_chuyen_nhuong_obj_name_1 . '</td>
+                <td align="LEFT" class="data">' . $arrInfoName[0]->ben_chuyen_nhuong_obj_address_0 . '</td>
                 <td align="CENTER" class="data">' . $item['C_APPOINTED_DATE'] . '</td>
             </tr>';
-            }
-            else{
+            } else {
                 $strHTML .= '<tr>
                 <td align="CENTER">' . $item['C_CODE'] . '</td>
                 <td align="CENTER">' . $item['C_INPUT_DATE'] . '</td>
@@ -79,7 +77,7 @@ class Extra_Ecs
         $ResHtmlString .= "</tr>";
         $ResHtmlString .= "<tr class='normal_label'>";
         $ResHtmlString .= "    <td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_NGAY_TIEP_NHAN'] . "</td>";
-        $ResHtmlString .= "    <td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" .$arrRecord['C_RECEIVED_DATE'] . "</td>";
+        $ResHtmlString .= "    <td class='normal_label' style = 'padding-left:10px;HEIGHT: 18pt;'>" . $arrRecord['C_RECEIVED_DATE'] . "</td>";
         $ResHtmlString .= "</tr>";
         $ResHtmlString .= "<tr class='normal_label'>";
         $ResHtmlString .= "    <td class='normal_label' style = 'HEIGHT: 18pt;'align='left'>" . $arrConst['_NGAY_HEN'] . "</td>";
@@ -99,18 +97,17 @@ class Extra_Ecs
         $ResHtmlString .= "</tr>";
 
         $arrRecord = $objXml->_convertXmlStringToArray($arrRecord['C_RECEIVED_RECORD_XML_DATA'], 'data_list');
-        if($arrRecord){
+        if ($arrRecord) {
             $JsonarrRecord = $arrRecord[0]['ben_chuyen_nhuong'];
             $sName = '';
             $sAddress = '';
-            if($JsonarrRecord){
+            if ($JsonarrRecord) {
                 $arrInfoName = json_decode(html_entity_decode($JsonarrRecord), true);
                 foreach ($arrInfoName as $key => $item) {
-                    $sName .=  '<br>' .$item['ben_chuyen_nhuong_obj_name_'.$key];
-                    $sAddress .=  '<br>' .$item['ben_chuyen_nhuong_obj_address_0'];
+                    $sName .= '<br>' . $item['ben_chuyen_nhuong_obj_name_' . $key];
+                    $sAddress .= '<br>' . $item['ben_chuyen_nhuong_obj_address_0'];
                 }
-            }
-            else{
+            } else {
                 $sName = $arrRecord[0]['ten_nguoi_nop_hs'];
                 $sAddress = $arrRecord[0]['dia_chi_nguoi_nop_hs'];
             }
@@ -253,7 +250,7 @@ class Extra_Ecs
                 if ($psHaveUpLoadFields) {
                     $strHTML = $strHTML . "<input type='checkbox' name='chk_file_attach_exist_id' id = '' value='$sFileName'>";
                 }
-                $strHTML = $strHTML . '<a onclick="open_new_tab(\''.$sActionUrl.'\')">'. $file_name  .'</a></td></tr>';
+                $strHTML = $strHTML . '<a onclick="open_new_tab(\'' . $sActionUrl . '\')">' . $file_name . '</a></td></tr>';
             }
         }
         //Them moi
@@ -1284,59 +1281,60 @@ class Extra_Ecs
      * @param $sOwnerCode
      * @return string
      */
-    public function ecs_printTempDoc($sPathXmlFile, $sParrentTagName, $TagName, $sPathTemplateFile, $sXmlData = '', $arrRecord = array(), $sPathTemplateFile, $sTemplateFile,$sOwnerCode){
+    public function ecs_printTempDoc($sPathXmlFile, $sParrentTagName, $TagName, $sPathTemplateFile, $sXmlData = '', $arrRecord = array(), $sPathTemplateFile, $sTemplateFile, $sOwnerCode)
+    {
         $objConfig = new Extra_Init();
         //Tao doi tuong
-        $ojbConfigXml = new Zend_Config_Xml($sPathXmlFile,$sParrentTagName);
+        $ojbConfigXml = new Zend_Config_Xml($sPathXmlFile, $sParrentTagName);
         $objXml = new Extra_Xml();
         $objQLDTFun = new Extra_Ecs();
         $objLib = new Extra_Util();
-        $dirTemplate = $sPathTemplateFile.$sTemplateFile;
+        $dirTemplate = $sPathTemplateFile . $sTemplateFile;
         $phpdocx = new Extra_Word($dirTemplate);
-        $phpdocx->assignToHeader("#HEADER1#","Header 1"); // basic field mapping to header
-        $phpdocx->assignToFooter("#FOOTER1#","Footer 1"); // basic field mapping to footer
-        $sXmlData = '<?xml version="1.0" encoding="UTF-8"?>'.$sXmlData;
+        $phpdocx->assignToHeader("#HEADER1#", "Header 1"); // basic field mapping to header
+        $phpdocx->assignToFooter("#FOOTER1#", "Footer 1"); // basic field mapping to footer
+        $sXmlData = '<?xml version="1.0" encoding="UTF-8"?>' . $sXmlData;
 
-        if(isset($ojbConfigXml->$TagName)){
+        if (isset($ojbConfigXml->$TagName)) {
             $TagElements = $ojbConfigXml->$TagName->toArray();
-            if(is_array($TagElements)){
+            if (is_array($TagElements)) {
                 //Duyet cac phan tu cua
-                foreach ($TagElements as $elements => $arrElement){
+                foreach ($TagElements as $elements => $arrElement) {
                     //Bien xac dinh co phai lay du lieu tu xau XML luu trong DB khong?
-                    if(isset($arrElement["from_xml_data"])){
-                        $sFromXmlData 		= $arrElement["from_xml_data"];
-                    }else{
+                    if (isset($arrElement["from_xml_data"])) {
+                        $sFromXmlData = $arrElement["from_xml_data"];
+                    } else {
                         $sFromXmlData = '';
                     }
                     //Dinh dang kieu du lieu
-                    if(isset($arrElement["data_format"])){
-                        $sDataFormat 		= $arrElement["data_format"];
-                    }else{
+                    if (isset($arrElement["data_format"])) {
+                        $sDataFormat = $arrElement["data_format"];
+                    } else {
                         $sDataFormat = '';
                     }
                     //Tim au can thay the
-                    if(isset($arrElement["find_string"])){
-                        $sFindString 		= $arrElement["find_string"];
-                    }else{
+                    if (isset($arrElement["find_string"])) {
+                        $sFindString = $arrElement["find_string"];
+                    } else {
                         $sFindString = '';
                     }
                     //Ten cot luu thong tin lay du lieu thay the
-                    if(isset($arrElement["field_name"])){
-                        $sFieldName 		= $arrElement["field_name"];
-                    }else{
+                    if (isset($arrElement["field_name"])) {
+                        $sFieldName = $arrElement["field_name"];
+                    } else {
                         $sFieldName = '';
                     }
                     //Ten the luu du lieu trong xau XML thay the file temp
-                    if(isset($arrElement["xml_tag_in_db"])){
-                        $sXmlTagInDb 		= $arrElement["xml_tag_in_db"];
-                    }else{
+                    if (isset($arrElement["xml_tag_in_db"])) {
+                        $sXmlTagInDb = $arrElement["xml_tag_in_db"];
+                    } else {
                         $sXmlTagInDb = '';
                     }
                     //--------------Bat dau thay the du lieu---------------------------------
-                    if ($sFromXmlData == 'true' && $sXmlData != ''){
-                        $sValue = trim($objXml->_xmlGetXmlTagValue($sXmlData,"data_list",$sXmlTagInDb));
-                    }else{//Lay du lieu tu cot
-                        $sValue = (isset($arrRecord[0][$sFieldName])? trim($arrRecord[0][$sFieldName]) :'');
+                    if ($sFromXmlData == 'true' && $sXmlData != '') {
+                        $sValue = trim($objXml->_xmlGetXmlTagValue($sXmlData, "data_list", $sXmlTagInDb));
+                    } else {//Lay du lieu tu cot
+                        $sValue = (isset($arrRecord[0][$sFieldName]) ? trim($arrRecord[0][$sFieldName]) : '');
                     }
                     // ky tu xuong dong
                     /*                    if ($sDataFormat == "breakline"){
@@ -1347,14 +1345,14 @@ class Extra_Ecs
                                             $sValue = "ngày ".date("d")." tháng ".date("m")." năm ".date("Y");
                                         }*/
                     //Kieu selectbox
-                    if ($sFromXmlData == 'true' && $sDataFormat == 'selectbox'){
+                    if ($sFromXmlData == 'true' && $sDataFormat == 'selectbox') {
                         $list_name = '';
-                        if(isset($arrElement['list_name'])){
+                        if (isset($arrElement['list_name'])) {
                             $list_name = $arrElement['list_name'];
                         }
-                        if(!empty($list_name) && $list_name != ''){
-                            $arrList = $objQLDTFun->getNameFromCode($sOwnerCode,$list_name,$sValue);
-                            if(isset($arrList['0']['C_NAME'])){
+                        if (!empty($list_name) && $list_name != '') {
+                            $arrList = $objQLDTFun->getNameFromCode($sOwnerCode, $list_name, $sValue);
+                            if (isset($arrList['0']['C_NAME'])) {
                                 $sValue = $arrList['0']['C_NAME'];
                             }
                         }
@@ -1376,25 +1374,25 @@ class Extra_Ecs
                                                 $sValue = "ngày ".date("d", strtotime($sValue))." tháng ".date("m", strtotime($sValue))." năm ".date("Y", strtotime($sValue));
                                             }
                                         }*/
-                    if ($sDataFormat == "formfieldata"){
+                    if ($sDataFormat == "formfieldata") {
                         $sBlockName = $arrElement["sblockname"];
                         $sfind_string_list = $arrElement["find_string_list"];
-                        $arrfind_string = explode(',',$sfind_string_list);
+                        $arrfind_string = explode(',', $sfind_string_list);
                         $sfield_list = $arrElement["field_list"];
-                        $arrfield = explode(',',$sfield_list);
+                        $arrfield = explode(',', $sfield_list);
                         $arrDocx = array();
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
-                        if($arrValue){
+                        if ($arrValue) {
                             foreach ($arrValue as $index => $value) {
                                 $arrTemp = array();
-                                for($i=0;$i<sizeof($arrfind_string);$i++){
-                                    $key = '#'.$arrfind_string[$i].'#';
-                                    $objkey = $sXmlTagInDb.'_'.$arrfield[$i].'_'.$index;
+                                for ($i = 0; $i < sizeof($arrfind_string); $i++) {
+                                    $key = '#' . $arrfind_string[$i] . '#';
+                                    $objkey = $sXmlTagInDb . '_' . $arrfield[$i] . '_' . $index;
                                     //echo $objkey;
-                                    if(property_exists($value,$objkey)){
+                                    if (property_exists($value, $objkey)) {
                                         $arrTemp[$key] = $value->$objkey;
-                                    }else{
+                                    } else {
                                         $arrTemp[$key] = '';
                                     }
                                 }
@@ -1405,32 +1403,39 @@ class Extra_Ecs
                         $phpdocx->assignBlock($sBlockName, $arrDocx);
                     }
 
-                    if ($sDataFormat == "formfieldatatolist"){
-                        $sfind_string = $arrElement["find_string"];
-                        $sfield_tag = $arrElement["field_tag"];
+                    if ($sDataFormat == "formfieldatatolist") {
+                        $sfind_string = $arrElement["find_string_list"];
+                        $sfield_list = $arrElement["field_list"];
+                        $arrfield = explode(',', $sfield_list);
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
                         $str_value = '';
-                        if($arrValue){
+                        if ($arrValue) {
                             foreach ($arrValue as $index => $value) {
-                                if(property_exists($value,$sfield_tag)){
-                                    if($str_value==''){
-                                        $str_value .= $value->$sfield_tag;
-                                    }else{
-                                        $str_value .= ', '.$value->$sfield_tag;
+                                $itemstr = '';
+                                foreach ($arrfield as $field) {
+                                    $taxkey = $sXmlTagInDb . '_' . $field . '_' . $index;
+                                    $stempval = $value->$taxkey;
+                                    if ($stempval != '') {
+                                        $itemstr .= ' ' . $stempval;
                                     }
+                                }
+                                if ($str_value == '') {
+                                    $str_value .= $itemstr;
+                                } else {
+                                    $str_value .= ', ' . $itemstr;
                                 }
                             }
                         }
                         //var_dump($arrDocx);exit;
-                        $phpdocx->assign($sfind_string,$str_value);
+                        $phpdocx->assign($sfind_string, $str_value);
                     }
 
-                    if ($sDataFormat == "formfieldatatax"){
+                    if ($sDataFormat == "formfieldatatax") {
                         $sfind_string_list = $arrElement["find_string_list"];
-                        $arrfind_string = explode(',',$sfind_string_list);
+                        $arrfind_string = explode(',', $sfind_string_list);
                         $sfield_list = $arrElement["field_list"];
-                        $arrfield = explode(',',$sfield_list);
+                        $arrfield = explode(',', $sfield_list);
                         $tax_tag = $arrElement["tax_tag"];
                         $tax_prefix = $arrElement["tax_prefix"];
 
@@ -1438,12 +1443,12 @@ class Extra_Ecs
                         $arrValue = json_decode($sValue);
                         $objItem = array();
                         $rowindex = 0;
-                        if($arrValue){
+                        if ($arrValue) {
                             $objItem = $arrValue[0];
                             foreach ($arrValue as $index => $value) {
-                                $taxkey = $sXmlTagInDb.'_'.$tax_tag.'_'.$index;
-                                if(property_exists($value,$taxkey)){
-                                    if($value->$taxkey!=''){
+                                $taxkey = $sXmlTagInDb . '_' . $tax_tag . '_' . $index;
+                                if (property_exists($value, $taxkey)) {
+                                    if ($value->$taxkey != '') {
                                         $objItem = $value;
                                         $rowindex = $index;
                                         break;
@@ -1452,51 +1457,51 @@ class Extra_Ecs
                             }
                         }
 
-                        for($i=0;$i<sizeof($arrfind_string);$i++){
-                            $key = '#'.$arrfind_string[$i].'#';
-                            $objkey = $sXmlTagInDb.'_'.$arrfield[$i].'_'.$rowindex;
-                            if(property_exists($objItem,$objkey)){
+                        for ($i = 0; $i < sizeof($arrfind_string); $i++) {
+                            $key = '#' . $arrfind_string[$i] . '#';
+                            $objkey = $sXmlTagInDb . '_' . $arrfield[$i] . '_' . $rowindex;
+                            if (property_exists($objItem, $objkey)) {
                                 //echo $key, $objItem->$objkey;
-                                $phpdocx->assign($key,$objItem->$objkey);
-                            }else{
-                                $phpdocx->assign($key,'');
+                                $phpdocx->assign($key, $objItem->$objkey);
+                            } else {
+                                $phpdocx->assign($key, '');
                             }
                         }
 
-                        $taxkey = $sXmlTagInDb.'_'.$tax_tag.'_'.$rowindex;
-                        if(property_exists($objItem,$taxkey)){
+                        $taxkey = $sXmlTagInDb . '_' . $tax_tag . '_' . $rowindex;
+                        if (property_exists($objItem, $taxkey)) {
                             $taxcode = $objItem->$taxkey;
-                            if($taxcode!=''){
-                                for($i=0;$i<strlen($taxcode);$i++){
-                                    $phpdocx->assign('#'.$tax_prefix.$i.'#',$taxcode[$i]);
+                            if ($taxcode != '') {
+                                for ($i = 0; $i < strlen($taxcode); $i++) {
+                                    $phpdocx->assign('#' . $tax_prefix . $i . '#', $taxcode[$i]);
                                 }
-                            }else{
-                                for($i=0;$i<30;$i++){
-                                    $phpdocx->assign('#'.$tax_prefix.$i.'#','');
+                            } else {
+                                for ($i = 0; $i < 30; $i++) {
+                                    $phpdocx->assign('#' . $tax_prefix . $i . '#', '');
                                 }
                             }
-                        }else{
-                            for($i=0;$i<30;$i++){
-                                $phpdocx->assign('#'.$tax_prefix.$i.'#','');
+                        } else {
+                            for ($i = 0; $i < 30; $i++) {
+                                $phpdocx->assign('#' . $tax_prefix . $i . '#', '');
                             }
                         }
                     }
 
                     //Kieu du lieu muc dich su dung dat
-                    if ($sDataFormat == "datatable"){
+                    if ($sDataFormat == "datatable") {
                         $sBlockName = $arrElement["sblockname"];
                         $sfind_string_list = $arrElement["find_string_list"];
-                        $arrfind_string = explode(',',$sfind_string_list);
+                        $arrfind_string = explode(',', $sfind_string_list);
                         $sfield_list = $arrElement["field_list"];
-                        $arrfield = explode(',',$sfield_list);
+                        $arrfield = explode(',', $sfield_list);
                         $arrDocx = array();
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
-                        if($arrValue){
+                        if ($arrValue) {
                             foreach ($arrValue as $key => $value) {
                                 $arrTemp = array();
-                                for($i=0;$i<sizeof($arrfind_string);$i++){
-                                    $key = '#'.$arrfind_string[$i].'#';
+                                for ($i = 0; $i < sizeof($arrfind_string); $i++) {
+                                    $key = '#' . $arrfind_string[$i] . '#';
                                     $arrTemp[$key] = $value->$arrfield[$i];
                                 }
                                 array_push($arrDocx, $arrTemp);
@@ -1505,96 +1510,96 @@ class Extra_Ecs
                         $phpdocx->assignBlock($sBlockName, $arrDocx);
                     }
 
-                    if ($sDataFormat == "tabletostring"){
+                    if ($sDataFormat == "tabletostring") {
                         $sfield_list = $arrElement["field_list"];
-                        $arrfield = explode(',',$sfield_list);
+                        $arrfield = explode(',', $sfield_list);
                         $snote_list = $arrElement["note_list"];
-                        $arrnote = explode('#',$snote_list);
+                        $arrnote = explode('#', $snote_list);
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
                         $sValue = '';
-                        if($arrValue){
+                        if ($arrValue) {
                             foreach ($arrValue as $key => $value) {
                                 foreach ($arrfield as $index => $field) {
                                     $stempval = $value->$field;
-                                    if($stempval!=''){
-                                        $sValue.=$stempval.$arrnote[$index];
+                                    if ($stempval != '') {
+                                        $sValue .= $stempval . $arrnote[$index];
                                     }
                                 }
-                                $sValue.=', ';
+                                $sValue .= ', ';
                             }
                         }
-                        if(($sValue!='')&&(strlen($sValue)>2)){
-                            $sValue = substr($sValue,0,-2);
+                        if (($sValue != '') && (strlen($sValue) > 2)) {
+                            $sValue = substr($sValue, 0, -2);
                         }
                     }
 
-                    if ($sDataFormat == "tabletostringlist"){
+                    if ($sDataFormat == "tabletostringlist") {
                         $sfield_list = $arrElement["field_list"];
-                        $arrfield = explode(',',$sfield_list);
+                        $arrfield = explode(',', $sfield_list);
                         $snote_list = $arrElement["note_list"];
-                        $arrnote = explode('#',$snote_list);
+                        $arrnote = explode('#', $snote_list);
                         $sValue = htmlspecialchars_decode($sValue);
                         $arrValue = json_decode($sValue);
                         $sValue = '';
-                        if($arrValue){
+                        if ($arrValue) {
                             foreach ($arrValue as $key => $value) {
                                 foreach ($arrfield as $index => $field) {
                                     $stempval = $value->$field;
-                                    if($stempval!=''){
-                                        $sValue.=$stempval.$arrnote[$index];
+                                    if ($stempval != '') {
+                                        $sValue .= $stempval . $arrnote[$index];
                                     }
                                 }
-                                $sValue.=' ';
+                                $sValue .= ' ';
                                 $sValue = strstr($sValue, ' ');
                             }
                         }
-                        if(($sValue!='')&&(strlen($sValue)>2)){
-                            $sValue = substr($sValue,0,-2);
+                        if (($sValue != '') && (strlen($sValue) > 2)) {
+                            $sValue = substr($sValue, 0, -2);
                         }
                     }
 
-                    if ($sDataFormat == "list_info"){
+                    if ($sDataFormat == "list_info") {
                         $sfield_list = $arrElement["field_list"];
-                        $arrfield = explode(',',$sfield_list);
+                        $arrfield = explode(',', $sfield_list);
                         $slable_list = $arrElement["lable_list"];
-                        $arrlable = explode('#',$slable_list);
+                        $arrlable = explode('#', $slable_list);
                         $sValue = '';
                         foreach ($arrfield as $key => $field) {
-                            $stempval = trim($objXml->_xmlGetXmlTagValue($sXmlData,"data_list",$field));
-                            if($stempval!=''){
-                                $sValue.=$arrlable[$key].': '.trim($objXml->_xmlGetXmlTagValue($sXmlData,"data_list",$field)).', ';
+                            $stempval = trim($objXml->_xmlGetXmlTagValue($sXmlData, "data_list", $field));
+                            if ($stempval != '') {
+                                $sValue .= $arrlable[$key] . ': ' . trim($objXml->_xmlGetXmlTagValue($sXmlData, "data_list", $field)) . ', ';
                             }
                         }
-                        if(($sValue!='')&&(strlen($sValue)>2)){
-                            $sValue = substr($sValue,0,-2);
+                        if (($sValue != '') && (strlen($sValue) > 2)) {
+                            $sValue = substr($sValue, 0, -2);
                         }
                     }
-                    if ($sDataFormat == "if_else"){
+                    if ($sDataFormat == "if_else") {
                         $sfield_list = $arrElement["field_list"];
-                        $arrfield = explode(',',$sfield_list);
+                        $arrfield = explode(',', $sfield_list);
                         $sValue = '';
                         foreach ($arrfield as $key => $field) {
-                            $stempval = trim($objXml->_xmlGetXmlTagValue($sXmlData,"data_list",$field));
-                            if($stempval!=''){
-                                $sValue.= $stempval;
+                            $stempval = trim($objXml->_xmlGetXmlTagValue($sXmlData, "data_list", $field));
+                            if ($stempval != '') {
+                                $sValue .= $stempval;
                                 break;
                             }
                         }
                     }
 
-                    if($sXmlTagInDb == 'tai_lieu_kt'){
+                    if ($sXmlTagInDb == 'tai_lieu_kt') {
                         $sVal = "";
-                        $j =1;
-                        if($sValue != ''){
-                            $arrList=$objQLDTFun->getNameFromCode($sOwnerCode,$arrRecord['C_KEY']."_TLKT",$sValue);
-                            for($i = 0; $i < sizeof($arrList); $i ++){
-                                $sVal = $sVal . $arrList[$i]['C_NAME'].'; ';
-                                $j ++;
+                        $j = 1;
+                        if ($sValue != '') {
+                            $arrList = $objQLDTFun->getNameFromCode($sOwnerCode, $arrRecord['C_KEY'] . "_TLKT", $sValue);
+                            for ($i = 0; $i < sizeof($arrList); $i++) {
+                                $sVal = $sVal . $arrList[$i]['C_NAME'] . '; ';
+                                $j++;
                             }
                             $sValue = $sVal;
                             //Lay file dinh kem khac co lien quan
-                            $sValue = $sValue . trim($objXml->_xmlGetXmlTagValue($sXmlData,"data_list",'tl_khac'));
+                            $sValue = $sValue . trim($objXml->_xmlGetXmlTagValue($sXmlData, "data_list", 'tl_khac'));
                         }
                     }
 
@@ -1606,16 +1611,16 @@ class Extra_Ecs
                     /*                    $phpdocx->assign("#ngay#",date('d'));
                                         $phpdocx->assign("#thang#",date('m'));
                                         $phpdocx->assign("#nam#",date('Y'));*/
-                    if($sFindString!=''){
-                        $phpdocx->assign($sFindString,$sValue);
+                    if ($sFindString != '') {
+                        $phpdocx->assign($sFindString, $sValue);
                     }
                 }
             }
         }
         $arr = explode('.', $sTemplateFile);
-        $sFileExport = 	$arr[0];
-        $v_export_filename = $sFileExport.'_'.date('dmy').date('His').'.doc';
-        $dir_export_file = $_SERVER['DOCUMENT_ROOT'].$objConfig->_setWebSitePath().'public/export/'.$v_export_filename;
+        $sFileExport = $arr[0];
+        $v_export_filename = $sFileExport . '_' . date('dmy') . date('His') . '.doc';
+        $dir_export_file = $_SERVER['DOCUMENT_ROOT'] . $objConfig->_setWebSitePath() . 'public/export/' . $v_export_filename;
         $phpdocx->save($dir_export_file);
         return $v_export_filename;
     }
@@ -2462,10 +2467,10 @@ class Extra_Ecs
     {
         $sPath = $pathLink;
         if (!file_exists($sPath . $folderYear)) {
-            mkdir($sPath . $folderYear, 0777,true);
+            mkdir($sPath . $folderYear, 0777, true);
             $sPath = $sPath . $folderYear;
             if (!file_exists($sPath . chr(92) . $folderMonth)) {
-                mkdir($sPath . chr(92) . $folderMonth, 0777,true);
+                mkdir($sPath . chr(92) . $folderMonth, 0777, true);
             }
         } else {
             $sPath = $sPath . $folderYear;
@@ -2475,7 +2480,7 @@ class Extra_Ecs
         if (!file_exists($sPath . chr(92) . $folderMonth . chr(92) . $sCurrentDay)) {
             mkdir($sPath . chr(92) . $folderMonth . chr(92) . $sCurrentDay, 0777);
         }
-        $strReturn = $sPath .'/'. $folderMonth . '/' . $sCurrentDay . '/';
+        $strReturn = $sPath . '/' . $folderMonth . '/' . $sCurrentDay . '/';
         //echo $strReturn;exit;
         return $strReturn;
     }
