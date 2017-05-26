@@ -147,7 +147,7 @@
             <data_format>datatable</data_format>
             <sblockname>blockdientichcn</sblockname>
             <find_string_list>DAT,DIEN_TICH</find_string_list>
-            <field_list>LOAI_DAT,DIEN_TICH</field_list>
+            <field_list>LOAI_DAT_MD,DIEN_TICH_MD</field_list>
             <xml_tag_in_db>trong_do</xml_tag_in_db>
             <field_name></field_name>
         </replace>
@@ -155,7 +155,7 @@
             <from_xml_data>true</from_xml_data>
             <data_format>text</data_format>
             <find_string>#THUA_SO#</find_string>
-            <xml_tag_in_db>trong_do_dat_so</xml_tag_in_db>
+            <xml_tag_in_db>thua_dat_so</xml_tag_in_db>
             <field_name></field_name>
         </replace>
         <replace>
@@ -163,6 +163,13 @@
             <data_format>text</data_format>
             <find_string>#GIA_TRI_QSD#</find_string>
             <xml_tag_in_db>gia_chuyen_nhuong</xml_tag_in_db>
+            <field_name></field_name>
+        </replace>
+        <replace>
+            <from_xml_data>true</from_xml_data>
+            <data_format>text</data_format>
+            <find_string>#NGAY_BD#</find_string>
+            <xml_tag_in_db>ngay_bd</xml_tag_in_db>
             <field_name></field_name>
         </replace>
         <replace>

@@ -798,7 +798,7 @@
             <trong_do>
                 <label>Trong đó</label>
                 <type>tabledata</type>
-                <file_name_xml>ds_loai_dat_cn</file_name_xml>
+                <file_name_xml>ds_loai_dat</file_name_xml>
 
                 <width>70%</width>
                 <row>3</row>

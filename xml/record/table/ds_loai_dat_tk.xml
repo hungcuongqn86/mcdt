@@ -6,28 +6,21 @@
 				<label>Tên người thừa kế</label>
 				<id>NAME_TK</id>
 				<type>text</type>
-				<width>30%</width>
+				<width>20%</width>
 				<align>left</align>
 			</col>
 			<col>
-				<label>Loại đất</label>
+				<label>Loại đất, diện tích</label>
                 <id>LOAI_DAT</id>
 				<type>text</type>
 				<width>25%</width>
 				<align>CENTER</align>
 			</col>
 			<col>
-				<label>Diện tích (m2)</label>
-                <id>DIEN_TICH</id>
-				<type>text</type>
-				<width>10%</width>
-				<align>left</align>
-			</col>
-			<col>
-				<label>Thời hạn SD</label>
+				<label>Loại đất, thời hạn</label>
 				<id>TH_SD</id>
 				<type>text</type>
-				<width>10%</width>
+				<width>20%</width>
 				<align>left</align>
 			</col>
 			<col>

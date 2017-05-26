@@ -21,8 +21,8 @@
             <data_format>tabletostring</data_format>
             <field_list>LOAI_DAT_MD,DIEN_TICH_MD</field_list>
             <note_list>: # m2</note_list>
-            <find_string>#MUC_DICH_SD#</find_string>
-            <xml_tag_in_db>ds_loai_dat</xml_tag_in_db>
+            <find_string>#MUC_DICH_SD_TC#</find_string>
+            <xml_tag_in_db>trong_do</xml_tag_in_db>
         </replace>
         <replace>
             <from_xml_data>true</from_xml_data>
