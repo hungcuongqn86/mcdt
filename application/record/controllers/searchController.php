@@ -15,7 +15,7 @@ class record_searchController extends  Zend_Controller_Action {
         $tempConstPublic = Zend_Registry::get('ConstPublic');
         $this->_ConstPublic = $tempConstPublic->toArray();
 
-        //Lay duong dan thu muc goc (path directory root)
+        //Lay duong dan thu muc goc (path directory root)loadrecord
         $this->view->baseUrl = $this->_request->getBaseUrl() . "/public/";
 
         //Goi lop Listxml_modList

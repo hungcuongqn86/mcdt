@@ -20,14 +20,14 @@ delete T_eCS_SMS_USER
 */
 
 
-use [ecs-qb-lt-convert]
+use [efy-ecs]
 --select count(*) from T_eCS_RECORD where year(C_INPUT_DATE) = 2016
 --select count(*) from T_eCS_RECORD where year(C_INPUT_DATE) = 2017
-Delete [ecs-qb-lt-convert].[dbo].T_eCS_RECORD where [FK_RECORDTYPE] not in (select PK_RECORDTYPE from [ecs-qb-lt-convert].[dbo].T_eCS_RECORDTYPE)
-Delete [ecs-qb-lt-convert].[dbo].T_eCS_RECORD_WORK where [FK_RECORD] not in (select [PK_RECORD] from [ecs-qb-lt-convert].[dbo].T_eCS_RECORD)
-Delete [ecs-qb-lt-convert].[dbo].[T_eCS_RECORD_RELATE_STAFF] where [FK_RECORD] not in (select [PK_RECORD] from [ecs-qb-lt-convert].[dbo].T_eCS_RECORD)
-Delete [ecs-qb-lt-convert].[dbo].[T_eCS_RECORD_RELATE_UNIT] where [FK_RECORD] not in (select [PK_RECORD] from [ecs-qb-lt-convert].[dbo].T_eCS_RECORD)
-Delete [ecs-qb-lt-convert].[dbo].[T_eCS_REMINDER] where [FK_RECORD] not in (select [PK_RECORD] from [ecs-qb-lt-convert].[dbo].T_eCS_RECORD)
+Delete [efy-ecs].[dbo].T_eCS_RECORD where [FK_RECORDTYPE] not in (select PK_RECORDTYPE from [efy-ecs].[dbo].T_eCS_RECORDTYPE)
+Delete [efy-ecs].[dbo].T_eCS_RECORD_WORK where [FK_RECORD] not in (select [PK_RECORD] from [efy-ecs].[dbo].T_eCS_RECORD)
+Delete [efy-ecs].[dbo].[T_eCS_RECORD_RELATE_STAFF] where [FK_RECORD] not in (select [PK_RECORD] from [efy-ecs].[dbo].T_eCS_RECORD)
+Delete [efy-ecs].[dbo].[T_eCS_RECORD_RELATE_UNIT] where [FK_RECORD] not in (select [PK_RECORD] from [efy-ecs].[dbo].T_eCS_RECORD)
+Delete [efy-ecs].[dbo].[T_eCS_REMINDER] where [FK_RECORD] not in (select [PK_RECORD] from [efy-ecs].[dbo].T_eCS_RECORD)
 
 use [ecs-qb-lt]
 
@@ -69,8 +69,8 @@ select [PK_RECORD]
 	,[C_RESULT_DATE]
 	,[C_CURRENT_STATUS]
 	,[C_DETAIL_STATUS]
-	,[C_RECEIVED_RECORD_XML_DATA]
-	,[C_LICENSE_XML_DATA]
+	,convert(nvarchar(max),[C_RECEIVED_RECORD_XML_DATA]) as [C_RECEIVED_RECORD_XML_DATA]
+	,convert(nvarchar(max),[C_LICENSE_XML_DATA]) as [C_LICENSE_XML_DATA]
 	,[C_RESULT_RECEIVER]
 	,[C_COST]
 	,[C_REASON]
@@ -81,7 +81,7 @@ select [PK_RECORD]
 	,[C_FILE_NAME]
 	,[C_TAX_APPOINTED_DATE]
 	,[C_TREASURY_APPOINTED_DATE]
-	,[C_NEWID_RTA] from [ecs-qb-lt-convert].[dbo].T_eCS_RECORD
+	,[C_NEWID_RTA] from [efy-ecs].[dbo].T_eCS_RECORD
 
 -- select * from [ecs-qb-lt].[dbo].T_eCS_RECORD
 
@@ -105,7 +105,7 @@ select [PK_RECORD_WORK]
 	,[FK_STAFF]
 	,[C_POSITION_NAME]
 	,[C_SYSTEM_WORKTYPE]
-	,[C_OWNER_CODE] from [ecs-qb-lt-convert].[dbo].T_eCS_RECORD_WORK
+	,[C_OWNER_CODE] from [efy-ecs].[dbo].T_eCS_RECORD_WORK
 
 
 Insert into [ecs-qb-lt].[dbo].[T_eCS_RECORD_RELATE_STAFF] (
@@ -119,7 +119,7 @@ select [PK_RECORD_RELATE_STAFF]
 	,[FK_RECORD]
 	,[FK_STAFF]
 	,[C_POSITION_NAME]
-	,[C_ROLES] from [ecs-qb-lt-convert].[dbo].[T_eCS_RECORD_RELATE_STAFF]
+	,[C_ROLES] from [efy-ecs].[dbo].[T_eCS_RECORD_RELATE_STAFF]
 
 
 Insert into [ecs-qb-lt].[dbo].[T_eCS_RECORD_RELATE_UNIT] (
@@ -137,7 +137,7 @@ select [PK_RECORD_RELATE_UNIT]
 	,[C_UNIT_NAME]
 	,[C_ASSIGNED_DATE]
 	,[C_ASSIGNED_IDEA]
-	,[C_APPOINTED_DATE] from [ecs-qb-lt-convert].[dbo].[T_eCS_RECORD_RELATE_UNIT]
+	,[C_APPOINTED_DATE] from [efy-ecs].[dbo].[T_eCS_RECORD_RELATE_UNIT]
 
 Insert into [ecs-qb-lt].[dbo].[T_eCS_REMINDER] (
 	[PK_REMINDER]
@@ -156,4 +156,18 @@ select [PK_REMINDER]
 	,[C_DETAIL_STATUS]
 	,[C_OWNER_CODE]
 	,[C_APPOINTED_DATE]
-	,[C_LOCATION] from [ecs-qb-lt-convert].[dbo].[T_eCS_REMINDER]
+	,[C_LOCATION] from [efy-ecs].[dbo].[T_eCS_REMINDER]
+
+----------------------------------
+-----------USER-------------------
+
+select * from [ecs-user-qb].dbo.T_USER_STAFF order by PK_STAFF
+select * from [efy-user].dbo.T_USER_STAFF
+where PK_STAFF not in (select PK_STAFF from [ecs-user-qb].dbo.T_USER_STAFF)
+
+-- update [ecs-user-qb].dbo.T_USER_STAFF set PK_STAFF = '0931CEC8-F360-4340-9057-14F29B6D09B5' where PK_STAFF = 'B8BB88EF-D0B2-4859-885E-D82470E881C3'
+-- update [ecs-user-qb].dbo.T_USER_STAFF set PK_STAFF = 'C4115B2A-223C-4FD0-A89C-983DA38623C5' where PK_STAFF = '34DEDE52-7AF2-4DE5-9801-20D4F8BD8FBB'
+
+update [ecs-user-qb].dbo.T_USER_STAFF 
+set C_PASSWORD = (select top 1 C_PASSWORD from [efy-user].dbo.T_USER_STAFF where [ecs-user-qb].dbo.T_USER_STAFF.PK_STAFF = [efy-user].dbo.T_USER_STAFF.PK_STAFF)
+where PK_STAFF in (select PK_STAFF from [efy-user].dbo.T_USER_STAFF)
